@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.homePage.LicQueryMapper">
+	<!-- 许可证查询列表 -->
+	<select id="getEntId"
+		parameterType="com.module.domain.homePage.LicFormModel"
+		resultType="java.lang.String">
+		select A.ENTID FROM WETRIL_CNKI_LICENSE A
+		LEFT JOIN WETRIL_CNKI_ENTBASE B ON A.ENTID = B.ENTID
+		<where>
+			<if test="num != null and num != ''">
+				AND A.NUM LIKE concat('%',#{num},'%')
+			</if>
+			<if test="regcode != null and regcode != ''">
+				AND B.REGCODE LIKE concat('%',#{regcode},'%')
+			</if>
+			<if test="gsmc != null and gsmc != ''">
+				AND A.GSMC LIKE concat('%',#{gsmc},'%')
+			</if>
+			<if test="frdb != null and frdb != ''">
+				AND A.FRDB LIKE concat('%',#{frdb},'%')
+			</if>
+			<if test="flag != null and flag != ''">
+				AND A.FLAG = #{flag,jdbcType=VARCHAR}
+			</if>
+			<if test="lzr != null and lzr != ''">
+				AND A.LICENSINGPERSONNAME LIKE concat('%',#{lzr},'%')
+			</if>
+		</where>
+	</select>
+	<select id="queryLicCompCount" resultType="INT">
+		select COUNT(A.NUM) FROM WETRIL_CNKI_LICENSE A
+		LEFT JOIN WETRIL_CNKI_LICBUS B ON A.LICID = B.LICID
+		LEFT JOIN WETRIL_CNKI_ENTBASE C ON A.ENTID = C.ENTID
+		WHERE A.ENTID IN
+		<foreach collection="entids" item="item" index="index"
+			open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+		<if test="flag != null and flag != ''">
+			AND A.FLAG = #{flag,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="queryLicCompList"
+		resultType="com.module.domain.homePage.ComLicense">
+		SELECT A.LICID, A.FLAG, A.GSMC, A.NUM, B.YEWUNAME, A.SPE_ADDRESS,
+		A.REGDATE, A.VALIDITY, A.ISLICENSING, A.LICENSINGPERSONNAME,
+		A.LICENSINGDATE, C.REGORGAN, C.REGADDRESS
+		FROM WETRIL_CNKI_LICENSE A
+		LEFT JOIN WETRIL_CNKI_LICBUS B ON A.LICID = B.LICID
+		LEFT JOIN WETRIL_CNKI_ENTBASE C ON A.ENTID = C.ENTID
+		WHERE A.ENTID IN
+		<foreach collection="entids" item="item" index="index"
+			open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+		<if test="flag != null and flag != ''">
+			AND A.FLAG = #{flag,jdbcType=VARCHAR}
+		</if>
+		ORDER BY A.REGDATE DESC
+		LIMIT #{startlimit},#{endlimit}
+	</select>
+	<!-- 许可证查询结束 -->
+	<!-- 查看许可证详情 -->
+	<select id="queryLicDetailByLicId"
+		parameterType="java.lang.String"
+		resultType="com.module.domain.homePage.ComLicense">
+		SELECT top 1 A.FLAG, A.NUM, A.GSMC, A.FRDB, A.REGDATE,
+		A.VALIDITY, B.REGORGAN
+		FROM WETRIL_CNKI_LICENSE A
+		LEFT JOIN WETRIL_CNKI_ENTBASE B ON A.ENTID = B.ENTID
+		WHERE A.LICID = #{licid,jdbcType=VARCHAR}
+	</select>
+	<select id="queryLicBusList" parameterType="java.lang.String"
+		resultType="com.module.domain.homePage.LicBus">
+		SELECT A.LICID, A.YEWUNAME, A.YWFW, B.SERVERNAME
+		FROM WETRIL_CNKI_LICBUS A 
+		LEFT JOIN (
+		SELECT LICID, PARENTNAME, listagg(concat(SERVERNAME,'、')) within GROUP(ORDER BY SERVERNAME) SERVERNAME
+		FROM WETRIL_CNKI_FUWU WHERE LICID IS NOT NULL GROUP BY LICID, PARENTNAME
+		) B ON A.LICID = B.LICID AND A.YEWUNAME = B.PARENTNAME
+		WHERE A.LICID = #{licid,jdbcType=VARCHAR}
+	</select>
+	<!-- 查看许可证详情结束 -->
+	<!-- 许可证基本信息 -->
+	<select id="queryLicenseByLicId"
+		parameterType="java.lang.String"
+		resultType="com.module.domain.homePage.LicenseBaseInfo">
+		SELECT LICID, NUM, GSMC, FLAG, FRDB, REGCAPITAL, SPE_ADDRESS, REGADDRESS,
+		REGDATE, VALIDITY, ISNOTICE, NOTICEDATE, ISLICENSING, LICENSINGDATE,
+		LICENSINGPERSONNAME, LICENSINGPERSONCODE, LICENSINGMOBILE,
+		DATACOMPLETE, NEEDFILE, FILEID, NOTE, lic.ENTID
+		FROM WETRIL_CNKI_LICENSE lic
+		LEFT JOIN WETRIL_CNKI_ENTBASE ent ON lic.ENTID = ent.ENTID
+		WHERE LICID = #{licid,jdbcType=VARCHAR}
+		ORDER BY REGDATE
+		DESC LIMIT 1
+	</select>
+	<!-- 公司基本信息 -->
+	<select id="queryEntByEntId" parameterType="java.lang.String"
+		resultType="com.module.domain.homePage.EntBaseInfo">
+		SELECT REGCODE, REGORGAN, FOUNDDATE, VALIDITYDATE, REGISTERPROVINCE,
+		REGISTERCITY, REGCAPITAL, ENTEMAIL, NATURE, ENTFAX, ADDRESS,
+		CORPORATENAME, CORPORATECODETYPE, CORPORATECODE, CORPORATEMOBILE,
+		CORPORATEPHONE, CORPORATEMAIL, CHARGENAME,
+		CHARGEMOBILE, CHARGEPHONE, CHARGEEMAIL, LINKMAN, LINKMOBILE,
+		LINKPHONE, LINKEMAIL, ISLISTED, LISTEDADDRESS
+		FROM WETRIL_CNKI_ENTBASE
+		WHERE ENTID = #{entid,jdbcType=VARCHAR}
+		ORDER BY FOUNDDATE DESC LIMIT 1
+	</select>
+	<!-- 授权子公司情况 -->
+	<select id="querySQZGSByLicId" parameterType="java.lang.String"
+		resultType="com.module.domain.homePage.SQZGSInfo">
+		SELECT A.SUBSIDIARY, B.YEWUNAME
+		FROM DXXZSP_SQZGS A,DXXZSP_SQZGS_YW B
+		WHERE A.ID = B.ZGSID AND B.LICID = #{licid,jdbcType=VARCHAR}
+	</select>
+	<!-- 年报提交情况 -->
+	<select id="queryNBTJQKByEntId" parameterType="java.lang.String"
+		resultType="com.module.domain.homePage.NBTJQKInfo">
+		SELECT RPT_YEAR, RPT_STATUS
+		FROM REPORT_Y
+		WHERE ENT_ID = #{entid,jdbcType=VARCHAR}
+	</select>
+	<!-- 网站信息表 -->
+	<select id="queryWZXXBByLicId" parameterType="java.lang.String"
+		resultType="com.module.domain.homePage.WZXXBInfo">
+		SELECT MC, YM, FZD, SDDW
+		FROM DXXZSP_CNKI_APPWEBSITE
+		WHERE LICID = #{licid,jdbcType=VARCHAR}
+	</select>
+	<!-- 企业证件列表 -->
+	<select id="queryQYZJByEntId" parameterType="java.lang.String"
+		resultType="com.module.domain.homePage.EntBaseInfo">
+		SELECT REGCODE FROM WETRIL_CNKI_ENTBASE
+		WHERE ENTID = #{entid,jdbcType=VARCHAR}
+	</select>
+	<!-- 股东信息 -->
+	<select id="queryGDByEntId" parameterType="java.lang.String"
+		resultType="com.module.domain.homePage.GDInfo">
+		SELECT NAME, IDCARD, CAPITALPERCENT
+		FROM WETRIL_CNKI_ENTHOLDERS
+		WHERE ENTID = #{entid,jdbcType=VARCHAR}
+	</select>
+	<!-- 信用信息 -->
+	<!-- 不良名单列表 -->
+	<select id="queryBLByEntId" parameterType="java.lang.String"
+		resultType="com.module.domain.homePage.XYInfo">
+		SELECT ENROLDATE, ENROLREASON, ENROLDEP, REMOVEDATE, REMOVEREASON
+		FROM CREDIT_UNHEALTHY_DISHONESTY_INFO
+		WHERE BLSXTYPE = '0' AND ENTID = #{entid,jdbcType=VARCHAR}
+	</select>
+	<!-- 失信名单列表 -->
+	<select id="querySXByEntId" parameterType="java.lang.String"
+		resultType="com.module.domain.homePage.XYInfo">
+		SELECT ENROLDATE, ENROLREASON, ENROLDEP, REMOVEDATE, REMOVEREASON
+		FROM CREDIT_UNHEALTHY_DISHONESTY_INFO
+		WHERE BLSXTYPE = '1' AND ENTID = #{entid,jdbcType=VARCHAR}
+	</select>
+	<!-- 信用信息结束 -->
+</mapper>

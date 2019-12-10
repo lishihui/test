@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.electricLicencePermit.change.commChange.ChangePublicFormsMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.electricLicencePermit.change.commChange.ChangePublicForms">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="BUSINESS_LEGAL_LICENSE" jdbcType="VARCHAR" property="businessLegalLicense" />
+    <result column="F_NAME" jdbcType="VARCHAR" property="fName" />
+    <result column="F_FIXED_PHONE" jdbcType="VARCHAR" property="fFixedPhone" />
+    <result column="F_MOBILE" jdbcType="VARCHAR" property="fMobile" />
+    <result column="F_EMAIL" jdbcType="VARCHAR" property="fEmail" />
+    <result column="L_NAME" jdbcType="VARCHAR" property="lName" />
+    <result column="L_FIXED_PHONE" jdbcType="VARCHAR" property="lFixedPhone" />
+    <result column="L_MOBILE" jdbcType="VARCHAR" property="lMobile" />
+    <result column="L_EMAIL" jdbcType="VARCHAR" property="lEmail" />
+    <result column="G_EMAIL" jdbcType="VARCHAR" property="gEmail" />
+    <result column="G_FAX" jdbcType="VARCHAR" property="gFax" />
+    <result column="G_ADDRESS" jdbcType="VARCHAR" property="gAddress" />
+    <result column="G_POSTCODE" jdbcType="VARCHAR" property="gPostcode" />
+    <result column="ZHUANGTAI" jdbcType="VARCHAR" property="zhuangtai" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <result column="FLOWFLAG" jdbcType="VARCHAR" property="flowflag" />
+    <result column="CONTINUE_FLAG" jdbcType="VARCHAR" property="continueFlag" />
+    <result column="CITYFLAG" jdbcType="VARCHAR" property="cityflag" />
+    <result column="SAFEFLAG" jdbcType="VARCHAR" property="safeflag" />
+    <result column="ISSIMPLE" jdbcType="VARCHAR" property="issimple" />
+    <result column="ISSPECIAL" jdbcType="VARCHAR" property="isspecial" />
+    <result column="SAFEADVICE" jdbcType="VARCHAR" property="safeadvice" />
+    <result column="TOLADVICE" jdbcType="VARCHAR" property="toladvice" />
+    <result column="AQTHQYZT" jdbcType="VARCHAR" property="aqthqyzt" />
+    <result column="TJSJDZT" jdbcType="VARCHAR" property="tjsjdzt" />
+    <result column="AQTHSLYZT" jdbcType="VARCHAR" property="aqthslyzt" />
+    <result column="CSTHQYZT" jdbcType="VARCHAR" property="csthqyzt" />
+    <result column="CSTHSLYZT" jdbcType="VARCHAR" property="csthslyzt" />
+    <result column="YOUWU" jdbcType="VARCHAR" property="youwu" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.electricLicencePermit.change.commChange.ChangePublicFormsWithBLOBs">
+    <result column="DEPT_FLEX" jdbcType="CLOB" property="deptFlex" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, BUSINESS_LEGAL_LICENSE, F_NAME, 
+      F_FIXED_PHONE, F_MOBILE, F_EMAIL, 
+      L_NAME, L_FIXED_PHONE, L_MOBILE, 
+      L_EMAIL, G_EMAIL, G_FAX, 
+      G_ADDRESS, G_POSTCODE, ZHUANGTAI, 
+      CITY, FLOWFLAG, CONTINUE_FLAG, 
+      CITYFLAG, SAFEFLAG, ISSIMPLE, 
+      ISSPECIAL, SAFEADVICE, TOLADVICE, 
+      AQTHQYZT, TJSJDZT, AQTHSLYZT, 
+      CSTHQYZT, CSTHSLYZT, YOUWU
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    DEPT_FLEX
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from CHANGE_PUBLIC_FORMS
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.electricLicencePermit.change.commChange.ChangePublicFormsWithBLOBs">
+    insert into CHANGE_PUBLIC_FORMS (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, BUSINESS_LEGAL_LICENSE, F_NAME, 
+      F_FIXED_PHONE, F_MOBILE, F_EMAIL, 
+      L_NAME, L_FIXED_PHONE, L_MOBILE, 
+      L_EMAIL, G_EMAIL, G_FAX, 
+      G_ADDRESS, G_POSTCODE, ZHUANGTAI, 
+      CITY, FLOWFLAG, CONTINUE_FLAG, 
+      CITYFLAG, SAFEFLAG, ISSIMPLE, 
+      ISSPECIAL, SAFEADVICE, TOLADVICE, 
+      AQTHQYZT, TJSJDZT, AQTHSLYZT, 
+      CSTHQYZT, CSTHSLYZT, YOUWU, 
+      DEPT_FLEX)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{businessLegalLicense,jdbcType=VARCHAR}, #{fName,jdbcType=VARCHAR}, 
+      #{fFixedPhone,jdbcType=VARCHAR}, #{fMobile,jdbcType=VARCHAR}, #{fEmail,jdbcType=VARCHAR}, 
+      #{lName,jdbcType=VARCHAR}, #{lFixedPhone,jdbcType=VARCHAR}, #{lMobile,jdbcType=VARCHAR}, 
+      #{lEmail,jdbcType=VARCHAR}, #{gEmail,jdbcType=VARCHAR}, #{gFax,jdbcType=VARCHAR}, 
+      #{gAddress,jdbcType=VARCHAR}, #{gPostcode,jdbcType=VARCHAR}, #{zhuangtai,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{flowflag,jdbcType=VARCHAR}, #{continueFlag,jdbcType=VARCHAR}, 
+      #{cityflag,jdbcType=VARCHAR}, #{safeflag,jdbcType=VARCHAR}, #{issimple,jdbcType=VARCHAR}, 
+      #{isspecial,jdbcType=VARCHAR}, #{safeadvice,jdbcType=VARCHAR}, #{toladvice,jdbcType=VARCHAR}, 
+      #{aqthqyzt,jdbcType=VARCHAR}, #{tjsjdzt,jdbcType=VARCHAR}, #{aqthslyzt,jdbcType=VARCHAR}, 
+      #{csthqyzt,jdbcType=VARCHAR}, #{csthslyzt,jdbcType=VARCHAR}, #{youwu,jdbcType=VARCHAR}, 
+      #{deptFlex,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.electricLicencePermit.change.commChange.ChangePublicFormsWithBLOBs">
+    insert into CHANGE_PUBLIC_FORMS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="businessLegalLicense != null">
+        BUSINESS_LEGAL_LICENSE,
+      </if>
+      <if test="fName != null">
+        F_NAME,
+      </if>
+      <if test="fFixedPhone != null">
+        F_FIXED_PHONE,
+      </if>
+      <if test="fMobile != null">
+        F_MOBILE,
+      </if>
+      <if test="fEmail != null">
+        F_EMAIL,
+      </if>
+      <if test="lName != null">
+        L_NAME,
+      </if>
+      <if test="lFixedPhone != null">
+        L_FIXED_PHONE,
+      </if>
+      <if test="lMobile != null">
+        L_MOBILE,
+      </if>
+      <if test="lEmail != null">
+        L_EMAIL,
+      </if>
+      <if test="gEmail != null">
+        G_EMAIL,
+      </if>
+      <if test="gFax != null">
+        G_FAX,
+      </if>
+      <if test="gAddress != null">
+        G_ADDRESS,
+      </if>
+      <if test="gPostcode != null">
+        G_POSTCODE,
+      </if>
+      <if test="zhuangtai != null">
+        ZHUANGTAI,
+      </if>
+      <if test="city != null">
+        CITY,
+      </if>
+      <if test="flowflag != null">
+        FLOWFLAG,
+      </if>
+      <if test="continueFlag != null">
+        CONTINUE_FLAG,
+      </if>
+      <if test="cityflag != null">
+        CITYFLAG,
+      </if>
+      <if test="safeflag != null">
+        SAFEFLAG,
+      </if>
+      <if test="issimple != null">
+        ISSIMPLE,
+      </if>
+      <if test="isspecial != null">
+        ISSPECIAL,
+      </if>
+      <if test="safeadvice != null">
+        SAFEADVICE,
+      </if>
+      <if test="toladvice != null">
+        TOLADVICE,
+      </if>
+      <if test="aqthqyzt != null">
+        AQTHQYZT,
+      </if>
+      <if test="tjsjdzt != null">
+        TJSJDZT,
+      </if>
+      <if test="aqthslyzt != null">
+        AQTHSLYZT,
+      </if>
+      <if test="csthqyzt != null">
+        CSTHQYZT,
+      </if>
+      <if test="csthslyzt != null">
+        CSTHSLYZT,
+      </if>
+      <if test="youwu != null">
+        YOUWU,
+      </if>
+      <if test="deptFlex != null">
+        DEPT_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLegalLicense != null">
+        #{businessLegalLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="fName != null">
+        #{fName,jdbcType=VARCHAR},
+      </if>
+      <if test="fFixedPhone != null">
+        #{fFixedPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="fMobile != null">
+        #{fMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="fEmail != null">
+        #{fEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="lName != null">
+        #{lName,jdbcType=VARCHAR},
+      </if>
+      <if test="lFixedPhone != null">
+        #{lFixedPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="lMobile != null">
+        #{lMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="lEmail != null">
+        #{lEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="gEmail != null">
+        #{gEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="gFax != null">
+        #{gFax,jdbcType=VARCHAR},
+      </if>
+      <if test="gAddress != null">
+        #{gAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="gPostcode != null">
+        #{gPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuangtai != null">
+        #{zhuangtai,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="flowflag != null">
+        #{flowflag,jdbcType=VARCHAR},
+      </if>
+      <if test="continueFlag != null">
+        #{continueFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="cityflag != null">
+        #{cityflag,jdbcType=VARCHAR},
+      </if>
+      <if test="safeflag != null">
+        #{safeflag,jdbcType=VARCHAR},
+      </if>
+      <if test="issimple != null">
+        #{issimple,jdbcType=VARCHAR},
+      </if>
+      <if test="isspecial != null">
+        #{isspecial,jdbcType=VARCHAR},
+      </if>
+      <if test="safeadvice != null">
+        #{safeadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="toladvice != null">
+        #{toladvice,jdbcType=VARCHAR},
+      </if>
+      <if test="aqthqyzt != null">
+        #{aqthqyzt,jdbcType=VARCHAR},
+      </if>
+      <if test="tjsjdzt != null">
+        #{tjsjdzt,jdbcType=VARCHAR},
+      </if>
+      <if test="aqthslyzt != null">
+        #{aqthslyzt,jdbcType=VARCHAR},
+      </if>
+      <if test="csthqyzt != null">
+        #{csthqyzt,jdbcType=VARCHAR},
+      </if>
+      <if test="csthslyzt != null">
+        #{csthslyzt,jdbcType=VARCHAR},
+      </if>
+      <if test="youwu != null">
+        #{youwu,jdbcType=VARCHAR},
+      </if>
+      <if test="deptFlex != null">
+        #{deptFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

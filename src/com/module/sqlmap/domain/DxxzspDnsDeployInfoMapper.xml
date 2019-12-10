@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.internetDomainRootServices.apply.apply.DxxzspDnsDeployInfoMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.internetDomainRootServices.apply.apply.DxxzspDnsDeployInfo">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="TECH_HEAD" jdbcType="VARCHAR" property="techHead" />
+    <result column="TECH_PHONE" jdbcType="VARCHAR" property="techPhone" />
+    <result column="ROOT_SERVER_NAME" jdbcType="VARCHAR" property="rootServerName" />
+    <result column="CONTRACT_START_DATE" jdbcType="VARCHAR" property="contractStartDate" />
+    <result column="CONTRACT_END_DATE" jdbcType="VARCHAR" property="contractEndDate" />
+    <result column="DEPLOY_LOCATION" jdbcType="VARCHAR" property="deployLocation" />
+    <result column="NETWORK_AUTONOMOUS" jdbcType="VARCHAR" property="networkAutonomous" />
+    <result column="DNS_IP4_IP6" jdbcType="VARCHAR" property="dnsIp4Ip6" />
+    <result column="DATA_TRANSCATION_IP4_IP6" jdbcType="VARCHAR" property="dataTranscationIp4Ip6" />
+    <result column="REMOTE_IPADDRESS" jdbcType="VARCHAR" property="remoteIpaddress" />
+    <result column="IP6_CONFIGURATION" jdbcType="VARCHAR" property="ip6Configuration" />
+    <result column="DNS_TOPT_IMG" jdbcType="VARCHAR" property="dnsToptImg" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.module.domain.internetDomainRootServices.apply.apply.DxxzspDnsDeployInfoWithBLOBs" extends="BaseResultMap">
+    <result column="ROOT_SERVER_FLEX" jdbcType="CLOB" property="rootServerFlex" />
+    <result column="SUBMIT_FLEX" jdbcType="CLOB" property="submitFlex" />
+    <result column="ROOT_SERVER_INFO" jdbcType="CLOB" property="rootServerInfo" />
+    <result column="DNS_TOPOLOGY" jdbcType="CLOB" property="dnsTopology" />
+    <result column="DATA_TRANS_TOPOLOGY" jdbcType="CLOB" property="dataTransTopology" />
+    <result column="ROOT_MANAGER_TOPOLOGY" jdbcType="CLOB" property="rootManagerTopology" />
+    <result column="ACCESS_BROADBAND" jdbcType="CLOB" property="accessBroadband" />
+    <result column="IPADDRESS_SEGMENT" jdbcType="CLOB" property="ipaddressSegment" />
+    <result column="BACKUP_LINK" jdbcType="CLOB" property="backupLink" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID,TITLE,CREATED,MODIFIED,CREATOR,MODIFICATOR,RECYCLE,TECH_HEAD,TECH_PHONE,ROOT_SERVER_NAME,CONTRACT_START_DATE,
+    CONTRACT_END_DATE,DEPLOY_LOCATION,NETWORK_AUTONOMOUS,NETWORK_AUTONOMOUS,DNS_IP4_IP6,DATA_TRANSCATION_IP4_IP6,
+    REMOTE_IPADDRESS,IP6_CONFIGURATION,DNS_TOPT_IMG
+  </sql>
+  <sql id="Blob_Column_List">
+    ROOT_SERVER_FLEX, SUBMIT_FLEX, ROOT_SERVER_INFO, DNS_TOPOLOGY, DATA_TRANS_TOPOLOGY, 
+    ROOT_MANAGER_TOPOLOGY, ACCESS_BROADBAND, IPADDRESS_SEGMENT, BACKUP_LINK
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_DNS_DEPLOY_INFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DXXZSP_DNS_DEPLOY_INFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.module.domain.internetDomainRootServices.apply.apply.DxxzspDnsDeployInfoWithBLOBs">
+    insert into DXXZSP_DNS_DEPLOY_INFO (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, TECH_HEAD, TECH_PHONE, 
+      ROOT_SERVER_NAME, CONTRACT_START_DATE, CONTRACT_END_DATE, 
+      DEPLOY_LOCATION, NETWORK_AUTONOMOUS, DNS_IP4_IP6, 
+      DATA_TRANSCATION_IP4_IP6, REMOTE_IPADDRESS, 
+      IP6_CONFIGURATION, DNS_TOPT_IMG, ROOT_SERVER_FLEX, 
+      SUBMIT_FLEX, ROOT_SERVER_INFO, DNS_TOPOLOGY, 
+      DATA_TRANS_TOPOLOGY, ROOT_MANAGER_TOPOLOGY, ACCESS_BROADBAND, 
+      IPADDRESS_SEGMENT, BACKUP_LINK)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{techHead,jdbcType=VARCHAR}, #{techPhone,jdbcType=VARCHAR}, 
+      #{rootServerName,jdbcType=VARCHAR}, #{contractStartDate,jdbcType=VARCHAR}, #{contractEndDate,jdbcType=VARCHAR}, 
+      #{deployLocation,jdbcType=VARCHAR}, #{networkAutonomous,jdbcType=VARCHAR}, #{dnsIp4Ip6,jdbcType=VARCHAR}, 
+      #{dataTranscationIp4Ip6,jdbcType=VARCHAR}, #{remoteIpaddress,jdbcType=VARCHAR}, 
+      #{ip6Configuration,jdbcType=VARCHAR}, #{dnsToptImg,jdbcType=VARCHAR}, #{rootServerFlex,jdbcType=CLOB}, 
+      #{submitFlex,jdbcType=CLOB}, #{rootServerInfo,jdbcType=CLOB}, #{dnsTopology,jdbcType=CLOB}, 
+      #{dataTransTopology,jdbcType=CLOB}, #{rootManagerTopology,jdbcType=CLOB}, #{accessBroadband,jdbcType=CLOB}, 
+      #{ipaddressSegment,jdbcType=CLOB}, #{backupLink,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.internetDomainRootServices.apply.apply.DxxzspDnsDeployInfoWithBLOBs">
+    insert into DXXZSP_DNS_DEPLOY_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="techHead != null">
+        TECH_HEAD,
+      </if>
+      <if test="techPhone != null">
+        TECH_PHONE,
+      </if>
+      <if test="rootServerName != null">
+        ROOT_SERVER_NAME,
+      </if>
+      <if test="contractStartDate != null">
+        CONTRACT_START_DATE,
+      </if>
+      <if test="contractEndDate != null">
+        CONTRACT_END_DATE,
+      </if>
+      <if test="deployLocation != null">
+        DEPLOY_LOCATION,
+      </if>
+      <if test="networkAutonomous != null">
+        NETWORK_AUTONOMOUS,
+      </if>
+      <if test="dnsIp4Ip6 != null">
+        DNS_IP4_IP6,
+      </if>
+      <if test="dataTranscationIp4Ip6 != null">
+        DATA_TRANSCATION_IP4_IP6,
+      </if>
+      <if test="remoteIpaddress != null">
+        REMOTE_IPADDRESS,
+      </if>
+      <if test="ip6Configuration != null">
+        IP6_CONFIGURATION,
+      </if>
+      <if test="dnsToptImg != null">
+        DNS_TOPT_IMG,
+      </if>
+      <if test="rootServerFlex != null">
+        ROOT_SERVER_FLEX,
+      </if>
+      <if test="submitFlex != null">
+        SUBMIT_FLEX,
+      </if>
+      <if test="rootServerInfo != null">
+        ROOT_SERVER_INFO,
+      </if>
+      <if test="dnsTopology != null">
+        DNS_TOPOLOGY,
+      </if>
+      <if test="dataTransTopology != null">
+        DATA_TRANS_TOPOLOGY,
+      </if>
+      <if test="rootManagerTopology != null">
+        ROOT_MANAGER_TOPOLOGY,
+      </if>
+      <if test="accessBroadband != null">
+        ACCESS_BROADBAND,
+      </if>
+      <if test="ipaddressSegment != null">
+        IPADDRESS_SEGMENT,
+      </if>
+      <if test="backupLink != null">
+        BACKUP_LINK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="techHead != null">
+        #{techHead,jdbcType=VARCHAR},
+      </if>
+      <if test="techPhone != null">
+        #{techPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="rootServerName != null">
+        #{rootServerName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractStartDate != null">
+        #{contractStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="contractEndDate != null">
+        #{contractEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="deployLocation != null">
+        #{deployLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="networkAutonomous != null">
+        #{networkAutonomous,jdbcType=VARCHAR},
+      </if>
+      <if test="dnsIp4Ip6 != null">
+        #{dnsIp4Ip6,jdbcType=VARCHAR},
+      </if>
+      <if test="dataTranscationIp4Ip6 != null">
+        #{dataTranscationIp4Ip6,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteIpaddress != null">
+        #{remoteIpaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="ip6Configuration != null">
+        #{ip6Configuration,jdbcType=VARCHAR},
+      </if>
+      <if test="dnsToptImg != null">
+        #{dnsToptImg,jdbcType=VARCHAR},
+      </if>
+      <if test="rootServerFlex != null">
+        #{rootServerFlex,jdbcType=CLOB},
+      </if>
+      <if test="submitFlex != null">
+        #{submitFlex,jdbcType=CLOB},
+      </if>
+      <if test="rootServerInfo != null">
+        #{rootServerInfo,jdbcType=CLOB},
+      </if>
+      <if test="dnsTopology != null">
+        #{dnsTopology,jdbcType=CLOB},
+      </if>
+      <if test="dataTransTopology != null">
+        #{dataTransTopology,jdbcType=CLOB},
+      </if>
+      <if test="rootManagerTopology != null">
+        #{rootManagerTopology,jdbcType=CLOB},
+      </if>
+      <if test="accessBroadband != null">
+        #{accessBroadband,jdbcType=CLOB},
+      </if>
+      <if test="ipaddressSegment != null">
+        #{ipaddressSegment,jdbcType=CLOB},
+      </if>
+      <if test="backupLink != null">
+        #{backupLink,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.registrationManagement.apply.apply.DxxzspNetworkMeasuresMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.registrationManagement.apply.apply.DxxzspNetworkMeasures">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="NETINFO_SAFETY_MAN" jdbcType="VARCHAR" property="netinfoSafetyMan" />
+    <result column="NETINFO_LINKPHONE" jdbcType="VARCHAR" property="netinfoLinkphone" />
+    <result column="NET_ID_TYPE" jdbcType="VARCHAR" property="netIdType" />
+    <result column="NET_ID_NUM" jdbcType="VARCHAR" property="netIdNum" />
+    <result column="NET_EMAIL_ADDRESS" jdbcType="VARCHAR" property="netEmailAddress" />
+    <result column="NET_MAILING_ADDRESS" jdbcType="VARCHAR" property="netMailingAddress" />
+    <result column="NETINFO_EMERGENCY_MAN" jdbcType="VARCHAR" property="netinfoEmergencyMan" />
+    <result column="NET_EME_PHONE" jdbcType="VARCHAR" property="netEmePhone" />
+    <result column="EME_ID_TYPE" jdbcType="VARCHAR" property="emeIdType" />
+    <result column="EME_ID_NUM" jdbcType="VARCHAR" property="emeIdNum" />
+    <result column="EME_EMALI_ADDRESS" jdbcType="VARCHAR" property="emeEmaliAddress" />
+    <result column="EME_MAILING_ADDRESS" jdbcType="VARCHAR" property="emeMailingAddress" />
+    <result column="NET_PHONE" jdbcType="VARCHAR" property="netPhone" />
+    <result column="EME_PHONE" jdbcType="VARCHAR" property="emePhone" />
+    <result column="EME_NUM" jdbcType="VARCHAR" property="emeNum" />
+    <result column="NET_NUM" jdbcType="VARCHAR" property="netNum" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.registrationManagement.apply.apply.DxxzspNetworkMeasuresWithBLOBs">
+    <result column="NETWORK_SECURITY_FLEX1" jdbcType="CLOB" property="networkSecurityFlex1" />
+    <result column="MANAGERIAL_STAFF_FLEX1" jdbcType="CLOB" property="managerialStaffFlex1" />
+    <result column="NET_SAFE_SYSTEM_FLEX1" jdbcType="CLOB" property="netSafeSystemFlex1" />
+    <result column="NET_LEVEL_SYSTEM_FLEX" jdbcType="CLOB" property="netLevelSystemFlex" />
+    <result column="DATA_SAFE_FLEX" jdbcType="CLOB" property="dataSafeFlex" />
+    <result column="NETWORK_SAFE_EME_FLEX" jdbcType="CLOB" property="networkSafeEmeFlex" />
+    <result column="NETWORK_OTHER_FLEX" jdbcType="CLOB" property="networkOtherFlex" />
+    <result column="NETWORK_SAFE_EME_EDIT" jdbcType="CLOB" property="networkSafeEmeEdit" />
+    <result column="DATA_SAFE_EDIT" jdbcType="CLOB" property="dataSafeEdit" />
+    <result column="NET_LEVEL_SYSTEM_EDIT" jdbcType="CLOB" property="netLevelSystemEdit" />
+    <result column="NET_SAFE_SYSTEM_EDIT" jdbcType="CLOB" property="netSafeSystemEdit" />
+    <result column="MANAGERIAL_STAFF_EDIT" jdbcType="CLOB" property="managerialStaffEdit" />
+    <result column="NETWORK_SECURITY_EDIT" jdbcType="CLOB" property="networkSecurityEdit" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+	ID,TITLE,CREATED,MODIFIED,CREATOR,MODIFICATOR,RECYCLE,NETINFO_SAFETY_MAN,NETINFO_LINKPHONE,NET_ID_TYPE,
+	NET_ID_NUM,NET_EMAIL_ADDRESS,NET_MAILING_ADDRESS,NETINFO_EMERGENCY_MAN,NET_EME_PHONE,EME_ID_TYPE,
+	EME_ID_NUM,EME_EMALI_ADDRESS,EME_MAILING_ADDRESS,NET_PHONE,EME_PHONE,EME_NUM,NET_NUM
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    NETWORK_SECURITY_FLEX1, MANAGERIAL_STAFF_FLEX1, NET_SAFE_SYSTEM_FLEX1, NET_LEVEL_SYSTEM_FLEX, 
+    DATA_SAFE_FLEX, NETWORK_SAFE_EME_FLEX, NETWORK_OTHER_FLEX, NETWORK_SAFE_EME_EDIT, 
+    DATA_SAFE_EDIT, NET_LEVEL_SYSTEM_EDIT, NET_SAFE_SYSTEM_EDIT, MANAGERIAL_STAFF_EDIT, 
+    NETWORK_SECURITY_EDIT
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_NETWORK_MEASURES
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.registrationManagement.apply.apply.DxxzspNetworkMeasuresWithBLOBs">
+    insert into DXXZSP_NETWORK_MEASURES (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, NETINFO_SAFETY_MAN, NETINFO_LINKPHONE, 
+      NET_ID_TYPE, NET_ID_NUM, NET_EMAIL_ADDRESS, 
+      NET_MAILING_ADDRESS, NETINFO_EMERGENCY_MAN, 
+      NET_EME_PHONE, EME_ID_TYPE, EME_ID_NUM, 
+      EME_EMALI_ADDRESS, EME_MAILING_ADDRESS, NET_PHONE, 
+      EME_PHONE, EME_NUM, NET_NUM, 
+      NETWORK_SECURITY_FLEX1, MANAGERIAL_STAFF_FLEX1, NET_SAFE_SYSTEM_FLEX1, 
+      NET_LEVEL_SYSTEM_FLEX, DATA_SAFE_FLEX, NETWORK_SAFE_EME_FLEX, 
+      NETWORK_OTHER_FLEX, NETWORK_SAFE_EME_EDIT, DATA_SAFE_EDIT, 
+      NET_LEVEL_SYSTEM_EDIT, NET_SAFE_SYSTEM_EDIT, MANAGERIAL_STAFF_EDIT, 
+      NETWORK_SECURITY_EDIT)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{netinfoSafetyMan,jdbcType=VARCHAR}, #{netinfoLinkphone,jdbcType=VARCHAR}, 
+      #{netIdType,jdbcType=VARCHAR}, #{netIdNum,jdbcType=VARCHAR}, #{netEmailAddress,jdbcType=VARCHAR}, 
+      #{netMailingAddress,jdbcType=VARCHAR}, #{netinfoEmergencyMan,jdbcType=VARCHAR}, 
+      #{netEmePhone,jdbcType=VARCHAR}, #{emeIdType,jdbcType=VARCHAR}, #{emeIdNum,jdbcType=VARCHAR}, 
+      #{emeEmaliAddress,jdbcType=VARCHAR}, #{emeMailingAddress,jdbcType=VARCHAR}, #{netPhone,jdbcType=VARCHAR}, 
+      #{emePhone,jdbcType=VARCHAR}, #{emeNum,jdbcType=VARCHAR}, #{netNum,jdbcType=VARCHAR}, 
+      #{networkSecurityFlex1,jdbcType=CLOB}, #{managerialStaffFlex1,jdbcType=CLOB}, #{netSafeSystemFlex1,jdbcType=CLOB}, 
+      #{netLevelSystemFlex,jdbcType=CLOB}, #{dataSafeFlex,jdbcType=CLOB}, #{networkSafeEmeFlex,jdbcType=CLOB}, 
+      #{networkOtherFlex,jdbcType=CLOB}, #{networkSafeEmeEdit,jdbcType=CLOB}, #{dataSafeEdit,jdbcType=CLOB}, 
+      #{netLevelSystemEdit,jdbcType=CLOB}, #{netSafeSystemEdit,jdbcType=CLOB}, #{managerialStaffEdit,jdbcType=CLOB}, 
+      #{networkSecurityEdit,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.registrationManagement.apply.apply.DxxzspNetworkMeasuresWithBLOBs">
+    insert into DXXZSP_NETWORK_MEASURES
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="netinfoSafetyMan != null">
+        NETINFO_SAFETY_MAN,
+      </if>
+      <if test="netinfoLinkphone != null">
+        NETINFO_LINKPHONE,
+      </if>
+      <if test="netIdType != null">
+        NET_ID_TYPE,
+      </if>
+      <if test="netIdNum != null">
+        NET_ID_NUM,
+      </if>
+      <if test="netEmailAddress != null">
+        NET_EMAIL_ADDRESS,
+      </if>
+      <if test="netMailingAddress != null">
+        NET_MAILING_ADDRESS,
+      </if>
+      <if test="netinfoEmergencyMan != null">
+        NETINFO_EMERGENCY_MAN,
+      </if>
+      <if test="netEmePhone != null">
+        NET_EME_PHONE,
+      </if>
+      <if test="emeIdType != null">
+        EME_ID_TYPE,
+      </if>
+      <if test="emeIdNum != null">
+        EME_ID_NUM,
+      </if>
+      <if test="emeEmaliAddress != null">
+        EME_EMALI_ADDRESS,
+      </if>
+      <if test="emeMailingAddress != null">
+        EME_MAILING_ADDRESS,
+      </if>
+      <if test="netPhone != null">
+        NET_PHONE,
+      </if>
+      <if test="emePhone != null">
+        EME_PHONE,
+      </if>
+      <if test="emeNum != null">
+        EME_NUM,
+      </if>
+      <if test="netNum != null">
+        NET_NUM,
+      </if>
+      <if test="networkSecurityFlex1 != null">
+        NETWORK_SECURITY_FLEX1,
+      </if>
+      <if test="managerialStaffFlex1 != null">
+        MANAGERIAL_STAFF_FLEX1,
+      </if>
+      <if test="netSafeSystemFlex1 != null">
+        NET_SAFE_SYSTEM_FLEX1,
+      </if>
+      <if test="netLevelSystemFlex != null">
+        NET_LEVEL_SYSTEM_FLEX,
+      </if>
+      <if test="dataSafeFlex != null">
+        DATA_SAFE_FLEX,
+      </if>
+      <if test="networkSafeEmeFlex != null">
+        NETWORK_SAFE_EME_FLEX,
+      </if>
+      <if test="networkOtherFlex != null">
+        NETWORK_OTHER_FLEX,
+      </if>
+      <if test="networkSafeEmeEdit != null">
+        NETWORK_SAFE_EME_EDIT,
+      </if>
+      <if test="dataSafeEdit != null">
+        DATA_SAFE_EDIT,
+      </if>
+      <if test="netLevelSystemEdit != null">
+        NET_LEVEL_SYSTEM_EDIT,
+      </if>
+      <if test="netSafeSystemEdit != null">
+        NET_SAFE_SYSTEM_EDIT,
+      </if>
+      <if test="managerialStaffEdit != null">
+        MANAGERIAL_STAFF_EDIT,
+      </if>
+      <if test="networkSecurityEdit != null">
+        NETWORK_SECURITY_EDIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="netinfoSafetyMan != null">
+        #{netinfoSafetyMan,jdbcType=VARCHAR},
+      </if>
+      <if test="netinfoLinkphone != null">
+        #{netinfoLinkphone,jdbcType=VARCHAR},
+      </if>
+      <if test="netIdType != null">
+        #{netIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="netIdNum != null">
+        #{netIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="netEmailAddress != null">
+        #{netEmailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="netMailingAddress != null">
+        #{netMailingAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="netinfoEmergencyMan != null">
+        #{netinfoEmergencyMan,jdbcType=VARCHAR},
+      </if>
+      <if test="netEmePhone != null">
+        #{netEmePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="emeIdType != null">
+        #{emeIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="emeIdNum != null">
+        #{emeIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="emeEmaliAddress != null">
+        #{emeEmaliAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="emeMailingAddress != null">
+        #{emeMailingAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="netPhone != null">
+        #{netPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="emePhone != null">
+        #{emePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="emeNum != null">
+        #{emeNum,jdbcType=VARCHAR},
+      </if>
+      <if test="netNum != null">
+        #{netNum,jdbcType=VARCHAR},
+      </if>
+      <if test="networkSecurityFlex1 != null">
+        #{networkSecurityFlex1,jdbcType=CLOB},
+      </if>
+      <if test="managerialStaffFlex1 != null">
+        #{managerialStaffFlex1,jdbcType=CLOB},
+      </if>
+      <if test="netSafeSystemFlex1 != null">
+        #{netSafeSystemFlex1,jdbcType=CLOB},
+      </if>
+      <if test="netLevelSystemFlex != null">
+        #{netLevelSystemFlex,jdbcType=CLOB},
+      </if>
+      <if test="dataSafeFlex != null">
+        #{dataSafeFlex,jdbcType=CLOB},
+      </if>
+      <if test="networkSafeEmeFlex != null">
+        #{networkSafeEmeFlex,jdbcType=CLOB},
+      </if>
+      <if test="networkOtherFlex != null">
+        #{networkOtherFlex,jdbcType=CLOB},
+      </if>
+      <if test="networkSafeEmeEdit != null">
+        #{networkSafeEmeEdit,jdbcType=CLOB},
+      </if>
+      <if test="dataSafeEdit != null">
+        #{dataSafeEdit,jdbcType=CLOB},
+      </if>
+      <if test="netLevelSystemEdit != null">
+        #{netLevelSystemEdit,jdbcType=CLOB},
+      </if>
+      <if test="netSafeSystemEdit != null">
+        #{netSafeSystemEdit,jdbcType=CLOB},
+      </if>
+      <if test="managerialStaffEdit != null">
+        #{managerialStaffEdit,jdbcType=CLOB},
+      </if>
+      <if test="networkSecurityEdit != null">
+        #{networkSecurityEdit,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

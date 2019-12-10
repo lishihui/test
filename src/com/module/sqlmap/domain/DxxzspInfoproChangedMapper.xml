@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.registrationManagement.change.change.DxxzspInfoproChangedMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.registrationManagement.change.change.DxxzspDxxzspInfoproChangedCha">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="NETINFO_PERSON" jdbcType="VARCHAR" property="netinfoPerson" />
+    <result column="LINK_PHONE" jdbcType="VARCHAR" property="linkPhone" />
+    <result column="ID_TYPE" jdbcType="VARCHAR" property="idType" />
+    <result column="ID_NUM" jdbcType="VARCHAR" property="idNum" />
+    <result column="EMAIL_ADDR" jdbcType="VARCHAR" property="emailAddr" />
+    <result column="MAILING_ADDR" jdbcType="VARCHAR" property="mailingAddr" />
+    <result column="EME_MAN" jdbcType="VARCHAR" property="emeMan" />
+    <result column="EME_PHONE" jdbcType="VARCHAR" property="emePhone" />
+    <result column="EMEID_TYPE" jdbcType="VARCHAR" property="emeidType" />
+    <result column="EMEID_NUM" jdbcType="VARCHAR" property="emeidNum" />
+    <result column="EME_EMAIL_ADDR" jdbcType="VARCHAR" property="emeEmailAddr" />
+    <result column="EME_MAILING_ADDR" jdbcType="VARCHAR" property="emeMailingAddr" />
+    <result column="LINK_GDDH" jdbcType="VARCHAR" property="linkGddh" />
+    <result column="EME_GDDH" jdbcType="VARCHAR" property="emeGddh" />
+    <result column="FZRHZGJ" jdbcType="VARCHAR" property="fzrhzgj" />
+    <result column="LXRHZGJ" jdbcType="VARCHAR" property="lxrhzgj" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.registrationManagement.change.change.DxxzspInfoproChangedWithBLOBs">
+    <result column="RESPON_SAFE_FLEX" jdbcType="CLOB" property="responSafeFlex" />
+    <result column="INFO_STAFFING_FLEX" jdbcType="CLOB" property="infoStaffingFlex" />
+    <result column="RESPON_SAFE" jdbcType="CLOB" property="responSafe" />
+    <result column="INFO_SAFE" jdbcType="CLOB" property="infoSafe" />
+    <result column="REGULATORY_REGIME" jdbcType="CLOB" property="regulatoryRegime" />
+    <result column="REGULATORY_REGIME_FLEX" jdbcType="CLOB" property="regulatoryRegimeFlex" />
+    <result column="GUARANTEE" jdbcType="CLOB" property="guarantee" />
+    <result column="GUARANTEE_FLEX" jdbcType="CLOB" property="guaranteeFlex" />
+    <result column="EMERGENCY_PLAN" jdbcType="CLOB" property="emergencyPlan" />
+    <result column="EMERGENCY_PLAN_FLEX" jdbcType="CLOB" property="emergencyPlanFlex" />
+    <result column="OTHER" jdbcType="CLOB" property="other" />
+    <result column="OTHER_FLEX" jdbcType="CLOB" property="otherFlex" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, NETINFO_PERSON, LINK_PHONE, 
+      ID_TYPE, ID_NUM, EMAIL_ADDR, 
+      MAILING_ADDR, EME_MAN, EME_PHONE, 
+      EMEID_TYPE, EMEID_NUM, EME_EMAIL_ADDR, 
+      EME_MAILING_ADDR, LINK_GDDH, EME_GDDH, 
+      FZRHZGJ, LXRHZGJ
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    RESPON_SAFE_FLEX, INFO_STAFFING_FLEX, RESPON_SAFE, INFO_SAFE, REGULATORY_REGIME, 
+    REGULATORY_REGIME_FLEX, GUARANTEE, GUARANTEE_FLEX, EMERGENCY_PLAN, EMERGENCY_PLAN_FLEX, 
+    OTHER, OTHER_FLEX
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_INFOPRO_CHANGED
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.registrationManagement.change.change.DxxzspInfoproChangedWithBLOBs">
+    insert into DXXZSP_INFOPRO_CHANGED (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, NETINFO_PERSON, LINK_PHONE, 
+      ID_TYPE, ID_NUM, EMAIL_ADDR, 
+      MAILING_ADDR, EME_MAN, EME_PHONE, 
+      EMEID_TYPE, EMEID_NUM, EME_EMAIL_ADDR, 
+      EME_MAILING_ADDR, LINK_GDDH, EME_GDDH, 
+      FZRHZGJ, LXRHZGJ, RESPON_SAFE_FLEX, 
+      INFO_STAFFING_FLEX, RESPON_SAFE, INFO_SAFE, 
+      REGULATORY_REGIME, REGULATORY_REGIME_FLEX, GUARANTEE, 
+      GUARANTEE_FLEX, EMERGENCY_PLAN, EMERGENCY_PLAN_FLEX, 
+      OTHER, OTHER_FLEX)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{netinfoPerson,jdbcType=VARCHAR}, #{linkPhone,jdbcType=VARCHAR}, 
+      #{idType,jdbcType=VARCHAR}, #{idNum,jdbcType=VARCHAR}, #{emailAddr,jdbcType=VARCHAR}, 
+      #{mailingAddr,jdbcType=VARCHAR}, #{emeMan,jdbcType=VARCHAR}, #{emePhone,jdbcType=VARCHAR}, 
+      #{emeidType,jdbcType=VARCHAR}, #{emeidNum,jdbcType=VARCHAR}, #{emeEmailAddr,jdbcType=VARCHAR}, 
+      #{emeMailingAddr,jdbcType=VARCHAR}, #{linkGddh,jdbcType=VARCHAR}, #{emeGddh,jdbcType=VARCHAR}, 
+      #{fzrhzgj,jdbcType=VARCHAR}, #{lxrhzgj,jdbcType=VARCHAR}, #{responSafeFlex,jdbcType=CLOB}, 
+      #{infoStaffingFlex,jdbcType=CLOB}, #{responSafe,jdbcType=CLOB}, #{infoSafe,jdbcType=CLOB}, 
+      #{regulatoryRegime,jdbcType=CLOB}, #{regulatoryRegimeFlex,jdbcType=CLOB}, #{guarantee,jdbcType=CLOB}, 
+      #{guaranteeFlex,jdbcType=CLOB}, #{emergencyPlan,jdbcType=CLOB}, #{emergencyPlanFlex,jdbcType=CLOB}, 
+      #{other,jdbcType=CLOB}, #{otherFlex,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.registrationManagement.change.change.DxxzspInfoproChangedWithBLOBs">
+    insert into DXXZSP_INFOPRO_CHANGED
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="netinfoPerson != null">
+        NETINFO_PERSON,
+      </if>
+      <if test="linkPhone != null">
+        LINK_PHONE,
+      </if>
+      <if test="idType != null">
+        ID_TYPE,
+      </if>
+      <if test="idNum != null">
+        ID_NUM,
+      </if>
+      <if test="emailAddr != null">
+        EMAIL_ADDR,
+      </if>
+      <if test="mailingAddr != null">
+        MAILING_ADDR,
+      </if>
+      <if test="emeMan != null">
+        EME_MAN,
+      </if>
+      <if test="emePhone != null">
+        EME_PHONE,
+      </if>
+      <if test="emeidType != null">
+        EMEID_TYPE,
+      </if>
+      <if test="emeidNum != null">
+        EMEID_NUM,
+      </if>
+      <if test="emeEmailAddr != null">
+        EME_EMAIL_ADDR,
+      </if>
+      <if test="emeMailingAddr != null">
+        EME_MAILING_ADDR,
+      </if>
+      <if test="linkGddh != null">
+        LINK_GDDH,
+      </if>
+      <if test="emeGddh != null">
+        EME_GDDH,
+      </if>
+      <if test="fzrhzgj != null">
+        FZRHZGJ,
+      </if>
+      <if test="lxrhzgj != null">
+        LXRHZGJ,
+      </if>
+      <if test="responSafeFlex != null">
+        RESPON_SAFE_FLEX,
+      </if>
+      <if test="infoStaffingFlex != null">
+        INFO_STAFFING_FLEX,
+      </if>
+      <if test="responSafe != null">
+        RESPON_SAFE,
+      </if>
+      <if test="infoSafe != null">
+        INFO_SAFE,
+      </if>
+      <if test="regulatoryRegime != null">
+        REGULATORY_REGIME,
+      </if>
+      <if test="regulatoryRegimeFlex != null">
+        REGULATORY_REGIME_FLEX,
+      </if>
+      <if test="guarantee != null">
+        GUARANTEE,
+      </if>
+      <if test="guaranteeFlex != null">
+        GUARANTEE_FLEX,
+      </if>
+      <if test="emergencyPlan != null">
+        EMERGENCY_PLAN,
+      </if>
+      <if test="emergencyPlanFlex != null">
+        EMERGENCY_PLAN_FLEX,
+      </if>
+      <if test="other != null">
+        OTHER,
+      </if>
+      <if test="otherFlex != null">
+        OTHER_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="netinfoPerson != null">
+        #{netinfoPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="linkPhone != null">
+        #{linkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idNum != null">
+        #{idNum,jdbcType=VARCHAR},
+      </if>
+      <if test="emailAddr != null">
+        #{emailAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="mailingAddr != null">
+        #{mailingAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="emeMan != null">
+        #{emeMan,jdbcType=VARCHAR},
+      </if>
+      <if test="emePhone != null">
+        #{emePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="emeidType != null">
+        #{emeidType,jdbcType=VARCHAR},
+      </if>
+      <if test="emeidNum != null">
+        #{emeidNum,jdbcType=VARCHAR},
+      </if>
+      <if test="emeEmailAddr != null">
+        #{emeEmailAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="emeMailingAddr != null">
+        #{emeMailingAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="linkGddh != null">
+        #{linkGddh,jdbcType=VARCHAR},
+      </if>
+      <if test="emeGddh != null">
+        #{emeGddh,jdbcType=VARCHAR},
+      </if>
+      <if test="fzrhzgj != null">
+        #{fzrhzgj,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrhzgj != null">
+        #{lxrhzgj,jdbcType=VARCHAR},
+      </if>
+      <if test="responSafeFlex != null">
+        #{responSafeFlex,jdbcType=CLOB},
+      </if>
+      <if test="infoStaffingFlex != null">
+        #{infoStaffingFlex,jdbcType=CLOB},
+      </if>
+      <if test="responSafe != null">
+        #{responSafe,jdbcType=CLOB},
+      </if>
+      <if test="infoSafe != null">
+        #{infoSafe,jdbcType=CLOB},
+      </if>
+      <if test="regulatoryRegime != null">
+        #{regulatoryRegime,jdbcType=CLOB},
+      </if>
+      <if test="regulatoryRegimeFlex != null">
+        #{regulatoryRegimeFlex,jdbcType=CLOB},
+      </if>
+      <if test="guarantee != null">
+        #{guarantee,jdbcType=CLOB},
+      </if>
+      <if test="guaranteeFlex != null">
+        #{guaranteeFlex,jdbcType=CLOB},
+      </if>
+      <if test="emergencyPlan != null">
+        #{emergencyPlan,jdbcType=CLOB},
+      </if>
+      <if test="emergencyPlanFlex != null">
+        #{emergencyPlanFlex,jdbcType=CLOB},
+      </if>
+      <if test="other != null">
+        #{other,jdbcType=CLOB},
+      </if>
+      <if test="otherFlex != null">
+        #{otherFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

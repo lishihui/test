@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.registrationManagement.apply.apply.DxxzspCompanyProfileMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.registrationManagement.apply.apply.DxxzspCompanyProfile">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="LINK_NAME" jdbcType="VARCHAR" property="linkName" />
+    <result column="LINK_DOCUMENTTYPE" jdbcType="VARCHAR" property="linkDocumenttype" />
+    <result column="LINK_ID_NUM" jdbcType="VARCHAR" property="linkIdNum" />
+    <result column="LINK_EDUCATION" jdbcType="VARCHAR" property="linkEducation" />
+    <result column="LINK_PHONE" jdbcType="VARCHAR" property="linkPhone" />
+    <result column="LINK_EMAIL" jdbcType="VARCHAR" property="linkEmail" />
+    <result column="LINK_MOBILE" jdbcType="VARCHAR" property="linkMobile" />
+    <result column="RESPONSIBLE_NAME" jdbcType="VARCHAR" property="responsibleName" />
+    <result column="RESPONSIBLE_DOCUMENTTYPE" jdbcType="VARCHAR" property="responsibleDocumenttype" />
+    <result column="RESPONSIBLE_ID_NUM" jdbcType="VARCHAR" property="responsibleIdNum" />
+    <result column="RESPONSIBLE_EDUCATION" jdbcType="VARCHAR" property="responsibleEducation" />
+    <result column="RESPONSIBLE_PHONE" jdbcType="VARCHAR" property="responsiblePhone" />
+    <result column="RESPONSIBLE_MOBILE" jdbcType="VARCHAR" property="responsibleMobile" />
+    <result column="RESPONSIBLE_EMAIL" jdbcType="VARCHAR" property="responsibleEmail" />
+    <result column="LEGAL_NAME" jdbcType="VARCHAR" property="legalName" />
+    <result column="LEGAL_DOCUMENTTYPE" jdbcType="VARCHAR" property="legalDocumenttype" />
+    <result column="LEGAL_ID_NUM" jdbcType="VARCHAR" property="legalIdNum" />
+    <result column="LEGAL_EDUCATION" jdbcType="VARCHAR" property="legalEducation" />
+    <result column="LEGAL_PHONE" jdbcType="VARCHAR" property="legalPhone" />
+    <result column="LEGAL_MOBILE" jdbcType="VARCHAR" property="legalMobile" />
+    <result column="LEGAL_EMAIL" jdbcType="VARCHAR" property="legalEmail" />
+    <result column="LEGAL_ID_START_DATE" jdbcType="VARCHAR" property="legalIdStartDate" />
+    <result column="LEGAL_ID_END_DATE" jdbcType="VARCHAR" property="legalIdEndDate" />
+    <result column="CO_MANAGER_LIST" jdbcType="VARCHAR" property="coManagerList" />
+    <result column="CO_TECH_LIST" jdbcType="VARCHAR" property="coTechList" />
+    <result column="FZRGB" jdbcType="VARCHAR" property="fzrgb" />
+    <result column="LXRGB" jdbcType="VARCHAR" property="lxrgb" />
+    <result column="FRGB" jdbcType="VARCHAR" property="frgb" />
+    <result column="ZHUANGTAI" jdbcType="VARCHAR" property="zhuangtai" />
+    <result column="PINGSHEN" jdbcType="VARCHAR" property="pingshen" />
+    <result column="WANGAN" jdbcType="VARCHAR" property="wangan" />
+    <result column="AQ_X" jdbcType="VARCHAR" property="aqX" />
+    <result column="AQ_W" jdbcType="VARCHAR" property="aqW" />
+    <result column="CS" jdbcType="VARCHAR" property="cs" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.registrationManagement.apply.apply.DxxzspCompanyProfileWithBLOBs">
+    <result column="MAIN_BUSINESS" jdbcType="CLOB" property="mainBusiness" />
+    <result column="MAIN_USER_GROUPS" jdbcType="CLOB" property="mainUserGroups" />
+    <result column="LINK_ID_FLEX1" jdbcType="CLOB" property="linkIdFlex1" />
+    <result column="RESPONSIBLE_ID_FLEX" jdbcType="CLOB" property="responsibleIdFlex" />
+    <result column="LEGAL_ID_FLEX1" jdbcType="CLOB" property="legalIdFlex1" />
+    <result column="SOCIAL_SECURITY_PROV_FLEX" jdbcType="CLOB" property="socialSecurityProvFlex" />
+    <result column="EMP_LABOR_CONTRACT_FLEX" jdbcType="CLOB" property="empLaborContractFlex" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    MAIN_BUSINESS, MAIN_USER_GROUPS, LINK_ID_FLEX1, RESPONSIBLE_ID_FLEX, LEGAL_ID_FLEX1, 
+    SOCIAL_SECURITY_PROV_FLEX, EMP_LABOR_CONTRACT_FLEX
+  </sql>
+
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, LINK_NAME, LINK_DOCUMENTTYPE, 
+      LINK_ID_NUM, LINK_EDUCATION, LINK_PHONE, 
+      LINK_EMAIL, LINK_MOBILE, RESPONSIBLE_NAME, 
+      RESPONSIBLE_DOCUMENTTYPE, RESPONSIBLE_ID_NUM, 
+      RESPONSIBLE_EDUCATION, RESPONSIBLE_PHONE, 
+      RESPONSIBLE_MOBILE, RESPONSIBLE_EMAIL, LEGAL_NAME, 
+      LEGAL_DOCUMENTTYPE, LEGAL_ID_NUM, LEGAL_EDUCATION, 
+      LEGAL_PHONE, LEGAL_MOBILE, LEGAL_EMAIL, 
+      LEGAL_ID_START_DATE, LEGAL_ID_END_DATE, CO_MANAGER_LIST, 
+      CO_TECH_LIST, FZRGB, LXRGB, 
+      FRGB, ZHUANGTAI, PINGSHEN, 
+      WANGAN, AQ_X, AQ_W, CS
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_COMPANY_PROFILE
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  
+  <insert id="insert" parameterType="com.module.domain.registrationManagement.apply.apply.DxxzspCompanyProfileWithBLOBs">
+    insert into DXXZSP_COMPANY_PROFILE (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, LINK_NAME, LINK_DOCUMENTTYPE, 
+      LINK_ID_NUM, LINK_EDUCATION, LINK_PHONE, 
+      LINK_EMAIL, LINK_MOBILE, RESPONSIBLE_NAME, 
+      RESPONSIBLE_DOCUMENTTYPE, RESPONSIBLE_ID_NUM, 
+      RESPONSIBLE_EDUCATION, RESPONSIBLE_PHONE, 
+      RESPONSIBLE_MOBILE, RESPONSIBLE_EMAIL, LEGAL_NAME, 
+      LEGAL_DOCUMENTTYPE, LEGAL_ID_NUM, LEGAL_EDUCATION, 
+      LEGAL_PHONE, LEGAL_MOBILE, LEGAL_EMAIL, 
+      LEGAL_ID_START_DATE, LEGAL_ID_END_DATE, CO_MANAGER_LIST, 
+      CO_TECH_LIST, FZRGB, LXRGB, 
+      FRGB, ZHUANGTAI, PINGSHEN, 
+      WANGAN, AQ_X, AQ_W, CS, 
+      MAIN_BUSINESS, MAIN_USER_GROUPS, LINK_ID_FLEX1, 
+      RESPONSIBLE_ID_FLEX, LEGAL_ID_FLEX1, SOCIAL_SECURITY_PROV_FLEX, 
+      EMP_LABOR_CONTRACT_FLEX)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{linkName,jdbcType=VARCHAR}, #{linkDocumenttype,jdbcType=VARCHAR}, 
+      #{linkIdNum,jdbcType=VARCHAR}, #{linkEducation,jdbcType=VARCHAR}, #{linkPhone,jdbcType=VARCHAR}, 
+      #{linkEmail,jdbcType=VARCHAR}, #{linkMobile,jdbcType=VARCHAR}, #{responsibleName,jdbcType=VARCHAR}, 
+      #{responsibleDocumenttype,jdbcType=VARCHAR}, #{responsibleIdNum,jdbcType=VARCHAR}, 
+      #{responsibleEducation,jdbcType=VARCHAR}, #{responsiblePhone,jdbcType=VARCHAR}, 
+      #{responsibleMobile,jdbcType=VARCHAR}, #{responsibleEmail,jdbcType=VARCHAR}, #{legalName,jdbcType=VARCHAR}, 
+      #{legalDocumenttype,jdbcType=VARCHAR}, #{legalIdNum,jdbcType=VARCHAR}, #{legalEducation,jdbcType=VARCHAR}, 
+      #{legalPhone,jdbcType=VARCHAR}, #{legalMobile,jdbcType=VARCHAR}, #{legalEmail,jdbcType=VARCHAR}, 
+      #{legalIdStartDate,jdbcType=VARCHAR}, #{legalIdEndDate,jdbcType=VARCHAR}, #{coManagerList,jdbcType=VARCHAR}, 
+      #{coTechList,jdbcType=VARCHAR}, #{fzrgb,jdbcType=VARCHAR}, #{lxrgb,jdbcType=VARCHAR}, 
+      #{frgb,jdbcType=VARCHAR}, #{zhuangtai,jdbcType=VARCHAR}, #{pingshen,jdbcType=VARCHAR}, 
+      #{wangan,jdbcType=VARCHAR}, #{aqX,jdbcType=VARCHAR}, #{aqW,jdbcType=VARCHAR}, #{cs,jdbcType=VARCHAR}, 
+      #{mainBusiness,jdbcType=CLOB}, #{mainUserGroups,jdbcType=CLOB}, #{linkIdFlex1,jdbcType=CLOB}, 
+      #{responsibleIdFlex,jdbcType=CLOB}, #{legalIdFlex1,jdbcType=CLOB}, #{socialSecurityProvFlex,jdbcType=CLOB}, 
+      #{empLaborContractFlex,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.registrationManagement.apply.apply.DxxzspCompanyProfileWithBLOBs">
+    insert into DXXZSP_COMPANY_PROFILE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="linkName != null">
+        LINK_NAME,
+      </if>
+      <if test="linkDocumenttype != null">
+        LINK_DOCUMENTTYPE,
+      </if>
+      <if test="linkIdNum != null">
+        LINK_ID_NUM,
+      </if>
+      <if test="linkEducation != null">
+        LINK_EDUCATION,
+      </if>
+      <if test="linkPhone != null">
+        LINK_PHONE,
+      </if>
+      <if test="linkEmail != null">
+        LINK_EMAIL,
+      </if>
+      <if test="linkMobile != null">
+        LINK_MOBILE,
+      </if>
+      <if test="responsibleName != null">
+        RESPONSIBLE_NAME,
+      </if>
+      <if test="responsibleDocumenttype != null">
+        RESPONSIBLE_DOCUMENTTYPE,
+      </if>
+      <if test="responsibleIdNum != null">
+        RESPONSIBLE_ID_NUM,
+      </if>
+      <if test="responsibleEducation != null">
+        RESPONSIBLE_EDUCATION,
+      </if>
+      <if test="responsiblePhone != null">
+        RESPONSIBLE_PHONE,
+      </if>
+      <if test="responsibleMobile != null">
+        RESPONSIBLE_MOBILE,
+      </if>
+      <if test="responsibleEmail != null">
+        RESPONSIBLE_EMAIL,
+      </if>
+      <if test="legalName != null">
+        LEGAL_NAME,
+      </if>
+      <if test="legalDocumenttype != null">
+        LEGAL_DOCUMENTTYPE,
+      </if>
+      <if test="legalIdNum != null">
+        LEGAL_ID_NUM,
+      </if>
+      <if test="legalEducation != null">
+        LEGAL_EDUCATION,
+      </if>
+      <if test="legalPhone != null">
+        LEGAL_PHONE,
+      </if>
+      <if test="legalMobile != null">
+        LEGAL_MOBILE,
+      </if>
+      <if test="legalEmail != null">
+        LEGAL_EMAIL,
+      </if>
+      <if test="legalIdStartDate != null">
+        LEGAL_ID_START_DATE,
+      </if>
+      <if test="legalIdEndDate != null">
+        LEGAL_ID_END_DATE,
+      </if>
+      <if test="coManagerList != null">
+        CO_MANAGER_LIST,
+      </if>
+      <if test="coTechList != null">
+        CO_TECH_LIST,
+      </if>
+      <if test="fzrgb != null">
+        FZRGB,
+      </if>
+      <if test="lxrgb != null">
+        LXRGB,
+      </if>
+      <if test="frgb != null">
+        FRGB,
+      </if>
+      <if test="zhuangtai != null">
+        ZHUANGTAI,
+      </if>
+      <if test="pingshen != null">
+        PINGSHEN,
+      </if>
+      <if test="wangan != null">
+        WANGAN,
+      </if>
+      <if test="aqX != null">
+        AQ_X,
+      </if>
+      <if test="aqW != null">
+        AQ_W,
+      </if>
+      <if test="cs != null">
+        CS,
+      </if>
+      <if test="mainBusiness != null">
+        MAIN_BUSINESS,
+      </if>
+      <if test="mainUserGroups != null">
+        MAIN_USER_GROUPS,
+      </if>
+      <if test="linkIdFlex1 != null">
+        LINK_ID_FLEX1,
+      </if>
+      <if test="responsibleIdFlex != null">
+        RESPONSIBLE_ID_FLEX,
+      </if>
+      <if test="legalIdFlex1 != null">
+        LEGAL_ID_FLEX1,
+      </if>
+      <if test="socialSecurityProvFlex != null">
+        SOCIAL_SECURITY_PROV_FLEX,
+      </if>
+      <if test="empLaborContractFlex != null">
+        EMP_LABOR_CONTRACT_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="linkName != null">
+        #{linkName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkDocumenttype != null">
+        #{linkDocumenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="linkIdNum != null">
+        #{linkIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="linkEducation != null">
+        #{linkEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="linkPhone != null">
+        #{linkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="linkEmail != null">
+        #{linkEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="linkMobile != null">
+        #{linkMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="responsibleName != null">
+        #{responsibleName,jdbcType=VARCHAR},
+      </if>
+      <if test="responsibleDocumenttype != null">
+        #{responsibleDocumenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="responsibleIdNum != null">
+        #{responsibleIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="responsibleEducation != null">
+        #{responsibleEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="responsiblePhone != null">
+        #{responsiblePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="responsibleMobile != null">
+        #{responsibleMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="responsibleEmail != null">
+        #{responsibleEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="legalName != null">
+        #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalDocumenttype != null">
+        #{legalDocumenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="legalIdNum != null">
+        #{legalIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="legalEducation != null">
+        #{legalEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPhone != null">
+        #{legalPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="legalMobile != null">
+        #{legalMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="legalEmail != null">
+        #{legalEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="legalIdStartDate != null">
+        #{legalIdStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="legalIdEndDate != null">
+        #{legalIdEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="coManagerList != null">
+        #{coManagerList,jdbcType=VARCHAR},
+      </if>
+      <if test="coTechList != null">
+        #{coTechList,jdbcType=VARCHAR},
+      </if>
+      <if test="fzrgb != null">
+        #{fzrgb,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrgb != null">
+        #{lxrgb,jdbcType=VARCHAR},
+      </if>
+      <if test="frgb != null">
+        #{frgb,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuangtai != null">
+        #{zhuangtai,jdbcType=VARCHAR},
+      </if>
+      <if test="pingshen != null">
+        #{pingshen,jdbcType=VARCHAR},
+      </if>
+      <if test="wangan != null">
+        #{wangan,jdbcType=VARCHAR},
+      </if>
+      <if test="aqX != null">
+        #{aqX,jdbcType=VARCHAR},
+      </if>
+      <if test="aqW != null">
+        #{aqW,jdbcType=VARCHAR},
+      </if>
+      <if test="cs != null">
+        #{cs,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBusiness != null">
+        #{mainBusiness,jdbcType=CLOB},
+      </if>
+      <if test="mainUserGroups != null">
+        #{mainUserGroups,jdbcType=CLOB},
+      </if>
+      <if test="linkIdFlex1 != null">
+        #{linkIdFlex1,jdbcType=CLOB},
+      </if>
+      <if test="responsibleIdFlex != null">
+        #{responsibleIdFlex,jdbcType=CLOB},
+      </if>
+      <if test="legalIdFlex1 != null">
+        #{legalIdFlex1,jdbcType=CLOB},
+      </if>
+      <if test="socialSecurityProvFlex != null">
+        #{socialSecurityProvFlex,jdbcType=CLOB},
+      </if>
+      <if test="empLaborContractFlex != null">
+        #{empLaborContractFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

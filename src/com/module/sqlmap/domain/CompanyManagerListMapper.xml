@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.registrationManagement.apply.apply.CompanyManagerListMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.registrationManagement.apply.apply.CompanyManagerList">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="MANAGER_NAME" jdbcType="VARCHAR" property="managerName" />
+    <result column="MANAGER_DOCUMENTTYPE" jdbcType="VARCHAR" property="managerDocumenttype" />
+    <result column="MANAGER_ID_NUM" jdbcType="VARCHAR" property="managerIdNum" />
+    <result column="MANAGER_POST" jdbcType="VARCHAR" property="managerPost" />
+    <result column="MANAGER_EDUCATION" jdbcType="VARCHAR" property="managerEducation" />
+    <result column="MANGER_PHONE" jdbcType="VARCHAR" property="mangerPhone" />
+    <result column="MANGER_MOBILE" jdbcType="VARCHAR" property="mangerMobile" />
+    <result column="MANGER_EMAIL" jdbcType="VARCHAR" property="mangerEmail" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+    <result column="GB" jdbcType="VARCHAR" property="gb" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.registrationManagement.apply.apply.CompanyManagerListWithBLOBs">
+    <result column="MANAGER_ID_FLEX" jdbcType="CLOB" property="managerIdFlex" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    MANAGER_ID_FLEX
+  </sql>
+
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, MANAGER_NAME, MANAGER_DOCUMENTTYPE, 
+      MANAGER_ID_NUM, MANAGER_POST, MANAGER_EDUCATION, 
+      MANGER_PHONE, MANGER_MOBILE, MANGER_EMAIL, 
+      PARENTID, GB
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from COMPANY_MANAGER_LIST
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.registrationManagement.apply.apply.CompanyManagerListWithBLOBs">
+    insert into COMPANY_MANAGER_LIST (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, MANAGER_NAME, MANAGER_DOCUMENTTYPE, 
+      MANAGER_ID_NUM, MANAGER_POST, MANAGER_EDUCATION, 
+      MANGER_PHONE, MANGER_MOBILE, MANGER_EMAIL, 
+      PARENTID, GB, MANAGER_ID_FLEX
+      )
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{managerName,jdbcType=VARCHAR}, #{managerDocumenttype,jdbcType=VARCHAR}, 
+      #{managerIdNum,jdbcType=VARCHAR}, #{managerPost,jdbcType=VARCHAR}, #{managerEducation,jdbcType=VARCHAR}, 
+      #{mangerPhone,jdbcType=VARCHAR}, #{mangerMobile,jdbcType=VARCHAR}, #{mangerEmail,jdbcType=VARCHAR}, 
+      #{parentid,jdbcType=VARCHAR}, #{gb,jdbcType=VARCHAR}, #{managerIdFlex,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.registrationManagement.apply.apply.CompanyManagerListWithBLOBs">
+    insert into COMPANY_MANAGER_LIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="managerName != null">
+        MANAGER_NAME,
+      </if>
+      <if test="managerDocumenttype != null">
+        MANAGER_DOCUMENTTYPE,
+      </if>
+      <if test="managerIdNum != null">
+        MANAGER_ID_NUM,
+      </if>
+      <if test="managerPost != null">
+        MANAGER_POST,
+      </if>
+      <if test="managerEducation != null">
+        MANAGER_EDUCATION,
+      </if>
+      <if test="mangerPhone != null">
+        MANGER_PHONE,
+      </if>
+      <if test="mangerMobile != null">
+        MANGER_MOBILE,
+      </if>
+      <if test="mangerEmail != null">
+        MANGER_EMAIL,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="gb != null">
+        GB,
+      </if>
+      <if test="managerIdFlex != null">
+        MANAGER_ID_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="managerName != null">
+        #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="managerDocumenttype != null">
+        #{managerDocumenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="managerIdNum != null">
+        #{managerIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="managerPost != null">
+        #{managerPost,jdbcType=VARCHAR},
+      </if>
+      <if test="managerEducation != null">
+        #{managerEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="mangerPhone != null">
+        #{mangerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="mangerMobile != null">
+        #{mangerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="mangerEmail != null">
+        #{mangerEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="gb != null">
+        #{gb,jdbcType=VARCHAR},
+      </if>
+      <if test="managerIdFlex != null">
+        #{managerIdFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

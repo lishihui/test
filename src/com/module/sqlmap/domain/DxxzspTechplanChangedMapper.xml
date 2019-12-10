@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.registrationManagement.change.change.DxxzspTechplanChangedMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.registrationManagement.change.change.DxxzspDxxzspTechplanChangedCha">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="TECH_MAN" jdbcType="VARCHAR" property="techMan" />
+    <result column="LINK_WAY" jdbcType="VARCHAR" property="linkWay" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.registrationManagement.change.change.DxxzspTechplanChangedWithBLOBs">
+    <result column="TOPOLOGY_DIAGRAM_FLEX" jdbcType="CLOB" property="topologyDiagramFlex" />
+    <result column="NETWORK_SCALE" jdbcType="CLOB" property="networkScale" />
+    <result column="MANA_TOPOLOGY" jdbcType="CLOB" property="manaTopology" />
+    <result column="TECH_PLAN" jdbcType="CLOB" property="techPlan" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, MODIFIED, 
+    CREATOR, MODIFICATOR, RECYCLE, TECH_MAN, 
+    LINK_WAY
+  </sql>
+  <sql id="Blob_Column_List">
+    TOPOLOGY_DIAGRAM_FLEX, NETWORK_SCALE, MANA_TOPOLOGY, TECH_PLAN
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_TECHPLAN_CHANGED
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="com.module.domain.registrationManagement.change.change.DxxzspTechplanChangedWithBLOBs">
+    insert into DXXZSP_TECHPLAN_CHANGED (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, TECH_MAN, LINK_WAY, 
+      TOPOLOGY_DIAGRAM_FLEX, NETWORK_SCALE, MANA_TOPOLOGY, 
+      TECH_PLAN)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{techMan,jdbcType=VARCHAR}, #{linkWay,jdbcType=VARCHAR}, 
+      #{topologyDiagramFlex,jdbcType=CLOB}, #{networkScale,jdbcType=CLOB}, #{manaTopology,jdbcType=CLOB}, 
+      #{techPlan,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.registrationManagement.change.change.DxxzspTechplanChangedWithBLOBs">
+    insert into DXXZSP_TECHPLAN_CHANGED
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="techMan != null">
+        TECH_MAN,
+      </if>
+      <if test="linkWay != null">
+        LINK_WAY,
+      </if>
+      <if test="topologyDiagramFlex != null">
+        TOPOLOGY_DIAGRAM_FLEX,
+      </if>
+      <if test="networkScale != null">
+        NETWORK_SCALE,
+      </if>
+      <if test="manaTopology != null">
+        MANA_TOPOLOGY,
+      </if>
+      <if test="techPlan != null">
+        TECH_PLAN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="techMan != null">
+        #{techMan,jdbcType=VARCHAR},
+      </if>
+      <if test="linkWay != null">
+        #{linkWay,jdbcType=VARCHAR},
+      </if>
+      <if test="topologyDiagramFlex != null">
+        #{topologyDiagramFlex,jdbcType=CLOB},
+      </if>
+      <if test="networkScale != null">
+        #{networkScale,jdbcType=CLOB},
+      </if>
+      <if test="manaTopology != null">
+        #{manaTopology,jdbcType=CLOB},
+      </if>
+      <if test="techPlan != null">
+        #{techPlan,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

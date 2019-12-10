@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.domain.DXXZSPGsgkbMapper">
+	<resultMap id="BaseResultMap" type="com.module.domain.domain.DXXZSPGsgkb">
+		<result column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="TITLE" property="title" jdbcType="VARCHAR" />
+		<result column="CREATED" property="created" jdbcType="VARCHAR" />
+		<result column="MODIFIED" property="modified" jdbcType="VARCHAR" />
+		<result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+		<result column="MODIFICATOR" property="modificator" jdbcType="VARCHAR" />
+		<result column="RECYCLE" property="recycle" jdbcType="VARCHAR" />
+		<result column="GSRYZS" property="gsryzs" jdbcType="VARCHAR" />
+		<result column="GLRYZS" property="glryzs" jdbcType="VARCHAR" />
+		<result column="JSRYZS" property="jsryzs" jdbcType="VARCHAR" />
+		<result column="CJYSRYS" property="cjysrys" jdbcType="VARCHAR" />
+		<result column="GSZRGLRYMD" property="gszrglrymd" jdbcType="VARCHAR" />
+		<result column="JSRYMD" property="jsrymd" jdbcType="VARCHAR" />
+		<result column="KFRYMD" property="kfrymd" jdbcType="VARCHAR" />
+		<result column="ITEMID" property="itemid" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="ResultMapWithBLOBs" type="com.module.domain.domain.DXXZSPGsgkbWithBLOBs"
+		extends="BaseResultMap">
+		<result column="GSJBQKJS" property="gsjbqkjs" jdbcType="CLOB" />
+		<result column="ZYBGCDZ" property="zybgcdz" jdbcType="CLOB" />
+		<result column="ZYGSRYZMCL" property="zygsryzmcl" jdbcType="BLOB" />
+	</resultMap>
+	<select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from DXXZSP_GSGKB
+		where ID = #{id,jdbcType=VARCHAR}
+	</select>
+	<sql id="Base_Column_List">
+		ID, TITLE, CREATED,
+		MODIFIED, CREATOR, MODIFICATOR,
+		RECYCLE, GSRYZS, GLRYZS,
+		JSRYZS, CJYSRYS, GSZRGLRYMD,
+		JSRYMD, KFRYMD, ITEMID
+	</sql>
+	<sql id="Blob_Column_List">
+		GSJBQKJS,ZYBGCDZ,ZYGSRYZMCL
+	</sql>
+	<insert id="insert" parameterType="com.module.domain.domain.DXXZSPGsgkbWithBLOBs">
+		insert into DXXZSP_GSGKB (ID, TITLE, CREATED,
+		MODIFIED, CREATOR, MODIFICATOR,
+		RECYCLE, GSRYZS, GLRYZS,
+		JSRYZS, CJYSRYS, GSZRGLRYMD,
+		JSRYMD, KFRYMD, ITEMID,
+		GSJBQKJS, ZYBGCDZ, ZYGSRYZMCL
+		)
+		values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+		#{created,jdbcType=VARCHAR},
+		#{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR},
+		#{recycle,jdbcType=VARCHAR}, #{gsryzs,jdbcType=VARCHAR},
+		#{glryzs,jdbcType=VARCHAR},
+		#{jsryzs,jdbcType=VARCHAR}, #{cjysrys,jdbcType=VARCHAR}, #{gszrglrymd,jdbcType=VARCHAR},
+		#{jsrymd,jdbcType=VARCHAR}, #{kfrymd,jdbcType=VARCHAR},
+		#{itemid,jdbcType=VARCHAR},
+		#{gsjbqkjs,jdbcType=CLOB}, #{zybgcdz,jdbcType=CLOB}, #{zygsryzmcl,jdbcType=BLOB}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.module.domain.domain.DXXZSPGsgkbWithBLOBs">
+		insert into DXXZSP_GSGKB
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="title != null">
+				TITLE,
+			</if>
+			<if test="created != null">
+				CREATED,
+			</if>
+			<if test="modified != null">
+				MODIFIED,
+			</if>
+			<if test="creator != null">
+				CREATOR,
+			</if>
+			<if test="modificator != null">
+				MODIFICATOR,
+			</if>
+			<if test="recycle != null">
+				RECYCLE,
+			</if>
+			<if test="gsryzs != null">
+				GSRYZS,
+			</if>
+			<if test="glryzs != null">
+				GLRYZS,
+			</if>
+			<if test="jsryzs != null">
+				JSRYZS,
+			</if>
+			<if test="cjysrys != null">
+				CJYSRYS,
+			</if>
+			<if test="gszrglrymd != null">
+				GSZRGLRYMD,
+			</if>
+			<if test="jsrymd != null">
+				JSRYMD,
+			</if>
+			<if test="kfrymd != null">
+				KFRYMD,
+			</if>
+			<if test="itemid != null">
+				ITEMID,
+			</if>
+			<if test="gsjbqkjs != null">
+				GSJBQKJS,
+			</if>
+			<if test="zybgcdz != null">
+				ZYBGCDZ,
+			</if>
+			<if test="zygsryzmcl != null">
+				ZYGSRYZMCL,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="title != null">
+				#{title,jdbcType=VARCHAR},
+			</if>
+			<if test="created != null">
+				#{created,jdbcType=VARCHAR},
+			</if>
+			<if test="modified != null">
+				#{modified,jdbcType=VARCHAR},
+			</if>
+			<if test="creator != null">
+				#{creator,jdbcType=VARCHAR},
+			</if>
+			<if test="modificator != null">
+				#{modificator,jdbcType=VARCHAR},
+			</if>
+			<if test="recycle != null">
+				#{recycle,jdbcType=VARCHAR},
+			</if>
+			<if test="gsryzs != null">
+				#{gsryzs,jdbcType=VARCHAR},
+			</if>
+			<if test="glryzs != null">
+				#{glryzs,jdbcType=VARCHAR},
+			</if>
+			<if test="jsryzs != null">
+				#{jsryzs,jdbcType=VARCHAR},
+			</if>
+			<if test="cjysrys != null">
+				#{cjysrys,jdbcType=VARCHAR},
+			</if>
+			<if test="gszrglrymd != null">
+				#{gszrglrymd,jdbcType=VARCHAR},
+			</if>
+			<if test="jsrymd != null">
+				#{jsrymd,jdbcType=VARCHAR},
+			</if>
+			<if test="kfrymd != null">
+				#{kfrymd,jdbcType=VARCHAR},
+			</if>
+			<if test="itemid != null">
+				#{itemid,jdbcType=VARCHAR},
+			</if>
+			<if test="gsjbqkjs != null">
+				#{gsjbqkjs,jdbcType=CLOB},
+			</if>
+			<if test="zybgcdz != null">
+				#{zybgcdz,jdbcType=CLOB},
+			</if>
+			<if test="zygsryzmcl != null">
+				#{zygsryzmcl,jdbcType=BLOB},
+			</if>
+		</trim>
+	</insert>
+</mapper>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.module.dao.demo.WetrilCnkiLicenseMapper">
+
+ <resultMap id="BaseResultMap1" type="com.module.domain.base.WetrilCnkiLicenseInfo" >
+    <id column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="NUM" property="num" jdbcType="VARCHAR" />
+    <result column="YEWUNAME" property="yeWuName" jdbcType="VARCHAR" />
+    <result column="YWFW" property="ywfw" jdbcType="VARCHAR" />
+    <result column="SERVERNAME" property="serverName" jdbcType="VARCHAR" />
+     <result column="YEWUCODE" property="yeWuCode" jdbcType="VARCHAR" />
+    <result column="wcfFanwei" property="wcfFanwei" jdbcType="VARCHAR" />
+    <result column="FWNAME" property="fwName" jdbcType="VARCHAR" />
+    <result column="ENTID" property="entId" jdbcType="VARCHAR" />
+    <result column="CHINANET" property="chinaNet" jdbcType="VARCHAR" />
+    
+  </resultMap>
+
+	  <select id="downLicence" resultMap="BaseResultMap1">
+         SELECT<!--  wcli.id,wcli.num,
+       wcl.yewuname,wcl.yewutype,wcl.ywfw,wcl.yewucode,
+      wcf.servername,wcf.yewucode,wcf.fanwei bb ,
+      wcz.name,wcz.num,wcz.fwname,wcli.entid,wce.name,wce.entid,wcl.id,wcf.id,wcz.id -->
+      WCE.NAME,WCLI.NUM,
+       WCL.YEWUNAME,
+       WCL.YWFW,WCL.YEWUCODE,
+      WCF.SERVERNAME,WCF.FANWEI wcfFanwei ,
+       WCZ.FWNAME,WCLI.ENTID,df.CHINANET
+      FROM wetril_Cnki_License  wcli 
+      left join WETRIL_CNKI_LICBUS wcl  on wcli.id=wcl.LICID 
+     LEFT JOIN Wetril_Cnki_Fuwu wcf on (wcl.yewuname=wcf.parentname and wcli.LICID=wcf.LICID)
+     left join Wetril_Cnkisd_Zifuwu wcz on (wcli.LICID=wcz.LICID and wcz.parentid=wcf.id )
+     left join WETRIL_CNKI_ENTBASE wce on wce.entid=wcli.entid
+     left join dxxzsp_yewujilu_user wyu on (wcl.workid=wyu.workid and wcl.yewucode=wyu.yewucode)
+     left join DXXZSP_FWYDYW df on wyu.dataid= df.id
+      where 
+       wcli.version='1' 
+      and wcli.flag='1' 
+  
+      and wcl.yewuname is not null  and wcl.version='1'  
+      and wcli.versionmissionid='kdqxk'
+      and wce.version='1'
+      and wcl.workid in 
+      <foreach item="item" collection="entbaseNameList" separator="," open="(" close=")" index="">
+	      <if  test="item!=null and  item!=''">
+	        trim(#{item})
+	      </if>
+      </foreach>
+      
+      order by wcli.num ,wcl.yewuname
+      
+  </select>
+  
+  <select id="downLicenceBg" resultType="java.util.Map">
+    select   a.SJYW,
+                a.RNAME    ,
+                f.TITLE  ,
+                b.NODENAME   ,
+                g.CREATED   ,
+             
+                (
+                        select
+                                max(actiontime)
+                        from
+                                tw_hz_log H
+                        where
+                                h.nextnodeids is not null
+                            and h.workid       =a.workid
+                ) as ACTIONTIME,
+                case when a.sjyw='终止经营' then
+                                (
+                                        select
+                                                '终止经营业务：  '
+                                                || wm_concat(to_char(TER_BUSI_TYPE))
+                                                  from
+                                                TERMINATE_APPLICATION I
+                                        where
+                                                i.id=a.dataid
+                                )
+                                ||'' when a.sjyw='许可证续期' then
+                                (
+                                        select wm_concat('继续经营业务种类及覆盖范围：'
+                                                
+                                                || to_char(CONTINUE_TYPE)
+                                              
+                                                ||'  不继续经营业务种类及覆盖范围：'
+                                                || case when to_char(NO_RUN_BUSI) is not null and to_char(NO_RUN_BUSI)
+                                                  <![CDATA[<>]]>
+                                                 '' then to_char(NO_RUN_BUSI) else '无' end
+                                                )
+                                        from
+                                                CONTINUE_APPLICATION I
+                                        where
+                                                i.id=a.dataid
+                                )
+                                ||'' when a.sjyw='法定代表人变更' then
+                                (
+                                        select
+                                                wm_concat('变更前法定代表人：'
+                                                ||F_NAME
+                                                ||
+                                                ' 变更后法定代表人：'
+                                                ||BG_NAME
+                                                )
+                                        from
+                                                LEGAL_CHANGE I
+                                        where
+                                                i.id=a.dataid
+                                ) when a.sjyw       ='其他变更' then
+                                (
+                                        select
+                                                wm_concat('变更事项：'
+                                                ||j.BIANGENGSHIXIANG
+                                                ||' 变更前：'
+                                                ||j.BIANGENGQIAN
+                                                ||' 变更后：'
+                                                ||j.BIANGENGHOU)
+                                        from
+                                                OTHER_MATTER_CHANGES I,
+                                                DXXZSP_BIANGENGSHIXIANG J
+                                        where
+                                                i.id=j.parentid and i.id=a.dataid
+                                ) when a.sjyw       ='业务覆盖范围变更' then
+                                (
+                                        select
+                                                wm_concat( ' '||j.BUSINESS_TYPE
+                                                ||' 变更前业务覆盖范围范围:'
+                                                ||j.COVERAGE_BEFORE
+                                                ||' 变更后业务覆盖范围范围:'
+                                                ||j.BUSTEXT  )
+                                        from
+                                                BUSINESS_COVERAGE_CHANGE I,
+                                                DYNAMIC_TABLE_view J
+                                        where
+                                                i.id=j.parentid and i.id=a.dataid
+                                ) when a.sjyw       ='公司名称变更' then
+                                (
+                                        select
+                                                wm_concat('变更前公司名称：'
+                                                ||COMPANY_NAME
+                                                ||' 变更后公司名称：'
+                                                ||CHANGED_COMPANY_NAME)
+                                        from
+                                                COMPANY_CONVERSION I
+                                        where
+                                                i.id=a.dataid
+                                        group by
+                                                i.id
+                                ) 
+                                when a.sjyw='经营主体变更' then
+                                (
+                                        select
+                                                '变更前经营主体名称：'
+                                                ||CERTIFICATE_CO_NAME
+                                                ||',变更后经营主体名称：'
+                                                ||CO_NAME
+                                                ||',变更经营主体业务种类和覆盖范围：'
+                                                ||to_char(BG_BUSI_TYPES_COVERAGE)
+                                        from
+                                                BUSINESS_CHANGE I
+                                        where
+                                                i.id=a.dataid
+                                )            
+                                else a.SJYW end as 变更事项 ,
+                CORPORATENAME                    ,
+                CORPORATEMOBILE                 ,
+                LINKMAN                    ,
+                LINKMOBILE   
+        from
+                dxxzsp_yewujilu_user A,
+                tw_hz_track B         ,
+                to_horizon_user C     ,
+                wetril_cnki_entbase D ,
+                twr_hz_instance E     ,
+                CHANGE_PUBLIC_FORMS F ,
+                DXXZSP_YEWU_PICI G
+        where
+            a.workid  =b.workid
+            and a.yewutype='跨地区许可变更'
+            and b.nodeid in('Node7', 'Node6', 'Node12')
+            and a.yewucode not like '%00'
+            and a.yewucode not like '%YD'
+            and a.creator   =c.id
+            and c.login_name=d.account
+            and d.version   ='1'
+            and e.workid    =a.workid
+            and e.dataid    =f.id
+            and a.workid    =g.workid
+            and g.status    ='1'
+            and F.title is not null
+            and a.workid in 
+	      <foreach item="item" collection="entbaseNameList" separator="," open="(" close=")" index="">
+		      <if  test="item!=null and  item!=''">
+		        trim(#{item})
+		      </if>
+	      </foreach>
+        order by
+                a.rname,
+                a.yewucode,
+                a.sjyw
+       
+      
+  </select>
+
+</mapper>

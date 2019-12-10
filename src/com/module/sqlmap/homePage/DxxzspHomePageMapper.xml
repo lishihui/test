@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.homePage.DxxzspHomePageMapper">
+	<resultMap id="DBTJResultMap"
+		type="com.module.domain.homePage.DxxzspHomePageDBTJ">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="DBTJ_DATE" property="dbtjDate" jdbcType="DATE" />
+		<result column="XKSX" property="xksx" jdbcType="VARCHAR" />
+		<result column="KDQSQ" property="kdqsq" jdbcType="INTEGER" />
+		<result column="SNSQ" property="snsq" jdbcType="INTEGER" />
+		<result column="KDQBG" property="kdqbg" jdbcType="INTEGER" />
+		<result column="SNBG" property="snbg" jdbcType="INTEGER" />
+		<result column="SLHJ" property="slhj" jdbcType="INTEGER" />
+		<result column="CREATE_TIME" property="createTime"
+			jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="DBTJ_Column_List">
+		ID, DBTJ_DATE, XKSX, KDQSQ, SNSQ, KDQBG, SNBG, SLHJ, CREATE_TIME
+	</sql>
+	<select id="selectDBTJAll" resultMap="DBTJResultMap">
+		SELECT
+		<include refid="DBTJ_Column_List" />
+		FROM DXXZSP_HOMEPAGE_DBTJ
+		WHERE 1 = 1
+	</select>
+	<resultMap id="SQPHBResultMap"
+		type="com.module.domain.homePage.DxxzspHomePageSQPHB">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="SQPHB_DATE" property="sqphbDate"
+			jdbcType="DATE" />
+		<result column="LCID" property="lcid" jdbcType="VARCHAR" />
+		<result column="LCNAME" property="lcname" jdbcType="VARCHAR" />
+		<result column="SQSL" property="sqsl" jdbcType="INTEGER" />
+		<result column="DBSL" property="dbsl" jdbcType="INTEGER" />
+		<result column="CREATE_TIME" property="createTime"
+			jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="SQPHB_Column_List">
+		ID, SQPHB_DATE, LCID, LCNAME, SQSL, DBSL, CREATE_TIME
+	</sql>
+	<select id="selectSQPHB" resultMap="SQPHBResultMap">
+		SELECT
+		<include refid="SQPHB_Column_List" />
+		FROM DXXZSP_HOMEPAGE_SQPHB
+		WHERE 1 = 1
+		ORDER BY SQSL DESC
+		LIMIT 0,8
+	</select>
+	<resultMap id="TJBResultMap"
+		type="com.module.domain.homePage.DxxzspHomePageTJB">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="WD" property="wd" jdbcType="VARCHAR" />
+		<result column="ZYI" property="zyi" jdbcType="INTEGER" />
+		<result column="ZER" property="zer" jdbcType="INTEGER" />
+		<result column="ZSAN" property="zsan" jdbcType="INTEGER" />
+		<result column="ZSI" property="zsi" jdbcType="INTEGER" />
+		<result column="ZWU" property="zwu" jdbcType="INTEGER" />
+		<result column="CREATE_TIME" property="createTime"
+			jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="TJB_Column_List">
+		ID, WD, ZYI, ZER, ZSAN, ZSI, ZWU, CREATE_TIME
+	</sql>
+	<select id="selectTJBAll" resultMap="TJBResultMap">
+		SELECT
+		<include refid="TJB_Column_List" />
+		FROM DXXZSP_HOMEPAGE_TJB
+		WHERE 1 = 1
+	</select>
+	<resultMap id="BMYWDTResultMap"
+		type="com.module.domain.homePage.DxxzspHomePageBMYWDT">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="TYPE" property="type" jdbcType="VARCHAR" />
+		<result column="YEAR" property="year" jdbcType="VARCHAR" />
+		<result column="MONTH" property="month" jdbcType="VARCHAR" />
+		<result column="DAY" property="day" jdbcType="VARCHAR" />
+		<result column="SJ" property="sj" jdbcType="INTEGER" />
+		<result column="BJ" property="bj" jdbcType="INTEGER" />
+		<result column="TIME" property="time" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="BMYWDT_Column_List">
+		ID, TYPE, YEAR, MONTH, DAY, SJ, BJ, TIME
+	</sql>
+	<select id="selectDAY" resultMap="BMYWDTResultMap"
+		parameterType="com.module.domain.homePage.DxxzspHomePageBMYWDT">
+		SELECT
+		<include refid="BMYWDT_Column_List" />
+		FROM DXXZSP_HOMEPAGE_BMYWDT
+		WHERE 1 = 1
+		<if test="type != null and year != null and month != null and day != null">
+			AND TYPE = #{type,jdbcType=VARCHAR} 
+			AND YEAR = #{year,jdbcType=VARCHAR}
+			AND MONTH = #{month,jdbcType=VARCHAR}
+			AND DAY = #{day,jdbcType=VARCHAR}
+		</if>
+		ORDER BY TIME DESC LIMIT 1
+	</select>	
+	<select id="selectMONTH" resultMap="BMYWDTResultMap"
+		parameterType="com.module.domain.homePage.DxxzspHomePageBMYWDT">
+		SELECT
+		<include refid="BMYWDT_Column_List" />
+		FROM DXXZSP_HOMEPAGE_BMYWDT
+		WHERE 1 = 1
+		<if test="type != null and year != null and month != null">
+			AND TYPE = #{type,jdbcType=VARCHAR} AND YEAR = #{year,jdbcType=VARCHAR} AND MONTH = #{month,jdbcType=VARCHAR}
+		</if>
+		ORDER BY TIME DESC LIMIT 1
+	</select>	
+	<select id="selectYEAR" resultMap="BMYWDTResultMap"
+		parameterType="com.module.domain.homePage.DxxzspHomePageBMYWDT">
+		SELECT
+		<include refid="BMYWDT_Column_List" />
+		FROM DXXZSP_HOMEPAGE_BMYWDT
+		WHERE 1 = 1
+		<if test="type != null and year !=null">
+			AND TYPE = #{type,jdbcType=VARCHAR} AND YEAR = #{year,jdbcType=VARCHAR}
+		</if>
+		ORDER BY TIME DESC LIMIT 1
+	</select>
+	
+	
+	<!-- 添加部门业务动态信息 -->
+	<insert id="addBMYWDTInfo" parameterType="com.module.domain.homePage.DxxzspHomePageBMYWDT" >
+    	insert into DXXZSP_HOMEPAGE_BMYWDT(TYPE,YEAR,MONTH,DAY,SJ,BJ,TIME,WEEK) 
+		VALUES(#{type},YEAR(NOW()),MONTH(NOW()),DAY(NOW()),#{shoujian},#{banjie},#{createTime},#{week})
+    </insert>
+  
+  <!-- 查询当日部门动态数据 -->
+  <select id="queryByDate" resultType="com.module.domain.homePage.DxxzspHomePageBMYWDT">
+  	select
+  	id,
+  	type,
+  	year,
+  	month,
+  	day,
+  	sj as shoujian,
+  	bj as banjie
+ 	from DXXZSP_HOMEPAGE_BMYWDT
+	where YEAR = YEAR(NOW()) AND MONTH = MONTH(NOW()) AND DAY = DAY(NOW())
+	AND TYPE = '日'
+	order by sj limit 1
+  </select>
+  
+  <!-- 查询当月部门动态数据 -->
+  <select id="queryByMonth" resultType="com.module.domain.homePage.DxxzspHomePageBMYWDT">
+  	select 
+  	id,
+  	type,
+  	year,
+  	month,
+  	day,
+  	sj as shoujian,
+  	bj as banjie
+  	from DXXZSP_HOMEPAGE_BMYWDT
+	where YEAR = YEAR(NOW()) AND MONTH = MONTH(NOW())
+	AND TYPE = '月'
+  </select>
+  
+  <!-- 查询当年部门动态数据 -->
+  <select id="queryByYear" resultType="com.module.domain.homePage.DxxzspHomePageBMYWDT">
+  	select
+  	id,
+  	type,
+  	year,
+  	month,
+  	day,
+  	sj as shoujian,
+  	bj as banjie
+  	from DXXZSP_HOMEPAGE_BMYWDT
+	where YEAR = YEAR(NOW())
+	AND TYPE = '年'
+  </select>
+  
+  <!-- 更新一条部门动态信息 -->
+  <update id="updBMYWDTInfo" parameterType="com.module.domain.homePage.DxxzspHomePageBMYWDT">
+  	update DXXZSP_HOMEPAGE_BMYWDT
+	set BJ = #{banjie},SJ = #{shoujian}
+	where ID = #{id}
+  </update>
+  
+  <!-- 查询今日收件数量 -->
+  <select id="getShouJianNum" resultType="java.lang.Integer">
+  	select count(0) num from ITEM_USER_APPLY
+	where date_format(CREATE_TIME,'yyyy-mm-dd') = date_format(now(),'yyyy-mm-dd')
+	and TASK_STATUS != 'F0'
+  </select>
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.domain.FormMetaMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.FormMeta">
+    <id column="ID_" jdbcType="VARCHAR" property="id" />
+    <result column="KEY_" jdbcType="VARCHAR" property="key" />
+    <result column="NAME_" jdbcType="VARCHAR" property="name" />
+    <result column="TYPE_" jdbcType="VARCHAR" property="type" />
+    <result column="TYPE_ID_" jdbcType="VARCHAR" property="typeId" />
+    <result column="OPINION_CONF_" jdbcType="VARCHAR" property="opinionConf" />
+    <result column="CREATE_BY_" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_TIME_" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_BY_" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_TIME_" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="CREATE_ORG_ID_" jdbcType="VARCHAR" property="createOrgId" />
+    <result column="DESC_" jdbcType="VARCHAR" property="desc" />
+    <result column="REV_" jdbcType="INTEGER" property="rev" />
+    <result column="SUBENTITY_" jdbcType="VARCHAR" property="subentity" />
+    <result column="MAINALIAS_" jdbcType="VARCHAR" property="mainalias" />
+    <result column="MACROALIAS_" jdbcType="VARCHAR" property="macroalias" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domain.FormMetaWithBLOBs">
+    <result column="EXPAND_" jdbcType="CLOB" property="expand" />
+    <result column="GANGED_" jdbcType="CLOB" property="ganged" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID_, KEY_, NAME_, TYPE_, TYPE_ID_, OPINION_CONF_, CREATE_BY_, CREATE_TIME_, UPDATE_BY_, 
+    UPDATE_TIME_, CREATE_ORG_ID_, DESC_, REV_, SUBENTITY_, MAINALIAS_, MACROALIAS_
+  </sql>
+  <sql id="Blob_Column_List">
+    EXPAND_, GANGED_
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FORM_PRODUCT。FORM_META
+    where ID_ in  #{id,jdbcType=VARCHAR}
+  </select>
+</mapper>

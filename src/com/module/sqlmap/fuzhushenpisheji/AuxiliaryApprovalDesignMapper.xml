@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.fuzhushenpisheji.AuxiliaryApprovalDesignMapper">
+	<!-- 获取获取统一社会信用代码 -->
+	<select id="getRegcodeByEntid"
+		parameterType="java.lang.String"
+		resultType="java.lang.String">
+		SELECT REGCODE FROM WETRIL_CNKI_ENTBASE
+		WHERE ENTID = #{entid,jdbcType=VARCHAR}
+		AND VERSION= '1'
+	</select>
+</mapper>

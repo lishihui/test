@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.domain.DxxzspYwfzhssjhZybgMapper" >
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.DxxzspYwfzhssjhZybg" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="CREATED" property="created" jdbcType="VARCHAR" />
+    <result column="MODIFIED" property="modified" jdbcType="VARCHAR" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="MODIFICATOR" property="modificator" jdbcType="VARCHAR" />
+    <result column="RECYCLE" property="recycle" jdbcType="VARCHAR" />
+    <result column="ISPXK" property="ispxk" jdbcType="VARCHAR" />
+    <result column="XKZH" property="xkzh" jdbcType="VARCHAR" />
+    <result column="SFKT" property="sfkt" jdbcType="VARCHAR" />
+    <result column="ISSPXKY" property="isspxky" jdbcType="VARCHAR" />
+    <result column="ITEMID" property="itemid" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.module.domain.domain.DxxzspYwfzhssjhZybgWithBLOBs" extends="BaseResultMap" >
+    <result column="SQJYYWJS" property="sqjyywjs" jdbcType="CLOB" />
+    <result column="YWSSJH" property="ywssjh" jdbcType="CLOB" />
+    <result column="JSJH" property="jsjh" jdbcType="CLOB" />
+    <result column="NKZFWXMS" property="nkzfwxms" jdbcType="CLOB" />
+    <result column="JYMS" property="jyms" jdbcType="CLOB" />
+    <result column="NIKAIZHANXMJYMS" property="nikaizhanxmjyms" jdbcType="CLOB" />
+  </resultMap>
+  
+  
+	<select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from DXXZSP_YWFZHSSJH_ZYBG
+		where ID = #{id,jdbcType=VARCHAR}
+	</select>
+	<sql id="Base_Column_List">
+		ID,
+		TITLE,
+		CREATED, 
+		MODIFIED,
+		CREATOR,
+		MODIFICATOR, 
+		RECYCLE,
+		ISPXK,
+		XKZH, 
+		SFKT,
+		ISSPXKY,
+		ITEMID 
+	</sql>
+	<sql id="Blob_Column_List">
+		SQJYYWJS,
+		YWSSJH,
+		JSJH,
+		NKZFWXMS,
+		JYMS,
+		NIKAIZHANXMJYMS
+	</sql>
+  
+  
+  <insert id="insert" parameterType="com.module.domain.domain.DxxzspYwfzhssjhZybgWithBLOBs" >
+    insert into DXXZSP_YWFZHSSJH_ZYBG (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, ISPXK, XKZH, 
+      SFKT, ISSPXKY, ITEMID, 
+      SQJYYWJS, YWSSJH, JSJH, NKZFWXMS, 
+      JYMS, NIKAIZHANXMJYMS)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{ispxk,jdbcType=VARCHAR}, #{xkzh,jdbcType=VARCHAR}, 
+      #{sfkt,jdbcType=VARCHAR}, #{isspxky,jdbcType=VARCHAR}, #{itemid,jdbcType=VARCHAR}, 
+      #{sqjyywjs,jdbcType=CLOB}, #{ywssjh,jdbcType=CLOB}, #{jsjh,jdbcType=CLOB}, #{nkzfwxms,jdbcType=CLOB}, 
+      #{jyms,jdbcType=CLOB}, #{nikaizhanxmjyms,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domain.DxxzspYwfzhssjhZybgWithBLOBs" >
+    insert into DXXZSP_YWFZHSSJH_ZYBG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="created != null" >
+        CREATED,
+      </if>
+      <if test="modified != null" >
+        MODIFIED,
+      </if>
+      <if test="creator != null" >
+        CREATOR,
+      </if>
+      <if test="modificator != null" >
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null" >
+        RECYCLE,
+      </if>
+      <if test="ispxk != null" >
+        ISPXK,
+      </if>
+      <if test="xkzh != null" >
+        XKZH,
+      </if>
+      <if test="sfkt != null" >
+        SFKT,
+      </if>
+      <if test="isspxky != null" >
+        ISSPXKY,
+      </if>
+      <if test="itemid != null" >
+        ITEMID,
+      </if>
+      <if test="sqjyywjs != null" >
+        SQJYYWJS,
+      </if>
+      <if test="ywssjh != null" >
+        YWSSJH,
+      </if>
+      <if test="jsjh != null" >
+        JSJH,
+      </if>
+      <if test="nkzfwxms != null" >
+        NKZFWXMS,
+      </if>
+      <if test="jyms != null" >
+        JYMS,
+      </if>
+      <if test="nikaizhanxmjyms != null" >
+        NIKAIZHANXMJYMS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null" >
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null" >
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null" >
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="ispxk != null" >
+        #{ispxk,jdbcType=VARCHAR},
+      </if>
+      <if test="xkzh != null" >
+        #{xkzh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfkt != null" >
+        #{sfkt,jdbcType=VARCHAR},
+      </if>
+      <if test="isspxky != null" >
+        #{isspxky,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null" >
+        #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="sqjyywjs != null" >
+        #{sqjyywjs,jdbcType=CLOB},
+      </if>
+      <if test="ywssjh != null" >
+        #{ywssjh,jdbcType=CLOB},
+      </if>
+      <if test="jsjh != null" >
+        #{jsjh,jdbcType=CLOB},
+      </if>
+      <if test="nkzfwxms != null" >
+        #{nkzfwxms,jdbcType=CLOB},
+      </if>
+      <if test="jyms != null" >
+        #{jyms,jdbcType=CLOB},
+      </if>
+      <if test="nikaizhanxmjyms != null" >
+        #{nikaizhanxmjyms,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.electricLicencePermit.apply.provinceInner.DxxzspFwydywMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.electricLicencePermit.apply.provinceInner.DxxzspFwydyw">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="NKZFWXM" jdbcType="VARCHAR" property="nkzfwxm" />
+    <result column="JCWYS" jdbcType="VARCHAR" property="jcwys" />
+    <result column="PPMC" jdbcType="VARCHAR" property="ppmc" />
+    <result column="HPHD" jdbcType="VARCHAR" property="hphd" />
+    <result column="SFKZYFFYW" jdbcType="VARCHAR" property="sfkzyffyw" />
+    <result column="FWDH" jdbcType="VARCHAR" property="fwdh" />
+    <result column="QTXM" jdbcType="VARCHAR" property="qtxm" />
+    <result column="CHINANET" jdbcType="VARCHAR" property="chinanet" />
+    <result column="CHINAMOBILE" jdbcType="VARCHAR" property="chinamobile" />
+    <result column="CHINAUNION" jdbcType="VARCHAR" property="chinaunion" />
+    <result column="CHINANETFW" jdbcType="VARCHAR" property="chinanetfw" />
+    <result column="CHINAMOBILEFW" jdbcType="VARCHAR" property="chinamobilefw" />
+    <result column="CHINAUNIONFW" jdbcType="VARCHAR" property="chinaunionfw" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.electricLicencePermit.apply.provinceInner.DxxzspFwydywWithBLOBs">
+    <result column="SYHT" jdbcType="CLOB" property="syht" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_FWYDYW
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List" >
+	ID,TITLE,CREATED,MODIFIED,CREATOR,MODIFICATOR,RECYCLE,
+	NKZFWXM,JCWYS,PPMC,HPHD,SFKZYFFYW,FWDH,QTXM,CHINANET,
+	CHINAMOBILE,CHINAUNION,CHINANETFW,CHINAMOBILEFW,CHINAUNIONFW
+  </sql>
+  <sql id="Blob_Column_List">
+    SYHT
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.electricLicencePermit.apply.provinceInner.DxxzspFwydywWithBLOBs">
+    insert into DXXZSP_FWYDYW (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, NKZFWXM, JCWYS, 
+      PPMC, HPHD, SFKZYFFYW, 
+      FWDH, QTXM, CHINANET, 
+      CHINAMOBILE, CHINAUNION, CHINANETFW, 
+      CHINAMOBILEFW, CHINAUNIONFW, SYHT
+      )
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{nkzfwxm,jdbcType=VARCHAR}, #{jcwys,jdbcType=VARCHAR}, 
+      #{ppmc,jdbcType=VARCHAR}, #{hphd,jdbcType=VARCHAR}, #{sfkzyffyw,jdbcType=VARCHAR}, 
+      #{fwdh,jdbcType=VARCHAR}, #{qtxm,jdbcType=VARCHAR}, #{chinanet,jdbcType=VARCHAR}, 
+      #{chinamobile,jdbcType=VARCHAR}, #{chinaunion,jdbcType=VARCHAR}, #{chinanetfw,jdbcType=VARCHAR}, 
+      #{chinamobilefw,jdbcType=VARCHAR}, #{chinaunionfw,jdbcType=VARCHAR}, #{syht,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.electricLicencePermit.apply.provinceInner.DxxzspFwydywWithBLOBs">
+    insert into DXXZSP_FWYDYW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="nkzfwxm != null">
+        NKZFWXM,
+      </if>
+      <if test="jcwys != null">
+        JCWYS,
+      </if>
+      <if test="ppmc != null">
+        PPMC,
+      </if>
+      <if test="hphd != null">
+        HPHD,
+      </if>
+      <if test="sfkzyffyw != null">
+        SFKZYFFYW,
+      </if>
+      <if test="fwdh != null">
+        FWDH,
+      </if>
+      <if test="qtxm != null">
+        QTXM,
+      </if>
+      <if test="chinanet != null">
+        CHINANET,
+      </if>
+      <if test="chinamobile != null">
+        CHINAMOBILE,
+      </if>
+      <if test="chinaunion != null">
+        CHINAUNION,
+      </if>
+      <if test="chinanetfw != null">
+        CHINANETFW,
+      </if>
+      <if test="chinamobilefw != null">
+        CHINAMOBILEFW,
+      </if>
+      <if test="chinaunionfw != null">
+        CHINAUNIONFW,
+      </if>
+      <if test="syht != null">
+        SYHT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="nkzfwxm != null">
+        #{nkzfwxm,jdbcType=VARCHAR},
+      </if>
+      <if test="jcwys != null">
+        #{jcwys,jdbcType=VARCHAR},
+      </if>
+      <if test="ppmc != null">
+        #{ppmc,jdbcType=VARCHAR},
+      </if>
+      <if test="hphd != null">
+        #{hphd,jdbcType=VARCHAR},
+      </if>
+      <if test="sfkzyffyw != null">
+        #{sfkzyffyw,jdbcType=VARCHAR},
+      </if>
+      <if test="fwdh != null">
+        #{fwdh,jdbcType=VARCHAR},
+      </if>
+      <if test="qtxm != null">
+        #{qtxm,jdbcType=VARCHAR},
+      </if>
+      <if test="chinanet != null">
+        #{chinanet,jdbcType=VARCHAR},
+      </if>
+      <if test="chinamobile != null">
+        #{chinamobile,jdbcType=VARCHAR},
+      </if>
+      <if test="chinaunion != null">
+        #{chinaunion,jdbcType=VARCHAR},
+      </if>
+      <if test="chinanetfw != null">
+        #{chinanetfw,jdbcType=VARCHAR},
+      </if>
+      <if test="chinamobilefw != null">
+        #{chinamobilefw,jdbcType=VARCHAR},
+      </if>
+      <if test="chinaunionfw != null">
+        #{chinaunionfw,jdbcType=VARCHAR},
+      </if>
+      <if test="syht != null">
+        #{syht,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

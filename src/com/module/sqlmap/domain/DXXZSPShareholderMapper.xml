@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.domain.DXXZSPShareholderMapper" >
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.DXXZSPShareholder" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="CREATED" property="created" jdbcType="VARCHAR" />
+    <result column="MODIFIED" property="modified" jdbcType="VARCHAR" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="MODIFICATOR" property="modificator" jdbcType="VARCHAR" />
+    <result column="RECYCLE" property="recycle" jdbcType="VARCHAR" />
+    <result column="FOREIGNSHAREHOLDERS" property="foreignshareholders" jdbcType="VARCHAR" />
+    <result column="ITEMID" property="itemid" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.module.domain.domain.DXXZSPShareholderWithBLOBs" extends="BaseResultMap" >
+    <result column="PROOF" property="proof" jdbcType="CLOB" />
+    <result column="GDZSCNS" property="gdzscns" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Blob_Column_List" >
+    PROOF, GDZSCNS
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.domain.DXXZSPShareholderWithBLOBs" >
+    insert into DXXZSP_SHAREHOLDER (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, FOREIGNSHAREHOLDERS, ITEMID, 
+      PROOF, GDZSCNS)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{foreignshareholders,jdbcType=VARCHAR}, #{itemid,jdbcType=VARCHAR}, 
+      #{proof,jdbcType=CLOB}, #{gdzscns,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domain.DXXZSPShareholderWithBLOBs" >
+    insert into DXXZSP_SHAREHOLDER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="created != null" >
+        CREATED,
+      </if>
+      <if test="modified != null" >
+        MODIFIED,
+      </if>
+      <if test="creator != null" >
+        CREATOR,
+      </if>
+      <if test="modificator != null" >
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null" >
+        RECYCLE,
+      </if>
+      <if test="foreignshareholders != null" >
+        FOREIGNSHAREHOLDERS,
+      </if>
+      <if test="itemid != null" >
+        ITEMID,
+      </if>
+      <if test="proof != null" >
+        PROOF,
+      </if>
+      <if test="gdzscns != null" >
+        GDZSCNS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null" >
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null" >
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null" >
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="foreignshareholders != null" >
+        #{foreignshareholders,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null" >
+        #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="proof != null" >
+        #{proof,jdbcType=CLOB},
+      </if>
+      <if test="gdzscns != null" >
+        #{gdzscns,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

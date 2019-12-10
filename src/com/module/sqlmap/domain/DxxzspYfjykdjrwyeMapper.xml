@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.domain.DxxzspYfjykdjrwyeMapper">
+	<resultMap id="BaseResultMap" type="com.module.domain.domain.DxxzspYfjykdjrwye">
+		<result column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="TITLE" property="title" jdbcType="VARCHAR" />
+		<result column="CREATED" property="created" jdbcType="VARCHAR" />
+		<result column="MODIFIED" property="modified" jdbcType="VARCHAR" />
+		<result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+		<result column="MODIFICATOR" property="modificator" jdbcType="VARCHAR" />
+		<result column="RECYCLE" property="recycle" jdbcType="VARCHAR" />
+		<result column="ITEMID" property="itemid" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="ResultMapWithBLOBs" type="com.module.domain.domain.DxxzspYfjykdjrwyeWithBLOBs"
+		extends="BaseResultMap">
+		<result column="CQFWZLCS" property="cqfwzlcs" jdbcType="BLOB" />
+	</resultMap>
+	<select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from DXXZSP_YFJYKDJRWYE_CNS
+		where ID = #{id,jdbcType=VARCHAR}
+	</select>
+	<sql id="Base_Column_List">
+		ID, TITLE, CREATED,
+		MODIFIED, CREATOR, MODIFICATOR,
+		RECYCLE, ITEMID
+	</sql>
+	<sql id="Blob_Column_List">
+		CNSSCWJ
+	</sql>
+	<insert id="insert" parameterType="com.module.domain.domain.DxxzspYfjykdjrwye">
+		insert into DXXZSP_YFJYKDJRWYE_CNS (ID, TITLE, CREATED,
+		MODIFIED, CREATOR, MODIFICATOR,
+		RECYCLE, ITEMID, CNSSCWJ
+		)
+		values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+		#{created,jdbcType=VARCHAR},
+		#{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR},
+		#{recycle,jdbcType=VARCHAR}, #{itemid,jdbcType=VARCHAR},
+		#{cnsscwj,jdbcType=BLOB}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.module.domain.domain.DxxzspYfjykdjrwye">
+		insert into DXXZSP_YFJYKDJRWYE_CNS
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="title != null">
+				TITLE,
+			</if>
+			<if test="created != null">
+				CREATED,
+			</if>
+			<if test="modified != null">
+				MODIFIED,
+			</if>
+			<if test="creator != null">
+				CREATOR,
+			</if>
+			<if test="modificator != null">
+				MODIFICATOR,
+			</if>
+			<if test="recycle != null">
+				RECYCLE,
+			</if>
+			<if test="itemid != null">
+				ITEMID,
+			</if>
+			<if test="cnsscwj != null">
+				CNSSCWJ,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="title != null">
+				#{title,jdbcType=VARCHAR},
+			</if>
+			<if test="created != null">
+				#{created,jdbcType=VARCHAR},
+			</if>
+			<if test="modified != null">
+				#{modified,jdbcType=VARCHAR},
+			</if>
+			<if test="creator != null">
+				#{creator,jdbcType=VARCHAR},
+			</if>
+			<if test="modificator != null">
+				#{modificator,jdbcType=VARCHAR},
+			</if>
+			<if test="recycle != null">
+				#{recycle,jdbcType=VARCHAR},
+			</if>
+			<if test="itemid != null">
+				#{itemid,jdbcType=VARCHAR},
+			</if>
+			<if test="cnsscwj != null">
+				#{cnsscwj,jdbcType=BLOB},
+			</if>
+		</trim>
+	</insert>
+</mapper>

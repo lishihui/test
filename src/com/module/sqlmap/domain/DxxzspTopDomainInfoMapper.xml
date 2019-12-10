@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.registrationManagement.apply.apply.DxxzspTopDomainInfoMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.registrationManagement.apply.apply.DxxzspTopDomainInfo">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="DOMAIN_OPEN_COVERAGE" jdbcType="VARCHAR" property="domainOpenCoverage" />
+    <result column="MARKET_SITUATION" jdbcType="VARCHAR" property="marketSituation" />
+    <result column="DOMAIN_SITUATION" jdbcType="VARCHAR" property="domainSituation" />
+    <result column="OTHERS" jdbcType="VARCHAR" property="others" />
+    <result column="PID_PARENT" jdbcType="VARCHAR" property="pidParent" />
+    <result column="PID_DTID" jdbcType="VARCHAR" property="pidDtid" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.registrationManagement.apply.apply.DxxzspTopDomainInfoWithBLOBs">
+    <result column="TOP_DOMAIN_BG" jdbcType="CLOB" property="topDomainBg" />
+    <result column="TARGET_USERS" jdbcType="CLOB" property="targetUsers" />
+    <result column="BUSI_DEV_EXPECTATIONS" jdbcType="CLOB" property="busiDevExpectations" />
+    <result column="REGISTRATION_PROCESS_A" jdbcType="CLOB" property="registrationProcessA" />
+    <result column="RESERVED_SYSTEM" jdbcType="CLOB" property="reservedSystem" />
+    <result column="RESERVED_CHARACTER" jdbcType="CLOB" property="reservedCharacter" />
+    <result column="RESERVED_CHANGE_FLOW" jdbcType="CLOB" property="reservedChangeFlow" />
+    <result column="YESCONTENT" jdbcType="CLOB" property="yescontent" />
+    <result column="NOCONTENT" jdbcType="CLOB" property="nocontent" />
+    <result column="REGISTRATION_PROCESS_B" jdbcType="CLOB" property="registrationProcessB" />
+    <result column="ZCSSXZ_FLEX" jdbcType="CLOB" property="zcssxzFlex" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, DOMAIN_OPEN_COVERAGE, MARKET_SITUATION, 
+      DOMAIN_SITUATION, OTHERS, PID_PARENT, 
+      PID_DTID, STATUS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_TOP_DOMAIN_INFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Blob_Column_List">
+    TOP_DOMAIN_BG, TARGET_USERS, BUSI_DEV_EXPECTATIONS, REGISTRATION_PROCESS_A, RESERVED_SYSTEM, 
+    RESERVED_CHARACTER, RESERVED_CHANGE_FLOW, YESCONTENT, NOCONTENT, REGISTRATION_PROCESS_B, 
+    ZCSSXZ_FLEX
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.registrationManagement.apply.apply.DxxzspTopDomainInfoWithBLOBs">
+    insert into DXXZSP_TOP_DOMAIN_INFO (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, DOMAIN_OPEN_COVERAGE, MARKET_SITUATION, 
+      DOMAIN_SITUATION, OTHERS, PID_PARENT, 
+      PID_DTID, STATUS, TOP_DOMAIN_BG, 
+      TARGET_USERS, BUSI_DEV_EXPECTATIONS, REGISTRATION_PROCESS_A, 
+      RESERVED_SYSTEM, RESERVED_CHARACTER, RESERVED_CHANGE_FLOW, 
+      YESCONTENT, NOCONTENT, REGISTRATION_PROCESS_B, 
+      ZCSSXZ_FLEX)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{domainOpenCoverage,jdbcType=VARCHAR}, #{marketSituation,jdbcType=VARCHAR}, 
+      #{domainSituation,jdbcType=VARCHAR}, #{others,jdbcType=VARCHAR}, #{pidParent,jdbcType=VARCHAR}, 
+      #{pidDtid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{topDomainBg,jdbcType=CLOB}, 
+      #{targetUsers,jdbcType=CLOB}, #{busiDevExpectations,jdbcType=CLOB}, #{registrationProcessA,jdbcType=CLOB}, 
+      #{reservedSystem,jdbcType=CLOB}, #{reservedCharacter,jdbcType=CLOB}, #{reservedChangeFlow,jdbcType=CLOB}, 
+      #{yescontent,jdbcType=CLOB}, #{nocontent,jdbcType=CLOB}, #{registrationProcessB,jdbcType=CLOB}, 
+      #{zcssxzFlex,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.registrationManagement.apply.apply.DxxzspTopDomainInfoWithBLOBs">
+    insert into DXXZSP_TOP_DOMAIN_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="domainOpenCoverage != null">
+        DOMAIN_OPEN_COVERAGE,
+      </if>
+      <if test="marketSituation != null">
+        MARKET_SITUATION,
+      </if>
+      <if test="domainSituation != null">
+        DOMAIN_SITUATION,
+      </if>
+      <if test="others != null">
+        OTHERS,
+      </if>
+      <if test="pidParent != null">
+        PID_PARENT,
+      </if>
+      <if test="pidDtid != null">
+        PID_DTID,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="topDomainBg != null">
+        TOP_DOMAIN_BG,
+      </if>
+      <if test="targetUsers != null">
+        TARGET_USERS,
+      </if>
+      <if test="busiDevExpectations != null">
+        BUSI_DEV_EXPECTATIONS,
+      </if>
+      <if test="registrationProcessA != null">
+        REGISTRATION_PROCESS_A,
+      </if>
+      <if test="reservedSystem != null">
+        RESERVED_SYSTEM,
+      </if>
+      <if test="reservedCharacter != null">
+        RESERVED_CHARACTER,
+      </if>
+      <if test="reservedChangeFlow != null">
+        RESERVED_CHANGE_FLOW,
+      </if>
+      <if test="yescontent != null">
+        YESCONTENT,
+      </if>
+      <if test="nocontent != null">
+        NOCONTENT,
+      </if>
+      <if test="registrationProcessB != null">
+        REGISTRATION_PROCESS_B,
+      </if>
+      <if test="zcssxzFlex != null">
+        ZCSSXZ_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="domainOpenCoverage != null">
+        #{domainOpenCoverage,jdbcType=VARCHAR},
+      </if>
+      <if test="marketSituation != null">
+        #{marketSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="domainSituation != null">
+        #{domainSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="others != null">
+        #{others,jdbcType=VARCHAR},
+      </if>
+      <if test="pidParent != null">
+        #{pidParent,jdbcType=VARCHAR},
+      </if>
+      <if test="pidDtid != null">
+        #{pidDtid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="topDomainBg != null">
+        #{topDomainBg,jdbcType=CLOB},
+      </if>
+      <if test="targetUsers != null">
+        #{targetUsers,jdbcType=CLOB},
+      </if>
+      <if test="busiDevExpectations != null">
+        #{busiDevExpectations,jdbcType=CLOB},
+      </if>
+      <if test="registrationProcessA != null">
+        #{registrationProcessA,jdbcType=CLOB},
+      </if>
+      <if test="reservedSystem != null">
+        #{reservedSystem,jdbcType=CLOB},
+      </if>
+      <if test="reservedCharacter != null">
+        #{reservedCharacter,jdbcType=CLOB},
+      </if>
+      <if test="reservedChangeFlow != null">
+        #{reservedChangeFlow,jdbcType=CLOB},
+      </if>
+      <if test="yescontent != null">
+        #{yescontent,jdbcType=CLOB},
+      </if>
+      <if test="nocontent != null">
+        #{nocontent,jdbcType=CLOB},
+      </if>
+      <if test="registrationProcessB != null">
+        #{registrationProcessB,jdbcType=CLOB},
+      </if>
+      <if test="zcssxzFlex != null">
+        #{zcssxzFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

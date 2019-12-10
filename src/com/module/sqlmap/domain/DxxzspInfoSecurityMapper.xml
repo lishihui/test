@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.internetDomainRootServices.apply.apply.DxxzspInfoSecurityMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.internetDomainRootServices.apply.apply.DxxzspInfoSecurity">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="SAFETY_LINKMAN" jdbcType="VARCHAR" property="safetyLinkman" />
+    <result column="LINK_PHONE" jdbcType="VARCHAR" property="linkPhone" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.internetDomainRootServices.apply.apply.DxxzspInfoSecurityWithBLOBs">
+    <result column="RESPONSIBILITIES_FLEX" jdbcType="CLOB" property="responsibilitiesFlex" />
+    <result column="SAFETY_MANA_FLEX" jdbcType="CLOB" property="safetyManaFlex" />
+    <result column="QUALIFICATIONS_FLEX" jdbcType="CLOB" property="qualificationsFlex" />
+    <result column="ROOT_PROMISE_FLEX" jdbcType="CLOB" property="rootPromiseFlex" />
+    <result column="SAFE_MANA_SYS_FLEX" jdbcType="CLOB" property="safeManaSysFlex" />
+    <result column="MAJOR_INFO_FLEX" jdbcType="CLOB" property="majorInfoFlex" />
+    <result column="SAFETY_PROTECTION_FLEX" jdbcType="CLOB" property="safetyProtectionFlex" />
+    <result column="EMERGENCY_FLEX" jdbcType="CLOB" property="emergencyFlex" />
+    <result column="INFO_SAFE_FLEX" jdbcType="CLOB" property="infoSafeFlex" />
+    <result column="RESPONSIBILITIES" jdbcType="CLOB" property="responsibilities" />
+    <result column="SAFETY_MANA" jdbcType="CLOB" property="safetyMana" />
+    <result column="QUALIFICATIONS" jdbcType="CLOB" property="qualifications" />
+    <result column="SAFE_MANA_SYS" jdbcType="CLOB" property="safeManaSys" />
+    <result column="MAJOR_INFO" jdbcType="CLOB" property="majorInfo" />
+    <result column="SAFETY_PROTECTION" jdbcType="CLOB" property="safetyProtection" />
+    <result column="EMERGENCY" jdbcType="CLOB" property="emergency" />
+    <result column="INFO_SAFE" jdbcType="CLOB" property="infoSafe" />
+  </resultMap>
+   <sql id="Base_Column_List" >
+	ID,TITLE,CREATED,MODIFIED,CREATOR,MODIFICATOR,RECYCLE,SAFETY_LINKMAN,LINK_PHONE
+  </sql>
+  <sql id="Blob_Column_List">
+    RESPONSIBILITIES_FLEX, SAFETY_MANA_FLEX, QUALIFICATIONS_FLEX, ROOT_PROMISE_FLEX, 
+    SAFE_MANA_SYS_FLEX, MAJOR_INFO_FLEX, SAFETY_PROTECTION_FLEX, EMERGENCY_FLEX, INFO_SAFE_FLEX, 
+    RESPONSIBILITIES, SAFETY_MANA, QUALIFICATIONS, SAFE_MANA_SYS, MAJOR_INFO, SAFETY_PROTECTION, 
+    EMERGENCY, INFO_SAFE
+  </sql>
+  
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_INFO_SECURITY
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DXXZSP_INFO_SECURITY
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  
+  <insert id="insert" parameterType="com.module.domain.internetDomainRootServices.apply.apply.DxxzspInfoSecurityWithBLOBs">
+    insert into DXXZSP_INFO_SECURITY (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, SAFETY_LINKMAN, LINK_PHONE, 
+      RESPONSIBILITIES_FLEX, SAFETY_MANA_FLEX, QUALIFICATIONS_FLEX, 
+      ROOT_PROMISE_FLEX, SAFE_MANA_SYS_FLEX, MAJOR_INFO_FLEX, 
+      SAFETY_PROTECTION_FLEX, EMERGENCY_FLEX, INFO_SAFE_FLEX, 
+      RESPONSIBILITIES, SAFETY_MANA, QUALIFICATIONS, 
+      SAFE_MANA_SYS, MAJOR_INFO, SAFETY_PROTECTION, 
+      EMERGENCY, INFO_SAFE)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{safetyLinkman,jdbcType=VARCHAR}, #{linkPhone,jdbcType=VARCHAR}, 
+      #{responsibilitiesFlex,jdbcType=CLOB}, #{safetyManaFlex,jdbcType=CLOB}, #{qualificationsFlex,jdbcType=CLOB}, 
+      #{rootPromiseFlex,jdbcType=CLOB}, #{safeManaSysFlex,jdbcType=CLOB}, #{majorInfoFlex,jdbcType=CLOB}, 
+      #{safetyProtectionFlex,jdbcType=CLOB}, #{emergencyFlex,jdbcType=CLOB}, #{infoSafeFlex,jdbcType=CLOB}, 
+      #{responsibilities,jdbcType=CLOB}, #{safetyMana,jdbcType=CLOB}, #{qualifications,jdbcType=CLOB}, 
+      #{safeManaSys,jdbcType=CLOB}, #{majorInfo,jdbcType=CLOB}, #{safetyProtection,jdbcType=CLOB}, 
+      #{emergency,jdbcType=CLOB}, #{infoSafe,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.internetDomainRootServices.apply.apply.DxxzspInfoSecurityWithBLOBs">
+    insert into DXXZSP_INFO_SECURITY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="safetyLinkman != null">
+        SAFETY_LINKMAN,
+      </if>
+      <if test="linkPhone != null">
+        LINK_PHONE,
+      </if>
+      <if test="responsibilitiesFlex != null">
+        RESPONSIBILITIES_FLEX,
+      </if>
+      <if test="safetyManaFlex != null">
+        SAFETY_MANA_FLEX,
+      </if>
+      <if test="qualificationsFlex != null">
+        QUALIFICATIONS_FLEX,
+      </if>
+      <if test="rootPromiseFlex != null">
+        ROOT_PROMISE_FLEX,
+      </if>
+      <if test="safeManaSysFlex != null">
+        SAFE_MANA_SYS_FLEX,
+      </if>
+      <if test="majorInfoFlex != null">
+        MAJOR_INFO_FLEX,
+      </if>
+      <if test="safetyProtectionFlex != null">
+        SAFETY_PROTECTION_FLEX,
+      </if>
+      <if test="emergencyFlex != null">
+        EMERGENCY_FLEX,
+      </if>
+      <if test="infoSafeFlex != null">
+        INFO_SAFE_FLEX,
+      </if>
+      <if test="responsibilities != null">
+        RESPONSIBILITIES,
+      </if>
+      <if test="safetyMana != null">
+        SAFETY_MANA,
+      </if>
+      <if test="qualifications != null">
+        QUALIFICATIONS,
+      </if>
+      <if test="safeManaSys != null">
+        SAFE_MANA_SYS,
+      </if>
+      <if test="majorInfo != null">
+        MAJOR_INFO,
+      </if>
+      <if test="safetyProtection != null">
+        SAFETY_PROTECTION,
+      </if>
+      <if test="emergency != null">
+        EMERGENCY,
+      </if>
+      <if test="infoSafe != null">
+        INFO_SAFE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="safetyLinkman != null">
+        #{safetyLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="linkPhone != null">
+        #{linkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="responsibilitiesFlex != null">
+        #{responsibilitiesFlex,jdbcType=CLOB},
+      </if>
+      <if test="safetyManaFlex != null">
+        #{safetyManaFlex,jdbcType=CLOB},
+      </if>
+      <if test="qualificationsFlex != null">
+        #{qualificationsFlex,jdbcType=CLOB},
+      </if>
+      <if test="rootPromiseFlex != null">
+        #{rootPromiseFlex,jdbcType=CLOB},
+      </if>
+      <if test="safeManaSysFlex != null">
+        #{safeManaSysFlex,jdbcType=CLOB},
+      </if>
+      <if test="majorInfoFlex != null">
+        #{majorInfoFlex,jdbcType=CLOB},
+      </if>
+      <if test="safetyProtectionFlex != null">
+        #{safetyProtectionFlex,jdbcType=CLOB},
+      </if>
+      <if test="emergencyFlex != null">
+        #{emergencyFlex,jdbcType=CLOB},
+      </if>
+      <if test="infoSafeFlex != null">
+        #{infoSafeFlex,jdbcType=CLOB},
+      </if>
+      <if test="responsibilities != null">
+        #{responsibilities,jdbcType=CLOB},
+      </if>
+      <if test="safetyMana != null">
+        #{safetyMana,jdbcType=CLOB},
+      </if>
+      <if test="qualifications != null">
+        #{qualifications,jdbcType=CLOB},
+      </if>
+      <if test="safeManaSys != null">
+        #{safeManaSys,jdbcType=CLOB},
+      </if>
+      <if test="majorInfo != null">
+        #{majorInfo,jdbcType=CLOB},
+      </if>
+      <if test="safetyProtection != null">
+        #{safetyProtection,jdbcType=CLOB},
+      </if>
+      <if test="emergency != null">
+        #{emergency,jdbcType=CLOB},
+      </if>
+      <if test="infoSafe != null">
+        #{infoSafe,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

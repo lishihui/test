@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.electricLicencePermit.change.provinceInnerChange.DxxzspBusinessChangeMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.electricLicencePermit.change.provinceInnerChange.BusinessChange">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="CERTIFICATE_CO_NAME" jdbcType="VARCHAR" property="certificateCoName" />
+    <result column="LICENSE_NUM" jdbcType="VARCHAR" property="licenseNum" />
+    <result column="CZ_BUSI_TYPES_COVERAGE" jdbcType="VARCHAR" property="czBusiTypesCoverage" />
+    <result column="CO_NAME" jdbcType="VARCHAR" property="coName" />
+    <result column="REGISTERED_CAPITAL" jdbcType="VARCHAR" property="registeredCapital" />
+    <result column="REG_ADDRESS" jdbcType="VARCHAR" property="regAddress" />
+    <result column="CO_FIXED_PHONE" jdbcType="VARCHAR" property="coFixedPhone" />
+    <result column="SOCIAL_CREDIT_CODE" jdbcType="VARCHAR" property="socialCreditCode" />
+    <result column="BUSINESS_LICENSE" jdbcType="VARCHAR" property="businessLicense" />
+    <result column="MAIN_OFFICE_ADDRESS" jdbcType="VARCHAR" property="mainOfficeAddress" />
+    <result column="ADDR_POSTCODE" jdbcType="VARCHAR" property="addrPostcode" />
+    <result column="COMPANY_TYPE" jdbcType="VARCHAR" property="companyType" />
+    <result column="SUBJECT_CHANGE_TYPE" jdbcType="VARCHAR" property="subjectChangeType" />
+    <result column="INDUSTRY" jdbcType="VARCHAR" property="industry" />
+    <result column="COMPANY_SIZE" jdbcType="VARCHAR" property="companySize" />
+    <result column="F_NAME" jdbcType="VARCHAR" property="fName" />
+    <result column="F_ID_NUM" jdbcType="VARCHAR" property="fIdNum" />
+    <result column="F_MOBILE_PHONE" jdbcType="VARCHAR" property="fMobilePhone" />
+    <result column="F_EMAIL" jdbcType="VARCHAR" property="fEmail" />
+    <result column="Z_NAME" jdbcType="VARCHAR" property="zName" />
+    <result column="Z_ID_NUM" jdbcType="VARCHAR" property="zIdNum" />
+    <result column="Z_MOBILE_PHONE" jdbcType="VARCHAR" property="zMobilePhone" />
+    <result column="Z_EMAIL" jdbcType="VARCHAR" property="zEmail" />
+    <result column="K_NAME" jdbcType="VARCHAR" property="kName" />
+    <result column="K_ID_NUM" jdbcType="VARCHAR" property="kIdNum" />
+    <result column="K_MOBILE_PHONE" jdbcType="VARCHAR" property="kMobilePhone" />
+    <result column="K_EMAIL" jdbcType="VARCHAR" property="kEmail" />
+    <result column="A_NAME" jdbcType="VARCHAR" property="aName" />
+    <result column="A_ID_NUM" jdbcType="VARCHAR" property="aIdNum" />
+    <result column="A_MOBILE_PHONE" jdbcType="VARCHAR" property="aMobilePhone" />
+    <result column="A_EMAIL" jdbcType="VARCHAR" property="aEmail" />
+    <result column="F_ID_FLEX" jdbcType="VARCHAR" property="fIdFlex" />
+    <result column="Z_ID_FLEX" jdbcType="VARCHAR" property="zIdFlex" />
+    <result column="K_ID_FLEX" jdbcType="VARCHAR" property="kIdFlex" />
+    <result column="A_ID_FLEX" jdbcType="VARCHAR" property="aIdFlex" />
+    <result column="SOCIAL_SECURITY_PROV" jdbcType="VARCHAR" property="socialSecurityProv" />
+    <result column="WHETHER_MARKET" jdbcType="VARCHAR" property="whetherMarket" />
+    <result column="CO_FLEX" jdbcType="VARCHAR" property="coFlex" />
+    <result column="CURRENCY" jdbcType="VARCHAR" property="currency" />
+    <result column="ABSORPTION_MER" jdbcType="VARCHAR" property="absorptionMer" />
+    <result column="DISCRETE" jdbcType="VARCHAR" property="discrete" />
+    <result column="CO_NATURE_CHANGE" jdbcType="VARCHAR" property="coNatureChange" />
+    <result column="DOMESTIC_INVESTMENT" jdbcType="VARCHAR" property="domesticInvestment" />
+    <result column="FOR_INVEST" jdbcType="VARCHAR" property="forInvest" />
+    <result column="YES" jdbcType="VARCHAR" property="yes" />
+    <result column="NO" jdbcType="VARCHAR" property="no" />
+    <result column="OTHER_CURR" jdbcType="VARCHAR" property="otherCurr" />
+    <result column="CO_COVERAGE" jdbcType="VARCHAR" property="coCoverage" />
+    <result column="NO_FOREGIN_INVEST" jdbcType="VARCHAR" property="noForeginInvest" />
+    <result column="CONT_FOREIGN_INVEST" jdbcType="VARCHAR" property="contForeignInvest" />
+    <result column="CON_INVSET_NOT_ACCESS" jdbcType="VARCHAR" property="conInvsetNotAccess" />
+    <result column="CO_TYPE" jdbcType="VARCHAR" property="coType" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspBusinessChangeWithBLOBs">
+    <result column="BG_BUSI_TYPES_COVERAGE" jdbcType="CLOB" property="bgBusiTypesCoverage" />
+    <result column="ABSORPTION_MERGER_FLEX" jdbcType="CLOB" property="absorptionMergerFlex" />
+    <result column="DISCRETE_FLEX" jdbcType="CLOB" property="discreteFlex" />
+    <result column="INTERNAL_CAPITAL_FLEX" jdbcType="CLOB" property="internalCapitalFlex" />
+    <result column="FOREIGN_INVES_FLEX" jdbcType="CLOB" property="foreignInvesFlex" />
+    <result column="YES_FLEX" jdbcType="CLOB" property="yesFlex" />
+    <result column="NO_FLEX" jdbcType="CLOB" property="noFlex" />
+    <result column="BUSI_PROMISE_FLEX" jdbcType="CLOB" property="busiPromiseFlex" />
+    <result column="NO_FOREIGN_INVEST_FLEX" jdbcType="CLOB" property="noForeignInvestFlex" />
+    <result column="CO_APPROVE" jdbcType="CLOB" property="coApprove" />
+    <result column="INFO_SYSTEM_FLEX" jdbcType="CLOB" property="infoSystemFlex" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from BUSINESS_CHANGE
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, CERTIFICATE_CO_NAME, LICENSE_NUM, 
+      CZ_BUSI_TYPES_COVERAGE, CO_NAME, REGISTERED_CAPITAL, 
+      REG_ADDRESS, CO_FIXED_PHONE, SOCIAL_CREDIT_CODE, 
+      BUSINESS_LICENSE, MAIN_OFFICE_ADDRESS, ADDR_POSTCODE, 
+      COMPANY_TYPE, SUBJECT_CHANGE_TYPE, INDUSTRY, 
+      COMPANY_SIZE, F_NAME, F_ID_NUM, 
+      F_MOBILE_PHONE, F_EMAIL, Z_NAME, 
+      Z_ID_NUM, Z_MOBILE_PHONE, Z_EMAIL, 
+      K_NAME, K_ID_NUM, K_MOBILE_PHONE, 
+      K_EMAIL, A_NAME, A_ID_NUM, 
+      A_MOBILE_PHONE, A_EMAIL, F_ID_FLEX, 
+      Z_ID_FLEX, K_ID_FLEX, A_ID_FLEX, 
+      SOCIAL_SECURITY_PROV, WHETHER_MARKET, CO_FLEX, 
+      CURRENCY, ABSORPTION_MER, DISCRETE, 
+      CO_NATURE_CHANGE, DOMESTIC_INVESTMENT, FOR_INVEST, 
+      YES, NO, OTHER_CURR, 
+      CO_COVERAGE, NO_FOREGIN_INVEST, CONT_FOREIGN_INVEST, 
+      CON_INVSET_NOT_ACCESS, CO_TYPE
+    
+  </sql>
+  <sql id="Blob_Column_List">
+    BG_BUSI_TYPES_COVERAGE, ABSORPTION_MERGER_FLEX, DISCRETE_FLEX, INTERNAL_CAPITAL_FLEX, 
+    FOREIGN_INVES_FLEX, YES_FLEX, NO_FLEX, BUSI_PROMISE_FLEX, NO_FOREIGN_INVEST_FLEX, 
+    CO_APPROVE, INFO_SYSTEM_FLEX
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspBusinessChangeWithBLOBs">
+    insert into BUSINESS_CHANGE (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, CERTIFICATE_CO_NAME, LICENSE_NUM, 
+      CZ_BUSI_TYPES_COVERAGE, CO_NAME, REGISTERED_CAPITAL, 
+      REG_ADDRESS, CO_FIXED_PHONE, SOCIAL_CREDIT_CODE, 
+      BUSINESS_LICENSE, MAIN_OFFICE_ADDRESS, ADDR_POSTCODE, 
+      COMPANY_TYPE, SUBJECT_CHANGE_TYPE, INDUSTRY, 
+      COMPANY_SIZE, F_NAME, F_ID_NUM, 
+      F_MOBILE_PHONE, F_EMAIL, Z_NAME, 
+      Z_ID_NUM, Z_MOBILE_PHONE, Z_EMAIL, 
+      K_NAME, K_ID_NUM, K_MOBILE_PHONE, 
+      K_EMAIL, A_NAME, A_ID_NUM, 
+      A_MOBILE_PHONE, A_EMAIL, F_ID_FLEX, 
+      Z_ID_FLEX, K_ID_FLEX, A_ID_FLEX, 
+      SOCIAL_SECURITY_PROV, WHETHER_MARKET, CO_FLEX, 
+      CURRENCY, ABSORPTION_MER, DISCRETE, 
+      CO_NATURE_CHANGE, DOMESTIC_INVESTMENT, FOR_INVEST, 
+      YES, NO, OTHER_CURR, 
+      CO_COVERAGE, NO_FOREGIN_INVEST, CONT_FOREIGN_INVEST, 
+      CON_INVSET_NOT_ACCESS, CO_TYPE, BG_BUSI_TYPES_COVERAGE, 
+      ABSORPTION_MERGER_FLEX, DISCRETE_FLEX, INTERNAL_CAPITAL_FLEX, 
+      FOREIGN_INVES_FLEX, YES_FLEX, NO_FLEX, 
+      BUSI_PROMISE_FLEX, NO_FOREIGN_INVEST_FLEX, CO_APPROVE, 
+      INFO_SYSTEM_FLEX)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{certificateCoName,jdbcType=VARCHAR}, #{licenseNum,jdbcType=VARCHAR}, 
+      #{czBusiTypesCoverage,jdbcType=VARCHAR}, #{coName,jdbcType=VARCHAR}, #{registeredCapital,jdbcType=VARCHAR}, 
+      #{regAddress,jdbcType=VARCHAR}, #{coFixedPhone,jdbcType=VARCHAR}, #{socialCreditCode,jdbcType=VARCHAR}, 
+      #{businessLicense,jdbcType=VARCHAR}, #{mainOfficeAddress,jdbcType=VARCHAR}, #{addrPostcode,jdbcType=VARCHAR}, 
+      #{companyType,jdbcType=VARCHAR}, #{subjectChangeType,jdbcType=VARCHAR}, #{industry,jdbcType=VARCHAR}, 
+      #{companySize,jdbcType=VARCHAR}, #{fName,jdbcType=VARCHAR}, #{fIdNum,jdbcType=VARCHAR}, 
+      #{fMobilePhone,jdbcType=VARCHAR}, #{fEmail,jdbcType=VARCHAR}, #{zName,jdbcType=VARCHAR}, 
+      #{zIdNum,jdbcType=VARCHAR}, #{zMobilePhone,jdbcType=VARCHAR}, #{zEmail,jdbcType=VARCHAR}, 
+      #{kName,jdbcType=VARCHAR}, #{kIdNum,jdbcType=VARCHAR}, #{kMobilePhone,jdbcType=VARCHAR}, 
+      #{kEmail,jdbcType=VARCHAR}, #{aName,jdbcType=VARCHAR}, #{aIdNum,jdbcType=VARCHAR}, 
+      #{aMobilePhone,jdbcType=VARCHAR}, #{aEmail,jdbcType=VARCHAR}, #{fIdFlex,jdbcType=VARCHAR}, 
+      #{zIdFlex,jdbcType=VARCHAR}, #{kIdFlex,jdbcType=VARCHAR}, #{aIdFlex,jdbcType=VARCHAR}, 
+      #{socialSecurityProv,jdbcType=VARCHAR}, #{whetherMarket,jdbcType=VARCHAR}, #{coFlex,jdbcType=VARCHAR}, 
+      #{currency,jdbcType=VARCHAR}, #{absorptionMer,jdbcType=VARCHAR}, #{discrete,jdbcType=VARCHAR}, 
+      #{coNatureChange,jdbcType=VARCHAR}, #{domesticInvestment,jdbcType=VARCHAR}, #{forInvest,jdbcType=VARCHAR}, 
+      #{yes,jdbcType=VARCHAR}, #{no,jdbcType=VARCHAR}, #{otherCurr,jdbcType=VARCHAR}, 
+      #{coCoverage,jdbcType=VARCHAR}, #{noForeginInvest,jdbcType=VARCHAR}, #{contForeignInvest,jdbcType=VARCHAR}, 
+      #{conInvsetNotAccess,jdbcType=VARCHAR}, #{coType,jdbcType=VARCHAR}, #{bgBusiTypesCoverage,jdbcType=CLOB}, 
+      #{absorptionMergerFlex,jdbcType=CLOB}, #{discreteFlex,jdbcType=CLOB}, #{internalCapitalFlex,jdbcType=CLOB}, 
+      #{foreignInvesFlex,jdbcType=CLOB}, #{yesFlex,jdbcType=CLOB}, #{noFlex,jdbcType=CLOB}, 
+      #{busiPromiseFlex,jdbcType=CLOB}, #{noForeignInvestFlex,jdbcType=CLOB}, #{coApprove,jdbcType=CLOB}, 
+      #{infoSystemFlex,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspBusinessChangeWithBLOBs">
+    insert into BUSINESS_CHANGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="certificateCoName != null">
+        CERTIFICATE_CO_NAME,
+      </if>
+      <if test="licenseNum != null">
+        LICENSE_NUM,
+      </if>
+      <if test="czBusiTypesCoverage != null">
+        CZ_BUSI_TYPES_COVERAGE,
+      </if>
+      <if test="coName != null">
+        CO_NAME,
+      </if>
+      <if test="registeredCapital != null">
+        REGISTERED_CAPITAL,
+      </if>
+      <if test="regAddress != null">
+        REG_ADDRESS,
+      </if>
+      <if test="coFixedPhone != null">
+        CO_FIXED_PHONE,
+      </if>
+      <if test="socialCreditCode != null">
+        SOCIAL_CREDIT_CODE,
+      </if>
+      <if test="businessLicense != null">
+        BUSINESS_LICENSE,
+      </if>
+      <if test="mainOfficeAddress != null">
+        MAIN_OFFICE_ADDRESS,
+      </if>
+      <if test="addrPostcode != null">
+        ADDR_POSTCODE,
+      </if>
+      <if test="companyType != null">
+        COMPANY_TYPE,
+      </if>
+      <if test="subjectChangeType != null">
+        SUBJECT_CHANGE_TYPE,
+      </if>
+      <if test="industry != null">
+        INDUSTRY,
+      </if>
+      <if test="companySize != null">
+        COMPANY_SIZE,
+      </if>
+      <if test="fName != null">
+        F_NAME,
+      </if>
+      <if test="fIdNum != null">
+        F_ID_NUM,
+      </if>
+      <if test="fMobilePhone != null">
+        F_MOBILE_PHONE,
+      </if>
+      <if test="fEmail != null">
+        F_EMAIL,
+      </if>
+      <if test="zName != null">
+        Z_NAME,
+      </if>
+      <if test="zIdNum != null">
+        Z_ID_NUM,
+      </if>
+      <if test="zMobilePhone != null">
+        Z_MOBILE_PHONE,
+      </if>
+      <if test="zEmail != null">
+        Z_EMAIL,
+      </if>
+      <if test="kName != null">
+        K_NAME,
+      </if>
+      <if test="kIdNum != null">
+        K_ID_NUM,
+      </if>
+      <if test="kMobilePhone != null">
+        K_MOBILE_PHONE,
+      </if>
+      <if test="kEmail != null">
+        K_EMAIL,
+      </if>
+      <if test="aName != null">
+        A_NAME,
+      </if>
+      <if test="aIdNum != null">
+        A_ID_NUM,
+      </if>
+      <if test="aMobilePhone != null">
+        A_MOBILE_PHONE,
+      </if>
+      <if test="aEmail != null">
+        A_EMAIL,
+      </if>
+      <if test="fIdFlex != null">
+        F_ID_FLEX,
+      </if>
+      <if test="zIdFlex != null">
+        Z_ID_FLEX,
+      </if>
+      <if test="kIdFlex != null">
+        K_ID_FLEX,
+      </if>
+      <if test="aIdFlex != null">
+        A_ID_FLEX,
+      </if>
+      <if test="socialSecurityProv != null">
+        SOCIAL_SECURITY_PROV,
+      </if>
+      <if test="whetherMarket != null">
+        WHETHER_MARKET,
+      </if>
+      <if test="coFlex != null">
+        CO_FLEX,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="absorptionMer != null">
+        ABSORPTION_MER,
+      </if>
+      <if test="discrete != null">
+        DISCRETE,
+      </if>
+      <if test="coNatureChange != null">
+        CO_NATURE_CHANGE,
+      </if>
+      <if test="domesticInvestment != null">
+        DOMESTIC_INVESTMENT,
+      </if>
+      <if test="forInvest != null">
+        FOR_INVEST,
+      </if>
+      <if test="yes != null">
+        YES,
+      </if>
+      <if test="no != null">
+        NO,
+      </if>
+      <if test="otherCurr != null">
+        OTHER_CURR,
+      </if>
+      <if test="coCoverage != null">
+        CO_COVERAGE,
+      </if>
+      <if test="noForeginInvest != null">
+        NO_FOREGIN_INVEST,
+      </if>
+      <if test="contForeignInvest != null">
+        CONT_FOREIGN_INVEST,
+      </if>
+      <if test="conInvsetNotAccess != null">
+        CON_INVSET_NOT_ACCESS,
+      </if>
+      <if test="coType != null">
+        CO_TYPE,
+      </if>
+      <if test="bgBusiTypesCoverage != null">
+        BG_BUSI_TYPES_COVERAGE,
+      </if>
+      <if test="absorptionMergerFlex != null">
+        ABSORPTION_MERGER_FLEX,
+      </if>
+      <if test="discreteFlex != null">
+        DISCRETE_FLEX,
+      </if>
+      <if test="internalCapitalFlex != null">
+        INTERNAL_CAPITAL_FLEX,
+      </if>
+      <if test="foreignInvesFlex != null">
+        FOREIGN_INVES_FLEX,
+      </if>
+      <if test="yesFlex != null">
+        YES_FLEX,
+      </if>
+      <if test="noFlex != null">
+        NO_FLEX,
+      </if>
+      <if test="busiPromiseFlex != null">
+        BUSI_PROMISE_FLEX,
+      </if>
+      <if test="noForeignInvestFlex != null">
+        NO_FOREIGN_INVEST_FLEX,
+      </if>
+      <if test="coApprove != null">
+        CO_APPROVE,
+      </if>
+      <if test="infoSystemFlex != null">
+        INFO_SYSTEM_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateCoName != null">
+        #{certificateCoName,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseNum != null">
+        #{licenseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="czBusiTypesCoverage != null">
+        #{czBusiTypesCoverage,jdbcType=VARCHAR},
+      </if>
+      <if test="coName != null">
+        #{coName,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null">
+        #{registeredCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="regAddress != null">
+        #{regAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="coFixedPhone != null">
+        #{coFixedPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="socialCreditCode != null">
+        #{socialCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicense != null">
+        #{businessLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="mainOfficeAddress != null">
+        #{mainOfficeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="addrPostcode != null">
+        #{addrPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyType != null">
+        #{companyType,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectChangeType != null">
+        #{subjectChangeType,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="companySize != null">
+        #{companySize,jdbcType=VARCHAR},
+      </if>
+      <if test="fName != null">
+        #{fName,jdbcType=VARCHAR},
+      </if>
+      <if test="fIdNum != null">
+        #{fIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="fMobilePhone != null">
+        #{fMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="fEmail != null">
+        #{fEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="zName != null">
+        #{zName,jdbcType=VARCHAR},
+      </if>
+      <if test="zIdNum != null">
+        #{zIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="zMobilePhone != null">
+        #{zMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="zEmail != null">
+        #{zEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="kName != null">
+        #{kName,jdbcType=VARCHAR},
+      </if>
+      <if test="kIdNum != null">
+        #{kIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="kMobilePhone != null">
+        #{kMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="kEmail != null">
+        #{kEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="aName != null">
+        #{aName,jdbcType=VARCHAR},
+      </if>
+      <if test="aIdNum != null">
+        #{aIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="aMobilePhone != null">
+        #{aMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="aEmail != null">
+        #{aEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="fIdFlex != null">
+        #{fIdFlex,jdbcType=VARCHAR},
+      </if>
+      <if test="zIdFlex != null">
+        #{zIdFlex,jdbcType=VARCHAR},
+      </if>
+      <if test="kIdFlex != null">
+        #{kIdFlex,jdbcType=VARCHAR},
+      </if>
+      <if test="aIdFlex != null">
+        #{aIdFlex,jdbcType=VARCHAR},
+      </if>
+      <if test="socialSecurityProv != null">
+        #{socialSecurityProv,jdbcType=VARCHAR},
+      </if>
+      <if test="whetherMarket != null">
+        #{whetherMarket,jdbcType=VARCHAR},
+      </if>
+      <if test="coFlex != null">
+        #{coFlex,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="absorptionMer != null">
+        #{absorptionMer,jdbcType=VARCHAR},
+      </if>
+      <if test="discrete != null">
+        #{discrete,jdbcType=VARCHAR},
+      </if>
+      <if test="coNatureChange != null">
+        #{coNatureChange,jdbcType=VARCHAR},
+      </if>
+      <if test="domesticInvestment != null">
+        #{domesticInvestment,jdbcType=VARCHAR},
+      </if>
+      <if test="forInvest != null">
+        #{forInvest,jdbcType=VARCHAR},
+      </if>
+      <if test="yes != null">
+        #{yes,jdbcType=VARCHAR},
+      </if>
+      <if test="no != null">
+        #{no,jdbcType=VARCHAR},
+      </if>
+      <if test="otherCurr != null">
+        #{otherCurr,jdbcType=VARCHAR},
+      </if>
+      <if test="coCoverage != null">
+        #{coCoverage,jdbcType=VARCHAR},
+      </if>
+      <if test="noForeginInvest != null">
+        #{noForeginInvest,jdbcType=VARCHAR},
+      </if>
+      <if test="contForeignInvest != null">
+        #{contForeignInvest,jdbcType=VARCHAR},
+      </if>
+      <if test="conInvsetNotAccess != null">
+        #{conInvsetNotAccess,jdbcType=VARCHAR},
+      </if>
+      <if test="coType != null">
+        #{coType,jdbcType=VARCHAR},
+      </if>
+      <if test="bgBusiTypesCoverage != null">
+        #{bgBusiTypesCoverage,jdbcType=CLOB},
+      </if>
+      <if test="absorptionMergerFlex != null">
+        #{absorptionMergerFlex,jdbcType=CLOB},
+      </if>
+      <if test="discreteFlex != null">
+        #{discreteFlex,jdbcType=CLOB},
+      </if>
+      <if test="internalCapitalFlex != null">
+        #{internalCapitalFlex,jdbcType=CLOB},
+      </if>
+      <if test="foreignInvesFlex != null">
+        #{foreignInvesFlex,jdbcType=CLOB},
+      </if>
+      <if test="yesFlex != null">
+        #{yesFlex,jdbcType=CLOB},
+      </if>
+      <if test="noFlex != null">
+        #{noFlex,jdbcType=CLOB},
+      </if>
+      <if test="busiPromiseFlex != null">
+        #{busiPromiseFlex,jdbcType=CLOB},
+      </if>
+      <if test="noForeignInvestFlex != null">
+        #{noForeignInvestFlex,jdbcType=CLOB},
+      </if>
+      <if test="coApprove != null">
+        #{coApprove,jdbcType=CLOB},
+      </if>
+      <if test="infoSystemFlex != null">
+        #{infoSystemFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

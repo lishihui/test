@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.threeWebElectric.change.comm.DXXZSP_RfcCommonfileMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.threeWebElectric.change.comm.DXXZSP_RfcCommonfile">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="RFC_INFO_ID" jdbcType="VARCHAR" property="rfcInfoId" />
+    <result column="FLOW_TYPE" jdbcType="VARCHAR" property="flowType" />
+    <result column="AUDIT_ONE" jdbcType="VARCHAR" property="auditOne" />
+    <result column="AUDIT_TWO" jdbcType="VARCHAR" property="auditTwo" />
+    <result column="AUDIT_THREE" jdbcType="VARCHAR" property="auditThree" />
+    <result column="AUDIT_FOUR" jdbcType="VARCHAR" property="auditFour" />
+    <result column="PW" jdbcType="CHAR" property="pw" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.threeWebElectric.change.comm.DXXZSP_RfcCommonfileWithBLOBs">
+    <result column="BUSINESS_LICENCE_I" jdbcType="CLOB" property="businessLicenceI" />
+    <result column="RESPONDED_I" jdbcType="CLOB" property="respondedI" />
+    <result column="OTHER_FILES" jdbcType="CLOB" property="otherFiles" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+  	select
+  	<include refid="Base_Column_List"/>
+  	,
+  	<include refid="Blob_Column_List"/>
+  	from DXXSP_RFC_COMMONFILE
+  	where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List">
+    ID, CREATED, MODIFIED, CREATOR, MODIFICATOR, RECYCLE, RFC_INFO_ID, FLOW_TYPE, AUDIT_ONE, 
+    AUDIT_TWO, AUDIT_THREE, AUDIT_FOUR, PW
+  </sql>
+  <sql id="Blob_Column_List">
+    BUSINESS_LICENCE_I, RESPONDED_I, OTHER_FILES
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.threeWebElectric.change.comm.DXXZSP_RfcCommonfileWithBLOBs">
+    insert into DXXSP_RFC_COMMONFILE (ID, CREATED, MODIFIED, 
+      CREATOR, MODIFICATOR, RECYCLE, 
+      RFC_INFO_ID, FLOW_TYPE, AUDIT_ONE, 
+      AUDIT_TWO, AUDIT_THREE, AUDIT_FOUR, 
+      PW, BUSINESS_LICENCE_I, RESPONDED_I, 
+      OTHER_FILES)
+    values (#{id,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, #{modified,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, #{recycle,jdbcType=VARCHAR}, 
+      #{rfcInfoId,jdbcType=VARCHAR}, #{flowType,jdbcType=VARCHAR}, #{auditOne,jdbcType=VARCHAR}, 
+      #{auditTwo,jdbcType=VARCHAR}, #{auditThree,jdbcType=VARCHAR}, #{auditFour,jdbcType=VARCHAR}, 
+      #{pw,jdbcType=CHAR}, #{businessLicenceI,jdbcType=CLOB}, #{respondedI,jdbcType=CLOB}, 
+      #{otherFiles,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.threeWebElectric.change.comm.DXXZSP_RfcCommonfileWithBLOBs">
+    insert into DXXSP_RFC_COMMONFILE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="rfcInfoId != null">
+        RFC_INFO_ID,
+      </if>
+      <if test="flowType != null">
+        FLOW_TYPE,
+      </if>
+      <if test="auditOne != null">
+        AUDIT_ONE,
+      </if>
+      <if test="auditTwo != null">
+        AUDIT_TWO,
+      </if>
+      <if test="auditThree != null">
+        AUDIT_THREE,
+      </if>
+      <if test="auditFour != null">
+        AUDIT_FOUR,
+      </if>
+      <if test="pw != null">
+        PW,
+      </if>
+      <if test="businessLicenceI != null">
+        BUSINESS_LICENCE_I,
+      </if>
+      <if test="respondedI != null">
+        RESPONDED_I,
+      </if>
+      <if test="otherFiles != null">
+        OTHER_FILES,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="rfcInfoId != null">
+        #{rfcInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="flowType != null">
+        #{flowType,jdbcType=VARCHAR},
+      </if>
+      <if test="auditOne != null">
+        #{auditOne,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTwo != null">
+        #{auditTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="auditThree != null">
+        #{auditThree,jdbcType=VARCHAR},
+      </if>
+      <if test="auditFour != null">
+        #{auditFour,jdbcType=VARCHAR},
+      </if>
+      <if test="pw != null">
+        #{pw,jdbcType=CHAR},
+      </if>
+      <if test="businessLicenceI != null">
+        #{businessLicenceI,jdbcType=CLOB},
+      </if>
+      <if test="respondedI != null">
+        #{respondedI,jdbcType=CLOB},
+      </if>
+      <if test="otherFiles != null">
+        #{otherFiles,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

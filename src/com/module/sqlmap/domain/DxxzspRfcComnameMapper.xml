@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.threeWebElectric.change.change.DxxzspRfcComnameMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.threeWebElectric.change.change.DxxzspRfcComname">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="CHANGED_NAME" jdbcType="VARCHAR" property="changedName" />
+    <result column="CHANGED_REASON" jdbcType="VARCHAR" property="changedReason" />
+    <result column="RFC_INFO_ID" jdbcType="VARCHAR" property="rfcInfoId" />
+    <result column="OLD_NAME" jdbcType="VARCHAR" property="oldName" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.threeWebElectric.change.change.DxxzspRfcComnameWithBLOBs">
+    <result column="PROVE_D" jdbcType="CLOB" property="proveD" />
+    <result column="COMMITIMENT_D" jdbcType="CLOB" property="commitimentD" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+  	select
+  	<include refid="Base_Column_List"/>
+  	,
+  	<include refid="Blob_Column_List"/>
+  	from DXXZSP_RFC_COMNAME
+  	where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List">
+    ID, CREATED, MODIFIED, CREATOR, MODIFICATOR, RECYCLE, CHANGED_NAME, CHANGED_REASON, RFC_INFO_ID, OLD_NAME
+  </sql>
+  <sql id="Blob_Column_List">
+    PROVE_D, COMMITIMENT_D
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.threeWebElectric.change.change.DxxzspRfcComnameWithBLOBs">
+    insert into DXXZSP_RFC_COMNAME (ID, CREATED, MODIFIED, 
+      CREATOR, MODIFICATOR, RECYCLE, 
+      CHANGED_NAME, CHANGED_REASON, RFC_INFO_ID, 
+      OLD_NAME, PROVE_D, COMMITIMENT_D
+      )
+    values (#{id,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, #{modified,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, #{recycle,jdbcType=VARCHAR}, 
+      #{changedName,jdbcType=VARCHAR}, #{changedReason,jdbcType=VARCHAR}, #{rfcInfoId,jdbcType=VARCHAR}, 
+      #{oldName,jdbcType=VARCHAR}, #{proveD,jdbcType=CLOB}, #{commitimentD,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.threeWebElectric.change.change.DxxzspRfcComnameWithBLOBs">
+    insert into DXXZSP_RFC_COMNAME
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="changedName != null">
+        CHANGED_NAME,
+      </if>
+      <if test="changedReason != null">
+        CHANGED_REASON,
+      </if>
+      <if test="rfcInfoId != null">
+        RFC_INFO_ID,
+      </if>
+      <if test="oldName != null">
+        OLD_NAME,
+      </if>
+      <if test="proveD != null">
+        PROVE_D,
+      </if>
+      <if test="commitimentD != null">
+        COMMITIMENT_D,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="changedName != null">
+        #{changedName,jdbcType=VARCHAR},
+      </if>
+      <if test="changedReason != null">
+        #{changedReason,jdbcType=VARCHAR},
+      </if>
+      <if test="rfcInfoId != null">
+        #{rfcInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldName != null">
+        #{oldName,jdbcType=VARCHAR},
+      </if>
+      <if test="proveD != null">
+        #{proveD,jdbcType=CLOB},
+      </if>
+      <if test="commitimentD != null">
+        #{commitimentD,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

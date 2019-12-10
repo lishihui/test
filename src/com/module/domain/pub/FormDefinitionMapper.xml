@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.domain.FormDefinitionMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.FormDefinition">
+    <id column="ID_" jdbcType="VARCHAR" property="id" />
+    <result column="DEF_ID_" jdbcType="VARCHAR" property="defId" />
+    <result column="NAME_" jdbcType="VARCHAR" property="name" />
+    <result column="FORM_KEY_" jdbcType="VARCHAR" property="formKey" />
+    <result column="DESC_" jdbcType="VARCHAR" property="desc" />
+    <result column="STATUS_" jdbcType="VARCHAR" property="status" />
+    <result column="FORM_TYPE_" jdbcType="VARCHAR" property="formType" />
+    <result column="TYPE_ID_" jdbcType="VARCHAR" property="typeId" />
+    <result column="TYPE_NAME_" jdbcType="VARCHAR" property="typeName" />
+    <result column="IS_MAIN_" jdbcType="CHAR" property="isMain" />
+    <result column="VERSION_" jdbcType="INTEGER" property="version" />
+    <result column="CREATE_BY_" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_TIME_" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_ORG_ID_" jdbcType="VARCHAR" property="createOrgId" />
+    <result column="UPDATE_BY_" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_TIME_" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="FORM_TAB_TITLE_" jdbcType="VARCHAR" property="formTabTitle" />
+    <result column="CLASSIFY_" jdbcType="VARCHAR" property="classify" />
+    <result column="PAGE_FORMS_" jdbcType="VARCHAR" property="pageForms" />
+    <result column="PAGE_FORM_JSON_" jdbcType="VARCHAR" property="pageFormJson" />
+    <result column="HIDE_MAIN_" jdbcType="CHAR" property="hideMain" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domain.FormDefinitionWithBLOBs">
+    <result column="FORM_HTML_" jdbcType="CLOB" property="formHtml" />
+    <result column="DIV_JS_" jdbcType="CLOB" property="divJs" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID_, DEF_ID_, NAME_, FORM_KEY_, DESC_, STATUS_, FORM_TYPE_, TYPE_ID_, TYPE_NAME_, 
+    IS_MAIN_, VERSION_, CREATE_BY_, CREATE_TIME_, CREATE_ORG_ID_, UPDATE_BY_, UPDATE_TIME_, 
+    FORM_TAB_TITLE_, CLASSIFY_, PAGE_FORMS_, PAGE_FORM_JSON_, HIDE_MAIN_
+  </sql>
+  <sql id="Blob_Column_List">
+    FORM_HTML_, DIV_JS_
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FORM_DEFINITION
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FORM_DEFINITION
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.module.domain.domain.FormDefinitionWithBLOBs">
+    insert into FORM_DEFINITION (ID_, DEF_ID_, NAME_, 
+      FORM_KEY_, DESC_, STATUS_, 
+      FORM_TYPE_, TYPE_ID_, TYPE_NAME_, 
+      IS_MAIN_, VERSION_, CREATE_BY_, 
+      CREATE_TIME_, CREATE_ORG_ID_, UPDATE_BY_, 
+      UPDATE_TIME_, FORM_TAB_TITLE_, CLASSIFY_, 
+      PAGE_FORMS_, PAGE_FORM_JSON_, HIDE_MAIN_, 
+      FORM_HTML_, DIV_JS_)
+    values (#{id,jdbcType=VARCHAR}, #{defId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{formKey,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{formType,jdbcType=VARCHAR}, #{typeId,jdbcType=VARCHAR}, #{typeName,jdbcType=VARCHAR}, 
+      #{isMain,jdbcType=CHAR}, #{version,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createOrgId,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{formTabTitle,jdbcType=VARCHAR}, #{classify,jdbcType=VARCHAR}, 
+      #{pageForms,jdbcType=VARCHAR}, #{pageFormJson,jdbcType=VARCHAR}, #{hideMain,jdbcType=CHAR}, 
+      #{formHtml,jdbcType=CLOB}, #{divJs,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domain.FormDefinitionWithBLOBs">
+    insert into FORM_DEFINITION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID_,
+      </if>
+      <if test="defId != null">
+        DEF_ID_,
+      </if>
+      <if test="name != null">
+        NAME_,
+      </if>
+      <if test="formKey != null">
+        FORM_KEY_,
+      </if>
+      <if test="desc != null">
+        DESC_,
+      </if>
+      <if test="status != null">
+        STATUS_,
+      </if>
+      <if test="formType != null">
+        FORM_TYPE_,
+      </if>
+      <if test="typeId != null">
+        TYPE_ID_,
+      </if>
+      <if test="typeName != null">
+        TYPE_NAME_,
+      </if>
+      <if test="isMain != null">
+        IS_MAIN_,
+      </if>
+      <if test="version != null">
+        VERSION_,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY_,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME_,
+      </if>
+      <if test="createOrgId != null">
+        CREATE_ORG_ID_,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY_,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME_,
+      </if>
+      <if test="formTabTitle != null">
+        FORM_TAB_TITLE_,
+      </if>
+      <if test="classify != null">
+        CLASSIFY_,
+      </if>
+      <if test="pageForms != null">
+        PAGE_FORMS_,
+      </if>
+      <if test="pageFormJson != null">
+        PAGE_FORM_JSON_,
+      </if>
+      <if test="hideMain != null">
+        HIDE_MAIN_,
+      </if>
+      <if test="formHtml != null">
+        FORM_HTML_,
+      </if>
+      <if test="divJs != null">
+        DIV_JS_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="defId != null">
+        #{defId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="formKey != null">
+        #{formKey,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="formType != null">
+        #{formType,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="typeName != null">
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="isMain != null">
+        #{isMain,jdbcType=CHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createOrgId != null">
+        #{createOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="formTabTitle != null">
+        #{formTabTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="classify != null">
+        #{classify,jdbcType=VARCHAR},
+      </if>
+      <if test="pageForms != null">
+        #{pageForms,jdbcType=VARCHAR},
+      </if>
+      <if test="pageFormJson != null">
+        #{pageFormJson,jdbcType=VARCHAR},
+      </if>
+      <if test="hideMain != null">
+        #{hideMain,jdbcType=CHAR},
+      </if>
+      <if test="formHtml != null">
+        #{formHtml,jdbcType=CLOB},
+      </if>
+      <if test="divJs != null">
+        #{divJs,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.module.domain.domain.FormDefinitionWithBLOBs">
+    update FORM_DEFINITION
+    <set>
+      <if test="defId != null">
+        DEF_ID_ = #{defId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME_ = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="formKey != null">
+        FORM_KEY_ = #{formKey,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        DESC_ = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS_ = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="formType != null">
+        FORM_TYPE_ = #{formType,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="typeName != null">
+        TYPE_NAME_ = #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="isMain != null">
+        IS_MAIN_ = #{isMain,jdbcType=CHAR},
+      </if>
+      <if test="version != null">
+        VERSION_ = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createOrgId != null">
+        CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="formTabTitle != null">
+        FORM_TAB_TITLE_ = #{formTabTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="classify != null">
+        CLASSIFY_ = #{classify,jdbcType=VARCHAR},
+      </if>
+      <if test="pageForms != null">
+        PAGE_FORMS_ = #{pageForms,jdbcType=VARCHAR},
+      </if>
+      <if test="pageFormJson != null">
+        PAGE_FORM_JSON_ = #{pageFormJson,jdbcType=VARCHAR},
+      </if>
+      <if test="hideMain != null">
+        HIDE_MAIN_ = #{hideMain,jdbcType=CHAR},
+      </if>
+      <if test="formHtml != null">
+        FORM_HTML_ = #{formHtml,jdbcType=CLOB},
+      </if>
+      <if test="divJs != null">
+        DIV_JS_ = #{divJs,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.module.domain.domain.FormDefinitionWithBLOBs">
+    update FORM_DEFINITION
+    set DEF_ID_ = #{defId,jdbcType=VARCHAR},
+      NAME_ = #{name,jdbcType=VARCHAR},
+      FORM_KEY_ = #{formKey,jdbcType=VARCHAR},
+      DESC_ = #{desc,jdbcType=VARCHAR},
+      STATUS_ = #{status,jdbcType=VARCHAR},
+      FORM_TYPE_ = #{formType,jdbcType=VARCHAR},
+      TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      TYPE_NAME_ = #{typeName,jdbcType=VARCHAR},
+      IS_MAIN_ = #{isMain,jdbcType=CHAR},
+      VERSION_ = #{version,jdbcType=INTEGER},
+      CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      FORM_TAB_TITLE_ = #{formTabTitle,jdbcType=VARCHAR},
+      CLASSIFY_ = #{classify,jdbcType=VARCHAR},
+      PAGE_FORMS_ = #{pageForms,jdbcType=VARCHAR},
+      PAGE_FORM_JSON_ = #{pageFormJson,jdbcType=VARCHAR},
+      HIDE_MAIN_ = #{hideMain,jdbcType=CHAR},
+      FORM_HTML_ = #{formHtml,jdbcType=CLOB},
+      DIV_JS_ = #{divJs,jdbcType=CLOB}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.module.domain.domain.FormDefinition">
+    update FORM_DEFINITION
+    set DEF_ID_ = #{defId,jdbcType=VARCHAR},
+      NAME_ = #{name,jdbcType=VARCHAR},
+      FORM_KEY_ = #{formKey,jdbcType=VARCHAR},
+      DESC_ = #{desc,jdbcType=VARCHAR},
+      STATUS_ = #{status,jdbcType=VARCHAR},
+      FORM_TYPE_ = #{formType,jdbcType=VARCHAR},
+      TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      TYPE_NAME_ = #{typeName,jdbcType=VARCHAR},
+      IS_MAIN_ = #{isMain,jdbcType=CHAR},
+      VERSION_ = #{version,jdbcType=INTEGER},
+      CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      FORM_TAB_TITLE_ = #{formTabTitle,jdbcType=VARCHAR},
+      CLASSIFY_ = #{classify,jdbcType=VARCHAR},
+      PAGE_FORMS_ = #{pageForms,jdbcType=VARCHAR},
+      PAGE_FORM_JSON_ = #{pageFormJson,jdbcType=VARCHAR},
+      HIDE_MAIN_ = #{hideMain,jdbcType=CHAR}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.FormDefinition">
+    <id column="ID_" jdbcType="VARCHAR" property="id" />
+    <result column="DEF_ID_" jdbcType="VARCHAR" property="defId" />
+    <result column="NAME_" jdbcType="VARCHAR" property="name" />
+    <result column="FORM_KEY_" jdbcType="VARCHAR" property="formKey" />
+    <result column="DESC_" jdbcType="VARCHAR" property="desc" />
+    <result column="STATUS_" jdbcType="VARCHAR" property="status" />
+    <result column="FORM_TYPE_" jdbcType="VARCHAR" property="formType" />
+    <result column="TYPE_ID_" jdbcType="VARCHAR" property="typeId" />
+    <result column="TYPE_NAME_" jdbcType="VARCHAR" property="typeName" />
+    <result column="IS_MAIN_" jdbcType="CHAR" property="isMain" />
+    <result column="VERSION_" jdbcType="INTEGER" property="version" />
+    <result column="CREATE_BY_" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_TIME_" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_ORG_ID_" jdbcType="VARCHAR" property="createOrgId" />
+    <result column="UPDATE_BY_" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_TIME_" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="FORM_TAB_TITLE_" jdbcType="VARCHAR" property="formTabTitle" />
+    <result column="CLASSIFY_" jdbcType="VARCHAR" property="classify" />
+    <result column="PAGE_FORMS_" jdbcType="VARCHAR" property="pageForms" />
+    <result column="PAGE_FORM_JSON_" jdbcType="VARCHAR" property="pageFormJson" />
+    <result column="HIDE_MAIN_" jdbcType="CHAR" property="hideMain" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domain.FormDefinitionWithBLOBs">
+    <result column="FORM_HTML_" jdbcType="CLOB" property="formHtml" />
+    <result column="DIV_JS_" jdbcType="CLOB" property="divJs" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID_, DEF_ID_, NAME_, FORM_KEY_, DESC_, STATUS_, FORM_TYPE_, TYPE_ID_, TYPE_NAME_, 
+    IS_MAIN_, VERSION_, CREATE_BY_, CREATE_TIME_, CREATE_ORG_ID_, UPDATE_BY_, UPDATE_TIME_, 
+    FORM_TAB_TITLE_, CLASSIFY_, PAGE_FORMS_, PAGE_FORM_JSON_, HIDE_MAIN_
+  </sql>
+  <sql id="Blob_Column_List">
+    FORM_HTML_, DIV_JS_
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FORM_DEFINITION
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FORM_DEFINITION
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.module.domain.domain.FormDefinitionWithBLOBs">
+    insert into FORM_DEFINITION (ID_, DEF_ID_, NAME_, 
+      FORM_KEY_, DESC_, STATUS_, 
+      FORM_TYPE_, TYPE_ID_, TYPE_NAME_, 
+      IS_MAIN_, VERSION_, CREATE_BY_, 
+      CREATE_TIME_, CREATE_ORG_ID_, UPDATE_BY_, 
+      UPDATE_TIME_, FORM_TAB_TITLE_, CLASSIFY_, 
+      PAGE_FORMS_, PAGE_FORM_JSON_, HIDE_MAIN_, 
+      FORM_HTML_, DIV_JS_)
+    values (#{id,jdbcType=VARCHAR}, #{defId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{formKey,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{formType,jdbcType=VARCHAR}, #{typeId,jdbcType=VARCHAR}, #{typeName,jdbcType=VARCHAR}, 
+      #{isMain,jdbcType=CHAR}, #{version,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createOrgId,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{formTabTitle,jdbcType=VARCHAR}, #{classify,jdbcType=VARCHAR}, 
+      #{pageForms,jdbcType=VARCHAR}, #{pageFormJson,jdbcType=VARCHAR}, #{hideMain,jdbcType=CHAR}, 
+      #{formHtml,jdbcType=CLOB}, #{divJs,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domain.FormDefinitionWithBLOBs">
+    insert into FORM_DEFINITION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID_,
+      </if>
+      <if test="defId != null">
+        DEF_ID_,
+      </if>
+      <if test="name != null">
+        NAME_,
+      </if>
+      <if test="formKey != null">
+        FORM_KEY_,
+      </if>
+      <if test="desc != null">
+        DESC_,
+      </if>
+      <if test="status != null">
+        STATUS_,
+      </if>
+      <if test="formType != null">
+        FORM_TYPE_,
+      </if>
+      <if test="typeId != null">
+        TYPE_ID_,
+      </if>
+      <if test="typeName != null">
+        TYPE_NAME_,
+      </if>
+      <if test="isMain != null">
+        IS_MAIN_,
+      </if>
+      <if test="version != null">
+        VERSION_,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY_,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME_,
+      </if>
+      <if test="createOrgId != null">
+        CREATE_ORG_ID_,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY_,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME_,
+      </if>
+      <if test="formTabTitle != null">
+        FORM_TAB_TITLE_,
+      </if>
+      <if test="classify != null">
+        CLASSIFY_,
+      </if>
+      <if test="pageForms != null">
+        PAGE_FORMS_,
+      </if>
+      <if test="pageFormJson != null">
+        PAGE_FORM_JSON_,
+      </if>
+      <if test="hideMain != null">
+        HIDE_MAIN_,
+      </if>
+      <if test="formHtml != null">
+        FORM_HTML_,
+      </if>
+      <if test="divJs != null">
+        DIV_JS_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="defId != null">
+        #{defId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="formKey != null">
+        #{formKey,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="formType != null">
+        #{formType,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="typeName != null">
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="isMain != null">
+        #{isMain,jdbcType=CHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createOrgId != null">
+        #{createOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="formTabTitle != null">
+        #{formTabTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="classify != null">
+        #{classify,jdbcType=VARCHAR},
+      </if>
+      <if test="pageForms != null">
+        #{pageForms,jdbcType=VARCHAR},
+      </if>
+      <if test="pageFormJson != null">
+        #{pageFormJson,jdbcType=VARCHAR},
+      </if>
+      <if test="hideMain != null">
+        #{hideMain,jdbcType=CHAR},
+      </if>
+      <if test="formHtml != null">
+        #{formHtml,jdbcType=CLOB},
+      </if>
+      <if test="divJs != null">
+        #{divJs,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.module.domain.domain.FormDefinitionWithBLOBs">
+    update FORM_DEFINITION
+    <set>
+      <if test="defId != null">
+        DEF_ID_ = #{defId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME_ = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="formKey != null">
+        FORM_KEY_ = #{formKey,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        DESC_ = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS_ = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="formType != null">
+        FORM_TYPE_ = #{formType,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="typeName != null">
+        TYPE_NAME_ = #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="isMain != null">
+        IS_MAIN_ = #{isMain,jdbcType=CHAR},
+      </if>
+      <if test="version != null">
+        VERSION_ = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createOrgId != null">
+        CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="formTabTitle != null">
+        FORM_TAB_TITLE_ = #{formTabTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="classify != null">
+        CLASSIFY_ = #{classify,jdbcType=VARCHAR},
+      </if>
+      <if test="pageForms != null">
+        PAGE_FORMS_ = #{pageForms,jdbcType=VARCHAR},
+      </if>
+      <if test="pageFormJson != null">
+        PAGE_FORM_JSON_ = #{pageFormJson,jdbcType=VARCHAR},
+      </if>
+      <if test="hideMain != null">
+        HIDE_MAIN_ = #{hideMain,jdbcType=CHAR},
+      </if>
+      <if test="formHtml != null">
+        FORM_HTML_ = #{formHtml,jdbcType=CLOB},
+      </if>
+      <if test="divJs != null">
+        DIV_JS_ = #{divJs,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.module.domain.domain.FormDefinitionWithBLOBs">
+    update FORM_DEFINITION
+    set DEF_ID_ = #{defId,jdbcType=VARCHAR},
+      NAME_ = #{name,jdbcType=VARCHAR},
+      FORM_KEY_ = #{formKey,jdbcType=VARCHAR},
+      DESC_ = #{desc,jdbcType=VARCHAR},
+      STATUS_ = #{status,jdbcType=VARCHAR},
+      FORM_TYPE_ = #{formType,jdbcType=VARCHAR},
+      TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      TYPE_NAME_ = #{typeName,jdbcType=VARCHAR},
+      IS_MAIN_ = #{isMain,jdbcType=CHAR},
+      VERSION_ = #{version,jdbcType=INTEGER},
+      CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      FORM_TAB_TITLE_ = #{formTabTitle,jdbcType=VARCHAR},
+      CLASSIFY_ = #{classify,jdbcType=VARCHAR},
+      PAGE_FORMS_ = #{pageForms,jdbcType=VARCHAR},
+      PAGE_FORM_JSON_ = #{pageFormJson,jdbcType=VARCHAR},
+      HIDE_MAIN_ = #{hideMain,jdbcType=CHAR},
+      FORM_HTML_ = #{formHtml,jdbcType=CLOB},
+      DIV_JS_ = #{divJs,jdbcType=CLOB}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.module.domain.domain.FormDefinition">
+    update FORM_DEFINITION
+    set DEF_ID_ = #{defId,jdbcType=VARCHAR},
+      NAME_ = #{name,jdbcType=VARCHAR},
+      FORM_KEY_ = #{formKey,jdbcType=VARCHAR},
+      DESC_ = #{desc,jdbcType=VARCHAR},
+      STATUS_ = #{status,jdbcType=VARCHAR},
+      FORM_TYPE_ = #{formType,jdbcType=VARCHAR},
+      TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      TYPE_NAME_ = #{typeName,jdbcType=VARCHAR},
+      IS_MAIN_ = #{isMain,jdbcType=CHAR},
+      VERSION_ = #{version,jdbcType=INTEGER},
+      CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      FORM_TAB_TITLE_ = #{formTabTitle,jdbcType=VARCHAR},
+      CLASSIFY_ = #{classify,jdbcType=VARCHAR},
+      PAGE_FORMS_ = #{pageForms,jdbcType=VARCHAR},
+      PAGE_FORM_JSON_ = #{pageFormJson,jdbcType=VARCHAR},
+      HIDE_MAIN_ = #{hideMain,jdbcType=CHAR}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.FormDefinition">
+    <id column="ID_" jdbcType="VARCHAR" property="id" />
+    <result column="DEF_ID_" jdbcType="VARCHAR" property="defId" />
+    <result column="NAME_" jdbcType="VARCHAR" property="name" />
+    <result column="FORM_KEY_" jdbcType="VARCHAR" property="formKey" />
+    <result column="DESC_" jdbcType="VARCHAR" property="desc" />
+    <result column="STATUS_" jdbcType="VARCHAR" property="status" />
+    <result column="FORM_TYPE_" jdbcType="VARCHAR" property="formType" />
+    <result column="TYPE_ID_" jdbcType="VARCHAR" property="typeId" />
+    <result column="TYPE_NAME_" jdbcType="VARCHAR" property="typeName" />
+    <result column="IS_MAIN_" jdbcType="CHAR" property="isMain" />
+    <result column="VERSION_" jdbcType="INTEGER" property="version" />
+    <result column="CREATE_BY_" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_TIME_" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_ORG_ID_" jdbcType="VARCHAR" property="createOrgId" />
+    <result column="UPDATE_BY_" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_TIME_" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="FORM_TAB_TITLE_" jdbcType="VARCHAR" property="formTabTitle" />
+    <result column="CLASSIFY_" jdbcType="VARCHAR" property="classify" />
+    <result column="PAGE_FORMS_" jdbcType="VARCHAR" property="pageForms" />
+    <result column="PAGE_FORM_JSON_" jdbcType="VARCHAR" property="pageFormJson" />
+    <result column="HIDE_MAIN_" jdbcType="CHAR" property="hideMain" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domain.FormDefinitionWithBLOBs">
+    <result column="FORM_HTML_" jdbcType="CLOB" property="formHtml" />
+    <result column="DIV_JS_" jdbcType="CLOB" property="divJs" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID_, DEF_ID_, NAME_, FORM_KEY_, DESC_, STATUS_, FORM_TYPE_, TYPE_ID_, TYPE_NAME_, 
+    IS_MAIN_, VERSION_, CREATE_BY_, CREATE_TIME_, CREATE_ORG_ID_, UPDATE_BY_, UPDATE_TIME_, 
+    FORM_TAB_TITLE_, CLASSIFY_, PAGE_FORMS_, PAGE_FORM_JSON_, HIDE_MAIN_
+  </sql>
+  <sql id="Blob_Column_List">
+    FORM_HTML_, DIV_JS_
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FORM_DEFINITION
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FORM_DEFINITION
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.module.domain.domain.FormDefinitionWithBLOBs">
+    insert into FORM_DEFINITION (ID_, DEF_ID_, NAME_, 
+      FORM_KEY_, DESC_, STATUS_, 
+      FORM_TYPE_, TYPE_ID_, TYPE_NAME_, 
+      IS_MAIN_, VERSION_, CREATE_BY_, 
+      CREATE_TIME_, CREATE_ORG_ID_, UPDATE_BY_, 
+      UPDATE_TIME_, FORM_TAB_TITLE_, CLASSIFY_, 
+      PAGE_FORMS_, PAGE_FORM_JSON_, HIDE_MAIN_, 
+      FORM_HTML_, DIV_JS_)
+    values (#{id,jdbcType=VARCHAR}, #{defId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{formKey,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{formType,jdbcType=VARCHAR}, #{typeId,jdbcType=VARCHAR}, #{typeName,jdbcType=VARCHAR}, 
+      #{isMain,jdbcType=CHAR}, #{version,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createOrgId,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{formTabTitle,jdbcType=VARCHAR}, #{classify,jdbcType=VARCHAR}, 
+      #{pageForms,jdbcType=VARCHAR}, #{pageFormJson,jdbcType=VARCHAR}, #{hideMain,jdbcType=CHAR}, 
+      #{formHtml,jdbcType=CLOB}, #{divJs,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domain.FormDefinitionWithBLOBs">
+    insert into FORM_DEFINITION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID_,
+      </if>
+      <if test="defId != null">
+        DEF_ID_,
+      </if>
+      <if test="name != null">
+        NAME_,
+      </if>
+      <if test="formKey != null">
+        FORM_KEY_,
+      </if>
+      <if test="desc != null">
+        DESC_,
+      </if>
+      <if test="status != null">
+        STATUS_,
+      </if>
+      <if test="formType != null">
+        FORM_TYPE_,
+      </if>
+      <if test="typeId != null">
+        TYPE_ID_,
+      </if>
+      <if test="typeName != null">
+        TYPE_NAME_,
+      </if>
+      <if test="isMain != null">
+        IS_MAIN_,
+      </if>
+      <if test="version != null">
+        VERSION_,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY_,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME_,
+      </if>
+      <if test="createOrgId != null">
+        CREATE_ORG_ID_,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY_,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME_,
+      </if>
+      <if test="formTabTitle != null">
+        FORM_TAB_TITLE_,
+      </if>
+      <if test="classify != null">
+        CLASSIFY_,
+      </if>
+      <if test="pageForms != null">
+        PAGE_FORMS_,
+      </if>
+      <if test="pageFormJson != null">
+        PAGE_FORM_JSON_,
+      </if>
+      <if test="hideMain != null">
+        HIDE_MAIN_,
+      </if>
+      <if test="formHtml != null">
+        FORM_HTML_,
+      </if>
+      <if test="divJs != null">
+        DIV_JS_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="defId != null">
+        #{defId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="formKey != null">
+        #{formKey,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="formType != null">
+        #{formType,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="typeName != null">
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="isMain != null">
+        #{isMain,jdbcType=CHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createOrgId != null">
+        #{createOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="formTabTitle != null">
+        #{formTabTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="classify != null">
+        #{classify,jdbcType=VARCHAR},
+      </if>
+      <if test="pageForms != null">
+        #{pageForms,jdbcType=VARCHAR},
+      </if>
+      <if test="pageFormJson != null">
+        #{pageFormJson,jdbcType=VARCHAR},
+      </if>
+      <if test="hideMain != null">
+        #{hideMain,jdbcType=CHAR},
+      </if>
+      <if test="formHtml != null">
+        #{formHtml,jdbcType=CLOB},
+      </if>
+      <if test="divJs != null">
+        #{divJs,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.module.domain.domain.FormDefinitionWithBLOBs">
+    update FORM_DEFINITION
+    <set>
+      <if test="defId != null">
+        DEF_ID_ = #{defId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME_ = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="formKey != null">
+        FORM_KEY_ = #{formKey,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        DESC_ = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS_ = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="formType != null">
+        FORM_TYPE_ = #{formType,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="typeName != null">
+        TYPE_NAME_ = #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="isMain != null">
+        IS_MAIN_ = #{isMain,jdbcType=CHAR},
+      </if>
+      <if test="version != null">
+        VERSION_ = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createOrgId != null">
+        CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="formTabTitle != null">
+        FORM_TAB_TITLE_ = #{formTabTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="classify != null">
+        CLASSIFY_ = #{classify,jdbcType=VARCHAR},
+      </if>
+      <if test="pageForms != null">
+        PAGE_FORMS_ = #{pageForms,jdbcType=VARCHAR},
+      </if>
+      <if test="pageFormJson != null">
+        PAGE_FORM_JSON_ = #{pageFormJson,jdbcType=VARCHAR},
+      </if>
+      <if test="hideMain != null">
+        HIDE_MAIN_ = #{hideMain,jdbcType=CHAR},
+      </if>
+      <if test="formHtml != null">
+        FORM_HTML_ = #{formHtml,jdbcType=CLOB},
+      </if>
+      <if test="divJs != null">
+        DIV_JS_ = #{divJs,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.module.domain.domain.FormDefinitionWithBLOBs">
+    update FORM_DEFINITION
+    set DEF_ID_ = #{defId,jdbcType=VARCHAR},
+      NAME_ = #{name,jdbcType=VARCHAR},
+      FORM_KEY_ = #{formKey,jdbcType=VARCHAR},
+      DESC_ = #{desc,jdbcType=VARCHAR},
+      STATUS_ = #{status,jdbcType=VARCHAR},
+      FORM_TYPE_ = #{formType,jdbcType=VARCHAR},
+      TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      TYPE_NAME_ = #{typeName,jdbcType=VARCHAR},
+      IS_MAIN_ = #{isMain,jdbcType=CHAR},
+      VERSION_ = #{version,jdbcType=INTEGER},
+      CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      FORM_TAB_TITLE_ = #{formTabTitle,jdbcType=VARCHAR},
+      CLASSIFY_ = #{classify,jdbcType=VARCHAR},
+      PAGE_FORMS_ = #{pageForms,jdbcType=VARCHAR},
+      PAGE_FORM_JSON_ = #{pageFormJson,jdbcType=VARCHAR},
+      HIDE_MAIN_ = #{hideMain,jdbcType=CHAR},
+      FORM_HTML_ = #{formHtml,jdbcType=CLOB},
+      DIV_JS_ = #{divJs,jdbcType=CLOB}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.module.domain.domain.FormDefinition">
+    update FORM_DEFINITION
+    set DEF_ID_ = #{defId,jdbcType=VARCHAR},
+      NAME_ = #{name,jdbcType=VARCHAR},
+      FORM_KEY_ = #{formKey,jdbcType=VARCHAR},
+      DESC_ = #{desc,jdbcType=VARCHAR},
+      STATUS_ = #{status,jdbcType=VARCHAR},
+      FORM_TYPE_ = #{formType,jdbcType=VARCHAR},
+      TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      TYPE_NAME_ = #{typeName,jdbcType=VARCHAR},
+      IS_MAIN_ = #{isMain,jdbcType=CHAR},
+      VERSION_ = #{version,jdbcType=INTEGER},
+      CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      FORM_TAB_TITLE_ = #{formTabTitle,jdbcType=VARCHAR},
+      CLASSIFY_ = #{classify,jdbcType=VARCHAR},
+      PAGE_FORMS_ = #{pageForms,jdbcType=VARCHAR},
+      PAGE_FORM_JSON_ = #{pageFormJson,jdbcType=VARCHAR},
+      HIDE_MAIN_ = #{hideMain,jdbcType=CHAR}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

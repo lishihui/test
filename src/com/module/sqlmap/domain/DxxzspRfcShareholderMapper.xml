@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.threeWebElectric.change.change.DxxzspRfcShareholderMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.threeWebElectric.change.change.DxxzspRfcShareholder">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="OLD_NAME" jdbcType="VARCHAR" property="oldName" />
+    <result column="OLD_NATURE" jdbcType="VARCHAR" property="oldNature" />
+    <result column="OLD_IDCARD" jdbcType="VARCHAR" property="oldIdcard" />
+    <result column="OLD_INVEST_TYPE" jdbcType="VARCHAR" property="oldInvestType" />
+    <result column="OLD_SHARES_RATE" jdbcType="VARCHAR" property="oldSharesRate" />
+    <result column="NEW_NAME" jdbcType="VARCHAR" property="newName" />
+    <result column="NEW_NATURE" jdbcType="VARCHAR" property="newNature" />
+    <result column="NEW_IDCARD" jdbcType="VARCHAR" property="newIdcard" />
+    <result column="NEW_INVEST_TYPE" jdbcType="VARCHAR" property="newInvestType" />
+    <result column="NEW_SHARES_RATE" jdbcType="VARCHAR" property="newSharesRate" />
+    <result column="RFC_INFO_ID" jdbcType="VARCHAR" property="rfcInfoId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.threeWebElectric.change.change.DxxzspRfcShareholderWithBLOBs">
+    <result column="HOLDER_INFO_S" jdbcType="CLOB" property="holderInfoS" />
+    <result column="EQUITY_STRUCTURE_S" jdbcType="CLOB" property="equityStructureS" />
+    <result column="BOARD_DIRECTORS_S" jdbcType="CLOB" property="boardDirectorsS" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, CREATED, MODIFIED, 
+    CREATOR, MODIFICATOR, RECYCLE, OLD_NAME, 
+    OLD_NATURE, OLD_IDCARD, OLD_INVEST_TYPE, OLD_SHARES_RATE, NEW_NAME, 
+    NEW_NATURE, NEW_IDCARD, NEW_INVEST_TYPE, NEW_SHARES_RATE, RFC_INFO_ID
+  </sql>
+  <sql id="Blob_Column_List">
+    HOLDER_INFO_S, EQUITY_STRUCTURE_S, BOARD_DIRECTORS_S
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_RFC_SHAREHOLDER
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="com.module.domain.threeWebElectric.change.change.DxxzspRfcShareholderWithBLOBs">
+    insert into DXXZSP_RFC_SHAREHOLDER (ID, CREATED, MODIFIED, 
+      CREATOR, MODIFICATOR, RECYCLE, 
+      OLD_NAME, OLD_NATURE, OLD_IDCARD, 
+      OLD_INVEST_TYPE, OLD_SHARES_RATE, NEW_NAME, 
+      NEW_NATURE, NEW_IDCARD, NEW_INVEST_TYPE, 
+      NEW_SHARES_RATE, RFC_INFO_ID, HOLDER_INFO_S, 
+      EQUITY_STRUCTURE_S, BOARD_DIRECTORS_S)
+    values (#{id,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, #{modified,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, #{recycle,jdbcType=VARCHAR}, 
+      #{oldName,jdbcType=VARCHAR}, #{oldNature,jdbcType=VARCHAR}, #{oldIdcard,jdbcType=VARCHAR}, 
+      #{oldInvestType,jdbcType=VARCHAR}, #{oldSharesRate,jdbcType=VARCHAR}, #{newName,jdbcType=VARCHAR}, 
+      #{newNature,jdbcType=VARCHAR}, #{newIdcard,jdbcType=VARCHAR}, #{newInvestType,jdbcType=VARCHAR}, 
+      #{newSharesRate,jdbcType=VARCHAR}, #{rfcInfoId,jdbcType=VARCHAR}, #{holderInfoS,jdbcType=CLOB}, 
+      #{equityStructureS,jdbcType=CLOB}, #{boardDirectorsS,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.threeWebElectric.change.change.DxxzspRfcShareholderWithBLOBs">
+    insert into DXXZSP_RFC_SHAREHOLDER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="oldName != null">
+        OLD_NAME,
+      </if>
+      <if test="oldNature != null">
+        OLD_NATURE,
+      </if>
+      <if test="oldIdcard != null">
+        OLD_IDCARD,
+      </if>
+      <if test="oldInvestType != null">
+        OLD_INVEST_TYPE,
+      </if>
+      <if test="oldSharesRate != null">
+        OLD_SHARES_RATE,
+      </if>
+      <if test="newName != null">
+        NEW_NAME,
+      </if>
+      <if test="newNature != null">
+        NEW_NATURE,
+      </if>
+      <if test="newIdcard != null">
+        NEW_IDCARD,
+      </if>
+      <if test="newInvestType != null">
+        NEW_INVEST_TYPE,
+      </if>
+      <if test="newSharesRate != null">
+        NEW_SHARES_RATE,
+      </if>
+      <if test="rfcInfoId != null">
+        RFC_INFO_ID,
+      </if>
+      <if test="holderInfoS != null">
+        HOLDER_INFO_S,
+      </if>
+      <if test="equityStructureS != null">
+        EQUITY_STRUCTURE_S,
+      </if>
+      <if test="boardDirectorsS != null">
+        BOARD_DIRECTORS_S,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="oldName != null">
+        #{oldName,jdbcType=VARCHAR},
+      </if>
+      <if test="oldNature != null">
+        #{oldNature,jdbcType=VARCHAR},
+      </if>
+      <if test="oldIdcard != null">
+        #{oldIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="oldInvestType != null">
+        #{oldInvestType,jdbcType=VARCHAR},
+      </if>
+      <if test="oldSharesRate != null">
+        #{oldSharesRate,jdbcType=VARCHAR},
+      </if>
+      <if test="newName != null">
+        #{newName,jdbcType=VARCHAR},
+      </if>
+      <if test="newNature != null">
+        #{newNature,jdbcType=VARCHAR},
+      </if>
+      <if test="newIdcard != null">
+        #{newIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="newInvestType != null">
+        #{newInvestType,jdbcType=VARCHAR},
+      </if>
+      <if test="newSharesRate != null">
+        #{newSharesRate,jdbcType=VARCHAR},
+      </if>
+      <if test="rfcInfoId != null">
+        #{rfcInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="holderInfoS != null">
+        #{holderInfoS,jdbcType=CLOB},
+      </if>
+      <if test="equityStructureS != null">
+        #{equityStructureS,jdbcType=CLOB},
+      </if>
+      <if test="boardDirectorsS != null">
+        #{boardDirectorsS,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

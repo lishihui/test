@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.registrationManagement.apply.apply.DxxzspInfoSafetyMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.registrationManagement.apply.apply.DxxzspInformationSafety">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="NET_INFO_PERSON" jdbcType="VARCHAR" property="netInfoPerson" />
+    <result column="CONTRACT_PHONE" jdbcType="VARCHAR" property="contractPhone" />
+    <result column="NET_DOCUMENT_TYPE" jdbcType="VARCHAR" property="netDocumentType" />
+    <result column="NET_ID_NUM" jdbcType="VARCHAR" property="netIdNum" />
+    <result column="NET_EMAL_ADDRESS" jdbcType="VARCHAR" property="netEmalAddress" />
+    <result column="NET_MAILING_ADDRESS" jdbcType="VARCHAR" property="netMailingAddress" />
+    <result column="EMERGENCY_LINKMAN" jdbcType="VARCHAR" property="emergencyLinkman" />
+    <result column="EME_PHONE" jdbcType="VARCHAR" property="emePhone" />
+    <result column="EME_ID_TYPE" jdbcType="VARCHAR" property="emeIdType" />
+    <result column="EME_ID_NUM" jdbcType="VARCHAR" property="emeIdNum" />
+    <result column="EME_EMAIL_ADDRESS" jdbcType="VARCHAR" property="emeEmailAddress" />
+    <result column="EME_MAILING_ADDRESS" jdbcType="VARCHAR" property="emeMailingAddress" />
+    <result column="NET_POHNE" jdbcType="VARCHAR" property="netPohne" />
+    <result column="EME_POHNE" jdbcType="VARCHAR" property="emePohne" />
+    <result column="NET_NUM" jdbcType="VARCHAR" property="netNum" />
+    <result column="EME_NUM" jdbcType="VARCHAR" property="emeNum" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.registrationManagement.apply.apply.DxxzspInfoSafetyWithBLOBs">
+    <result column="INFO_WORK_DUTY" jdbcType="CLOB" property="infoWorkDuty" />
+    <result column="MANAGERIAL_STAFF_INFO" jdbcType="CLOB" property="managerialStaffInfo" />
+    <result column="SYSTEM_CONSTRUCTION" jdbcType="CLOB" property="systemConstruction" />
+    <result column="TECH_GUARANTEE" jdbcType="CLOB" property="techGuarantee" />
+    <result column="EMERGENCY_PLAN" jdbcType="CLOB" property="emergencyPlan" />
+    <result column="OTHER_FLEX" jdbcType="CLOB" property="otherFlex" />
+    <result column="INFO_WORK" jdbcType="CLOB" property="infoWork" />
+    <result column="MANA_TAFF" jdbcType="CLOB" property="manaTaff" />
+    <result column="SYSTEM_CONSTRATION" jdbcType="CLOB" property="systemConstration" />
+    <result column="TECH_CONSTRATION" jdbcType="CLOB" property="techConstration" />
+    <result column="INFO_EME" jdbcType="CLOB" property="infoEme" />
+    <result column="OTHER" jdbcType="CLOB" property="other" />
+  </resultMap>
+  
+  
+   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_INFO_SAFETY
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List" >
+	ID,TITLE,CREATED,MODIFIED,CREATOR,MODIFICATOR,RECYCLE,NET_INFO_PERSON,CONTRACT_PHONE,NET_DOCUMENT_TYPE,NET_ID_NUM,NET_EMAL_ADDRESS
+    ,NET_MAILING_ADDRESS,EMERGENCY_LINKMAN,EME_PHONE,EME_ID_TYPE,EME_ID_NUM,EME_EMAIL_ADDRESS,EME_MAILING_ADDRESS,NET_POHNE,EME_POHNE,NET_NUM,EME_NUM
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    INFO_WORK_DUTY, MANAGERIAL_STAFF_INFO, SYSTEM_CONSTRUCTION, TECH_GUARANTEE, EMERGENCY_PLAN, 
+    OTHER_FLEX, INFO_WORK, MANA_TAFF, SYSTEM_CONSTRATION, TECH_CONSTRATION, INFO_EME, 
+    OTHER
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.registrationManagement.apply.apply.DxxzspInfoSafetyWithBLOBs">
+    insert into DXXZSP_INFO_SAFETY (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, NET_INFO_PERSON, CONTRACT_PHONE, 
+      NET_DOCUMENT_TYPE, NET_ID_NUM, NET_EMAL_ADDRESS, 
+      NET_MAILING_ADDRESS, EMERGENCY_LINKMAN, EME_PHONE, 
+      EME_ID_TYPE, EME_ID_NUM, EME_EMAIL_ADDRESS, 
+      EME_MAILING_ADDRESS, NET_POHNE, EME_POHNE, 
+      NET_NUM, EME_NUM, INFO_WORK_DUTY, 
+      MANAGERIAL_STAFF_INFO, SYSTEM_CONSTRUCTION, TECH_GUARANTEE, 
+      EMERGENCY_PLAN, OTHER_FLEX, INFO_WORK, 
+      MANA_TAFF, SYSTEM_CONSTRATION, TECH_CONSTRATION, 
+      INFO_EME, OTHER)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{netInfoPerson,jdbcType=VARCHAR}, #{contractPhone,jdbcType=VARCHAR}, 
+      #{netDocumentType,jdbcType=VARCHAR}, #{netIdNum,jdbcType=VARCHAR}, #{netEmalAddress,jdbcType=VARCHAR}, 
+      #{netMailingAddress,jdbcType=VARCHAR}, #{emergencyLinkman,jdbcType=VARCHAR}, #{emePhone,jdbcType=VARCHAR}, 
+      #{emeIdType,jdbcType=VARCHAR}, #{emeIdNum,jdbcType=VARCHAR}, #{emeEmailAddress,jdbcType=VARCHAR}, 
+      #{emeMailingAddress,jdbcType=VARCHAR}, #{netPohne,jdbcType=VARCHAR}, #{emePohne,jdbcType=VARCHAR}, 
+      #{netNum,jdbcType=VARCHAR}, #{emeNum,jdbcType=VARCHAR}, #{infoWorkDuty,jdbcType=CLOB}, 
+      #{managerialStaffInfo,jdbcType=CLOB}, #{systemConstruction,jdbcType=CLOB}, #{techGuarantee,jdbcType=CLOB}, 
+      #{emergencyPlan,jdbcType=CLOB}, #{otherFlex,jdbcType=CLOB}, #{infoWork,jdbcType=CLOB}, 
+      #{manaTaff,jdbcType=CLOB}, #{systemConstration,jdbcType=CLOB}, #{techConstration,jdbcType=CLOB}, 
+      #{infoEme,jdbcType=CLOB}, #{other,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.registrationManagement.apply.apply.DxxzspInfoSafetyWithBLOBs">
+    insert into DXXZSP_INFO_SAFETY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="netInfoPerson != null">
+        NET_INFO_PERSON,
+      </if>
+      <if test="contractPhone != null">
+        CONTRACT_PHONE,
+      </if>
+      <if test="netDocumentType != null">
+        NET_DOCUMENT_TYPE,
+      </if>
+      <if test="netIdNum != null">
+        NET_ID_NUM,
+      </if>
+      <if test="netEmalAddress != null">
+        NET_EMAL_ADDRESS,
+      </if>
+      <if test="netMailingAddress != null">
+        NET_MAILING_ADDRESS,
+      </if>
+      <if test="emergencyLinkman != null">
+        EMERGENCY_LINKMAN,
+      </if>
+      <if test="emePhone != null">
+        EME_PHONE,
+      </if>
+      <if test="emeIdType != null">
+        EME_ID_TYPE,
+      </if>
+      <if test="emeIdNum != null">
+        EME_ID_NUM,
+      </if>
+      <if test="emeEmailAddress != null">
+        EME_EMAIL_ADDRESS,
+      </if>
+      <if test="emeMailingAddress != null">
+        EME_MAILING_ADDRESS,
+      </if>
+      <if test="netPohne != null">
+        NET_POHNE,
+      </if>
+      <if test="emePohne != null">
+        EME_POHNE,
+      </if>
+      <if test="netNum != null">
+        NET_NUM,
+      </if>
+      <if test="emeNum != null">
+        EME_NUM,
+      </if>
+      <if test="infoWorkDuty != null">
+        INFO_WORK_DUTY,
+      </if>
+      <if test="managerialStaffInfo != null">
+        MANAGERIAL_STAFF_INFO,
+      </if>
+      <if test="systemConstruction != null">
+        SYSTEM_CONSTRUCTION,
+      </if>
+      <if test="techGuarantee != null">
+        TECH_GUARANTEE,
+      </if>
+      <if test="emergencyPlan != null">
+        EMERGENCY_PLAN,
+      </if>
+      <if test="otherFlex != null">
+        OTHER_FLEX,
+      </if>
+      <if test="infoWork != null">
+        INFO_WORK,
+      </if>
+      <if test="manaTaff != null">
+        MANA_TAFF,
+      </if>
+      <if test="systemConstration != null">
+        SYSTEM_CONSTRATION,
+      </if>
+      <if test="techConstration != null">
+        TECH_CONSTRATION,
+      </if>
+      <if test="infoEme != null">
+        INFO_EME,
+      </if>
+      <if test="other != null">
+        OTHER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="netInfoPerson != null">
+        #{netInfoPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="contractPhone != null">
+        #{contractPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="netDocumentType != null">
+        #{netDocumentType,jdbcType=VARCHAR},
+      </if>
+      <if test="netIdNum != null">
+        #{netIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="netEmalAddress != null">
+        #{netEmalAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="netMailingAddress != null">
+        #{netMailingAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyLinkman != null">
+        #{emergencyLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="emePhone != null">
+        #{emePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="emeIdType != null">
+        #{emeIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="emeIdNum != null">
+        #{emeIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="emeEmailAddress != null">
+        #{emeEmailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="emeMailingAddress != null">
+        #{emeMailingAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="netPohne != null">
+        #{netPohne,jdbcType=VARCHAR},
+      </if>
+      <if test="emePohne != null">
+        #{emePohne,jdbcType=VARCHAR},
+      </if>
+      <if test="netNum != null">
+        #{netNum,jdbcType=VARCHAR},
+      </if>
+      <if test="emeNum != null">
+        #{emeNum,jdbcType=VARCHAR},
+      </if>
+      <if test="infoWorkDuty != null">
+        #{infoWorkDuty,jdbcType=CLOB},
+      </if>
+      <if test="managerialStaffInfo != null">
+        #{managerialStaffInfo,jdbcType=CLOB},
+      </if>
+      <if test="systemConstruction != null">
+        #{systemConstruction,jdbcType=CLOB},
+      </if>
+      <if test="techGuarantee != null">
+        #{techGuarantee,jdbcType=CLOB},
+      </if>
+      <if test="emergencyPlan != null">
+        #{emergencyPlan,jdbcType=CLOB},
+      </if>
+      <if test="otherFlex != null">
+        #{otherFlex,jdbcType=CLOB},
+      </if>
+      <if test="infoWork != null">
+        #{infoWork,jdbcType=CLOB},
+      </if>
+      <if test="manaTaff != null">
+        #{manaTaff,jdbcType=CLOB},
+      </if>
+      <if test="systemConstration != null">
+        #{systemConstration,jdbcType=CLOB},
+      </if>
+      <if test="techConstration != null">
+        #{techConstration,jdbcType=CLOB},
+      </if>
+      <if test="infoEme != null">
+        #{infoEme,jdbcType=CLOB},
+      </if>
+      <if test="other != null">
+        #{other,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

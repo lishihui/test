@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.registrationManagement.change.change.BeforeChangedHolderMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.registrationManagement.change.change.BeforeChangedHolder">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="SHAREHOLDERS_COUNTRY" jdbcType="VARCHAR" property="shareholdersCountry" />
+    <result column="GDJWGJINFO" jdbcType="VARCHAR" property="gdjwgjinfo" />
+    <result column="SHAREHOLDER_TYPE" jdbcType="VARCHAR" property="shareholderType" />
+    <result column="SID_TPYE" jdbcType="VARCHAR" property="sidTpye" />
+    <result column="GDHZ_TYPE" jdbcType="VARCHAR" property="gdhzType" />
+    <result column="ENT_TYPE" jdbcType="VARCHAR" property="entType" />
+    <result column="SHAREHOLDER_NAME" jdbcType="VARCHAR" property="shareholderName" />
+    <result column="ZJHM_NUM" jdbcType="VARCHAR" property="zjhmNum" />
+    <result column="SID_START_DATE" jdbcType="VARCHAR" property="sidStartDate" />
+    <result column="SID_END_DATE" jdbcType="VARCHAR" property="sidEndDate" />
+    <result column="RQSFYX" jdbcType="VARCHAR" property="rqsfyx" />
+    <result column="SHARED_PERCENT" jdbcType="VARCHAR" property="sharedPercent" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.registrationManagement.change.change.BeforeChangedHolderWithBLOBs">
+    <result column="SHAREDHOLDER_ID_FLEX" jdbcType="CLOB" property="sharedholderIdFlex" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from BEFORE_CHANGED_HOLDER
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, MODIFIED, 
+    CREATOR, MODIFICATOR, RECYCLE, SHAREHOLDERS_COUNTRY, 
+    GDJWGJINFO, SHAREHOLDER_TYPE, SID_TPYE, GDHZ_TYPE, ENT_TYPE, 
+    SHAREHOLDER_NAME, ZJHM_NUM, SID_START_DATE, SID_END_DATE, RQSFYX, SHARED_PERCENT
+    PARENTID
+  </sql>
+  <sql id="Blob_Column_List">
+    SHAREDHOLDER_ID_FLEX
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.registrationManagement.change.change.BeforeChangedHolderWithBLOBs">
+    insert into BEFORE_CHANGED_HOLDER (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, SHAREHOLDERS_COUNTRY, GDJWGJINFO, 
+      SHAREHOLDER_TYPE, SID_TPYE, GDHZ_TYPE, 
+      ENT_TYPE, SHAREHOLDER_NAME, ZJHM_NUM, 
+      SID_START_DATE, SID_END_DATE, RQSFYX, 
+      SHARED_PERCENT, PARENTID, SHAREDHOLDER_ID_FLEX
+      )
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{shareholdersCountry,jdbcType=VARCHAR}, #{gdjwgjinfo,jdbcType=VARCHAR}, 
+      #{shareholderType,jdbcType=VARCHAR}, #{sidTpye,jdbcType=VARCHAR}, #{gdhzType,jdbcType=VARCHAR}, 
+      #{entType,jdbcType=VARCHAR}, #{shareholderName,jdbcType=VARCHAR}, #{zjhmNum,jdbcType=VARCHAR}, 
+      #{sidStartDate,jdbcType=VARCHAR}, #{sidEndDate,jdbcType=VARCHAR}, #{rqsfyx,jdbcType=VARCHAR}, 
+      #{sharedPercent,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, #{sharedholderIdFlex,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.registrationManagement.change.change.BeforeChangedHolderWithBLOBs">
+    insert into BEFORE_CHANGED_HOLDER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="shareholdersCountry != null">
+        SHAREHOLDERS_COUNTRY,
+      </if>
+      <if test="gdjwgjinfo != null">
+        GDJWGJINFO,
+      </if>
+      <if test="shareholderType != null">
+        SHAREHOLDER_TYPE,
+      </if>
+      <if test="sidTpye != null">
+        SID_TPYE,
+      </if>
+      <if test="gdhzType != null">
+        GDHZ_TYPE,
+      </if>
+      <if test="entType != null">
+        ENT_TYPE,
+      </if>
+      <if test="shareholderName != null">
+        SHAREHOLDER_NAME,
+      </if>
+      <if test="zjhmNum != null">
+        ZJHM_NUM,
+      </if>
+      <if test="sidStartDate != null">
+        SID_START_DATE,
+      </if>
+      <if test="sidEndDate != null">
+        SID_END_DATE,
+      </if>
+      <if test="rqsfyx != null">
+        RQSFYX,
+      </if>
+      <if test="sharedPercent != null">
+        SHARED_PERCENT,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="sharedholderIdFlex != null">
+        SHAREDHOLDER_ID_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="shareholdersCountry != null">
+        #{shareholdersCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="gdjwgjinfo != null">
+        #{gdjwgjinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="shareholderType != null">
+        #{shareholderType,jdbcType=VARCHAR},
+      </if>
+      <if test="sidTpye != null">
+        #{sidTpye,jdbcType=VARCHAR},
+      </if>
+      <if test="gdhzType != null">
+        #{gdhzType,jdbcType=VARCHAR},
+      </if>
+      <if test="entType != null">
+        #{entType,jdbcType=VARCHAR},
+      </if>
+      <if test="shareholderName != null">
+        #{shareholderName,jdbcType=VARCHAR},
+      </if>
+      <if test="zjhmNum != null">
+        #{zjhmNum,jdbcType=VARCHAR},
+      </if>
+      <if test="sidStartDate != null">
+        #{sidStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sidEndDate != null">
+        #{sidEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="rqsfyx != null">
+        #{rqsfyx,jdbcType=VARCHAR},
+      </if>
+      <if test="sharedPercent != null">
+        #{sharedPercent,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="sharedholderIdFlex != null">
+        #{sharedholderIdFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

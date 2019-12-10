@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.domainRegistration.apply.apply.DxxzspDnsCoinfoMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.domainRegistration.apply.apply.DxxzspDnsCoinfo">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="APPLICANT_NAME" jdbcType="VARCHAR" property="applicantName" />
+    <result column="APPLICATION_ENGNAME" jdbcType="VARCHAR" property="applicationEngname" />
+    <result column="IANA_ID" jdbcType="VARCHAR" property="ianaId" />
+    <result column="APPLICANT_WEBSITE" jdbcType="VARCHAR" property="applicantWebsite" />
+    <result column="YES_OR_NO_ENGWEB" jdbcType="VARCHAR" property="yesOrNoEngweb" />
+    <result column="HAVE_ENGWEB" jdbcType="VARCHAR" property="haveEngweb" />
+    <result column="TOPLEVEL_DOMAIN" jdbcType="VARCHAR" property="toplevelDomain" />
+    <result column="SOCIAL_CREDIT_CODE" jdbcType="VARCHAR" property="socialCreditCode" />
+    <result column="REG_ADDRESS" jdbcType="VARCHAR" property="regAddress" />
+    <result column="REG_AUTHORITY" jdbcType="VARCHAR" property="regAuthority" />
+    <result column="REGISTERED_CAPITAL" jdbcType="VARCHAR" property="registeredCapital" />
+    <result column="ESTABLISHMENT_DATE" jdbcType="VARCHAR" property="establishmentDate" />
+    <result column="VAILD_DATE" jdbcType="VARCHAR" property="vaildDate" />
+    <result column="MAILING_ADDRESS" jdbcType="VARCHAR" property="mailingAddress" />
+    <result column="POSTCODE" jdbcType="VARCHAR" property="postcode" />
+    <result column="LEGAL_NAME" jdbcType="VARCHAR" property="legalName" />
+    <result column="LEGAL_ID_TYPE" jdbcType="VARCHAR" property="legalIdType" />
+    <result column="LEGAL_ID_NUM" jdbcType="VARCHAR" property="legalIdNum" />
+    <result column="LEGAL_PHONE" jdbcType="VARCHAR" property="legalPhone" />
+    <result column="LEGAL_MOBILE" jdbcType="VARCHAR" property="legalMobile" />
+    <result column="LEGAL_FAX" jdbcType="VARCHAR" property="legalFax" />
+    <result column="HEAD_NAME" jdbcType="VARCHAR" property="headName" />
+    <result column="HEAD_ID_TYPE" jdbcType="VARCHAR" property="headIdType" />
+    <result column="HEAD_ID_NUM" jdbcType="VARCHAR" property="headIdNum" />
+    <result column="HEAD_MOBILE" jdbcType="VARCHAR" property="headMobile" />
+    <result column="HEAD_PHONE" jdbcType="VARCHAR" property="headPhone" />
+    <result column="HEAD_FAX" jdbcType="VARCHAR" property="headFax" />
+    <result column="LINKMAN_NAME" jdbcType="VARCHAR" property="linkmanName" />
+    <result column="LINK_ID_TYPE" jdbcType="VARCHAR" property="linkIdType" />
+    <result column="LINK_ID_NUM" jdbcType="VARCHAR" property="linkIdNum" />
+    <result column="LINK_MOBILE" jdbcType="VARCHAR" property="linkMobile" />
+    <result column="LINK_PHONE" jdbcType="VARCHAR" property="linkPhone" />
+    <result column="LINK_FAX" jdbcType="VARCHAR" property="linkFax" />
+    <result column="OWNERSHIP_STRUCTURE" jdbcType="VARCHAR" property="ownershipStructure" />
+    <result column="ENTERPRISE_NATURE" jdbcType="VARCHAR" property="enterpriseNature" />
+    <result column="LISTING_SITUATION" jdbcType="VARCHAR" property="listingSituation" />
+    <result column="OTHER_AREA" jdbcType="VARCHAR" property="otherArea" />
+    <result column="MAIN_OFFICE_ADDRESS" jdbcType="VARCHAR" property="mainOfficeAddress" />
+    <result column="CO_MANAGER_LIST" jdbcType="VARCHAR" property="coManagerList" />
+    <result column="CO_TECH_LIST" jdbcType="VARCHAR" property="coTechList" />
+    <result column="YES_OR_NO_LICENSE" jdbcType="VARCHAR" property="yesOrNoLicense" />
+    <result column="LICENSE_NUM" jdbcType="VARCHAR" property="licenseNum" />
+    <result column="FRHZ" jdbcType="VARCHAR" property="frhz" />
+    <result column="FZRGJ" jdbcType="VARCHAR" property="fzrgj" />
+    <result column="LXRGJ" jdbcType="VARCHAR" property="lxrgj" />
+    <result column="TXDZSF" jdbcType="VARCHAR" property="txdzsf" />
+    <result column="TXDZDS" jdbcType="VARCHAR" property="txdzds" />
+    <result column="TXDZS" jdbcType="VARCHAR" property="txdzs" />
+    <result column="TXDZSFDS" jdbcType="VARCHAR" property="txdzsfds" />
+    <result column="ZHUANGTAI" jdbcType="VARCHAR" property="zhuangtai" />
+    <result column="ZTYJ" jdbcType="VARCHAR" property="ztyj" />
+    <result column="AQYJ" jdbcType="VARCHAR" property="aqyj" />
+    <result column="AQ_ZHUANGTAI" jdbcType="VARCHAR" property="aqZhuangtai" />
+    <result column="YXQSJYJ" jdbcType="VARCHAR" property="yxqsjyj" />
+    <result column="CARD1" jdbcType="VARCHAR" property="card1" />
+    <result column="CARD2" jdbcType="VARCHAR" property="card2" />
+    <result column="CARD3" jdbcType="VARCHAR" property="card3" />
+    <result column="YINGYEZHIZHAO" jdbcType="VARCHAR" property="yingyezhizhao" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domainRegistration.apply.apply.DxxzspDnsCoinfoWithBLOBs">
+    <result column="COMPANY_DETAIL" jdbcType="CLOB" property="companyDetail" />
+    <result column="BUSINESS_TYPE" jdbcType="CLOB" property="businessType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, APPLICANT_NAME, APPLICATION_ENGNAME, 
+      IANA_ID, APPLICANT_WEBSITE, YES_OR_NO_ENGWEB, 
+      HAVE_ENGWEB, TOPLEVEL_DOMAIN, SOCIAL_CREDIT_CODE, 
+      REG_ADDRESS, REG_AUTHORITY, REGISTERED_CAPITAL, 
+      ESTABLISHMENT_DATE, VAILD_DATE, MAILING_ADDRESS, 
+      POSTCODE, LEGAL_NAME, LEGAL_ID_TYPE, 
+      LEGAL_ID_NUM, LEGAL_PHONE, LEGAL_MOBILE, 
+      LEGAL_FAX, HEAD_NAME, HEAD_ID_TYPE, 
+      HEAD_ID_NUM, HEAD_MOBILE, HEAD_PHONE, 
+      HEAD_FAX, LINKMAN_NAME, LINK_ID_TYPE, 
+      LINK_ID_NUM, LINK_MOBILE, LINK_PHONE, 
+      LINK_FAX, OWNERSHIP_STRUCTURE, ENTERPRISE_NATURE, 
+      LISTING_SITUATION, OTHER_AREA, MAIN_OFFICE_ADDRESS, 
+      CO_MANAGER_LIST, CO_TECH_LIST, YES_OR_NO_LICENSE, 
+      LICENSE_NUM, FRHZ, FZRGJ, 
+      LXRGJ, TXDZSF, TXDZDS, 
+      TXDZS, TXDZSFDS, ZHUANGTAI, 
+      ZTYJ, AQYJ, AQ_ZHUANGTAI, 
+      YXQSJYJ, CARD1, CARD2, 
+      CARD3, YINGYEZHIZHAO
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    COMPANY_DETAIL, BUSINESS_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_DNS_COINFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.domainRegistration.apply.apply.DxxzspDnsCoinfoWithBLOBs">
+    insert into DXXZSP_DNS_COINFO (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, APPLICANT_NAME, APPLICATION_ENGNAME, 
+      IANA_ID, APPLICANT_WEBSITE, YES_OR_NO_ENGWEB, 
+      HAVE_ENGWEB, TOPLEVEL_DOMAIN, SOCIAL_CREDIT_CODE, 
+      REG_ADDRESS, REG_AUTHORITY, REGISTERED_CAPITAL, 
+      ESTABLISHMENT_DATE, VAILD_DATE, MAILING_ADDRESS, 
+      POSTCODE, LEGAL_NAME, LEGAL_ID_TYPE, 
+      LEGAL_ID_NUM, LEGAL_PHONE, LEGAL_MOBILE, 
+      LEGAL_FAX, HEAD_NAME, HEAD_ID_TYPE, 
+      HEAD_ID_NUM, HEAD_MOBILE, HEAD_PHONE, 
+      HEAD_FAX, LINKMAN_NAME, LINK_ID_TYPE, 
+      LINK_ID_NUM, LINK_MOBILE, LINK_PHONE, 
+      LINK_FAX, OWNERSHIP_STRUCTURE, ENTERPRISE_NATURE, 
+      LISTING_SITUATION, OTHER_AREA, MAIN_OFFICE_ADDRESS, 
+      CO_MANAGER_LIST, CO_TECH_LIST, YES_OR_NO_LICENSE, 
+      LICENSE_NUM, FRHZ, FZRGJ, 
+      LXRGJ, TXDZSF, TXDZDS, 
+      TXDZS, TXDZSFDS, ZHUANGTAI, 
+      ZTYJ, AQYJ, AQ_ZHUANGTAI, 
+      YXQSJYJ, CARD1, CARD2, 
+      CARD3, YINGYEZHIZHAO, COMPANY_DETAIL, 
+      BUSINESS_TYPE)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{applicantName,jdbcType=VARCHAR}, #{applicationEngname,jdbcType=VARCHAR}, 
+      #{ianaId,jdbcType=VARCHAR}, #{applicantWebsite,jdbcType=VARCHAR}, #{yesOrNoEngweb,jdbcType=VARCHAR}, 
+      #{haveEngweb,jdbcType=VARCHAR}, #{toplevelDomain,jdbcType=VARCHAR}, #{socialCreditCode,jdbcType=VARCHAR}, 
+      #{regAddress,jdbcType=VARCHAR}, #{regAuthority,jdbcType=VARCHAR}, #{registeredCapital,jdbcType=VARCHAR}, 
+      #{establishmentDate,jdbcType=VARCHAR}, #{vaildDate,jdbcType=VARCHAR}, #{mailingAddress,jdbcType=VARCHAR}, 
+      #{postcode,jdbcType=VARCHAR}, #{legalName,jdbcType=VARCHAR}, #{legalIdType,jdbcType=VARCHAR}, 
+      #{legalIdNum,jdbcType=VARCHAR}, #{legalPhone,jdbcType=VARCHAR}, #{legalMobile,jdbcType=VARCHAR}, 
+      #{legalFax,jdbcType=VARCHAR}, #{headName,jdbcType=VARCHAR}, #{headIdType,jdbcType=VARCHAR}, 
+      #{headIdNum,jdbcType=VARCHAR}, #{headMobile,jdbcType=VARCHAR}, #{headPhone,jdbcType=VARCHAR}, 
+      #{headFax,jdbcType=VARCHAR}, #{linkmanName,jdbcType=VARCHAR}, #{linkIdType,jdbcType=VARCHAR}, 
+      #{linkIdNum,jdbcType=VARCHAR}, #{linkMobile,jdbcType=VARCHAR}, #{linkPhone,jdbcType=VARCHAR}, 
+      #{linkFax,jdbcType=VARCHAR}, #{ownershipStructure,jdbcType=VARCHAR}, #{enterpriseNature,jdbcType=VARCHAR}, 
+      #{listingSituation,jdbcType=VARCHAR}, #{otherArea,jdbcType=VARCHAR}, #{mainOfficeAddress,jdbcType=VARCHAR}, 
+      #{coManagerList,jdbcType=VARCHAR}, #{coTechList,jdbcType=VARCHAR}, #{yesOrNoLicense,jdbcType=VARCHAR}, 
+      #{licenseNum,jdbcType=VARCHAR}, #{frhz,jdbcType=VARCHAR}, #{fzrgj,jdbcType=VARCHAR}, 
+      #{lxrgj,jdbcType=VARCHAR}, #{txdzsf,jdbcType=VARCHAR}, #{txdzds,jdbcType=VARCHAR}, 
+      #{txdzs,jdbcType=VARCHAR}, #{txdzsfds,jdbcType=VARCHAR}, #{zhuangtai,jdbcType=VARCHAR}, 
+      #{ztyj,jdbcType=VARCHAR}, #{aqyj,jdbcType=VARCHAR}, #{aqZhuangtai,jdbcType=VARCHAR}, 
+      #{yxqsjyj,jdbcType=VARCHAR}, #{card1,jdbcType=VARCHAR}, #{card2,jdbcType=VARCHAR}, 
+      #{card3,jdbcType=VARCHAR}, #{yingyezhizhao,jdbcType=VARCHAR}, #{companyDetail,jdbcType=CLOB}, 
+      #{businessType,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domainRegistration.apply.apply.DxxzspDnsCoinfoWithBLOBs">
+    insert into DXXZSP_DNS_COINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="applicantName != null">
+        APPLICANT_NAME,
+      </if>
+      <if test="applicationEngname != null">
+        APPLICATION_ENGNAME,
+      </if>
+      <if test="ianaId != null">
+        IANA_ID,
+      </if>
+      <if test="applicantWebsite != null">
+        APPLICANT_WEBSITE,
+      </if>
+      <if test="yesOrNoEngweb != null">
+        YES_OR_NO_ENGWEB,
+      </if>
+      <if test="haveEngweb != null">
+        HAVE_ENGWEB,
+      </if>
+      <if test="toplevelDomain != null">
+        TOPLEVEL_DOMAIN,
+      </if>
+      <if test="socialCreditCode != null">
+        SOCIAL_CREDIT_CODE,
+      </if>
+      <if test="regAddress != null">
+        REG_ADDRESS,
+      </if>
+      <if test="regAuthority != null">
+        REG_AUTHORITY,
+      </if>
+      <if test="registeredCapital != null">
+        REGISTERED_CAPITAL,
+      </if>
+      <if test="establishmentDate != null">
+        ESTABLISHMENT_DATE,
+      </if>
+      <if test="vaildDate != null">
+        VAILD_DATE,
+      </if>
+      <if test="mailingAddress != null">
+        MAILING_ADDRESS,
+      </if>
+      <if test="postcode != null">
+        POSTCODE,
+      </if>
+      <if test="legalName != null">
+        LEGAL_NAME,
+      </if>
+      <if test="legalIdType != null">
+        LEGAL_ID_TYPE,
+      </if>
+      <if test="legalIdNum != null">
+        LEGAL_ID_NUM,
+      </if>
+      <if test="legalPhone != null">
+        LEGAL_PHONE,
+      </if>
+      <if test="legalMobile != null">
+        LEGAL_MOBILE,
+      </if>
+      <if test="legalFax != null">
+        LEGAL_FAX,
+      </if>
+      <if test="headName != null">
+        HEAD_NAME,
+      </if>
+      <if test="headIdType != null">
+        HEAD_ID_TYPE,
+      </if>
+      <if test="headIdNum != null">
+        HEAD_ID_NUM,
+      </if>
+      <if test="headMobile != null">
+        HEAD_MOBILE,
+      </if>
+      <if test="headPhone != null">
+        HEAD_PHONE,
+      </if>
+      <if test="headFax != null">
+        HEAD_FAX,
+      </if>
+      <if test="linkmanName != null">
+        LINKMAN_NAME,
+      </if>
+      <if test="linkIdType != null">
+        LINK_ID_TYPE,
+      </if>
+      <if test="linkIdNum != null">
+        LINK_ID_NUM,
+      </if>
+      <if test="linkMobile != null">
+        LINK_MOBILE,
+      </if>
+      <if test="linkPhone != null">
+        LINK_PHONE,
+      </if>
+      <if test="linkFax != null">
+        LINK_FAX,
+      </if>
+      <if test="ownershipStructure != null">
+        OWNERSHIP_STRUCTURE,
+      </if>
+      <if test="enterpriseNature != null">
+        ENTERPRISE_NATURE,
+      </if>
+      <if test="listingSituation != null">
+        LISTING_SITUATION,
+      </if>
+      <if test="otherArea != null">
+        OTHER_AREA,
+      </if>
+      <if test="mainOfficeAddress != null">
+        MAIN_OFFICE_ADDRESS,
+      </if>
+      <if test="coManagerList != null">
+        CO_MANAGER_LIST,
+      </if>
+      <if test="coTechList != null">
+        CO_TECH_LIST,
+      </if>
+      <if test="yesOrNoLicense != null">
+        YES_OR_NO_LICENSE,
+      </if>
+      <if test="licenseNum != null">
+        LICENSE_NUM,
+      </if>
+      <if test="frhz != null">
+        FRHZ,
+      </if>
+      <if test="fzrgj != null">
+        FZRGJ,
+      </if>
+      <if test="lxrgj != null">
+        LXRGJ,
+      </if>
+      <if test="txdzsf != null">
+        TXDZSF,
+      </if>
+      <if test="txdzds != null">
+        TXDZDS,
+      </if>
+      <if test="txdzs != null">
+        TXDZS,
+      </if>
+      <if test="txdzsfds != null">
+        TXDZSFDS,
+      </if>
+      <if test="zhuangtai != null">
+        ZHUANGTAI,
+      </if>
+      <if test="ztyj != null">
+        ZTYJ,
+      </if>
+      <if test="aqyj != null">
+        AQYJ,
+      </if>
+      <if test="aqZhuangtai != null">
+        AQ_ZHUANGTAI,
+      </if>
+      <if test="yxqsjyj != null">
+        YXQSJYJ,
+      </if>
+      <if test="card1 != null">
+        CARD1,
+      </if>
+      <if test="card2 != null">
+        CARD2,
+      </if>
+      <if test="card3 != null">
+        CARD3,
+      </if>
+      <if test="yingyezhizhao != null">
+        YINGYEZHIZHAO,
+      </if>
+      <if test="companyDetail != null">
+        COMPANY_DETAIL,
+      </if>
+      <if test="businessType != null">
+        BUSINESS_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="applicantName != null">
+        #{applicantName,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationEngname != null">
+        #{applicationEngname,jdbcType=VARCHAR},
+      </if>
+      <if test="ianaId != null">
+        #{ianaId,jdbcType=VARCHAR},
+      </if>
+      <if test="applicantWebsite != null">
+        #{applicantWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="yesOrNoEngweb != null">
+        #{yesOrNoEngweb,jdbcType=VARCHAR},
+      </if>
+      <if test="haveEngweb != null">
+        #{haveEngweb,jdbcType=VARCHAR},
+      </if>
+      <if test="toplevelDomain != null">
+        #{toplevelDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="socialCreditCode != null">
+        #{socialCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regAddress != null">
+        #{regAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="regAuthority != null">
+        #{regAuthority,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null">
+        #{registeredCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="establishmentDate != null">
+        #{establishmentDate,jdbcType=VARCHAR},
+      </if>
+      <if test="vaildDate != null">
+        #{vaildDate,jdbcType=VARCHAR},
+      </if>
+      <if test="mailingAddress != null">
+        #{mailingAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="legalName != null">
+        #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalIdType != null">
+        #{legalIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="legalIdNum != null">
+        #{legalIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPhone != null">
+        #{legalPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="legalMobile != null">
+        #{legalMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="legalFax != null">
+        #{legalFax,jdbcType=VARCHAR},
+      </if>
+      <if test="headName != null">
+        #{headName,jdbcType=VARCHAR},
+      </if>
+      <if test="headIdType != null">
+        #{headIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="headIdNum != null">
+        #{headIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="headMobile != null">
+        #{headMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="headPhone != null">
+        #{headPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="headFax != null">
+        #{headFax,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanName != null">
+        #{linkmanName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkIdType != null">
+        #{linkIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="linkIdNum != null">
+        #{linkIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="linkMobile != null">
+        #{linkMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="linkPhone != null">
+        #{linkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="linkFax != null">
+        #{linkFax,jdbcType=VARCHAR},
+      </if>
+      <if test="ownershipStructure != null">
+        #{ownershipStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseNature != null">
+        #{enterpriseNature,jdbcType=VARCHAR},
+      </if>
+      <if test="listingSituation != null">
+        #{listingSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="otherArea != null">
+        #{otherArea,jdbcType=VARCHAR},
+      </if>
+      <if test="mainOfficeAddress != null">
+        #{mainOfficeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="coManagerList != null">
+        #{coManagerList,jdbcType=VARCHAR},
+      </if>
+      <if test="coTechList != null">
+        #{coTechList,jdbcType=VARCHAR},
+      </if>
+      <if test="yesOrNoLicense != null">
+        #{yesOrNoLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseNum != null">
+        #{licenseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="frhz != null">
+        #{frhz,jdbcType=VARCHAR},
+      </if>
+      <if test="fzrgj != null">
+        #{fzrgj,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrgj != null">
+        #{lxrgj,jdbcType=VARCHAR},
+      </if>
+      <if test="txdzsf != null">
+        #{txdzsf,jdbcType=VARCHAR},
+      </if>
+      <if test="txdzds != null">
+        #{txdzds,jdbcType=VARCHAR},
+      </if>
+      <if test="txdzs != null">
+        #{txdzs,jdbcType=VARCHAR},
+      </if>
+      <if test="txdzsfds != null">
+        #{txdzsfds,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuangtai != null">
+        #{zhuangtai,jdbcType=VARCHAR},
+      </if>
+      <if test="ztyj != null">
+        #{ztyj,jdbcType=VARCHAR},
+      </if>
+      <if test="aqyj != null">
+        #{aqyj,jdbcType=VARCHAR},
+      </if>
+      <if test="aqZhuangtai != null">
+        #{aqZhuangtai,jdbcType=VARCHAR},
+      </if>
+      <if test="yxqsjyj != null">
+        #{yxqsjyj,jdbcType=VARCHAR},
+      </if>
+      <if test="card1 != null">
+        #{card1,jdbcType=VARCHAR},
+      </if>
+      <if test="card2 != null">
+        #{card2,jdbcType=VARCHAR},
+      </if>
+      <if test="card3 != null">
+        #{card3,jdbcType=VARCHAR},
+      </if>
+      <if test="yingyezhizhao != null">
+        #{yingyezhizhao,jdbcType=VARCHAR},
+      </if>
+      <if test="companyDetail != null">
+        #{companyDetail,jdbcType=CLOB},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.registrationManagement.apply.apply.DxxzspTechnologyImplementationMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.registrationManagement.apply.apply.DxxzspTechnologyImplementation">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="TECHNICAL_PERSON" jdbcType="VARCHAR" property="technicalPerson" />
+    <result column="CONTACT_INFO" jdbcType="VARCHAR" property="contactInfo" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.registrationManagement.apply.apply.DxxzspTechnologyImplementationWithBLOBs">
+    <result column="NETWORK_TOPOLOGY_FLEX" jdbcType="CLOB" property="networkTopologyFlex" />
+    <result column="NETWORK_SCALE" jdbcType="CLOB" property="networkScale" />
+    <result column="MANAGEMENT_TOPOLOGY" jdbcType="CLOB" property="managementTopology" />
+    <result column="TECHNICAL_PLAN" jdbcType="CLOB" property="technicalPlan" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    NETWORK_TOPOLOGY_FLEX, NETWORK_SCALE, MANAGEMENT_TOPOLOGY, TECHNICAL_PLAN
+  </sql>
+
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, TECHNICAL_PERSON, CONTACT_INFO, 
+      PHONE
+  </sql>
+
+
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_TECHNOLOGY_PLAN
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  
+  <insert id="insert" parameterType="com.module.domain.registrationManagement.apply.apply.DxxzspTechnologyImplementationWithBLOBs">
+    insert into DXXZSP_TECHNOLOGY_PLAN (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, TECHNICAL_PERSON, CONTACT_INFO, 
+      PHONE, NETWORK_TOPOLOGY_FLEX, NETWORK_SCALE, 
+      MANAGEMENT_TOPOLOGY, TECHNICAL_PLAN)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{technicalPerson,jdbcType=VARCHAR}, #{contactInfo,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{networkTopologyFlex,jdbcType=CLOB}, #{networkScale,jdbcType=CLOB}, 
+      #{managementTopology,jdbcType=CLOB}, #{technicalPlan,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.registrationManagement.apply.apply.DxxzspTechnologyImplementationWithBLOBs">
+    insert into DXXZSP_TECHNOLOGY_PLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="technicalPerson != null">
+        TECHNICAL_PERSON,
+      </if>
+      <if test="contactInfo != null">
+        CONTACT_INFO,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="networkTopologyFlex != null">
+        NETWORK_TOPOLOGY_FLEX,
+      </if>
+      <if test="networkScale != null">
+        NETWORK_SCALE,
+      </if>
+      <if test="managementTopology != null">
+        MANAGEMENT_TOPOLOGY,
+      </if>
+      <if test="technicalPlan != null">
+        TECHNICAL_PLAN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="technicalPerson != null">
+        #{technicalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="contactInfo != null">
+        #{contactInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="networkTopologyFlex != null">
+        #{networkTopologyFlex,jdbcType=CLOB},
+      </if>
+      <if test="networkScale != null">
+        #{networkScale,jdbcType=CLOB},
+      </if>
+      <if test="managementTopology != null">
+        #{managementTopology,jdbcType=CLOB},
+      </if>
+      <if test="technicalPlan != null">
+        #{technicalPlan,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

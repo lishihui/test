@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.internetDomainRootServices.apply.apply.DxxzspDnsOrganizationMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.internetDomainRootServices.apply.apply.DxxzspDnsOrganization">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="DNS_IMAGE_NAME" jdbcType="VARCHAR" property="dnsImageName" />
+    <result column="Y_OR_N_IMAGE" jdbcType="VARCHAR" property="yOrNImage" />
+    <result column="ORGANIZATION_NAME" jdbcType="VARCHAR" property="organizationName" />
+    <result column="ORGANIZATION_WEBSITE" jdbcType="VARCHAR" property="organizationWebsite" />
+    <result column="SOCIAL_CREDIT_CODE" jdbcType="VARCHAR" property="socialCreditCode" />
+    <result column="REGISTERED_ADDRESS" jdbcType="VARCHAR" property="registeredAddress" />
+    <result column="ESTABLISHMENT_DATE" jdbcType="VARCHAR" property="establishmentDate" />
+    <result column="VALIDITY_PERIOD" jdbcType="VARCHAR" property="validityPeriod" />
+    <result column="REGISTERED_CAPITAL" jdbcType="VARCHAR" property="registeredCapital" />
+    <result column="MAIN_OFFICE_ADDRESS" jdbcType="VARCHAR" property="mainOfficeAddress" />
+    <result column="POSTCODE" jdbcType="VARCHAR" property="postcode" />
+    <result column="OWNERSHIP_STRUCTURE" jdbcType="VARCHAR" property="ownershipStructure" />
+    <result column="ENTERPRISE_NATURE" jdbcType="VARCHAR" property="enterpriseNature" />
+    <result column="Y_OR_N_LICENSE" jdbcType="VARCHAR" property="yOrNLicense" />
+    <result column="LICENSE_NUM" jdbcType="VARCHAR" property="licenseNum" />
+    <result column="ZYDZ_S" jdbcType="VARCHAR" property="zydzS" />
+    <result column="ZYDZ_C" jdbcType="VARCHAR" property="zydzC" />
+    <result column="ISLONGTIME" jdbcType="VARCHAR" property="islongtime" />
+    <result column="ZHUANGTAI" jdbcType="VARCHAR" property="zhuangtai" />
+    <result column="PINGSHEN" jdbcType="VARCHAR" property="pingshen" />
+    <result column="WANGAN" jdbcType="VARCHAR" property="wangan" />
+    <result column="SYDFA" jdbcType="VARCHAR" property="sydfa" />
+    <result column="JJLY" jdbcType="VARCHAR" property="jjly" />
+    <result column="JBDW" jdbcType="VARCHAR" property="jbdw" />
+    <result column="AQ_W" jdbcType="VARCHAR" property="aqW" />
+    <result column="AQ_X" jdbcType="VARCHAR" property="aqX" />
+    <result column="CS" jdbcType="VARCHAR" property="cs" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.internetDomainRootServices.apply.apply.DxxzspDnsOrganizationWithBLOBs">
+    <result column="SHAREDHOLDER_FLEX" jdbcType="CLOB" property="sharedholderFlex" />
+    <result column="BUSINESS_TYPE" jdbcType="CLOB" property="businessType" />
+    <result column="LICENSE_FLEX" jdbcType="CLOB" property="licenseFlex" />
+    <result column="BUSI_LICENSE_FLEX" jdbcType="CLOB" property="busiLicenseFlex" />
+    <result column="LEASE_CONTRACT_FLEX" jdbcType="CLOB" property="leaseContractFlex" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, MODIFIED, 
+    CREATOR, MODIFICATOR, RECYCLE, DNS_IMAGE_NAME, 
+    Y_OR_N_IMAGE, ORGANIZATION_NAME, ORGANIZATION_WEBSITE, SOCIAL_CREDIT_CODE, REGISTERED_ADDRESS, 
+    ESTABLISHMENT_DATE, VALIDITY_PERIOD, REGISTERED_CAPITAL, MAIN_OFFICE_ADDRESS, POSTCODE, OWNERSHIP_STRUCTURE
+    ENTERPRISE_NATURE, Y_OR_N_LICENSE, LICENSE_NUM, ZYDZ_S, ZYDZ_C, ISLONGTIME, ZHUANGTAI, PINGSHEN, WANGAN, SYDFA
+    JJLY, JBDW, AQ_W, AQ_X, CS
+  </sql>
+  <sql id="Blob_Column_List">
+    SHAREDHOLDER_FLEX, BUSINESS_TYPE, LICENSE_FLEX, BUSI_LICENSE_FLEX, LEASE_CONTRACT_FLEX
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_DNS_ORGANIZATION
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.internetDomainRootServices.apply.apply.DxxzspDnsOrganizationWithBLOBs">
+    insert into DXXZSP_DNS_ORGANIZATION (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, DNS_IMAGE_NAME, Y_OR_N_IMAGE, 
+      ORGANIZATION_NAME, ORGANIZATION_WEBSITE, 
+      SOCIAL_CREDIT_CODE, REGISTERED_ADDRESS, ESTABLISHMENT_DATE, 
+      VALIDITY_PERIOD, REGISTERED_CAPITAL, MAIN_OFFICE_ADDRESS, 
+      POSTCODE, OWNERSHIP_STRUCTURE, ENTERPRISE_NATURE, 
+      Y_OR_N_LICENSE, LICENSE_NUM, ZYDZ_S, 
+      ZYDZ_C, ISLONGTIME, ZHUANGTAI, 
+      PINGSHEN, WANGAN, SYDFA, 
+      JJLY, JBDW, AQ_W, AQ_X, 
+      CS, SHAREDHOLDER_FLEX, BUSINESS_TYPE, 
+      LICENSE_FLEX, BUSI_LICENSE_FLEX, LEASE_CONTRACT_FLEX
+      )
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{dnsImageName,jdbcType=VARCHAR}, #{yOrNImage,jdbcType=VARCHAR}, 
+      #{organizationName,jdbcType=VARCHAR}, #{organizationWebsite,jdbcType=VARCHAR}, 
+      #{socialCreditCode,jdbcType=VARCHAR}, #{registeredAddress,jdbcType=VARCHAR}, #{establishmentDate,jdbcType=VARCHAR}, 
+      #{validityPeriod,jdbcType=VARCHAR}, #{registeredCapital,jdbcType=VARCHAR}, #{mainOfficeAddress,jdbcType=VARCHAR}, 
+      #{postcode,jdbcType=VARCHAR}, #{ownershipStructure,jdbcType=VARCHAR}, #{enterpriseNature,jdbcType=VARCHAR}, 
+      #{yOrNLicense,jdbcType=VARCHAR}, #{licenseNum,jdbcType=VARCHAR}, #{zydzS,jdbcType=VARCHAR}, 
+      #{zydzC,jdbcType=VARCHAR}, #{islongtime,jdbcType=VARCHAR}, #{zhuangtai,jdbcType=VARCHAR}, 
+      #{pingshen,jdbcType=VARCHAR}, #{wangan,jdbcType=VARCHAR}, #{sydfa,jdbcType=VARCHAR}, 
+      #{jjly,jdbcType=VARCHAR}, #{jbdw,jdbcType=VARCHAR}, #{aqW,jdbcType=VARCHAR}, #{aqX,jdbcType=VARCHAR}, 
+      #{cs,jdbcType=VARCHAR}, #{sharedholderFlex,jdbcType=CLOB}, #{businessType,jdbcType=CLOB}, 
+      #{licenseFlex,jdbcType=CLOB}, #{busiLicenseFlex,jdbcType=CLOB}, #{leaseContractFlex,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.internetDomainRootServices.apply.apply.DxxzspDnsOrganizationWithBLOBs">
+    insert into DXXZSP_DNS_ORGANIZATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="dnsImageName != null">
+        DNS_IMAGE_NAME,
+      </if>
+      <if test="yOrNImage != null">
+        Y_OR_N_IMAGE,
+      </if>
+      <if test="organizationName != null">
+        ORGANIZATION_NAME,
+      </if>
+      <if test="organizationWebsite != null">
+        ORGANIZATION_WEBSITE,
+      </if>
+      <if test="socialCreditCode != null">
+        SOCIAL_CREDIT_CODE,
+      </if>
+      <if test="registeredAddress != null">
+        REGISTERED_ADDRESS,
+      </if>
+      <if test="establishmentDate != null">
+        ESTABLISHMENT_DATE,
+      </if>
+      <if test="validityPeriod != null">
+        VALIDITY_PERIOD,
+      </if>
+      <if test="registeredCapital != null">
+        REGISTERED_CAPITAL,
+      </if>
+      <if test="mainOfficeAddress != null">
+        MAIN_OFFICE_ADDRESS,
+      </if>
+      <if test="postcode != null">
+        POSTCODE,
+      </if>
+      <if test="ownershipStructure != null">
+        OWNERSHIP_STRUCTURE,
+      </if>
+      <if test="enterpriseNature != null">
+        ENTERPRISE_NATURE,
+      </if>
+      <if test="yOrNLicense != null">
+        Y_OR_N_LICENSE,
+      </if>
+      <if test="licenseNum != null">
+        LICENSE_NUM,
+      </if>
+      <if test="zydzS != null">
+        ZYDZ_S,
+      </if>
+      <if test="zydzC != null">
+        ZYDZ_C,
+      </if>
+      <if test="islongtime != null">
+        ISLONGTIME,
+      </if>
+      <if test="zhuangtai != null">
+        ZHUANGTAI,
+      </if>
+      <if test="pingshen != null">
+        PINGSHEN,
+      </if>
+      <if test="wangan != null">
+        WANGAN,
+      </if>
+      <if test="sydfa != null">
+        SYDFA,
+      </if>
+      <if test="jjly != null">
+        JJLY,
+      </if>
+      <if test="jbdw != null">
+        JBDW,
+      </if>
+      <if test="aqW != null">
+        AQ_W,
+      </if>
+      <if test="aqX != null">
+        AQ_X,
+      </if>
+      <if test="cs != null">
+        CS,
+      </if>
+      <if test="sharedholderFlex != null">
+        SHAREDHOLDER_FLEX,
+      </if>
+      <if test="businessType != null">
+        BUSINESS_TYPE,
+      </if>
+      <if test="licenseFlex != null">
+        LICENSE_FLEX,
+      </if>
+      <if test="busiLicenseFlex != null">
+        BUSI_LICENSE_FLEX,
+      </if>
+      <if test="leaseContractFlex != null">
+        LEASE_CONTRACT_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="dnsImageName != null">
+        #{dnsImageName,jdbcType=VARCHAR},
+      </if>
+      <if test="yOrNImage != null">
+        #{yOrNImage,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationName != null">
+        #{organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationWebsite != null">
+        #{organizationWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="socialCreditCode != null">
+        #{socialCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredAddress != null">
+        #{registeredAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="establishmentDate != null">
+        #{establishmentDate,jdbcType=VARCHAR},
+      </if>
+      <if test="validityPeriod != null">
+        #{validityPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null">
+        #{registeredCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="mainOfficeAddress != null">
+        #{mainOfficeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ownershipStructure != null">
+        #{ownershipStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseNature != null">
+        #{enterpriseNature,jdbcType=VARCHAR},
+      </if>
+      <if test="yOrNLicense != null">
+        #{yOrNLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseNum != null">
+        #{licenseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="zydzS != null">
+        #{zydzS,jdbcType=VARCHAR},
+      </if>
+      <if test="zydzC != null">
+        #{zydzC,jdbcType=VARCHAR},
+      </if>
+      <if test="islongtime != null">
+        #{islongtime,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuangtai != null">
+        #{zhuangtai,jdbcType=VARCHAR},
+      </if>
+      <if test="pingshen != null">
+        #{pingshen,jdbcType=VARCHAR},
+      </if>
+      <if test="wangan != null">
+        #{wangan,jdbcType=VARCHAR},
+      </if>
+      <if test="sydfa != null">
+        #{sydfa,jdbcType=VARCHAR},
+      </if>
+      <if test="jjly != null">
+        #{jjly,jdbcType=VARCHAR},
+      </if>
+      <if test="jbdw != null">
+        #{jbdw,jdbcType=VARCHAR},
+      </if>
+      <if test="aqW != null">
+        #{aqW,jdbcType=VARCHAR},
+      </if>
+      <if test="aqX != null">
+        #{aqX,jdbcType=VARCHAR},
+      </if>
+      <if test="cs != null">
+        #{cs,jdbcType=VARCHAR},
+      </if>
+      <if test="sharedholderFlex != null">
+        #{sharedholderFlex,jdbcType=CLOB},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=CLOB},
+      </if>
+      <if test="licenseFlex != null">
+        #{licenseFlex,jdbcType=CLOB},
+      </if>
+      <if test="busiLicenseFlex != null">
+        #{busiLicenseFlex,jdbcType=CLOB},
+      </if>
+      <if test="leaseContractFlex != null">
+        #{leaseContractFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

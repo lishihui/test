@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.electricLicencePermit.apply.provinceInner.DxxzspNetManagedMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.electricLicencePermit.apply.provinceInner.DxxzspNetworkHostingProService">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="COMMUNICATION_NETWORK" jdbcType="VARCHAR" property="communicationNetwork" />
+    <result column="NET_ELEMENTS_DEVICE" jdbcType="VARCHAR" property="netElementsDevice" />
+    <result column="PROFIT_MODEL" jdbcType="VARCHAR" property="profitModel" />
+    <result column="MARGET_USER" jdbcType="VARCHAR" property="margetUser" />
+    <result column="TITLE_CERTIFICATE" jdbcType="VARCHAR" property="titleCertificate" />
+    <result column="QUALIFICATION_CERTIFICATE" jdbcType="VARCHAR" property="qualificationCertificate" />
+    <result column="SOCIAL_SECURITY_PROVE" jdbcType="VARCHAR" property="socialSecurityProve" />
+    <result column="USER_OTHER" jdbcType="VARCHAR" property="userOther" />
+    <result column="PROFIT_OTHER" jdbcType="VARCHAR" property="profitOther" />
+    <result column="CO_PROMISE" jdbcType="VARCHAR" property="coPromise" />
+    <result column="CN_DETAIL" jdbcType="VARCHAR" property="cnDetail" />
+    <result column="NET_DEV_DETAIL" jdbcType="VARCHAR" property="netDevDetail" />
+    <result column="PRO_DETAIL" jdbcType="VARCHAR" property="proDetail" />
+    <result column="SERVICE" jdbcType="VARCHAR" property="service" />
+    <result column="SERVICE_OTHER" jdbcType="VARCHAR" property="serviceOther" />
+    <result column="CERTI_NAMEA" jdbcType="VARCHAR" property="certiNamea" />
+    <result column="CERTI_FILEA" jdbcType="VARCHAR" property="certiFilea" />
+    <result column="CERTI_NAMEB" jdbcType="VARCHAR" property="certiNameb" />
+    <result column="CERTI_FILEB" jdbcType="VARCHAR" property="certiFileb" />
+    <result column="CERTI_NAMEC" jdbcType="VARCHAR" property="certiNamec" />
+    <result column="CERTI_FILEC" jdbcType="VARCHAR" property="certiFilec" />
+    <result column="IDEN_NAMEA" jdbcType="VARCHAR" property="idenNamea" />
+    <result column="IDEN_CERT_NUMA" jdbcType="VARCHAR" property="idenCertNuma" />
+    <result column="IDEN_FILEA" jdbcType="VARCHAR" property="idenFilea" />
+    <result column="IDEN_NAMEB" jdbcType="VARCHAR" property="idenNameb" />
+    <result column="IDEN_CERT_NUMB" jdbcType="VARCHAR" property="idenCertNumb" />
+    <result column="IDEN_FILEB" jdbcType="VARCHAR" property="idenFileb" />
+    <result column="IDEN_NAMEC" jdbcType="VARCHAR" property="idenNamec" />
+    <result column="IDEN_CERT_NUMC" jdbcType="VARCHAR" property="idenCertNumc" />
+    <result column="IDEN_FILEC" jdbcType="VARCHAR" property="idenFilec" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.electricLicencePermit.apply.provinceInner.DxxzspNetManagedWithBLOBs">
+    <result column="CERTI_CERT_NUMA" jdbcType="CLOB" property="certiCertNuma" />
+    <result column="CERTI_CERT_NUMB" jdbcType="CLOB" property="certiCertNumb" />
+    <result column="CERTI_CERT_NUMC" jdbcType="CLOB" property="certiCertNumc" />
+  </resultMap>
+  
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_NET_MANAGED
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List" >
+	ID,TITLE,CREATED,MODIFIED,CREATOR,
+    MODIFICATOR,RECYCLE,COMMUNICATION_NETWORK,NET_ELEMENTS_DEVICE,PROFIT_MODEL,
+   MARGET_USER,TITLE_CERTIFICATE,QUALIFICATION_CERTIFICATE,SOCIAL_SECURITY_PROVE,USER_OTHER,PROFIT_OTHER,
+    CO_PROMISE,CN_DETAIL,NET_DEV_DETAIL,PRO_DETAIL,
+    SERVICE,SERVICE_OTHER,CERTI_NAMEA,CERTI_FILEA,
+   CERTI_NAMEB,CERTI_FILEB,CERTI_NAMEC,CERTI_FILEC,
+    IDEN_NAMEA,IDEN_CERT_NUMA,IDEN_FILEA,IDEN_NAMEB,
+  IDEN_CERT_NUMB,IDEN_FILEB,IDEN_NAMEC,IDEN_CERT_NUMC,IDEN_FILEC 
+  </sql>
+  
+  
+  
+  <sql id="Blob_Column_List">
+    CERTI_CERT_NUMA, CERTI_CERT_NUMB, CERTI_CERT_NUMC
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.electricLicencePermit.apply.provinceInner.DxxzspNetManagedWithBLOBs">
+    insert into DXXZSP_NET_MANAGED (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, COMMUNICATION_NETWORK, NET_ELEMENTS_DEVICE, 
+      PROFIT_MODEL, MARGET_USER, TITLE_CERTIFICATE, 
+      QUALIFICATION_CERTIFICATE, SOCIAL_SECURITY_PROVE, 
+      USER_OTHER, PROFIT_OTHER, CO_PROMISE, 
+      CN_DETAIL, NET_DEV_DETAIL, PRO_DETAIL, 
+      SERVICE, SERVICE_OTHER, CERTI_NAMEA, 
+      CERTI_FILEA, CERTI_NAMEB, CERTI_FILEB, 
+      CERTI_NAMEC, CERTI_FILEC, IDEN_NAMEA, 
+      IDEN_CERT_NUMA, IDEN_FILEA, IDEN_NAMEB, 
+      IDEN_CERT_NUMB, IDEN_FILEB, IDEN_NAMEC, 
+      IDEN_CERT_NUMC, IDEN_FILEC, CERTI_CERT_NUMA, 
+      CERTI_CERT_NUMB, CERTI_CERT_NUMC)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{communicationNetwork,jdbcType=VARCHAR}, #{netElementsDevice,jdbcType=VARCHAR}, 
+      #{profitModel,jdbcType=VARCHAR}, #{margetUser,jdbcType=VARCHAR}, #{titleCertificate,jdbcType=VARCHAR}, 
+      #{qualificationCertificate,jdbcType=VARCHAR}, #{socialSecurityProve,jdbcType=VARCHAR}, 
+      #{userOther,jdbcType=VARCHAR}, #{profitOther,jdbcType=VARCHAR}, #{coPromise,jdbcType=VARCHAR}, 
+      #{cnDetail,jdbcType=VARCHAR}, #{netDevDetail,jdbcType=VARCHAR}, #{proDetail,jdbcType=VARCHAR}, 
+      #{service,jdbcType=VARCHAR}, #{serviceOther,jdbcType=VARCHAR}, #{certiNamea,jdbcType=VARCHAR}, 
+      #{certiFilea,jdbcType=VARCHAR}, #{certiNameb,jdbcType=VARCHAR}, #{certiFileb,jdbcType=VARCHAR}, 
+      #{certiNamec,jdbcType=VARCHAR}, #{certiFilec,jdbcType=VARCHAR}, #{idenNamea,jdbcType=VARCHAR}, 
+      #{idenCertNuma,jdbcType=VARCHAR}, #{idenFilea,jdbcType=VARCHAR}, #{idenNameb,jdbcType=VARCHAR}, 
+      #{idenCertNumb,jdbcType=VARCHAR}, #{idenFileb,jdbcType=VARCHAR}, #{idenNamec,jdbcType=VARCHAR}, 
+      #{idenCertNumc,jdbcType=VARCHAR}, #{idenFilec,jdbcType=VARCHAR}, #{certiCertNuma,jdbcType=CLOB}, 
+      #{certiCertNumb,jdbcType=CLOB}, #{certiCertNumc,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.electricLicencePermit.apply.provinceInner.DxxzspNetManagedWithBLOBs">
+    insert into DXXZSP_NET_MANAGED
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="communicationNetwork != null">
+        COMMUNICATION_NETWORK,
+      </if>
+      <if test="netElementsDevice != null">
+        NET_ELEMENTS_DEVICE,
+      </if>
+      <if test="profitModel != null">
+        PROFIT_MODEL,
+      </if>
+      <if test="margetUser != null">
+        MARGET_USER,
+      </if>
+      <if test="titleCertificate != null">
+        TITLE_CERTIFICATE,
+      </if>
+      <if test="qualificationCertificate != null">
+        QUALIFICATION_CERTIFICATE,
+      </if>
+      <if test="socialSecurityProve != null">
+        SOCIAL_SECURITY_PROVE,
+      </if>
+      <if test="userOther != null">
+        USER_OTHER,
+      </if>
+      <if test="profitOther != null">
+        PROFIT_OTHER,
+      </if>
+      <if test="coPromise != null">
+        CO_PROMISE,
+      </if>
+      <if test="cnDetail != null">
+        CN_DETAIL,
+      </if>
+      <if test="netDevDetail != null">
+        NET_DEV_DETAIL,
+      </if>
+      <if test="proDetail != null">
+        PRO_DETAIL,
+      </if>
+      <if test="service != null">
+        SERVICE,
+      </if>
+      <if test="serviceOther != null">
+        SERVICE_OTHER,
+      </if>
+      <if test="certiNamea != null">
+        CERTI_NAMEA,
+      </if>
+      <if test="certiFilea != null">
+        CERTI_FILEA,
+      </if>
+      <if test="certiNameb != null">
+        CERTI_NAMEB,
+      </if>
+      <if test="certiFileb != null">
+        CERTI_FILEB,
+      </if>
+      <if test="certiNamec != null">
+        CERTI_NAMEC,
+      </if>
+      <if test="certiFilec != null">
+        CERTI_FILEC,
+      </if>
+      <if test="idenNamea != null">
+        IDEN_NAMEA,
+      </if>
+      <if test="idenCertNuma != null">
+        IDEN_CERT_NUMA,
+      </if>
+      <if test="idenFilea != null">
+        IDEN_FILEA,
+      </if>
+      <if test="idenNameb != null">
+        IDEN_NAMEB,
+      </if>
+      <if test="idenCertNumb != null">
+        IDEN_CERT_NUMB,
+      </if>
+      <if test="idenFileb != null">
+        IDEN_FILEB,
+      </if>
+      <if test="idenNamec != null">
+        IDEN_NAMEC,
+      </if>
+      <if test="idenCertNumc != null">
+        IDEN_CERT_NUMC,
+      </if>
+      <if test="idenFilec != null">
+        IDEN_FILEC,
+      </if>
+      <if test="certiCertNuma != null">
+        CERTI_CERT_NUMA,
+      </if>
+      <if test="certiCertNumb != null">
+        CERTI_CERT_NUMB,
+      </if>
+      <if test="certiCertNumc != null">
+        CERTI_CERT_NUMC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="communicationNetwork != null">
+        #{communicationNetwork,jdbcType=VARCHAR},
+      </if>
+      <if test="netElementsDevice != null">
+        #{netElementsDevice,jdbcType=VARCHAR},
+      </if>
+      <if test="profitModel != null">
+        #{profitModel,jdbcType=VARCHAR},
+      </if>
+      <if test="margetUser != null">
+        #{margetUser,jdbcType=VARCHAR},
+      </if>
+      <if test="titleCertificate != null">
+        #{titleCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="qualificationCertificate != null">
+        #{qualificationCertificate,jdbcType=VARCHAR},
+      </if>
+      <if test="socialSecurityProve != null">
+        #{socialSecurityProve,jdbcType=VARCHAR},
+      </if>
+      <if test="userOther != null">
+        #{userOther,jdbcType=VARCHAR},
+      </if>
+      <if test="profitOther != null">
+        #{profitOther,jdbcType=VARCHAR},
+      </if>
+      <if test="coPromise != null">
+        #{coPromise,jdbcType=VARCHAR},
+      </if>
+      <if test="cnDetail != null">
+        #{cnDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="netDevDetail != null">
+        #{netDevDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="proDetail != null">
+        #{proDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="service != null">
+        #{service,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceOther != null">
+        #{serviceOther,jdbcType=VARCHAR},
+      </if>
+      <if test="certiNamea != null">
+        #{certiNamea,jdbcType=VARCHAR},
+      </if>
+      <if test="certiFilea != null">
+        #{certiFilea,jdbcType=VARCHAR},
+      </if>
+      <if test="certiNameb != null">
+        #{certiNameb,jdbcType=VARCHAR},
+      </if>
+      <if test="certiFileb != null">
+        #{certiFileb,jdbcType=VARCHAR},
+      </if>
+      <if test="certiNamec != null">
+        #{certiNamec,jdbcType=VARCHAR},
+      </if>
+      <if test="certiFilec != null">
+        #{certiFilec,jdbcType=VARCHAR},
+      </if>
+      <if test="idenNamea != null">
+        #{idenNamea,jdbcType=VARCHAR},
+      </if>
+      <if test="idenCertNuma != null">
+        #{idenCertNuma,jdbcType=VARCHAR},
+      </if>
+      <if test="idenFilea != null">
+        #{idenFilea,jdbcType=VARCHAR},
+      </if>
+      <if test="idenNameb != null">
+        #{idenNameb,jdbcType=VARCHAR},
+      </if>
+      <if test="idenCertNumb != null">
+        #{idenCertNumb,jdbcType=VARCHAR},
+      </if>
+      <if test="idenFileb != null">
+        #{idenFileb,jdbcType=VARCHAR},
+      </if>
+      <if test="idenNamec != null">
+        #{idenNamec,jdbcType=VARCHAR},
+      </if>
+      <if test="idenCertNumc != null">
+        #{idenCertNumc,jdbcType=VARCHAR},
+      </if>
+      <if test="idenFilec != null">
+        #{idenFilec,jdbcType=VARCHAR},
+      </if>
+      <if test="certiCertNuma != null">
+        #{certiCertNuma,jdbcType=CLOB},
+      </if>
+      <if test="certiCertNumb != null">
+        #{certiCertNumb,jdbcType=CLOB},
+      </if>
+      <if test="certiCertNumc != null">
+        #{certiCertNumc,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.ftaTradeApplication.change.change.ZmqcTerminateApplicatioMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.ftaTradeApplication.change.change.ZmqcTerminateApplicatio">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="CO_NAME" jdbcType="VARCHAR" property="coName" />
+    <result column="LICENSE_NO" jdbcType="VARCHAR" property="licenseNo" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.ftaTradeApplication.change.change.ZmqcTerminateApplicatioWithBLOBs">
+    <result column="TER_BUSI_TYPE" jdbcType="CLOB" property="terBusiType" />
+    <result column="CONT_BUSI_TYPE" jdbcType="CLOB" property="contBusiType" />
+    <result column="REMARKS" jdbcType="CLOB" property="remarks" />
+    <result column="USER_PROCESS_SCHEME" jdbcType="CLOB" property="userProcessScheme" />
+    <result column="SOCIAL_PUBLICITY" jdbcType="CLOB" property="socialPublicity" />
+    <result column="USER_ADVISE" jdbcType="CLOB" property="userAdvise" />
+    <result column="IMPLEMENTATION_PLAN" jdbcType="CLOB" property="implementationPlan" />
+    <result column="CP_DETAIL_FLEX" jdbcType="CLOB" property="cpDetailFlex" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, CO_NAME, LICENSE_NO
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    TER_BUSI_TYPE, CONT_BUSI_TYPE, REMARKS, USER_PROCESS_SCHEME, SOCIAL_PUBLICITY, USER_ADVISE, 
+    IMPLEMENTATION_PLAN, CP_DETAIL_FLEX
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ZMQC_TERMINATE_APPLICATIO
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.ftaTradeApplication.change.change.ZmqcTerminateApplicatioWithBLOBs">
+    insert into ZMQC_TERMINATE_APPLICATIO (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, CO_NAME, LICENSE_NO, 
+      TER_BUSI_TYPE, CONT_BUSI_TYPE, REMARKS, 
+      USER_PROCESS_SCHEME, SOCIAL_PUBLICITY, USER_ADVISE, 
+      IMPLEMENTATION_PLAN, CP_DETAIL_FLEX)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{coName,jdbcType=VARCHAR}, #{licenseNo,jdbcType=VARCHAR}, 
+      #{terBusiType,jdbcType=CLOB}, #{contBusiType,jdbcType=CLOB}, #{remarks,jdbcType=CLOB}, 
+      #{userProcessScheme,jdbcType=CLOB}, #{socialPublicity,jdbcType=CLOB}, #{userAdvise,jdbcType=CLOB}, 
+      #{implementationPlan,jdbcType=CLOB}, #{cpDetailFlex,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.ftaTradeApplication.change.change.ZmqcTerminateApplicatioWithBLOBs">
+    insert into ZMQC_TERMINATE_APPLICATIO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="coName != null">
+        CO_NAME,
+      </if>
+      <if test="licenseNo != null">
+        LICENSE_NO,
+      </if>
+      <if test="terBusiType != null">
+        TER_BUSI_TYPE,
+      </if>
+      <if test="contBusiType != null">
+        CONT_BUSI_TYPE,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="userProcessScheme != null">
+        USER_PROCESS_SCHEME,
+      </if>
+      <if test="socialPublicity != null">
+        SOCIAL_PUBLICITY,
+      </if>
+      <if test="userAdvise != null">
+        USER_ADVISE,
+      </if>
+      <if test="implementationPlan != null">
+        IMPLEMENTATION_PLAN,
+      </if>
+      <if test="cpDetailFlex != null">
+        CP_DETAIL_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="coName != null">
+        #{coName,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseNo != null">
+        #{licenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="terBusiType != null">
+        #{terBusiType,jdbcType=CLOB},
+      </if>
+      <if test="contBusiType != null">
+        #{contBusiType,jdbcType=CLOB},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=CLOB},
+      </if>
+      <if test="userProcessScheme != null">
+        #{userProcessScheme,jdbcType=CLOB},
+      </if>
+      <if test="socialPublicity != null">
+        #{socialPublicity,jdbcType=CLOB},
+      </if>
+      <if test="userAdvise != null">
+        #{userAdvise,jdbcType=CLOB},
+      </if>
+      <if test="implementationPlan != null">
+        #{implementationPlan,jdbcType=CLOB},
+      </if>
+      <if test="cpDetailFlex != null">
+        #{cpDetailFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

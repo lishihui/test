@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.internetDomainRootServices.apply.apply.DxxzspNetworkSecurityMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.internetDomainRootServices.apply.apply.DxxzspNetworkSecurity">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="NET_INFO_LINKMAN" jdbcType="VARCHAR" property="netInfoLinkman" />
+    <result column="LINK_PHONE" jdbcType="VARCHAR" property="linkPhone" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.internetDomainRootServices.apply.apply.DxxzspNetworkSecurityWithBLOBs">
+    <result column="SAFETY_RESPONSE_FLEX_NET" jdbcType="CLOB" property="safetyResponseFlexNet" />
+    <result column="SAFETY_MANAGE_FLEX_NET" jdbcType="CLOB" property="safetyManageFlexNet" />
+    <result column="QUALIFICATIONS_FLEX_NET" jdbcType="CLOB" property="qualificationsFlexNet" />
+    <result column="NET_PROMISE_FLEX" jdbcType="CLOB" property="netPromiseFlex" />
+    <result column="NET_SAFETY_SYS_FLEX" jdbcType="CLOB" property="netSafetySysFlex" />
+    <result column="MAJOR_NETWORK_FLEX1" jdbcType="CLOB" property="majorNetworkFlex1" />
+    <result column="SAFETY_PROTECTION_FLEX" jdbcType="CLOB" property="safetyProtectionFlex" />
+    <result column="NET_EMERGENCY_PLAN_FLEX" jdbcType="CLOB" property="netEmergencyPlanFlex" />
+    <result column="NETWORK_TECH_MEANS_FLEX" jdbcType="CLOB" property="networkTechMeansFlex" />
+    <result column="SAFETY_RESPONSE" jdbcType="CLOB" property="safetyResponse" />
+    <result column="SAFETY_MANAGE" jdbcType="CLOB" property="safetyManage" />
+    <result column="QUALIFICATIONS" jdbcType="CLOB" property="qualifications" />
+    <result column="NET_SAFETY_SYS" jdbcType="CLOB" property="netSafetySys" />
+    <result column="MAJOR_NETWORK" jdbcType="CLOB" property="majorNetwork" />
+    <result column="SAFETY_PROTECTION" jdbcType="CLOB" property="safetyProtection" />
+    <result column="NET_EMERGENCY_PLAN" jdbcType="CLOB" property="netEmergencyPlan" />
+    <result column="NETWORK_TECH_MEANS" jdbcType="CLOB" property="networkTechMeans" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+	ID,TITLE,CREATED,MODIFIED,CREATOR,MODIFICATOR,RECYCLE,NET_INFO_LINKMAN,LINK_PHONE
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    SAFETY_RESPONSE_FLEX_NET, SAFETY_MANAGE_FLEX_NET, QUALIFICATIONS_FLEX_NET, NET_PROMISE_FLEX, 
+    NET_SAFETY_SYS_FLEX, MAJOR_NETWORK_FLEX1, SAFETY_PROTECTION_FLEX, NET_EMERGENCY_PLAN_FLEX, 
+    NETWORK_TECH_MEANS_FLEX, SAFETY_RESPONSE, SAFETY_MANAGE, QUALIFICATIONS, NET_SAFETY_SYS, 
+    MAJOR_NETWORK, SAFETY_PROTECTION, NET_EMERGENCY_PLAN, NETWORK_TECH_MEANS
+  </sql>
+  
+   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_NETWORK_SECURITY
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.internetDomainRootServices.apply.apply.DxxzspNetworkSecurityWithBLOBs">
+    insert into DXXZSP_NETWORK_SECURITY (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, NET_INFO_LINKMAN, LINK_PHONE, 
+      SAFETY_RESPONSE_FLEX_NET, SAFETY_MANAGE_FLEX_NET, QUALIFICATIONS_FLEX_NET, 
+      NET_PROMISE_FLEX, NET_SAFETY_SYS_FLEX, MAJOR_NETWORK_FLEX1, 
+      SAFETY_PROTECTION_FLEX, NET_EMERGENCY_PLAN_FLEX, NETWORK_TECH_MEANS_FLEX, 
+      SAFETY_RESPONSE, SAFETY_MANAGE, QUALIFICATIONS, 
+      NET_SAFETY_SYS, MAJOR_NETWORK, SAFETY_PROTECTION, 
+      NET_EMERGENCY_PLAN, NETWORK_TECH_MEANS)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{netInfoLinkman,jdbcType=VARCHAR}, #{linkPhone,jdbcType=VARCHAR}, 
+      #{safetyResponseFlexNet,jdbcType=CLOB}, #{safetyManageFlexNet,jdbcType=CLOB}, #{qualificationsFlexNet,jdbcType=CLOB}, 
+      #{netPromiseFlex,jdbcType=CLOB}, #{netSafetySysFlex,jdbcType=CLOB}, #{majorNetworkFlex1,jdbcType=CLOB}, 
+      #{safetyProtectionFlex,jdbcType=CLOB}, #{netEmergencyPlanFlex,jdbcType=CLOB}, #{networkTechMeansFlex,jdbcType=CLOB}, 
+      #{safetyResponse,jdbcType=CLOB}, #{safetyManage,jdbcType=CLOB}, #{qualifications,jdbcType=CLOB}, 
+      #{netSafetySys,jdbcType=CLOB}, #{majorNetwork,jdbcType=CLOB}, #{safetyProtection,jdbcType=CLOB}, 
+      #{netEmergencyPlan,jdbcType=CLOB}, #{networkTechMeans,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.internetDomainRootServices.apply.apply.DxxzspNetworkSecurityWithBLOBs">
+    insert into DXXZSP_NETWORK_SECURITY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="netInfoLinkman != null">
+        NET_INFO_LINKMAN,
+      </if>
+      <if test="linkPhone != null">
+        LINK_PHONE,
+      </if>
+      <if test="safetyResponseFlexNet != null">
+        SAFETY_RESPONSE_FLEX_NET,
+      </if>
+      <if test="safetyManageFlexNet != null">
+        SAFETY_MANAGE_FLEX_NET,
+      </if>
+      <if test="qualificationsFlexNet != null">
+        QUALIFICATIONS_FLEX_NET,
+      </if>
+      <if test="netPromiseFlex != null">
+        NET_PROMISE_FLEX,
+      </if>
+      <if test="netSafetySysFlex != null">
+        NET_SAFETY_SYS_FLEX,
+      </if>
+      <if test="majorNetworkFlex1 != null">
+        MAJOR_NETWORK_FLEX1,
+      </if>
+      <if test="safetyProtectionFlex != null">
+        SAFETY_PROTECTION_FLEX,
+      </if>
+      <if test="netEmergencyPlanFlex != null">
+        NET_EMERGENCY_PLAN_FLEX,
+      </if>
+      <if test="networkTechMeansFlex != null">
+        NETWORK_TECH_MEANS_FLEX,
+      </if>
+      <if test="safetyResponse != null">
+        SAFETY_RESPONSE,
+      </if>
+      <if test="safetyManage != null">
+        SAFETY_MANAGE,
+      </if>
+      <if test="qualifications != null">
+        QUALIFICATIONS,
+      </if>
+      <if test="netSafetySys != null">
+        NET_SAFETY_SYS,
+      </if>
+      <if test="majorNetwork != null">
+        MAJOR_NETWORK,
+      </if>
+      <if test="safetyProtection != null">
+        SAFETY_PROTECTION,
+      </if>
+      <if test="netEmergencyPlan != null">
+        NET_EMERGENCY_PLAN,
+      </if>
+      <if test="networkTechMeans != null">
+        NETWORK_TECH_MEANS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="netInfoLinkman != null">
+        #{netInfoLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="linkPhone != null">
+        #{linkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="safetyResponseFlexNet != null">
+        #{safetyResponseFlexNet,jdbcType=CLOB},
+      </if>
+      <if test="safetyManageFlexNet != null">
+        #{safetyManageFlexNet,jdbcType=CLOB},
+      </if>
+      <if test="qualificationsFlexNet != null">
+        #{qualificationsFlexNet,jdbcType=CLOB},
+      </if>
+      <if test="netPromiseFlex != null">
+        #{netPromiseFlex,jdbcType=CLOB},
+      </if>
+      <if test="netSafetySysFlex != null">
+        #{netSafetySysFlex,jdbcType=CLOB},
+      </if>
+      <if test="majorNetworkFlex1 != null">
+        #{majorNetworkFlex1,jdbcType=CLOB},
+      </if>
+      <if test="safetyProtectionFlex != null">
+        #{safetyProtectionFlex,jdbcType=CLOB},
+      </if>
+      <if test="netEmergencyPlanFlex != null">
+        #{netEmergencyPlanFlex,jdbcType=CLOB},
+      </if>
+      <if test="networkTechMeansFlex != null">
+        #{networkTechMeansFlex,jdbcType=CLOB},
+      </if>
+      <if test="safetyResponse != null">
+        #{safetyResponse,jdbcType=CLOB},
+      </if>
+      <if test="safetyManage != null">
+        #{safetyManage,jdbcType=CLOB},
+      </if>
+      <if test="qualifications != null">
+        #{qualifications,jdbcType=CLOB},
+      </if>
+      <if test="netSafetySys != null">
+        #{netSafetySys,jdbcType=CLOB},
+      </if>
+      <if test="majorNetwork != null">
+        #{majorNetwork,jdbcType=CLOB},
+      </if>
+      <if test="safetyProtection != null">
+        #{safetyProtection,jdbcType=CLOB},
+      </if>
+      <if test="netEmergencyPlan != null">
+        #{netEmergencyPlan,jdbcType=CLOB},
+      </if>
+      <if test="networkTechMeans != null">
+        #{networkTechMeans,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

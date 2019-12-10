@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.ftaTradeApplication.change.change.ZmqcLegalChangeMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.ftaTradeApplication.change.change.ZmqcLegalChange">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="CO_NAME" jdbcType="VARCHAR" property="coName" />
+    <result column="LICENSE_NUM" jdbcType="VARCHAR" property="licenseNum" />
+    <result column="F_NAME" jdbcType="VARCHAR" property="fName" />
+    <result column="F_ID_NUM" jdbcType="VARCHAR" property="fIdNum" />
+    <result column="BG_NAME" jdbcType="VARCHAR" property="bgName" />
+    <result column="BG_ID_NUM" jdbcType="VARCHAR" property="bgIdNum" />
+    <result column="BG_ID_IMG_FLEX" jdbcType="VARCHAR" property="bgIdImgFlex" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="BG_PHONE" jdbcType="VARCHAR" property="bgPhone" />
+    <result column="BG_FIXED_PHONE" jdbcType="VARCHAR" property="bgFixedPhone" />
+    <result column="BG_EMAIL" jdbcType="VARCHAR" property="bgEmail" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.ftaTradeApplication.change.change.ZmqcLegalChangeWithBLOBs">
+    <result column="LEGAL_PROMISE_FLEX" jdbcType="CLOB" property="legalPromiseFlex" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, CO_NAME, LICENSE_NUM, 
+      F_NAME, F_ID_NUM, BG_NAME, 
+      BG_ID_NUM, BG_ID_IMG_FLEX, REMARKS, 
+      BG_PHONE, BG_FIXED_PHONE, BG_EMAIL
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    LEGAL_PROMISE_FLEX
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ZMQC_LEGAL_CHANGE
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.ftaTradeApplication.change.change.ZmqcLegalChangeWithBLOBs">
+    insert into ZMQC_LEGAL_CHANGE (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, CO_NAME, LICENSE_NUM, 
+      F_NAME, F_ID_NUM, BG_NAME, 
+      BG_ID_NUM, BG_ID_IMG_FLEX, REMARKS, 
+      BG_PHONE, BG_FIXED_PHONE, BG_EMAIL, 
+      LEGAL_PROMISE_FLEX)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{coName,jdbcType=VARCHAR}, #{licenseNum,jdbcType=VARCHAR}, 
+      #{fName,jdbcType=VARCHAR}, #{fIdNum,jdbcType=VARCHAR}, #{bgName,jdbcType=VARCHAR}, 
+      #{bgIdNum,jdbcType=VARCHAR}, #{bgIdImgFlex,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{bgPhone,jdbcType=VARCHAR}, #{bgFixedPhone,jdbcType=VARCHAR}, #{bgEmail,jdbcType=VARCHAR}, 
+      #{legalPromiseFlex,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.ftaTradeApplication.change.change.ZmqcLegalChangeWithBLOBs">
+    insert into ZMQC_LEGAL_CHANGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="coName != null">
+        CO_NAME,
+      </if>
+      <if test="licenseNum != null">
+        LICENSE_NUM,
+      </if>
+      <if test="fName != null">
+        F_NAME,
+      </if>
+      <if test="fIdNum != null">
+        F_ID_NUM,
+      </if>
+      <if test="bgName != null">
+        BG_NAME,
+      </if>
+      <if test="bgIdNum != null">
+        BG_ID_NUM,
+      </if>
+      <if test="bgIdImgFlex != null">
+        BG_ID_IMG_FLEX,
+      </if>
+      <if test="remarks != null">
+        REMARKS,
+      </if>
+      <if test="bgPhone != null">
+        BG_PHONE,
+      </if>
+      <if test="bgFixedPhone != null">
+        BG_FIXED_PHONE,
+      </if>
+      <if test="bgEmail != null">
+        BG_EMAIL,
+      </if>
+      <if test="legalPromiseFlex != null">
+        LEGAL_PROMISE_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="coName != null">
+        #{coName,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseNum != null">
+        #{licenseNum,jdbcType=VARCHAR},
+      </if>
+      <if test="fName != null">
+        #{fName,jdbcType=VARCHAR},
+      </if>
+      <if test="fIdNum != null">
+        #{fIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="bgName != null">
+        #{bgName,jdbcType=VARCHAR},
+      </if>
+      <if test="bgIdNum != null">
+        #{bgIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="bgIdImgFlex != null">
+        #{bgIdImgFlex,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="bgPhone != null">
+        #{bgPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="bgFixedPhone != null">
+        #{bgFixedPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="bgEmail != null">
+        #{bgEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPromiseFlex != null">
+        #{legalPromiseFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

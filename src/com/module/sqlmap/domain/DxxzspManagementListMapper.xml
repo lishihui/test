@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.internetDomainRootServices.apply.apply.DxxzspManagementListMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.internetDomainRootServices.apply.apply.DxxzspManagementList">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="MAIN_NAME" jdbcType="VARCHAR" property="mainName" />
+    <result column="MAIN_DOCUMENTTYPE" jdbcType="VARCHAR" property="mainDocumenttype" />
+    <result column="MAIN_ID_NUM" jdbcType="VARCHAR" property="mainIdNum" />
+    <result column="MAIN_DUTY" jdbcType="VARCHAR" property="mainDuty" />
+    <result column="MAIN_EDUCATION" jdbcType="VARCHAR" property="mainEducation" />
+    <result column="MAIN_PHONE" jdbcType="VARCHAR" property="mainPhone" />
+    <result column="MAIN_MOBILE" jdbcType="VARCHAR" property="mainMobile" />
+    <result column="MAIN_EMAIL" jdbcType="VARCHAR" property="mainEmail" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.internetDomainRootServices.apply.apply.DxxzspManagementListWithBLOBs">
+    <result column="MAIN_ID_FLEX" jdbcType="CLOB" property="mainIdFlex" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from MANAGEMENT_LIST
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List" >
+	ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, MAIN_NAME, MAIN_DOCUMENTTYPE, 
+      MAIN_ID_NUM, MAIN_DUTY, MAIN_EDUCATION, 
+      MAIN_PHONE, MAIN_MOBILE, MAIN_EMAIL, 
+      PARENTID
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    MAIN_ID_FLEX
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.internetDomainRootServices.apply.apply.DxxzspManagementListWithBLOBs">
+    insert into MANAGEMENT_LIST (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, MAIN_NAME, MAIN_DOCUMENTTYPE, 
+      MAIN_ID_NUM, MAIN_DUTY, MAIN_EDUCATION, 
+      MAIN_PHONE, MAIN_MOBILE, MAIN_EMAIL, 
+      PARENTID, MAIN_ID_FLEX)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{mainName,jdbcType=VARCHAR}, #{mainDocumenttype,jdbcType=VARCHAR}, 
+      #{mainIdNum,jdbcType=VARCHAR}, #{mainDuty,jdbcType=VARCHAR}, #{mainEducation,jdbcType=VARCHAR}, 
+      #{mainPhone,jdbcType=VARCHAR}, #{mainMobile,jdbcType=VARCHAR}, #{mainEmail,jdbcType=VARCHAR}, 
+      #{parentid,jdbcType=VARCHAR}, #{mainIdFlex,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.internetDomainRootServices.apply.apply.DxxzspManagementListWithBLOBs">
+    insert into MANAGEMENT_LIST
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="mainName != null">
+        MAIN_NAME,
+      </if>
+      <if test="mainDocumenttype != null">
+        MAIN_DOCUMENTTYPE,
+      </if>
+      <if test="mainIdNum != null">
+        MAIN_ID_NUM,
+      </if>
+      <if test="mainDuty != null">
+        MAIN_DUTY,
+      </if>
+      <if test="mainEducation != null">
+        MAIN_EDUCATION,
+      </if>
+      <if test="mainPhone != null">
+        MAIN_PHONE,
+      </if>
+      <if test="mainMobile != null">
+        MAIN_MOBILE,
+      </if>
+      <if test="mainEmail != null">
+        MAIN_EMAIL,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="mainIdFlex != null">
+        MAIN_ID_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="mainName != null">
+        #{mainName,jdbcType=VARCHAR},
+      </if>
+      <if test="mainDocumenttype != null">
+        #{mainDocumenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="mainIdNum != null">
+        #{mainIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="mainDuty != null">
+        #{mainDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="mainEducation != null">
+        #{mainEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="mainPhone != null">
+        #{mainPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="mainMobile != null">
+        #{mainMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="mainEmail != null">
+        #{mainEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="mainIdFlex != null">
+        #{mainIdFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

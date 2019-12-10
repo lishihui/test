@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.ftaTradeApplication.change.change.ZmqcContinueApplicationMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.ftaTradeApplication.change.change.ZmqcContinueApplication">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="CO_NAME" jdbcType="VARCHAR" property="coName" />
+    <result column="LICENSE_NO" jdbcType="VARCHAR" property="licenseNo" />
+    <result column="B13" jdbcType="VARCHAR" property="b13" />
+    <result column="B14" jdbcType="VARCHAR" property="b14" />
+    <result column="B15" jdbcType="VARCHAR" property="b15" />
+    <result column="B16" jdbcType="VARCHAR" property="b16" />
+    <result column="B17" jdbcType="VARCHAR" property="b17" />
+    <result column="B18" jdbcType="VARCHAR" property="b18" />
+    <result column="B19" jdbcType="VARCHAR" property="b19" />
+    <result column="B20" jdbcType="VARCHAR" property="b20" />
+    <result column="B21" jdbcType="VARCHAR" property="b21" />
+    <result column="B22" jdbcType="VARCHAR" property="b22" />
+    <result column="B23" jdbcType="VARCHAR" property="b23" />
+    <result column="B24" jdbcType="VARCHAR" property="b24" />
+    <result column="B25" jdbcType="VARCHAR" property="b25" />
+    <result column="B26" jdbcType="VARCHAR" property="b26" />
+    <result column="B28" jdbcType="VARCHAR" property="b28" />
+    <result column="B27" jdbcType="VARCHAR" property="b27" />
+    <result column="CONTINUE_PROMISE_FLEX" jdbcType="VARCHAR" property="continuePromiseFlex" />
+    <result column="HIDEFORMID" jdbcType="VARCHAR" property="hideformid" />
+    <result column="EVENTID" jdbcType="VARCHAR" property="eventid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.ftaTradeApplication.change.change.ZmqcContinueApplicationWithBLOBs">
+    <result column="CONTINUE_TYPE" jdbcType="CLOB" property="continueType" />
+    <result column="NO_RUN_BUSI" jdbcType="CLOB" property="noRunBusi" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, CO_NAME, LICENSE_NO, 
+      B13, B14, B15, B16, 
+      B17, B18, B19, B20, 
+      B21, B22, B23, B24, 
+      B25, B26, B28, B27, 
+      CONTINUE_PROMISE_FLEX, HIDEFORMID, EVENTID
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    CONTINUE_TYPE, NO_RUN_BUSI
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ZMQC_CONTINUE_APPLICATION
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.ftaTradeApplication.change.change.ZmqcContinueApplicationWithBLOBs">
+    insert into ZMQC_CONTINUE_APPLICATION (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, CO_NAME, LICENSE_NO, 
+      B13, B14, B15, B16, 
+      B17, B18, B19, B20, 
+      B21, B22, B23, B24, 
+      B25, B26, B28, B27, 
+      CONTINUE_PROMISE_FLEX, HIDEFORMID, EVENTID, 
+      CONTINUE_TYPE, NO_RUN_BUSI)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{coName,jdbcType=VARCHAR}, #{licenseNo,jdbcType=VARCHAR}, 
+      #{b13,jdbcType=VARCHAR}, #{b14,jdbcType=VARCHAR}, #{b15,jdbcType=VARCHAR}, #{b16,jdbcType=VARCHAR}, 
+      #{b17,jdbcType=VARCHAR}, #{b18,jdbcType=VARCHAR}, #{b19,jdbcType=VARCHAR}, #{b20,jdbcType=VARCHAR}, 
+      #{b21,jdbcType=VARCHAR}, #{b22,jdbcType=VARCHAR}, #{b23,jdbcType=VARCHAR}, #{b24,jdbcType=VARCHAR}, 
+      #{b25,jdbcType=VARCHAR}, #{b26,jdbcType=VARCHAR}, #{b28,jdbcType=VARCHAR}, #{b27,jdbcType=VARCHAR}, 
+      #{continuePromiseFlex,jdbcType=VARCHAR}, #{hideformid,jdbcType=VARCHAR}, #{eventid,jdbcType=VARCHAR}, 
+      #{continueType,jdbcType=CLOB}, #{noRunBusi,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.ftaTradeApplication.change.change.ZmqcContinueApplicationWithBLOBs">
+    insert into ZMQC_CONTINUE_APPLICATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="coName != null">
+        CO_NAME,
+      </if>
+      <if test="licenseNo != null">
+        LICENSE_NO,
+      </if>
+      <if test="b13 != null">
+        B13,
+      </if>
+      <if test="b14 != null">
+        B14,
+      </if>
+      <if test="b15 != null">
+        B15,
+      </if>
+      <if test="b16 != null">
+        B16,
+      </if>
+      <if test="b17 != null">
+        B17,
+      </if>
+      <if test="b18 != null">
+        B18,
+      </if>
+      <if test="b19 != null">
+        B19,
+      </if>
+      <if test="b20 != null">
+        B20,
+      </if>
+      <if test="b21 != null">
+        B21,
+      </if>
+      <if test="b22 != null">
+        B22,
+      </if>
+      <if test="b23 != null">
+        B23,
+      </if>
+      <if test="b24 != null">
+        B24,
+      </if>
+      <if test="b25 != null">
+        B25,
+      </if>
+      <if test="b26 != null">
+        B26,
+      </if>
+      <if test="b28 != null">
+        B28,
+      </if>
+      <if test="b27 != null">
+        B27,
+      </if>
+      <if test="continuePromiseFlex != null">
+        CONTINUE_PROMISE_FLEX,
+      </if>
+      <if test="hideformid != null">
+        HIDEFORMID,
+      </if>
+      <if test="eventid != null">
+        EVENTID,
+      </if>
+      <if test="continueType != null">
+        CONTINUE_TYPE,
+      </if>
+      <if test="noRunBusi != null">
+        NO_RUN_BUSI,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="coName != null">
+        #{coName,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseNo != null">
+        #{licenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="b13 != null">
+        #{b13,jdbcType=VARCHAR},
+      </if>
+      <if test="b14 != null">
+        #{b14,jdbcType=VARCHAR},
+      </if>
+      <if test="b15 != null">
+        #{b15,jdbcType=VARCHAR},
+      </if>
+      <if test="b16 != null">
+        #{b16,jdbcType=VARCHAR},
+      </if>
+      <if test="b17 != null">
+        #{b17,jdbcType=VARCHAR},
+      </if>
+      <if test="b18 != null">
+        #{b18,jdbcType=VARCHAR},
+      </if>
+      <if test="b19 != null">
+        #{b19,jdbcType=VARCHAR},
+      </if>
+      <if test="b20 != null">
+        #{b20,jdbcType=VARCHAR},
+      </if>
+      <if test="b21 != null">
+        #{b21,jdbcType=VARCHAR},
+      </if>
+      <if test="b22 != null">
+        #{b22,jdbcType=VARCHAR},
+      </if>
+      <if test="b23 != null">
+        #{b23,jdbcType=VARCHAR},
+      </if>
+      <if test="b24 != null">
+        #{b24,jdbcType=VARCHAR},
+      </if>
+      <if test="b25 != null">
+        #{b25,jdbcType=VARCHAR},
+      </if>
+      <if test="b26 != null">
+        #{b26,jdbcType=VARCHAR},
+      </if>
+      <if test="b28 != null">
+        #{b28,jdbcType=VARCHAR},
+      </if>
+      <if test="b27 != null">
+        #{b27,jdbcType=VARCHAR},
+      </if>
+      <if test="continuePromiseFlex != null">
+        #{continuePromiseFlex,jdbcType=VARCHAR},
+      </if>
+      <if test="hideformid != null">
+        #{hideformid,jdbcType=VARCHAR},
+      </if>
+      <if test="eventid != null">
+        #{eventid,jdbcType=VARCHAR},
+      </if>
+      <if test="continueType != null">
+        #{continueType,jdbcType=CLOB},
+      </if>
+      <if test="noRunBusi != null">
+        #{noRunBusi,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.pub.ItemFormUserMapper" >
+  <resultMap id="BaseResultMap" type="com.module.domain.pub.ItemFormUser" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="ITEMID" property="itemid" jdbcType="VARCHAR" />
+    <result column="YEWUCODE" property="yewucode" jdbcType="VARCHAR" />
+    <result column="DORMNAME" property="dormname" jdbcType="VARCHAR" />
+    <result column="FORMSTATUS" property="formstatus" jdbcType="VARCHAR" />
+    <result column="LASTSUBMITTIMES" property="lastsubmittimes" jdbcType="TIMESTAMP" />
+    <result column="FORMOPINION" property="formopinion" jdbcType="VARCHAR" />
+    <result column="REVOKE_NUM" property="revokenum" jdbcType="VARCHAR" />
+    
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ITEMID, YEWUCODE, DORMNAME, FORMSTATUS, LASTSUBMITTIMES, FORMOPINION,REVOKE_NUM
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ITEM_FORM_USER
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ITEM_FORM_USER
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.module.domain.pub.ItemFormUser" >
+    insert into ITEM_FORM_USER (ID, ITEMID, YEWUCODE, 
+      DORMNAME, FORMSTATUS, LASTSUBMITTIMES, 
+      FORMOPINION,REVOKE_NUM)
+    values (#{id,jdbcType=VARCHAR}, #{itemid,jdbcType=VARCHAR}, #{yewucode,jdbcType=VARCHAR}, 
+      #{dormname,jdbcType=VARCHAR}, #{formstatus,jdbcType=VARCHAR}, #{lastsubmittimes,jdbcType=TIMESTAMP}, 
+      #{formopinion,jdbcType=VARCHAR},#{revokenum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.pub.ItemFormUser" >
+    insert into ITEM_FORM_USER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="itemid != null" >
+        ITEMID,
+      </if>
+      <if test="yewucode != null" >
+        YEWUCODE,
+      </if>
+      <if test="dormname != null" >
+        DORMNAME,
+      </if>
+      <if test="formstatus != null" >
+        FORMSTATUS,
+      </if>
+      <if test="lastsubmittimes != null" >
+        LASTSUBMITTIMES,
+      </if>
+      <if test="formopinion != null" >
+        FORMOPINION,
+      </if>
+       <if test="revokenum != null" >
+        REVOKE_NUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null" >
+        #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="yewucode != null" >
+        #{yewucode,jdbcType=VARCHAR},
+      </if>
+      <if test="dormname != null" >
+        #{dormname,jdbcType=VARCHAR},
+      </if>
+      <if test="formstatus != null" >
+        #{formstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="lastsubmittimes != null" >
+        #{lastsubmittimes,jdbcType=TIMESTAMP},
+      </if>
+      <if test="formopinion != null" >
+        #{formopinion,jdbcType=VARCHAR},
+      </if>
+       <if test="revokenum != null" >
+          #{revokenum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.module.domain.pub.ItemFormUser" >
+    update ITEM_FORM_USER
+    <set >
+      <if test="itemid != null" >
+        ITEMID = #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="yewucode != null" >
+        YEWUCODE = #{yewucode,jdbcType=VARCHAR},
+      </if>
+      <if test="dormname != null" >
+        DORMNAME = #{dormname,jdbcType=VARCHAR},
+      </if>
+      <if test="formstatus != null" >
+        FORMSTATUS = #{formstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="lastsubmittimes != null" >
+        LASTSUBMITTIMES = #{lastsubmittimes,jdbcType=TIMESTAMP},
+      </if>
+      <if test="formopinion != null" >
+        FORMOPINION = #{formopinion,jdbcType=VARCHAR},
+      </if>
+      <if test="revokenum != null" >
+          #{revokenum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.module.domain.pub.ItemFormUser" >
+    update ITEM_FORM_USER
+    set ITEMID = #{itemid,jdbcType=VARCHAR},
+      YEWUCODE = #{yewucode,jdbcType=VARCHAR},
+      DORMNAME = #{dormname,jdbcType=VARCHAR},
+      FORMSTATUS = #{formstatus,jdbcType=VARCHAR},
+      LASTSUBMITTIMES = #{lastsubmittimes,jdbcType=TIMESTAMP},
+      FORMOPINION = #{formopinion,jdbcType=VARCHAR},
+      REVOKE_NUM = #{revokenum,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

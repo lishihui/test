@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.domain.DxxzspDomainRegisterOldMapper" >
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.DxxzspDomainRegister" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="NEWSTITLE" property="newstitle" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="MODIFIE_TIME" property="modifieTime" jdbcType="TIMESTAMP" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="MODIFICATOR" property="modificator" jdbcType="VARCHAR" />
+    <result column="RECYCLE" property="recycle" jdbcType="VARCHAR" />
+    <result column="COMPANY_NAME" property="companyName" jdbcType="VARCHAR" />
+    <result column="COMPANY_WEBSITE" property="companyWebsite" jdbcType="VARCHAR" />
+    <result column="UNIFIED_SOCIAL_CREDIT_IDENTIFIER" property="unifiedSocialCreditIdentifier" jdbcType="VARCHAR" />
+    <result column="REGISTERE_ADDRESS" property="registereAddress" jdbcType="VARCHAR" />
+    <result column="REGISTRATION_CAPITAL" property="registrationCapital" jdbcType="VARCHAR" />
+    <result column="ISSUANCE_DATE" property="issuanceDate" jdbcType="VARCHAR" />
+    <result column="VALID_DATE" property="validDate" jdbcType="VARCHAR" />
+    <result column="MAIN_OFFICE_ADDRESS" property="mainOfficeAddress" jdbcType="VARCHAR" />
+    <result column="POSTCODE" property="postcode" jdbcType="VARCHAR" />
+    <result column="EQUITY_STRUCTURE" property="equityStructure" jdbcType="VARCHAR" />
+    <result column="ENTERPRISE_NATURE" property="enterpriseNature" jdbcType="VARCHAR" />
+    <result column="YES_OR_NO_LICENSE" property="yesOrNoLicense" jdbcType="VARCHAR" />
+    <result column="PERMIT_NUMBER" property="permitNumber" jdbcType="VARCHAR" />
+    <result column="REG_PROVINCE" property="regProvince" jdbcType="VARCHAR" />
+    <result column="MSG_PROVINCE" property="msgProvince" jdbcType="VARCHAR" />
+    <result column="REG_CITY" property="regCity" jdbcType="VARCHAR" />
+    <result column="MSG_CITY" property="msgCity" jdbcType="VARCHAR" />
+    <result column="ISLONGDATE" property="islongdate" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.module.domain.domain.DxxzspDomainRegisterWithBLOBs" extends="BaseResultMap" >
+    <result column="BUSINESS_TYPE" property="businessType" jdbcType="CLOB" />
+    <result column="SHAREDHOLDER_FLEX" property="sharedholderFlex" jdbcType="CLOB" />
+    <result column="LICENSE_FLEX" property="licenseFlex" jdbcType="CLOB" />
+    <result column="BUSINESS_LICENSE_FLEX" property="businessLicenseFlex" jdbcType="CLOB" />
+    <result column="OFFICE_CONTRACT_FLEX" property="officeContractFlex" jdbcType="CLOB" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NEWSTITLE, CREATE_TIME, MODIFIE_TIME, CREATOR, MODIFICATOR, RECYCLE, COMPANY_NAME, 
+    COMPANY_WEBSITE, UNIFIED_SOCIAL_CREDIT_IDENTIFIER, REGISTERE_ADDRESS, REGISTRATION_CAPITAL, 
+    ISSUANCE_DATE, VALID_DATE, MAIN_OFFICE_ADDRESS, POSTCODE, EQUITY_STRUCTURE, ENTERPRISE_NATURE, 
+    YES_OR_NO_LICENSE, PERMIT_NUMBER, REG_PROVINCE, MSG_PROVINCE, REG_CITY, MSG_CITY, 
+    ISLONGDATE
+  </sql>
+  <sql id="Blob_Column_List" >
+    BUSINESS_TYPE, SHAREDHOLDER_FLEX, LICENSE_FLEX, BUSINESS_LICENSE_FLEX, OFFICE_CONTRACT_FLEX
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_DOMAIN_REGISTER
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DXXZSP_DOMAIN_REGISTER
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.module.domain.domain.DxxzspDomainRegisterWithBLOBs" >
+    insert into DXXZSP_DOMAIN_REGISTER (ID, NEWSTITLE, CREATE_TIME, 
+      MODIFIE_TIME, CREATOR, MODIFICATOR, 
+      RECYCLE, COMPANY_NAME, COMPANY_WEBSITE, 
+      UNIFIED_SOCIAL_CREDIT_IDENTIFIER, REGISTERE_ADDRESS, 
+      REGISTRATION_CAPITAL, ISSUANCE_DATE, VALID_DATE, 
+      MAIN_OFFICE_ADDRESS, POSTCODE, EQUITY_STRUCTURE, 
+      ENTERPRISE_NATURE, YES_OR_NO_LICENSE, PERMIT_NUMBER, 
+      REG_PROVINCE, MSG_PROVINCE, REG_CITY, 
+      MSG_CITY, ISLONGDATE, BUSINESS_TYPE, 
+      SHAREDHOLDER_FLEX, LICENSE_FLEX, BUSINESS_LICENSE_FLEX, 
+      OFFICE_CONTRACT_FLEX)
+    values (#{id,jdbcType=VARCHAR}, #{newstitle,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifieTime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{companyWebsite,jdbcType=VARCHAR}, 
+      #{unifiedSocialCreditIdentifier,jdbcType=VARCHAR}, #{registereAddress,jdbcType=VARCHAR}, 
+      #{registrationCapital,jdbcType=VARCHAR}, #{issuanceDate,jdbcType=VARCHAR}, #{validDate,jdbcType=VARCHAR}, 
+      #{mainOfficeAddress,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{equityStructure,jdbcType=VARCHAR}, 
+      #{enterpriseNature,jdbcType=VARCHAR}, #{yesOrNoLicense,jdbcType=VARCHAR}, #{permitNumber,jdbcType=VARCHAR}, 
+      #{regProvince,jdbcType=VARCHAR}, #{msgProvince,jdbcType=VARCHAR}, #{regCity,jdbcType=VARCHAR}, 
+      #{msgCity,jdbcType=VARCHAR}, #{islongdate,jdbcType=VARCHAR}, #{businessType,jdbcType=CLOB}, 
+      #{sharedholderFlex,jdbcType=CLOB}, #{licenseFlex,jdbcType=CLOB}, #{businessLicenseFlex,jdbcType=CLOB}, 
+      #{officeContractFlex,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domain.DxxzspDomainRegisterWithBLOBs" >
+    insert into DXXZSP_DOMAIN_REGISTER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="newstitle != null" >
+        NEWSTITLE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="modifieTime != null" >
+        MODIFIE_TIME,
+      </if>
+      <if test="creator != null" >
+        CREATOR,
+      </if>
+      <if test="modificator != null" >
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null" >
+        RECYCLE,
+      </if>
+      <if test="companyName != null" >
+        COMPANY_NAME,
+      </if>
+      <if test="companyWebsite != null" >
+        COMPANY_WEBSITE,
+      </if>
+      <if test="unifiedSocialCreditIdentifier != null" >
+        UNIFIED_SOCIAL_CREDIT_IDENTIFIER,
+      </if>
+      <if test="registereAddress != null" >
+        REGISTERE_ADDRESS,
+      </if>
+      <if test="registrationCapital != null" >
+        REGISTRATION_CAPITAL,
+      </if>
+      <if test="issuanceDate != null" >
+        ISSUANCE_DATE,
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE,
+      </if>
+      <if test="mainOfficeAddress != null" >
+        MAIN_OFFICE_ADDRESS,
+      </if>
+      <if test="postcode != null" >
+        POSTCODE,
+      </if>
+      <if test="equityStructure != null" >
+        EQUITY_STRUCTURE,
+      </if>
+      <if test="enterpriseNature != null" >
+        ENTERPRISE_NATURE,
+      </if>
+      <if test="yesOrNoLicense != null" >
+        YES_OR_NO_LICENSE,
+      </if>
+      <if test="permitNumber != null" >
+        PERMIT_NUMBER,
+      </if>
+      <if test="regProvince != null" >
+        REG_PROVINCE,
+      </if>
+      <if test="msgProvince != null" >
+        MSG_PROVINCE,
+      </if>
+      <if test="regCity != null" >
+        REG_CITY,
+      </if>
+      <if test="msgCity != null" >
+        MSG_CITY,
+      </if>
+      <if test="islongdate != null" >
+        ISLONGDATE,
+      </if>
+      <if test="businessType != null" >
+        BUSINESS_TYPE,
+      </if>
+      <if test="sharedholderFlex != null" >
+        SHAREDHOLDER_FLEX,
+      </if>
+      <if test="licenseFlex != null" >
+        LICENSE_FLEX,
+      </if>
+      <if test="businessLicenseFlex != null" >
+        BUSINESS_LICENSE_FLEX,
+      </if>
+      <if test="officeContractFlex != null" >
+        OFFICE_CONTRACT_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="newstitle != null" >
+        #{newstitle,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifieTime != null" >
+        #{modifieTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null" >
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null" >
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyWebsite != null" >
+        #{companyWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="unifiedSocialCreditIdentifier != null" >
+        #{unifiedSocialCreditIdentifier,jdbcType=VARCHAR},
+      </if>
+      <if test="registereAddress != null" >
+        #{registereAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationCapital != null" >
+        #{registrationCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="issuanceDate != null" >
+        #{issuanceDate,jdbcType=VARCHAR},
+      </if>
+      <if test="validDate != null" >
+        #{validDate,jdbcType=VARCHAR},
+      </if>
+      <if test="mainOfficeAddress != null" >
+        #{mainOfficeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="equityStructure != null" >
+        #{equityStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseNature != null" >
+        #{enterpriseNature,jdbcType=VARCHAR},
+      </if>
+      <if test="yesOrNoLicense != null" >
+        #{yesOrNoLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="permitNumber != null" >
+        #{permitNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="regProvince != null" >
+        #{regProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="msgProvince != null" >
+        #{msgProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="regCity != null" >
+        #{regCity,jdbcType=VARCHAR},
+      </if>
+      <if test="msgCity != null" >
+        #{msgCity,jdbcType=VARCHAR},
+      </if>
+      <if test="islongdate != null" >
+        #{islongdate,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null" >
+        #{businessType,jdbcType=CLOB},
+      </if>
+      <if test="sharedholderFlex != null" >
+        #{sharedholderFlex,jdbcType=CLOB},
+      </if>
+      <if test="licenseFlex != null" >
+        #{licenseFlex,jdbcType=CLOB},
+      </if>
+      <if test="businessLicenseFlex != null" >
+        #{businessLicenseFlex,jdbcType=CLOB},
+      </if>
+      <if test="officeContractFlex != null" >
+        #{officeContractFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.module.domain.domain.DxxzspDomainRegisterWithBLOBs" >
+    update DXXZSP_DOMAIN_REGISTER
+    <set >
+      <if test="newstitle != null" >
+        NEWSTITLE = #{newstitle,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifieTime != null" >
+        MODIFIE_TIME = #{modifieTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        CREATOR = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null" >
+        MODIFICATOR = #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null" >
+        RECYCLE = #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyWebsite != null" >
+        COMPANY_WEBSITE = #{companyWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="unifiedSocialCreditIdentifier != null" >
+        UNIFIED_SOCIAL_CREDIT_IDENTIFIER = #{unifiedSocialCreditIdentifier,jdbcType=VARCHAR},
+      </if>
+      <if test="registereAddress != null" >
+        REGISTERE_ADDRESS = #{registereAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationCapital != null" >
+        REGISTRATION_CAPITAL = #{registrationCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="issuanceDate != null" >
+        ISSUANCE_DATE = #{issuanceDate,jdbcType=VARCHAR},
+      </if>
+      <if test="validDate != null" >
+        VALID_DATE = #{validDate,jdbcType=VARCHAR},
+      </if>
+      <if test="mainOfficeAddress != null" >
+        MAIN_OFFICE_ADDRESS = #{mainOfficeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        POSTCODE = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="equityStructure != null" >
+        EQUITY_STRUCTURE = #{equityStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseNature != null" >
+        ENTERPRISE_NATURE = #{enterpriseNature,jdbcType=VARCHAR},
+      </if>
+      <if test="yesOrNoLicense != null" >
+        YES_OR_NO_LICENSE = #{yesOrNoLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="permitNumber != null" >
+        PERMIT_NUMBER = #{permitNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="regProvince != null" >
+        REG_PROVINCE = #{regProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="msgProvince != null" >
+        MSG_PROVINCE = #{msgProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="regCity != null" >
+        REG_CITY = #{regCity,jdbcType=VARCHAR},
+      </if>
+      <if test="msgCity != null" >
+        MSG_CITY = #{msgCity,jdbcType=VARCHAR},
+      </if>
+      <if test="islongdate != null" >
+        ISLONGDATE = #{islongdate,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null" >
+        BUSINESS_TYPE = #{businessType,jdbcType=CLOB},
+      </if>
+      <if test="sharedholderFlex != null" >
+        SHAREDHOLDER_FLEX = #{sharedholderFlex,jdbcType=CLOB},
+      </if>
+      <if test="licenseFlex != null" >
+        LICENSE_FLEX = #{licenseFlex,jdbcType=CLOB},
+      </if>
+      <if test="businessLicenseFlex != null" >
+        BUSINESS_LICENSE_FLEX = #{businessLicenseFlex,jdbcType=CLOB},
+      </if>
+      <if test="officeContractFlex != null" >
+        OFFICE_CONTRACT_FLEX = #{officeContractFlex,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.module.domain.domain.DxxzspDomainRegisterWithBLOBs" >
+    update DXXZSP_DOMAIN_REGISTER
+    set NEWSTITLE = #{newstitle,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      MODIFIE_TIME = #{modifieTime,jdbcType=TIMESTAMP},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      MODIFICATOR = #{modificator,jdbcType=VARCHAR},
+      RECYCLE = #{recycle,jdbcType=VARCHAR},
+      COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      COMPANY_WEBSITE = #{companyWebsite,jdbcType=VARCHAR},
+      UNIFIED_SOCIAL_CREDIT_IDENTIFIER = #{unifiedSocialCreditIdentifier,jdbcType=VARCHAR},
+      REGISTERE_ADDRESS = #{registereAddress,jdbcType=VARCHAR},
+      REGISTRATION_CAPITAL = #{registrationCapital,jdbcType=VARCHAR},
+      ISSUANCE_DATE = #{issuanceDate,jdbcType=VARCHAR},
+      VALID_DATE = #{validDate,jdbcType=VARCHAR},
+      MAIN_OFFICE_ADDRESS = #{mainOfficeAddress,jdbcType=VARCHAR},
+      POSTCODE = #{postcode,jdbcType=VARCHAR},
+      EQUITY_STRUCTURE = #{equityStructure,jdbcType=VARCHAR},
+      ENTERPRISE_NATURE = #{enterpriseNature,jdbcType=VARCHAR},
+      YES_OR_NO_LICENSE = #{yesOrNoLicense,jdbcType=VARCHAR},
+      PERMIT_NUMBER = #{permitNumber,jdbcType=VARCHAR},
+      REG_PROVINCE = #{regProvince,jdbcType=VARCHAR},
+      MSG_PROVINCE = #{msgProvince,jdbcType=VARCHAR},
+      REG_CITY = #{regCity,jdbcType=VARCHAR},
+      MSG_CITY = #{msgCity,jdbcType=VARCHAR},
+      ISLONGDATE = #{islongdate,jdbcType=VARCHAR},
+      BUSINESS_TYPE = #{businessType,jdbcType=CLOB},
+      SHAREDHOLDER_FLEX = #{sharedholderFlex,jdbcType=CLOB},
+      LICENSE_FLEX = #{licenseFlex,jdbcType=CLOB},
+      BUSINESS_LICENSE_FLEX = #{businessLicenseFlex,jdbcType=CLOB},
+      OFFICE_CONTRACT_FLEX = #{officeContractFlex,jdbcType=CLOB}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.module.domain.domain.DxxzspDomainRegister" >
+    update DXXZSP_DOMAIN_REGISTER
+    set NEWSTITLE = #{newstitle,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      MODIFIE_TIME = #{modifieTime,jdbcType=TIMESTAMP},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      MODIFICATOR = #{modificator,jdbcType=VARCHAR},
+      RECYCLE = #{recycle,jdbcType=VARCHAR},
+      COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      COMPANY_WEBSITE = #{companyWebsite,jdbcType=VARCHAR},
+      UNIFIED_SOCIAL_CREDIT_IDENTIFIER = #{unifiedSocialCreditIdentifier,jdbcType=VARCHAR},
+      REGISTERE_ADDRESS = #{registereAddress,jdbcType=VARCHAR},
+      REGISTRATION_CAPITAL = #{registrationCapital,jdbcType=VARCHAR},
+      ISSUANCE_DATE = #{issuanceDate,jdbcType=VARCHAR},
+      VALID_DATE = #{validDate,jdbcType=VARCHAR},
+      MAIN_OFFICE_ADDRESS = #{mainOfficeAddress,jdbcType=VARCHAR},
+      POSTCODE = #{postcode,jdbcType=VARCHAR},
+      EQUITY_STRUCTURE = #{equityStructure,jdbcType=VARCHAR},
+      ENTERPRISE_NATURE = #{enterpriseNature,jdbcType=VARCHAR},
+      YES_OR_NO_LICENSE = #{yesOrNoLicense,jdbcType=VARCHAR},
+      PERMIT_NUMBER = #{permitNumber,jdbcType=VARCHAR},
+      REG_PROVINCE = #{regProvince,jdbcType=VARCHAR},
+      MSG_PROVINCE = #{msgProvince,jdbcType=VARCHAR},
+      REG_CITY = #{regCity,jdbcType=VARCHAR},
+      MSG_CITY = #{msgCity,jdbcType=VARCHAR},
+      ISLONGDATE = #{islongdate,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

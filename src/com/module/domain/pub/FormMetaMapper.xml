@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.domain.FormMetaMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.FormMeta">
+    <id column="ID_" jdbcType="VARCHAR" property="id" />
+    <result column="KEY_" jdbcType="VARCHAR" property="key" />
+    <result column="NAME_" jdbcType="VARCHAR" property="name" />
+    <result column="TYPE_" jdbcType="VARCHAR" property="type" />
+    <result column="TYPE_ID_" jdbcType="VARCHAR" property="typeId" />
+    <result column="OPINION_CONF_" jdbcType="VARCHAR" property="opinionConf" />
+    <result column="CREATE_BY_" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_TIME_" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_BY_" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_TIME_" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="CREATE_ORG_ID_" jdbcType="VARCHAR" property="createOrgId" />
+    <result column="DESC_" jdbcType="VARCHAR" property="desc" />
+    <result column="REV_" jdbcType="INTEGER" property="rev" />
+    <result column="SUBENTITY_" jdbcType="VARCHAR" property="subentity" />
+    <result column="MAINALIAS_" jdbcType="VARCHAR" property="mainalias" />
+    <result column="MACROALIAS_" jdbcType="VARCHAR" property="macroalias" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domain.FormMetaWithBLOBs">
+    <result column="EXPAND_" jdbcType="CLOB" property="expand" />
+    <result column="GANGED_" jdbcType="CLOB" property="ganged" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID_, KEY_, NAME_, TYPE_, TYPE_ID_, OPINION_CONF_, CREATE_BY_, CREATE_TIME_, UPDATE_BY_, 
+    UPDATE_TIME_, CREATE_ORG_ID_, DESC_, REV_, SUBENTITY_, MAINALIAS_, MACROALIAS_
+  </sql>
+  <sql id="Blob_Column_List">
+    EXPAND_, GANGED_
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FORM_META
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FORM_META
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.module.domain.domain.FormMetaWithBLOBs">
+    insert into FORM_META (ID_, KEY_, NAME_, 
+      TYPE_, TYPE_ID_, OPINION_CONF_, 
+      CREATE_BY_, CREATE_TIME_, UPDATE_BY_, 
+      UPDATE_TIME_, CREATE_ORG_ID_, DESC_, 
+      REV_, SUBENTITY_, MAINALIAS_, 
+      MACROALIAS_, EXPAND_, GANGED_
+      )
+    values (#{id,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{typeId,jdbcType=VARCHAR}, #{opinionConf,jdbcType=VARCHAR}, 
+      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createOrgId,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, 
+      #{rev,jdbcType=INTEGER}, #{subentity,jdbcType=VARCHAR}, #{mainalias,jdbcType=VARCHAR}, 
+      #{macroalias,jdbcType=VARCHAR}, #{expand,jdbcType=CLOB}, #{ganged,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domain.FormMetaWithBLOBs">
+    insert into FORM_META
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID_,
+      </if>
+      <if test="key != null">
+        KEY_,
+      </if>
+      <if test="name != null">
+        NAME_,
+      </if>
+      <if test="type != null">
+        TYPE_,
+      </if>
+      <if test="typeId != null">
+        TYPE_ID_,
+      </if>
+      <if test="opinionConf != null">
+        OPINION_CONF_,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY_,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME_,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY_,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME_,
+      </if>
+      <if test="createOrgId != null">
+        CREATE_ORG_ID_,
+      </if>
+      <if test="desc != null">
+        DESC_,
+      </if>
+      <if test="rev != null">
+        REV_,
+      </if>
+      <if test="subentity != null">
+        SUBENTITY_,
+      </if>
+      <if test="mainalias != null">
+        MAINALIAS_,
+      </if>
+      <if test="macroalias != null">
+        MACROALIAS_,
+      </if>
+      <if test="expand != null">
+        EXPAND_,
+      </if>
+      <if test="ganged != null">
+        GANGED_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null">
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionConf != null">
+        #{opinionConf,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createOrgId != null">
+        #{createOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="rev != null">
+        #{rev,jdbcType=INTEGER},
+      </if>
+      <if test="subentity != null">
+        #{subentity,jdbcType=VARCHAR},
+      </if>
+      <if test="mainalias != null">
+        #{mainalias,jdbcType=VARCHAR},
+      </if>
+      <if test="macroalias != null">
+        #{macroalias,jdbcType=VARCHAR},
+      </if>
+      <if test="expand != null">
+        #{expand,jdbcType=CLOB},
+      </if>
+      <if test="ganged != null">
+        #{ganged,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.module.domain.domain.FormMetaWithBLOBs">
+    update FORM_META
+    <set>
+      <if test="key != null">
+        KEY_ = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME_ = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        TYPE_ = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionConf != null">
+        OPINION_CONF_ = #{opinionConf,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createOrgId != null">
+        CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        DESC_ = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="rev != null">
+        REV_ = #{rev,jdbcType=INTEGER},
+      </if>
+      <if test="subentity != null">
+        SUBENTITY_ = #{subentity,jdbcType=VARCHAR},
+      </if>
+      <if test="mainalias != null">
+        MAINALIAS_ = #{mainalias,jdbcType=VARCHAR},
+      </if>
+      <if test="macroalias != null">
+        MACROALIAS_ = #{macroalias,jdbcType=VARCHAR},
+      </if>
+      <if test="expand != null">
+        EXPAND_ = #{expand,jdbcType=CLOB},
+      </if>
+      <if test="ganged != null">
+        GANGED_ = #{ganged,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.module.domain.domain.FormMetaWithBLOBs">
+    update FORM_META
+    set KEY_ = #{key,jdbcType=VARCHAR},
+      NAME_ = #{name,jdbcType=VARCHAR},
+      TYPE_ = #{type,jdbcType=VARCHAR},
+      TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      OPINION_CONF_ = #{opinionConf,jdbcType=VARCHAR},
+      CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      DESC_ = #{desc,jdbcType=VARCHAR},
+      REV_ = #{rev,jdbcType=INTEGER},
+      SUBENTITY_ = #{subentity,jdbcType=VARCHAR},
+      MAINALIAS_ = #{mainalias,jdbcType=VARCHAR},
+      MACROALIAS_ = #{macroalias,jdbcType=VARCHAR},
+      EXPAND_ = #{expand,jdbcType=CLOB},
+      GANGED_ = #{ganged,jdbcType=CLOB}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.module.domain.domain.FormMeta">
+    update FORM_META
+    set KEY_ = #{key,jdbcType=VARCHAR},
+      NAME_ = #{name,jdbcType=VARCHAR},
+      TYPE_ = #{type,jdbcType=VARCHAR},
+      TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      OPINION_CONF_ = #{opinionConf,jdbcType=VARCHAR},
+      CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      DESC_ = #{desc,jdbcType=VARCHAR},
+      REV_ = #{rev,jdbcType=INTEGER},
+      SUBENTITY_ = #{subentity,jdbcType=VARCHAR},
+      MAINALIAS_ = #{mainalias,jdbcType=VARCHAR},
+      MACROALIAS_ = #{macroalias,jdbcType=VARCHAR}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.FormMeta">
+    <id column="ID_" jdbcType="VARCHAR" property="id" />
+    <result column="KEY_" jdbcType="VARCHAR" property="key" />
+    <result column="NAME_" jdbcType="VARCHAR" property="name" />
+    <result column="TYPE_" jdbcType="VARCHAR" property="type" />
+    <result column="TYPE_ID_" jdbcType="VARCHAR" property="typeId" />
+    <result column="OPINION_CONF_" jdbcType="VARCHAR" property="opinionConf" />
+    <result column="CREATE_BY_" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_TIME_" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_BY_" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_TIME_" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="CREATE_ORG_ID_" jdbcType="VARCHAR" property="createOrgId" />
+    <result column="DESC_" jdbcType="VARCHAR" property="desc" />
+    <result column="REV_" jdbcType="INTEGER" property="rev" />
+    <result column="SUBENTITY_" jdbcType="VARCHAR" property="subentity" />
+    <result column="MAINALIAS_" jdbcType="VARCHAR" property="mainalias" />
+    <result column="MACROALIAS_" jdbcType="VARCHAR" property="macroalias" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domain.FormMetaWithBLOBs">
+    <result column="EXPAND_" jdbcType="CLOB" property="expand" />
+    <result column="GANGED_" jdbcType="CLOB" property="ganged" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID_, KEY_, NAME_, TYPE_, TYPE_ID_, OPINION_CONF_, CREATE_BY_, CREATE_TIME_, UPDATE_BY_, 
+    UPDATE_TIME_, CREATE_ORG_ID_, DESC_, REV_, SUBENTITY_, MAINALIAS_, MACROALIAS_
+  </sql>
+  <sql id="Blob_Column_List">
+    EXPAND_, GANGED_
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FORM_META
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FORM_META
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.module.domain.domain.FormMetaWithBLOBs">
+    insert into FORM_META (ID_, KEY_, NAME_, 
+      TYPE_, TYPE_ID_, OPINION_CONF_, 
+      CREATE_BY_, CREATE_TIME_, UPDATE_BY_, 
+      UPDATE_TIME_, CREATE_ORG_ID_, DESC_, 
+      REV_, SUBENTITY_, MAINALIAS_, 
+      MACROALIAS_, EXPAND_, GANGED_
+      )
+    values (#{id,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{typeId,jdbcType=VARCHAR}, #{opinionConf,jdbcType=VARCHAR}, 
+      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createOrgId,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, 
+      #{rev,jdbcType=INTEGER}, #{subentity,jdbcType=VARCHAR}, #{mainalias,jdbcType=VARCHAR}, 
+      #{macroalias,jdbcType=VARCHAR}, #{expand,jdbcType=CLOB}, #{ganged,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domain.FormMetaWithBLOBs">
+    insert into FORM_META
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID_,
+      </if>
+      <if test="key != null">
+        KEY_,
+      </if>
+      <if test="name != null">
+        NAME_,
+      </if>
+      <if test="type != null">
+        TYPE_,
+      </if>
+      <if test="typeId != null">
+        TYPE_ID_,
+      </if>
+      <if test="opinionConf != null">
+        OPINION_CONF_,
+      </if>
+      <if test="createBy != null">
+        CREATE_BY_,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME_,
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY_,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME_,
+      </if>
+      <if test="createOrgId != null">
+        CREATE_ORG_ID_,
+      </if>
+      <if test="desc != null">
+        DESC_,
+      </if>
+      <if test="rev != null">
+        REV_,
+      </if>
+      <if test="subentity != null">
+        SUBENTITY_,
+      </if>
+      <if test="mainalias != null">
+        MAINALIAS_,
+      </if>
+      <if test="macroalias != null">
+        MACROALIAS_,
+      </if>
+      <if test="expand != null">
+        EXPAND_,
+      </if>
+      <if test="ganged != null">
+        GANGED_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null">
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionConf != null">
+        #{opinionConf,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createOrgId != null">
+        #{createOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="rev != null">
+        #{rev,jdbcType=INTEGER},
+      </if>
+      <if test="subentity != null">
+        #{subentity,jdbcType=VARCHAR},
+      </if>
+      <if test="mainalias != null">
+        #{mainalias,jdbcType=VARCHAR},
+      </if>
+      <if test="macroalias != null">
+        #{macroalias,jdbcType=VARCHAR},
+      </if>
+      <if test="expand != null">
+        #{expand,jdbcType=CLOB},
+      </if>
+      <if test="ganged != null">
+        #{ganged,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.module.domain.domain.FormMetaWithBLOBs">
+    update FORM_META
+    <set>
+      <if test="key != null">
+        KEY_ = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME_ = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        TYPE_ = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="opinionConf != null">
+        OPINION_CONF_ = #{opinionConf,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null">
+        CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createOrgId != null">
+        CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        DESC_ = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="rev != null">
+        REV_ = #{rev,jdbcType=INTEGER},
+      </if>
+      <if test="subentity != null">
+        SUBENTITY_ = #{subentity,jdbcType=VARCHAR},
+      </if>
+      <if test="mainalias != null">
+        MAINALIAS_ = #{mainalias,jdbcType=VARCHAR},
+      </if>
+      <if test="macroalias != null">
+        MACROALIAS_ = #{macroalias,jdbcType=VARCHAR},
+      </if>
+      <if test="expand != null">
+        EXPAND_ = #{expand,jdbcType=CLOB},
+      </if>
+      <if test="ganged != null">
+        GANGED_ = #{ganged,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.module.domain.domain.FormMetaWithBLOBs">
+    update FORM_META
+    set KEY_ = #{key,jdbcType=VARCHAR},
+      NAME_ = #{name,jdbcType=VARCHAR},
+      TYPE_ = #{type,jdbcType=VARCHAR},
+      TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      OPINION_CONF_ = #{opinionConf,jdbcType=VARCHAR},
+      CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      DESC_ = #{desc,jdbcType=VARCHAR},
+      REV_ = #{rev,jdbcType=INTEGER},
+      SUBENTITY_ = #{subentity,jdbcType=VARCHAR},
+      MAINALIAS_ = #{mainalias,jdbcType=VARCHAR},
+      MACROALIAS_ = #{macroalias,jdbcType=VARCHAR},
+      EXPAND_ = #{expand,jdbcType=CLOB},
+      GANGED_ = #{ganged,jdbcType=CLOB}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.module.domain.domain.FormMeta">
+    update FORM_META
+    set KEY_ = #{key,jdbcType=VARCHAR},
+      NAME_ = #{name,jdbcType=VARCHAR},
+      TYPE_ = #{type,jdbcType=VARCHAR},
+      TYPE_ID_ = #{typeId,jdbcType=VARCHAR},
+      OPINION_CONF_ = #{opinionConf,jdbcType=VARCHAR},
+      CREATE_BY_ = #{createBy,jdbcType=VARCHAR},
+      CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_BY_ = #{updateBy,jdbcType=VARCHAR},
+      UPDATE_TIME_ = #{updateTime,jdbcType=TIMESTAMP},
+      CREATE_ORG_ID_ = #{createOrgId,jdbcType=VARCHAR},
+      DESC_ = #{desc,jdbcType=VARCHAR},
+      REV_ = #{rev,jdbcType=INTEGER},
+      SUBENTITY_ = #{subentity,jdbcType=VARCHAR},
+      MAINALIAS_ = #{mainalias,jdbcType=VARCHAR},
+      MACROALIAS_ = #{macroalias,jdbcType=VARCHAR}
+    where ID_ = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

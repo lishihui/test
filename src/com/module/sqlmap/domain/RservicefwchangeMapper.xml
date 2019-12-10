@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.domainRegistration.change.change.RservicefwchangeMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.domainRegistration.change.change.Rservicefwchange">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="COMPANYNAME" jdbcType="VARCHAR" property="companyname" />
+    <result column="IS_ADD" jdbcType="VARCHAR" property="isAdd" />
+    <result column="IS_REDUCE" jdbcType="VARCHAR" property="isReduce" />
+    <result column="ADD_DOMAIN" jdbcType="VARCHAR" property="addDomain" />
+    <result column="REDUCE_DOMAIN" jdbcType="VARCHAR" property="reduceDomain" />
+    <result column="STARTDATE" jdbcType="VARCHAR" property="startdate" />
+    <result column="ENDDATE" jdbcType="VARCHAR" property="enddate" />
+    <result column="TOP_DOMAIN" jdbcType="VARCHAR" property="topDomain" />
+    <result column="NEWSTATRDATE" jdbcType="VARCHAR" property="newstatrdate" />
+    <result column="NEWENDDATE" jdbcType="VARCHAR" property="newenddate" />
+    <result column="NEWADD_DOMAIN" jdbcType="VARCHAR" property="newaddDomain" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domainRegistration.change.change.RservicefwchangeWithBLOBs">
+    <result column="FLEX_YHQYFWJH" jdbcType="CLOB" property="flexYhqyfwjh" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, COMPANYNAME, IS_ADD, 
+      IS_REDUCE, ADD_DOMAIN, REDUCE_DOMAIN, 
+      STARTDATE, ENDDATE, TOP_DOMAIN, 
+      NEWSTATRDATE, NEWENDDATE, NEWADD_DOMAIN
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    FLEX_YHQYFWJH
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from RSERVICEFWCHANGE
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.domainRegistration.change.change.RservicefwchangeWithBLOBs">
+    insert into RSERVICEFWCHANGE (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, COMPANYNAME, IS_ADD, 
+      IS_REDUCE, ADD_DOMAIN, REDUCE_DOMAIN, 
+      STARTDATE, ENDDATE, TOP_DOMAIN, 
+      NEWSTATRDATE, NEWENDDATE, NEWADD_DOMAIN, 
+      FLEX_YHQYFWJH)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{companyname,jdbcType=VARCHAR}, #{isAdd,jdbcType=VARCHAR}, 
+      #{isReduce,jdbcType=VARCHAR}, #{addDomain,jdbcType=VARCHAR}, #{reduceDomain,jdbcType=VARCHAR}, 
+      #{startdate,jdbcType=VARCHAR}, #{enddate,jdbcType=VARCHAR}, #{topDomain,jdbcType=VARCHAR}, 
+      #{newstatrdate,jdbcType=VARCHAR}, #{newenddate,jdbcType=VARCHAR}, #{newaddDomain,jdbcType=VARCHAR}, 
+      #{flexYhqyfwjh,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domainRegistration.change.change.RservicefwchangeWithBLOBs">
+    insert into RSERVICEFWCHANGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="companyname != null">
+        COMPANYNAME,
+      </if>
+      <if test="isAdd != null">
+        IS_ADD,
+      </if>
+      <if test="isReduce != null">
+        IS_REDUCE,
+      </if>
+      <if test="addDomain != null">
+        ADD_DOMAIN,
+      </if>
+      <if test="reduceDomain != null">
+        REDUCE_DOMAIN,
+      </if>
+      <if test="startdate != null">
+        STARTDATE,
+      </if>
+      <if test="enddate != null">
+        ENDDATE,
+      </if>
+      <if test="topDomain != null">
+        TOP_DOMAIN,
+      </if>
+      <if test="newstatrdate != null">
+        NEWSTATRDATE,
+      </if>
+      <if test="newenddate != null">
+        NEWENDDATE,
+      </if>
+      <if test="newaddDomain != null">
+        NEWADD_DOMAIN,
+      </if>
+      <if test="flexYhqyfwjh != null">
+        FLEX_YHQYFWJH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="isAdd != null">
+        #{isAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="isReduce != null">
+        #{isReduce,jdbcType=VARCHAR},
+      </if>
+      <if test="addDomain != null">
+        #{addDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="reduceDomain != null">
+        #{reduceDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=VARCHAR},
+      </if>
+      <if test="topDomain != null">
+        #{topDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="newstatrdate != null">
+        #{newstatrdate,jdbcType=VARCHAR},
+      </if>
+      <if test="newenddate != null">
+        #{newenddate,jdbcType=VARCHAR},
+      </if>
+      <if test="newaddDomain != null">
+        #{newaddDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="flexYhqyfwjh != null">
+        #{flexYhqyfwjh,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

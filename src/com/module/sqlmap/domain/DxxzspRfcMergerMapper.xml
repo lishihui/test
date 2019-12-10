@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.threeWebElectric.change.change.DxxzspRfcMergerMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.threeWebElectric.change.change.DxxzspRfcMerger">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="OLD_COMPANYS" jdbcType="VARCHAR" property="oldCompanys" />
+    <result column="NEW_COMPANY" jdbcType="VARCHAR" property="newCompany" />
+    <result column="RFC_INFO_ID" jdbcType="VARCHAR" property="rfcInfoId" />
+    <result column="NEW_DATA" jdbcType="VARCHAR" property="newData" />
+    <result column="OLD_DATA" jdbcType="VARCHAR" property="oldData" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.threeWebElectric.change.change.DxxzspRfcMergerWithBLOBs">
+    <result column="HOLDER_INFO_G" jdbcType="CLOB" property="holderInfoG" />
+    <result column="EQUITY_STRUCTURE_G" jdbcType="CLOB" property="equityStructureG" />
+    <result column="LICENCE_IDCARD_G" jdbcType="CLOB" property="licenceIdcardG" />
+    <result column="HOLDER_RESULR_G" jdbcType="CLOB" property="holderResulrG" />
+    <result column="RELATE_INFO_G" jdbcType="CLOB" property="relateInfoG" />
+    <result column="COMMIT_LETTER_N_G" jdbcType="CLOB" property="commitLetterNG" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_RFC_MERGER
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List" >
+	ID,CREATED,MODIFIED,CREATOR,MODIFICATOR,RECYCLE,OLD_COMPANYS,NEW_COMPANY,RFC_INFO_ID,NEW_DATA,OLD_DATA
+  </sql>
+  <sql id="Blob_Column_List">
+    HOLDER_INFO_G, EQUITY_STRUCTURE_G, LICENCE_IDCARD_G, HOLDER_RESULR_G, RELATE_INFO_G, 
+    COMMIT_LETTER_N_G
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.threeWebElectric.change.change.DxxzspRfcMergerWithBLOBs">
+    insert into DXXZSP_RFC_MERGER (ID, CREATED, MODIFIED, 
+      CREATOR, MODIFICATOR, RECYCLE, 
+      OLD_COMPANYS, NEW_COMPANY, RFC_INFO_ID, 
+      NEW_DATA, OLD_DATA, HOLDER_INFO_G, 
+      EQUITY_STRUCTURE_G, LICENCE_IDCARD_G, HOLDER_RESULR_G, 
+      RELATE_INFO_G, COMMIT_LETTER_N_G)
+    values (#{id,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, #{modified,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, #{recycle,jdbcType=VARCHAR}, 
+      #{oldCompanys,jdbcType=VARCHAR}, #{newCompany,jdbcType=VARCHAR}, #{rfcInfoId,jdbcType=VARCHAR}, 
+      #{newData,jdbcType=VARCHAR}, #{oldData,jdbcType=VARCHAR}, #{holderInfoG,jdbcType=CLOB}, 
+      #{equityStructureG,jdbcType=CLOB}, #{licenceIdcardG,jdbcType=CLOB}, #{holderResulrG,jdbcType=CLOB}, 
+      #{relateInfoG,jdbcType=CLOB}, #{commitLetterNG,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.threeWebElectric.change.change.DxxzspRfcMergerWithBLOBs">
+    insert into DXXZSP_RFC_MERGER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="oldCompanys != null">
+        OLD_COMPANYS,
+      </if>
+      <if test="newCompany != null">
+        NEW_COMPANY,
+      </if>
+      <if test="rfcInfoId != null">
+        RFC_INFO_ID,
+      </if>
+      <if test="newData != null">
+        NEW_DATA,
+      </if>
+      <if test="oldData != null">
+        OLD_DATA,
+      </if>
+      <if test="holderInfoG != null">
+        HOLDER_INFO_G,
+      </if>
+      <if test="equityStructureG != null">
+        EQUITY_STRUCTURE_G,
+      </if>
+      <if test="licenceIdcardG != null">
+        LICENCE_IDCARD_G,
+      </if>
+      <if test="holderResulrG != null">
+        HOLDER_RESULR_G,
+      </if>
+      <if test="relateInfoG != null">
+        RELATE_INFO_G,
+      </if>
+      <if test="commitLetterNG != null">
+        COMMIT_LETTER_N_G,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="oldCompanys != null">
+        #{oldCompanys,jdbcType=VARCHAR},
+      </if>
+      <if test="newCompany != null">
+        #{newCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="rfcInfoId != null">
+        #{rfcInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="newData != null">
+        #{newData,jdbcType=VARCHAR},
+      </if>
+      <if test="oldData != null">
+        #{oldData,jdbcType=VARCHAR},
+      </if>
+      <if test="holderInfoG != null">
+        #{holderInfoG,jdbcType=CLOB},
+      </if>
+      <if test="equityStructureG != null">
+        #{equityStructureG,jdbcType=CLOB},
+      </if>
+      <if test="licenceIdcardG != null">
+        #{licenceIdcardG,jdbcType=CLOB},
+      </if>
+      <if test="holderResulrG != null">
+        #{holderResulrG,jdbcType=CLOB},
+      </if>
+      <if test="relateInfoG != null">
+        #{relateInfoG,jdbcType=CLOB},
+      </if>
+      <if test="commitLetterNG != null">
+        #{commitLetterNG,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

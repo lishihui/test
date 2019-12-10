@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.electricLicencePermit.change.provinceInnerChange.DxxzspReplenishmentOfLostMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspReplenishmentOfLost">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="COMPANY_NAME" jdbcType="VARCHAR" property="companyName" />
+    <result column="LICENSE_NO" jdbcType="VARCHAR" property="licenseNo" />
+    <result column="LOSS_DECLA" jdbcType="VARCHAR" property="lossDecla" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspReplenishmentOfLostWithBLOBs">
+    <result column="LOSS_LICENSE_DECLA" jdbcType="CLOB" property="lossLicenseDecla" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    LOSS_LICENSE_DECLA
+  </sql>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, MODIFIED, 
+    CREATOR, MODIFICATOR, RECYCLE, COMPANY_NAME, LOSS_DECLA
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from LOSS_LICENSE_APPLICATION
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+
+  
+  <insert id="insert" parameterType="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspReplenishmentOfLostWithBLOBs">
+    insert into LOSS_LICENSE_APPLICATION (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, COMPANY_NAME, LICENSE_NO, 
+      LOSS_DECLA, LOSS_LICENSE_DECLA)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{licenseNo,jdbcType=VARCHAR}, 
+      #{lossDecla,jdbcType=VARCHAR}, #{lossLicenseDecla,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspReplenishmentOfLostWithBLOBs">
+    insert into LOSS_LICENSE_APPLICATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="companyName != null">
+        COMPANY_NAME,
+      </if>
+      <if test="licenseNo != null">
+        LICENSE_NO,
+      </if>
+      <if test="lossDecla != null">
+        LOSS_DECLA,
+      </if>
+      <if test="lossLicenseDecla != null">
+        LOSS_LICENSE_DECLA,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseNo != null">
+        #{licenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lossDecla != null">
+        #{lossDecla,jdbcType=VARCHAR},
+      </if>
+      <if test="lossLicenseDecla != null">
+        #{lossLicenseDecla,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

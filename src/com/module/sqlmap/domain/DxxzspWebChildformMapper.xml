@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.electricLicencePermit.change.provinceInnerChange.DxxzspWebChildformMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspWebChildform">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="YUMING" jdbcType="VARCHAR" property="yuming" />
+    <result column="FUWUFANGZHIDIAN" jdbcType="VARCHAR" property="fuwufangzhidian" />
+    <result column="TIGONGDANWEI" jdbcType="VARCHAR" property="tigongdanwei" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+    <result column="ONLINE_DATA" jdbcType="VARCHAR" property="onlineData" />
+    <result column="INFO_SERV" jdbcType="VARCHAR" property="infoServ" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspWebChildformWithBLOBs">
+    <result column="YUMINGZHENGSHU" jdbcType="CLOB" property="yumingzhengshu" />
+    <result column="SHANGBIAOZHENGSHU" jdbcType="CLOB" property="shangbiaozhengshu" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+  	select
+  	<include refid="Base_Column_List"/>
+  	,
+  	<include refid="Blob_Column_List"/>
+  	from DXXZSP_WEB_CHILDFORM
+  	where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, MODIFIED, CREATOR, MODIFICATOR, RECYCLE, NAME, YUMING, FUWUFANGZHIDIAN, TIGONGDANWEI, PARENTID, ONLINE_DATA, INFO_SERV
+  </sql>
+  <sql id="Blob_Column_List">
+    YUMINGZHENGSHU, SHANGBIAOZHENGSHU
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspWebChildformWithBLOBs">
+    insert into DXXZSP_WEB_CHILDFORM (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, NAME, YUMING, 
+      FUWUFANGZHIDIAN, TIGONGDANWEI, PARENTID, 
+      ONLINE_DATA, INFO_SERV, YUMINGZHENGSHU, 
+      SHANGBIAOZHENGSHU)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{yuming,jdbcType=VARCHAR}, 
+      #{fuwufangzhidian,jdbcType=VARCHAR}, #{tigongdanwei,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, 
+      #{onlineData,jdbcType=VARCHAR}, #{infoServ,jdbcType=VARCHAR}, #{yumingzhengshu,jdbcType=CLOB}, 
+      #{shangbiaozhengshu,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspWebChildformWithBLOBs">
+    insert into DXXZSP_WEB_CHILDFORM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="yuming != null">
+        YUMING,
+      </if>
+      <if test="fuwufangzhidian != null">
+        FUWUFANGZHIDIAN,
+      </if>
+      <if test="tigongdanwei != null">
+        TIGONGDANWEI,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="onlineData != null">
+        ONLINE_DATA,
+      </if>
+      <if test="infoServ != null">
+        INFO_SERV,
+      </if>
+      <if test="yumingzhengshu != null">
+        YUMINGZHENGSHU,
+      </if>
+      <if test="shangbiaozhengshu != null">
+        SHANGBIAOZHENGSHU,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="yuming != null">
+        #{yuming,jdbcType=VARCHAR},
+      </if>
+      <if test="fuwufangzhidian != null">
+        #{fuwufangzhidian,jdbcType=VARCHAR},
+      </if>
+      <if test="tigongdanwei != null">
+        #{tigongdanwei,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineData != null">
+        #{onlineData,jdbcType=VARCHAR},
+      </if>
+      <if test="infoServ != null">
+        #{infoServ,jdbcType=VARCHAR},
+      </if>
+      <if test="yumingzhengshu != null">
+        #{yumingzhengshu,jdbcType=CLOB},
+      </if>
+      <if test="shangbiaozhengshu != null">
+        #{shangbiaozhengshu,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

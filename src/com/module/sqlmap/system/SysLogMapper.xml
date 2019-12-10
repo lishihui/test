@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.system.SysLogMapper" >
+  <resultMap id="BaseResultMap" type="com.module.domain.system.SysLog" >
+    <id column="LOGID" property="logid" jdbcType="VARCHAR" />
+    <result column="TYPE" property="type" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="REMOTEADDR" property="remoteaddr" jdbcType="VARCHAR" />
+    <result column="REQUESTURI" property="requesturi" jdbcType="VARCHAR" />
+    <result column="METHOD" property="method" jdbcType="VARCHAR" />
+    <result column="EXCEPTION" property="exception" jdbcType="VARCHAR" />
+    <result column="OPERATEDATE" property="operatedate" jdbcType="DATE" />
+    <result column="TIMEOUT" property="timeout" jdbcType="VARCHAR" />
+    <result column="USERID" property="userid" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.module.domain.system.SysLog" extends="BaseResultMap" >
+    <result column="PARAMS" property="params" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    LOGID, TYPE, TITLE, REMOTEADDR, REQUESTURI, METHOD, EXCEPTION, OPERATEDATE, TIMEOUT, 
+    USERID
+  </sql>
+  <sql id="Blob_Column_List" >
+    PARAMS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from SYS_LOG
+    where LOGID = #{logid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SYS_LOG
+    where LOGID = #{logid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.module.domain.system.SysLog" >
+    insert into SYS_LOG (LOGID, TYPE, TITLE, 
+      REMOTEADDR, REQUESTURI, METHOD, 
+      EXCEPTION, OPERATEDATE, TIMEOUT, 
+      USERID, PARAMS)
+    values (#{logid,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{remoteaddr,jdbcType=VARCHAR}, #{requesturi,jdbcType=VARCHAR}, #{method,jdbcType=VARCHAR}, 
+      #{exception,jdbcType=VARCHAR}, #{operatedate,jdbcType=DATE}, #{timeout,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{params,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.system.SysLog" >
+    insert into SYS_LOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="logid != null" >
+        LOGID,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="remoteaddr != null" >
+        REMOTEADDR,
+      </if>
+      <if test="requesturi != null" >
+        REQUESTURI,
+      </if>
+      <if test="method != null" >
+        METHOD,
+      </if>
+      <if test="exception != null" >
+        EXCEPTION,
+      </if>
+      <if test="operatedate != null" >
+        OPERATEDATE,
+      </if>
+      <if test="timeout != null" >
+        TIMEOUT,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="params != null" >
+        PARAMS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="logid != null" >
+        #{logid,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteaddr != null" >
+        #{remoteaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="requesturi != null" >
+        #{requesturi,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null" >
+        #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="exception != null" >
+        #{exception,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedate != null" >
+        #{operatedate,jdbcType=DATE},
+      </if>
+      <if test="timeout != null" >
+        #{timeout,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null" >
+        #{params,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.module.domain.system.SysLog" >
+    update SYS_LOG
+    <set >
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteaddr != null" >
+        REMOTEADDR = #{remoteaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="requesturi != null" >
+        REQUESTURI = #{requesturi,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null" >
+        METHOD = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="exception != null" >
+        EXCEPTION = #{exception,jdbcType=VARCHAR},
+      </if>
+      <if test="operatedate != null" >
+        OPERATEDATE = #{operatedate,jdbcType=DATE},
+      </if>
+      <if test="timeout != null" >
+        TIMEOUT = #{timeout,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null" >
+        PARAMS = #{params,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where LOGID = #{logid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.module.domain.system.SysLog" >
+    update SYS_LOG
+    set TYPE = #{type,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      REMOTEADDR = #{remoteaddr,jdbcType=VARCHAR},
+      REQUESTURI = #{requesturi,jdbcType=VARCHAR},
+      METHOD = #{method,jdbcType=VARCHAR},
+      EXCEPTION = #{exception,jdbcType=VARCHAR},
+      OPERATEDATE = #{operatedate,jdbcType=DATE},
+      TIMEOUT = #{timeout,jdbcType=VARCHAR},
+      USERID = #{userid,jdbcType=VARCHAR},
+      PARAMS = #{params,jdbcType=LONGVARCHAR}
+    where LOGID = #{logid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.module.domain.system.SysLog" >
+    update SYS_LOG
+    set TYPE = #{type,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      REMOTEADDR = #{remoteaddr,jdbcType=VARCHAR},
+      REQUESTURI = #{requesturi,jdbcType=VARCHAR},
+      METHOD = #{method,jdbcType=VARCHAR},
+      EXCEPTION = #{exception,jdbcType=VARCHAR},
+      OPERATEDATE = #{operatedate,jdbcType=DATE},
+      TIMEOUT = #{timeout,jdbcType=VARCHAR},
+      USERID = #{userid,jdbcType=VARCHAR}
+    where LOGID = #{logid,jdbcType=VARCHAR}
+  </update>
+</mapper>

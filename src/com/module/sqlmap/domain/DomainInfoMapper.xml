@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.domainRegistration.apply.apply.DomainInfoMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.domainRegistration.apply.apply.DomainInfo">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="SERIES_NUM" jdbcType="VARCHAR" property="seriesNum" />
+    <result column="AGENCY_NAME" jdbcType="VARCHAR" property="agencyName" />
+    <result column="PROXY_SERVICE_NAME" jdbcType="VARCHAR" property="proxyServiceName" />
+    <result column="SITE_ADDRESS" jdbcType="VARCHAR" property="siteAddress" />
+    <result column="SOCIAL_CREDIT_CODE" jdbcType="VARCHAR" property="socialCreditCode" />
+    <result column="START_TIME" jdbcType="VARCHAR" property="startTime" />
+    <result column="YXHYJ" jdbcType="VARCHAR" property="yxhyj" />
+    <result column="END_TIME" jdbcType="VARCHAR" property="endTime" />
+    <result column="LEGAL_NAME" jdbcType="VARCHAR" property="legalName" />
+    <result column="LEGAL_MOBILE" jdbcType="VARCHAR" property="legalMobile" />
+    <result column="LINKMAN" jdbcType="VARCHAR" property="linkman" />
+    <result column="LINK_MOBILE" jdbcType="VARCHAR" property="linkMobile" />
+    <result column="OFFICE_ADDRESS" jdbcType="VARCHAR" property="officeAddress" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domainRegistration.apply.apply.DomainInfoWithBLOBs">
+    <result column="AGENCY_CONTRACT" jdbcType="CLOB" property="agencyContract" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, SERIES_NUM, AGENCY_NAME, 
+      PROXY_SERVICE_NAME, SITE_ADDRESS, SOCIAL_CREDIT_CODE, 
+      START_TIME, YXHYJ, END_TIME, 
+      LEGAL_NAME, LEGAL_MOBILE, LINKMAN, 
+      LINK_MOBILE, OFFICE_ADDRESS, PARENTID
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    AGENCY_CONTRACT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DOMAIN_INFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.domainRegistration.apply.apply.DomainInfoWithBLOBs">
+    insert into DOMAIN_INFO (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, SERIES_NUM, AGENCY_NAME, 
+      PROXY_SERVICE_NAME, SITE_ADDRESS, SOCIAL_CREDIT_CODE, 
+      START_TIME, YXHYJ, END_TIME, 
+      LEGAL_NAME, LEGAL_MOBILE, LINKMAN, 
+      LINK_MOBILE, OFFICE_ADDRESS, PARENTID, 
+      AGENCY_CONTRACT)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{seriesNum,jdbcType=VARCHAR}, #{agencyName,jdbcType=VARCHAR}, 
+      #{proxyServiceName,jdbcType=VARCHAR}, #{siteAddress,jdbcType=VARCHAR}, #{socialCreditCode,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=VARCHAR}, #{yxhyj,jdbcType=VARCHAR}, #{endTime,jdbcType=VARCHAR}, 
+      #{legalName,jdbcType=VARCHAR}, #{legalMobile,jdbcType=VARCHAR}, #{linkman,jdbcType=VARCHAR}, 
+      #{linkMobile,jdbcType=VARCHAR}, #{officeAddress,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, 
+      #{agencyContract,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domainRegistration.apply.apply.DomainInfoWithBLOBs">
+    insert into DOMAIN_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="seriesNum != null">
+        SERIES_NUM,
+      </if>
+      <if test="agencyName != null">
+        AGENCY_NAME,
+      </if>
+      <if test="proxyServiceName != null">
+        PROXY_SERVICE_NAME,
+      </if>
+      <if test="siteAddress != null">
+        SITE_ADDRESS,
+      </if>
+      <if test="socialCreditCode != null">
+        SOCIAL_CREDIT_CODE,
+      </if>
+      <if test="startTime != null">
+        START_TIME,
+      </if>
+      <if test="yxhyj != null">
+        YXHYJ,
+      </if>
+      <if test="endTime != null">
+        END_TIME,
+      </if>
+      <if test="legalName != null">
+        LEGAL_NAME,
+      </if>
+      <if test="legalMobile != null">
+        LEGAL_MOBILE,
+      </if>
+      <if test="linkman != null">
+        LINKMAN,
+      </if>
+      <if test="linkMobile != null">
+        LINK_MOBILE,
+      </if>
+      <if test="officeAddress != null">
+        OFFICE_ADDRESS,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="agencyContract != null">
+        AGENCY_CONTRACT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="seriesNum != null">
+        #{seriesNum,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyName != null">
+        #{agencyName,jdbcType=VARCHAR},
+      </if>
+      <if test="proxyServiceName != null">
+        #{proxyServiceName,jdbcType=VARCHAR},
+      </if>
+      <if test="siteAddress != null">
+        #{siteAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="socialCreditCode != null">
+        #{socialCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=VARCHAR},
+      </if>
+      <if test="yxhyj != null">
+        #{yxhyj,jdbcType=VARCHAR},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=VARCHAR},
+      </if>
+      <if test="legalName != null">
+        #{legalName,jdbcType=VARCHAR},
+      </if>
+      <if test="legalMobile != null">
+        #{legalMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="linkMobile != null">
+        #{linkMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="officeAddress != null">
+        #{officeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyContract != null">
+        #{agencyContract,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

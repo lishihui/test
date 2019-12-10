@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.registrationManagement.apply.apply.DxxzspDjymglxgxylistsMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.registrationManagement.apply.apply.DxxzspDjymglxgxylists">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.registrationManagement.apply.apply.DxxzspDjymglxgxylistsWithBLOBs">
+    <result column="ZGQDQTDJYY" jdbcType="CLOB" property="zgqdqtdjyy" />
+    <result column="JSJYYBF" jdbcType="CLOB" property="jsjyybf" />
+    <result column="XTCS" jdbcType="CLOB" property="xtcs" />
+    <result column="QWJXFWQXXJS" jdbcType="CLOB" property="qwjxfwqxxjs" />
+    <result column="ZCSJFT" jdbcType="CLOB" property="zcsjft" />
+    <result column="DJYYJTG" jdbcType="CLOB" property="djyyjtg" />
+    <result column="YMZCSMHY" jdbcType="CLOB" property="ymzcsmhy" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+	ID,TITLE,CREATED,MODIFIED,CREATOR,MODIFICATOR,RECYCLE
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    ZGQDQTDJYY, JSJYYBF, XTCS, QWJXFWQXXJS, ZCSJFT, DJYYJTG, YMZCSMHY
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DJYMGLXGXYLISTS
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+
+  <insert id="insert" parameterType="com.module.domain.registrationManagement.apply.apply.DxxzspDjymglxgxylistsWithBLOBs">
+    insert into DJYMGLXGXYLISTS (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, ZGQDQTDJYY, JSJYYBF, 
+      XTCS, QWJXFWQXXJS, ZCSJFT, DJYYJTG, 
+      YMZCSMHY)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{zgqdqtdjyy,jdbcType=CLOB}, #{jsjyybf,jdbcType=CLOB}, 
+      #{xtcs,jdbcType=CLOB}, #{qwjxfwqxxjs,jdbcType=CLOB}, #{zcsjft,jdbcType=CLOB}, #{djyyjtg,jdbcType=CLOB}, 
+      #{ymzcsmhy,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.registrationManagement.apply.apply.DxxzspDjymglxgxylistsWithBLOBs">
+    insert into DJYMGLXGXYLISTS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="zgqdqtdjyy != null">
+        ZGQDQTDJYY,
+      </if>
+      <if test="jsjyybf != null">
+        JSJYYBF,
+      </if>
+      <if test="xtcs != null">
+        XTCS,
+      </if>
+      <if test="qwjxfwqxxjs != null">
+        QWJXFWQXXJS,
+      </if>
+      <if test="zcsjft != null">
+        ZCSJFT,
+      </if>
+      <if test="djyyjtg != null">
+        DJYYJTG,
+      </if>
+      <if test="ymzcsmhy != null">
+        YMZCSMHY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="zgqdqtdjyy != null">
+        #{zgqdqtdjyy,jdbcType=CLOB},
+      </if>
+      <if test="jsjyybf != null">
+        #{jsjyybf,jdbcType=CLOB},
+      </if>
+      <if test="xtcs != null">
+        #{xtcs,jdbcType=CLOB},
+      </if>
+      <if test="qwjxfwqxxjs != null">
+        #{qwjxfwqxxjs,jdbcType=CLOB},
+      </if>
+      <if test="zcsjft != null">
+        #{zcsjft,jdbcType=CLOB},
+      </if>
+      <if test="djyyjtg != null">
+        #{djyyjtg,jdbcType=CLOB},
+      </if>
+      <if test="ymzcsmhy != null">
+        #{ymzcsmhy,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

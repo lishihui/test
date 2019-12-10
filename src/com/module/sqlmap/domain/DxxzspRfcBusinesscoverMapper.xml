@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.threeWebElectric.change.change.DxxzspRfcBusinesscoverMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.threeWebElectric.change.change.DxxzspBusinessCoverageChange">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="COVERAGE" jdbcType="VARCHAR" property="coverage" />
+    <result column="OLD_CITY" jdbcType="VARCHAR" property="oldCity" />
+    <result column="NEW_CITY" jdbcType="VARCHAR" property="newCity" />
+    <result column="RFC_INFO_ID" jdbcType="VARCHAR" property="rfcInfoId" />
+    <result column="OLD_CITY_DATA" jdbcType="VARCHAR" property="oldCityData" />
+    <result column="NEW_CITY_DATA" jdbcType="VARCHAR" property="newCityData" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.threeWebElectric.change.change.DxxzspRfcBusinesscoverWithBLOBs">
+    <result column="COMMIT_LETTER_C" jdbcType="CLOB" property="commitLetterC" />
+    <result column="BOARD_DIRECTORS_C" jdbcType="CLOB" property="boardDirectorsC" />
+  </resultMap>
+  
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_RFC_BUSINESSCOVER
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List" >
+	ID,CREATED,MODIFIED,CREATOR,MODIFICATOR,RECYCLE,COVERAGE,OLD_CITY,NEW_CITY,RFC_INFO_ID
+	OLD_CITY_DATA,NEW_CITY_DATA
+  </sql>
+  
+  
+  <sql id="Blob_Column_List">
+    COMMIT_LETTER_C, BOARD_DIRECTORS_C
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.threeWebElectric.change.change.DxxzspRfcBusinesscoverWithBLOBs">
+    insert into DXXZSP_RFC_BUSINESSCOVER (ID, CREATED, MODIFIED, 
+      CREATOR, MODIFICATOR, RECYCLE, 
+      COVERAGE, OLD_CITY, NEW_CITY, 
+      RFC_INFO_ID, OLD_CITY_DATA, NEW_CITY_DATA, 
+      COMMIT_LETTER_C, BOARD_DIRECTORS_C)
+    values (#{id,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, #{modified,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, #{recycle,jdbcType=VARCHAR}, 
+      #{coverage,jdbcType=VARCHAR}, #{oldCity,jdbcType=VARCHAR}, #{newCity,jdbcType=VARCHAR}, 
+      #{rfcInfoId,jdbcType=VARCHAR}, #{oldCityData,jdbcType=VARCHAR}, #{newCityData,jdbcType=VARCHAR}, 
+      #{commitLetterC,jdbcType=CLOB}, #{boardDirectorsC,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.threeWebElectric.change.change.DxxzspRfcBusinesscoverWithBLOBs">
+    insert into DXXZSP_RFC_BUSINESSCOVER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="coverage != null">
+        COVERAGE,
+      </if>
+      <if test="oldCity != null">
+        OLD_CITY,
+      </if>
+      <if test="newCity != null">
+        NEW_CITY,
+      </if>
+      <if test="rfcInfoId != null">
+        RFC_INFO_ID,
+      </if>
+      <if test="oldCityData != null">
+        OLD_CITY_DATA,
+      </if>
+      <if test="newCityData != null">
+        NEW_CITY_DATA,
+      </if>
+      <if test="commitLetterC != null">
+        COMMIT_LETTER_C,
+      </if>
+      <if test="boardDirectorsC != null">
+        BOARD_DIRECTORS_C,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="coverage != null">
+        #{coverage,jdbcType=VARCHAR},
+      </if>
+      <if test="oldCity != null">
+        #{oldCity,jdbcType=VARCHAR},
+      </if>
+      <if test="newCity != null">
+        #{newCity,jdbcType=VARCHAR},
+      </if>
+      <if test="rfcInfoId != null">
+        #{rfcInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="oldCityData != null">
+        #{oldCityData,jdbcType=VARCHAR},
+      </if>
+      <if test="newCityData != null">
+        #{newCityData,jdbcType=VARCHAR},
+      </if>
+      <if test="commitLetterC != null">
+        #{commitLetterC,jdbcType=CLOB},
+      </if>
+      <if test="boardDirectorsC != null">
+        #{boardDirectorsC,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

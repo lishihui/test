@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.domainRegistration.change.change.DxxzspAgencyLegalflexMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.domainRegistration.change.change.DxxzspAgencyLegalflex">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="LEGALFLEX_START_DATE" jdbcType="VARCHAR" property="legalflexStartDate" />
+    <result column="LEGALFLEX_END_DATE" jdbcType="VARCHAR" property="legalflexEndDate" />
+    <result column="ZRRQSFYJ" jdbcType="VARCHAR" property="zrrqsfyj" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domainRegistration.change.change.DxxzspAgencyLegalflexWithBLOBs">
+    <result column="LEGAL_ID_FELX1" jdbcType="CLOB" property="legalIdFelx1" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+  	select
+  	<include refid="Base_Column_List"/>
+  	,
+  	<include refid="Blob_Column_List"/>
+  	from DXXZSP_AGENCY_LEGALFLEX
+  	where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, MODIFIED, CREATOR, MODIFICATOR, RECYCLE, LEGALFLEX_START_DATE, LEGALFLEX_END_DATE, ZRRQSFYJ
+  </sql>
+  <sql id="Blob_Column_List">
+    LEGAL_ID_FELX1
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.domainRegistration.change.change.DxxzspAgencyLegalflexWithBLOBs">
+    insert into DXXZSP_AGENCY_LEGALFLEX (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, LEGALFLEX_START_DATE, LEGALFLEX_END_DATE, 
+      ZRRQSFYJ, LEGAL_ID_FELX1)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{legalflexStartDate,jdbcType=VARCHAR}, #{legalflexEndDate,jdbcType=VARCHAR}, 
+      #{zrrqsfyj,jdbcType=VARCHAR}, #{legalIdFelx1,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domainRegistration.change.change.DxxzspAgencyLegalflexWithBLOBs">
+    insert into DXXZSP_AGENCY_LEGALFLEX
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="legalflexStartDate != null">
+        LEGALFLEX_START_DATE,
+      </if>
+      <if test="legalflexEndDate != null">
+        LEGALFLEX_END_DATE,
+      </if>
+      <if test="zrrqsfyj != null">
+        ZRRQSFYJ,
+      </if>
+      <if test="legalIdFelx1 != null">
+        LEGAL_ID_FELX1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="legalflexStartDate != null">
+        #{legalflexStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="legalflexEndDate != null">
+        #{legalflexEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="zrrqsfyj != null">
+        #{zrrqsfyj,jdbcType=VARCHAR},
+      </if>
+      <if test="legalIdFelx1 != null">
+        #{legalIdFelx1,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

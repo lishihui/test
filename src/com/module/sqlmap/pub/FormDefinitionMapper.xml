@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.domain.FormDefinitionMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.FormDefinition">
+    <id column="ID_" jdbcType="VARCHAR" property="id" />
+    <result column="DEF_ID_" jdbcType="VARCHAR" property="defId" />
+    <result column="NAME_" jdbcType="VARCHAR" property="name" />
+    <result column="FORM_KEY_" jdbcType="VARCHAR" property="formKey" />
+    <result column="DESC_" jdbcType="VARCHAR" property="desc" />
+    <result column="STATUS_" jdbcType="VARCHAR" property="status" />
+    <result column="FORM_TYPE_" jdbcType="VARCHAR" property="formType" />
+    <result column="TYPE_ID_" jdbcType="VARCHAR" property="typeId" />
+    <result column="TYPE_NAME_" jdbcType="VARCHAR" property="typeName" />
+    <result column="IS_MAIN_" jdbcType="CHAR" property="isMain" />
+    <result column="VERSION_" jdbcType="INTEGER" property="version" />
+    <result column="CREATE_BY_" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_TIME_" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="CREATE_ORG_ID_" jdbcType="VARCHAR" property="createOrgId" />
+    <result column="UPDATE_BY_" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_TIME_" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="FORM_TAB_TITLE_" jdbcType="VARCHAR" property="formTabTitle" />
+    <result column="CLASSIFY_" jdbcType="VARCHAR" property="classify" />
+    <result column="PAGE_FORMS_" jdbcType="VARCHAR" property="pageForms" />
+    <result column="PAGE_FORM_JSON_" jdbcType="VARCHAR" property="pageFormJson" />
+    <result column="HIDE_MAIN_" jdbcType="CHAR" property="hideMain" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domain.FormDefinitionWithBLOBs">
+    <result column="FORM_HTML_" jdbcType="CLOB" property="formHtml" />
+    <result column="DIV_JS_" jdbcType="CLOB" property="divJs" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID_, DEF_ID_, NAME_, FORM_KEY_, DESC_, STATUS_, FORM_TYPE_, TYPE_ID_, TYPE_NAME_, 
+    IS_MAIN_, VERSION_, CREATE_BY_, CREATE_TIME_, CREATE_ORG_ID_, UPDATE_BY_, UPDATE_TIME_, 
+    FORM_TAB_TITLE_, CLASSIFY_, PAGE_FORMS_, PAGE_FORM_JSON_, HIDE_MAIN_
+  </sql>
+  <sql id="Blob_Column_List">
+    FORM_HTML_, DIV_JS_
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FORM_DEFINITION
+    where FROM_KEY_ = #{id,jdbcType=VARCHAR}
+  </select>
+</mapper>

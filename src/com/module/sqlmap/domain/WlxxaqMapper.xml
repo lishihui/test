@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.domainRegistration.apply.apply.WlxxaqMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.domainRegistration.apply.apply.Wlxxaq">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="LXDH" jdbcType="VARCHAR" property="lxdh" />
+    <result column="ZJLX" jdbcType="VARCHAR" property="zjlx" />
+    <result column="ZJHM" jdbcType="VARCHAR" property="zjhm" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="TXDZ" jdbcType="VARCHAR" property="txdz" />
+    <result column="LXR_NAME" jdbcType="VARCHAR" property="lxrName" />
+    <result column="LXR_LXDH" jdbcType="VARCHAR" property="lxrLxdh" />
+    <result column="LXR_ZJLX" jdbcType="VARCHAR" property="lxrZjlx" />
+    <result column="LXR_ZJHM" jdbcType="VARCHAR" property="lxrZjhm" />
+    <result column="LXR_EMAIL" jdbcType="VARCHAR" property="lxrEmail" />
+    <result column="LXR_TXDZ" jdbcType="VARCHAR" property="lxrTxdz" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domainRegistration.apply.apply.WlxxaqWithBLOBs">
+    <result column="WLAQGZZZ" jdbcType="CLOB" property="wlaqgzzz" />
+    <result column="WLAQPBQK" jdbcType="CLOB" property="wlaqpbqk" />
+    <result column="WLAQZSQK" jdbcType="CLOB" property="wlaqzsqk" />
+    <result column="XXAQJSQK" jdbcType="CLOB" property="xxaqjsqk" />
+    <result column="WLAQYJYA" jdbcType="CLOB" property="wlaqyjya" />
+    <result column="WLAQGZZZ_WENBEN" jdbcType="CLOB" property="wlaqgzzzWenben" />
+    <result column="WLAQPBQK_WENBEN" jdbcType="CLOB" property="wlaqpbqkWenben" />
+    <result column="WLAQZSQK_WENBEN" jdbcType="CLOB" property="wlaqzsqkWenben" />
+    <result column="XXAQJSQK_WENBEN" jdbcType="CLOB" property="xxaqjsqkWenben" />
+    <result column="WLAQYJYA_WENBEN" jdbcType="CLOB" property="wlaqyjyaWenben" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    WLAQGZZZ, WLAQPBQK, WLAQZSQK, XXAQJSQK, WLAQYJYA, WLAQGZZZ_WENBEN, WLAQPBQK_WENBEN, 
+    WLAQZSQK_WENBEN, XXAQJSQK_WENBEN, WLAQYJYA_WENBEN
+  </sql>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, NAME, LXDH, 
+      ZJLX, ZJHM, EMAIL, 
+      TXDZ, LXR_NAME, LXR_LXDH, 
+      LXR_ZJLX, LXR_ZJHM, LXR_EMAIL, 
+      LXR_TXDZ
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from WLXXAQ
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.domainRegistration.apply.apply.WlxxaqWithBLOBs">
+    insert into WLXXAQ (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, NAME, LXDH, 
+      ZJLX, ZJHM, EMAIL, 
+      TXDZ, LXR_NAME, LXR_LXDH, 
+      LXR_ZJLX, LXR_ZJHM, LXR_EMAIL, 
+      LXR_TXDZ, WLAQGZZZ, WLAQPBQK, 
+      WLAQZSQK, XXAQJSQK, WLAQYJYA, 
+      WLAQGZZZ_WENBEN, WLAQPBQK_WENBEN, WLAQZSQK_WENBEN, 
+      XXAQJSQK_WENBEN, WLAQYJYA_WENBEN)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{lxdh,jdbcType=VARCHAR}, 
+      #{zjlx,jdbcType=VARCHAR}, #{zjhm,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{txdz,jdbcType=VARCHAR}, #{lxrName,jdbcType=VARCHAR}, #{lxrLxdh,jdbcType=VARCHAR}, 
+      #{lxrZjlx,jdbcType=VARCHAR}, #{lxrZjhm,jdbcType=VARCHAR}, #{lxrEmail,jdbcType=VARCHAR}, 
+      #{lxrTxdz,jdbcType=VARCHAR}, #{wlaqgzzz,jdbcType=CLOB}, #{wlaqpbqk,jdbcType=CLOB}, 
+      #{wlaqzsqk,jdbcType=CLOB}, #{xxaqjsqk,jdbcType=CLOB}, #{wlaqyjya,jdbcType=CLOB}, 
+      #{wlaqgzzzWenben,jdbcType=CLOB}, #{wlaqpbqkWenben,jdbcType=CLOB}, #{wlaqzsqkWenben,jdbcType=CLOB}, 
+      #{xxaqjsqkWenben,jdbcType=CLOB}, #{wlaqyjyaWenben,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domainRegistration.apply.apply.WlxxaqWithBLOBs">
+    insert into WLXXAQ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="lxdh != null">
+        LXDH,
+      </if>
+      <if test="zjlx != null">
+        ZJLX,
+      </if>
+      <if test="zjhm != null">
+        ZJHM,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="txdz != null">
+        TXDZ,
+      </if>
+      <if test="lxrName != null">
+        LXR_NAME,
+      </if>
+      <if test="lxrLxdh != null">
+        LXR_LXDH,
+      </if>
+      <if test="lxrZjlx != null">
+        LXR_ZJLX,
+      </if>
+      <if test="lxrZjhm != null">
+        LXR_ZJHM,
+      </if>
+      <if test="lxrEmail != null">
+        LXR_EMAIL,
+      </if>
+      <if test="lxrTxdz != null">
+        LXR_TXDZ,
+      </if>
+      <if test="wlaqgzzz != null">
+        WLAQGZZZ,
+      </if>
+      <if test="wlaqpbqk != null">
+        WLAQPBQK,
+      </if>
+      <if test="wlaqzsqk != null">
+        WLAQZSQK,
+      </if>
+      <if test="xxaqjsqk != null">
+        XXAQJSQK,
+      </if>
+      <if test="wlaqyjya != null">
+        WLAQYJYA,
+      </if>
+      <if test="wlaqgzzzWenben != null">
+        WLAQGZZZ_WENBEN,
+      </if>
+      <if test="wlaqpbqkWenben != null">
+        WLAQPBQK_WENBEN,
+      </if>
+      <if test="wlaqzsqkWenben != null">
+        WLAQZSQK_WENBEN,
+      </if>
+      <if test="xxaqjsqkWenben != null">
+        XXAQJSQK_WENBEN,
+      </if>
+      <if test="wlaqyjyaWenben != null">
+        WLAQYJYA_WENBEN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="lxdh != null">
+        #{lxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="zjlx != null">
+        #{zjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="zjhm != null">
+        #{zjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="txdz != null">
+        #{txdz,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrName != null">
+        #{lxrName,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrLxdh != null">
+        #{lxrLxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrZjlx != null">
+        #{lxrZjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrZjhm != null">
+        #{lxrZjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrEmail != null">
+        #{lxrEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrTxdz != null">
+        #{lxrTxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="wlaqgzzz != null">
+        #{wlaqgzzz,jdbcType=CLOB},
+      </if>
+      <if test="wlaqpbqk != null">
+        #{wlaqpbqk,jdbcType=CLOB},
+      </if>
+      <if test="wlaqzsqk != null">
+        #{wlaqzsqk,jdbcType=CLOB},
+      </if>
+      <if test="xxaqjsqk != null">
+        #{xxaqjsqk,jdbcType=CLOB},
+      </if>
+      <if test="wlaqyjya != null">
+        #{wlaqyjya,jdbcType=CLOB},
+      </if>
+      <if test="wlaqgzzzWenben != null">
+        #{wlaqgzzzWenben,jdbcType=CLOB},
+      </if>
+      <if test="wlaqpbqkWenben != null">
+        #{wlaqpbqkWenben,jdbcType=CLOB},
+      </if>
+      <if test="wlaqzsqkWenben != null">
+        #{wlaqzsqkWenben,jdbcType=CLOB},
+      </if>
+      <if test="xxaqjsqkWenben != null">
+        #{xxaqjsqkWenben,jdbcType=CLOB},
+      </if>
+      <if test="wlaqyjyaWenben != null">
+        #{wlaqyjyaWenben,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

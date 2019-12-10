@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.registrationManagement.change.change.DxxzspSafePlanMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.registrationManagement.change.change.DxxzspDxxzspSafePlanCha">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="NET_INFO_MAN" jdbcType="VARCHAR" property="netInfoMan" />
+    <result column="SAFE_LINK_PHONE" jdbcType="VARCHAR" property="safeLinkPhone" />
+    <result column="SAFE_ID_TYPE" jdbcType="VARCHAR" property="safeIdType" />
+    <result column="SAFE_ID_NUM" jdbcType="VARCHAR" property="safeIdNum" />
+    <result column="SAFE_EMAIL_ADDRESS" jdbcType="VARCHAR" property="safeEmailAddress" />
+    <result column="SAFE_MAILING_ADDR" jdbcType="VARCHAR" property="safeMailingAddr" />
+    <result column="EMERGENCY_MAN" jdbcType="VARCHAR" property="emergencyMan" />
+    <result column="EMERGENCY_PHONE" jdbcType="VARCHAR" property="emergencyPhone" />
+    <result column="EMERGENCY_ID_TYPE" jdbcType="VARCHAR" property="emergencyIdType" />
+    <result column="EMERGENCY_NUM" jdbcType="VARCHAR" property="emergencyNum" />
+    <result column="EMERGENCY_ADDRESS" jdbcType="VARCHAR" property="emergencyAddress" />
+    <result column="EMERGENCY_EMAIL" jdbcType="VARCHAR" property="emergencyEmail" />
+    <result column="SAFE_GDDH" jdbcType="VARCHAR" property="safeGddh" />
+    <result column="EMERGENCY_GDDH" jdbcType="VARCHAR" property="emergencyGddh" />
+    <result column="FZRHZGJ" jdbcType="VARCHAR" property="fzrhzgj" />
+    <result column="LXRHZGJ" jdbcType="VARCHAR" property="lxrhzgj" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.registrationManagement.change.change.DxxzspSafePlanWithBLOBs">
+    <result column="NET_ZZJG_WORD" jdbcType="CLOB" property="netZzjgWord" />
+    <result column="NET_ZZJG_FLEX" jdbcType="CLOB" property="netZzjgFlex" />
+    <result column="NET_PERSON_INFO_WORD" jdbcType="CLOB" property="netPersonInfoWord" />
+    <result column="NET_PERSON_INFO_FLEX" jdbcType="CLOB" property="netPersonInfoFlex" />
+    <result column="NET_BUILD_WORD" jdbcType="CLOB" property="netBuildWord" />
+    <result column="NET_BUILD_FLEX" jdbcType="CLOB" property="netBuildFlex" />
+    <result column="NET_COPY_INFO_WORD" jdbcType="CLOB" property="netCopyInfoWord" />
+    <result column="NET_COPY_INFO_FLEX" jdbcType="CLOB" property="netCopyInfoFlex" />
+    <result column="NET_DATE_SARALAB_WORD" jdbcType="CLOB" property="netDateSaralabWord" />
+    <result column="NET_DATE_SARALAB_FLEX" jdbcType="CLOB" property="netDateSaralabFlex" />
+    <result column="NET_YJCZYA_WORD" jdbcType="CLOB" property="netYjczyaWord" />
+    <result column="NET_YJCZYA_FLEX" jdbcType="CLOB" property="netYjczyaFlex" />
+    <result column="NET_OTHER" jdbcType="CLOB" property="netOther" />
+    <result column="QTWORD" jdbcType="CLOB" property="qtword" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, MODIFIED, 
+    CREATOR, MODIFICATOR, RECYCLE, NET_INFO_MAN, 
+    SAFE_LINK_PHONE, SAFE_ID_TYPE, SAFE_ID_NUM, SAFE_EMAIL_ADDRESS, SAFE_MAILING_ADDR, 
+    EMERGENCY_MAN, EMERGENCY_PHONE, EMERGENCY_ID_TYPE, EMERGENCY_NUM, EMERGENCY_ADDRESS, EMERGENCY_EMAIL
+    SAFE_GDDH, EMERGENCY_GDDH, FZRHZGJ, LXRHZGJ
+  </sql>
+  <sql id="Blob_Column_List">
+    NET_ZZJG_WORD, NET_ZZJG_FLEX, NET_PERSON_INFO_WORD, NET_PERSON_INFO_FLEX, NET_BUILD_WORD, 
+    NET_BUILD_FLEX, NET_COPY_INFO_WORD, NET_COPY_INFO_FLEX, NET_DATE_SARALAB_WORD, NET_DATE_SARALAB_FLEX, 
+    NET_YJCZYA_WORD, NET_YJCZYA_FLEX, NET_OTHER, QTWORD
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_SAFE_PLAN
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <insert id="insert" parameterType="com.module.domain.registrationManagement.change.change.DxxzspSafePlanWithBLOBs">
+    insert into DXXZSP_SAFE_PLAN (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, NET_INFO_MAN, SAFE_LINK_PHONE, 
+      SAFE_ID_TYPE, SAFE_ID_NUM, SAFE_EMAIL_ADDRESS, 
+      SAFE_MAILING_ADDR, EMERGENCY_MAN, EMERGENCY_PHONE, 
+      EMERGENCY_ID_TYPE, EMERGENCY_NUM, EMERGENCY_ADDRESS, 
+      EMERGENCY_EMAIL, SAFE_GDDH, EMERGENCY_GDDH, 
+      FZRHZGJ, LXRHZGJ, NET_ZZJG_WORD, 
+      NET_ZZJG_FLEX, NET_PERSON_INFO_WORD, NET_PERSON_INFO_FLEX, 
+      NET_BUILD_WORD, NET_BUILD_FLEX, NET_COPY_INFO_WORD, 
+      NET_COPY_INFO_FLEX, NET_DATE_SARALAB_WORD, NET_DATE_SARALAB_FLEX, 
+      NET_YJCZYA_WORD, NET_YJCZYA_FLEX, NET_OTHER, 
+      QTWORD)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{netInfoMan,jdbcType=VARCHAR}, #{safeLinkPhone,jdbcType=VARCHAR}, 
+      #{safeIdType,jdbcType=VARCHAR}, #{safeIdNum,jdbcType=VARCHAR}, #{safeEmailAddress,jdbcType=VARCHAR}, 
+      #{safeMailingAddr,jdbcType=VARCHAR}, #{emergencyMan,jdbcType=VARCHAR}, #{emergencyPhone,jdbcType=VARCHAR}, 
+      #{emergencyIdType,jdbcType=VARCHAR}, #{emergencyNum,jdbcType=VARCHAR}, #{emergencyAddress,jdbcType=VARCHAR}, 
+      #{emergencyEmail,jdbcType=VARCHAR}, #{safeGddh,jdbcType=VARCHAR}, #{emergencyGddh,jdbcType=VARCHAR}, 
+      #{fzrhzgj,jdbcType=VARCHAR}, #{lxrhzgj,jdbcType=VARCHAR}, #{netZzjgWord,jdbcType=CLOB}, 
+      #{netZzjgFlex,jdbcType=CLOB}, #{netPersonInfoWord,jdbcType=CLOB}, #{netPersonInfoFlex,jdbcType=CLOB}, 
+      #{netBuildWord,jdbcType=CLOB}, #{netBuildFlex,jdbcType=CLOB}, #{netCopyInfoWord,jdbcType=CLOB}, 
+      #{netCopyInfoFlex,jdbcType=CLOB}, #{netDateSaralabWord,jdbcType=CLOB}, #{netDateSaralabFlex,jdbcType=CLOB}, 
+      #{netYjczyaWord,jdbcType=CLOB}, #{netYjczyaFlex,jdbcType=CLOB}, #{netOther,jdbcType=CLOB}, 
+      #{qtword,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.registrationManagement.change.change.DxxzspSafePlanWithBLOBs">
+    insert into DXXZSP_SAFE_PLAN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="netInfoMan != null">
+        NET_INFO_MAN,
+      </if>
+      <if test="safeLinkPhone != null">
+        SAFE_LINK_PHONE,
+      </if>
+      <if test="safeIdType != null">
+        SAFE_ID_TYPE,
+      </if>
+      <if test="safeIdNum != null">
+        SAFE_ID_NUM,
+      </if>
+      <if test="safeEmailAddress != null">
+        SAFE_EMAIL_ADDRESS,
+      </if>
+      <if test="safeMailingAddr != null">
+        SAFE_MAILING_ADDR,
+      </if>
+      <if test="emergencyMan != null">
+        EMERGENCY_MAN,
+      </if>
+      <if test="emergencyPhone != null">
+        EMERGENCY_PHONE,
+      </if>
+      <if test="emergencyIdType != null">
+        EMERGENCY_ID_TYPE,
+      </if>
+      <if test="emergencyNum != null">
+        EMERGENCY_NUM,
+      </if>
+      <if test="emergencyAddress != null">
+        EMERGENCY_ADDRESS,
+      </if>
+      <if test="emergencyEmail != null">
+        EMERGENCY_EMAIL,
+      </if>
+      <if test="safeGddh != null">
+        SAFE_GDDH,
+      </if>
+      <if test="emergencyGddh != null">
+        EMERGENCY_GDDH,
+      </if>
+      <if test="fzrhzgj != null">
+        FZRHZGJ,
+      </if>
+      <if test="lxrhzgj != null">
+        LXRHZGJ,
+      </if>
+      <if test="netZzjgWord != null">
+        NET_ZZJG_WORD,
+      </if>
+      <if test="netZzjgFlex != null">
+        NET_ZZJG_FLEX,
+      </if>
+      <if test="netPersonInfoWord != null">
+        NET_PERSON_INFO_WORD,
+      </if>
+      <if test="netPersonInfoFlex != null">
+        NET_PERSON_INFO_FLEX,
+      </if>
+      <if test="netBuildWord != null">
+        NET_BUILD_WORD,
+      </if>
+      <if test="netBuildFlex != null">
+        NET_BUILD_FLEX,
+      </if>
+      <if test="netCopyInfoWord != null">
+        NET_COPY_INFO_WORD,
+      </if>
+      <if test="netCopyInfoFlex != null">
+        NET_COPY_INFO_FLEX,
+      </if>
+      <if test="netDateSaralabWord != null">
+        NET_DATE_SARALAB_WORD,
+      </if>
+      <if test="netDateSaralabFlex != null">
+        NET_DATE_SARALAB_FLEX,
+      </if>
+      <if test="netYjczyaWord != null">
+        NET_YJCZYA_WORD,
+      </if>
+      <if test="netYjczyaFlex != null">
+        NET_YJCZYA_FLEX,
+      </if>
+      <if test="netOther != null">
+        NET_OTHER,
+      </if>
+      <if test="qtword != null">
+        QTWORD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="netInfoMan != null">
+        #{netInfoMan,jdbcType=VARCHAR},
+      </if>
+      <if test="safeLinkPhone != null">
+        #{safeLinkPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="safeIdType != null">
+        #{safeIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="safeIdNum != null">
+        #{safeIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="safeEmailAddress != null">
+        #{safeEmailAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="safeMailingAddr != null">
+        #{safeMailingAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyMan != null">
+        #{emergencyMan,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyPhone != null">
+        #{emergencyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyIdType != null">
+        #{emergencyIdType,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyNum != null">
+        #{emergencyNum,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyAddress != null">
+        #{emergencyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyEmail != null">
+        #{emergencyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="safeGddh != null">
+        #{safeGddh,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyGddh != null">
+        #{emergencyGddh,jdbcType=VARCHAR},
+      </if>
+      <if test="fzrhzgj != null">
+        #{fzrhzgj,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrhzgj != null">
+        #{lxrhzgj,jdbcType=VARCHAR},
+      </if>
+      <if test="netZzjgWord != null">
+        #{netZzjgWord,jdbcType=CLOB},
+      </if>
+      <if test="netZzjgFlex != null">
+        #{netZzjgFlex,jdbcType=CLOB},
+      </if>
+      <if test="netPersonInfoWord != null">
+        #{netPersonInfoWord,jdbcType=CLOB},
+      </if>
+      <if test="netPersonInfoFlex != null">
+        #{netPersonInfoFlex,jdbcType=CLOB},
+      </if>
+      <if test="netBuildWord != null">
+        #{netBuildWord,jdbcType=CLOB},
+      </if>
+      <if test="netBuildFlex != null">
+        #{netBuildFlex,jdbcType=CLOB},
+      </if>
+      <if test="netCopyInfoWord != null">
+        #{netCopyInfoWord,jdbcType=CLOB},
+      </if>
+      <if test="netCopyInfoFlex != null">
+        #{netCopyInfoFlex,jdbcType=CLOB},
+      </if>
+      <if test="netDateSaralabWord != null">
+        #{netDateSaralabWord,jdbcType=CLOB},
+      </if>
+      <if test="netDateSaralabFlex != null">
+        #{netDateSaralabFlex,jdbcType=CLOB},
+      </if>
+      <if test="netYjczyaWord != null">
+        #{netYjczyaWord,jdbcType=CLOB},
+      </if>
+      <if test="netYjczyaFlex != null">
+        #{netYjczyaFlex,jdbcType=CLOB},
+      </if>
+      <if test="netOther != null">
+        #{netOther,jdbcType=CLOB},
+      </if>
+      <if test="qtword != null">
+        #{qtword,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

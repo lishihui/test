@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.electricLicencePermit.change.provinceInnerChange.DynamicTableMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.electricLicencePermit.change.provinceInnerChange.DynamicTable">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="BUSINESS_TYPE" jdbcType="VARCHAR" property="businessType" />
+    <result column="COVERAGE" jdbcType="VARCHAR" property="coverage" />
+    <result column="COVERAGE_BEFORE" jdbcType="VARCHAR" property="coverageBefore" />
+    <result column="INTERNET_DATA_RESOURCE" jdbcType="VARCHAR" property="internetDataResource" />
+    <result column="INTERNET_DATA_NORESOURCE" jdbcType="VARCHAR" property="internetDataNoresource" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+    <result column="HIDE_YEWUCODE" jdbcType="VARCHAR" property="hideYewucode" />
+    <result column="APPLY_DETAIL" jdbcType="VARCHAR" property="applyDetail" />
+    <result column="EXPANDAREA" jdbcType="VARCHAR" property="expandarea" />
+    <result column="REPALCEAREA" jdbcType="VARCHAR" property="repalcearea" />
+    <result column="INTERNET_ACCESS_USERS" jdbcType="VARCHAR" property="internetAccessUsers" />
+    <result column="INTERNET_ACCESS_PLATFORM" jdbcType="VARCHAR" property="internetAccessPlatform" />
+    <result column="RESOURCE_TEXT" jdbcType="VARCHAR" property="resourceText" />
+    <result column="NORESOURCE_TEXT" jdbcType="VARCHAR" property="noresourceText" />
+    <result column="INTERNET_USER_TEXT" jdbcType="VARCHAR" property="internetUserText" />
+    <result column="PLATFORM_TEXT" jdbcType="VARCHAR" property="platformText" />
+    <result column="OTHER_BUSINESS_TEXT" jdbcType="VARCHAR" property="otherBusinessText" />
+    <result column="NOCONTENTS" jdbcType="VARCHAR" property="nocontents" />
+    <result column="CONTENS" jdbcType="VARCHAR" property="contens" />
+    <result column="NOOTHER" jdbcType="VARCHAR" property="noother" />
+    <result column="HANOTHER" jdbcType="VARCHAR" property="hanother" />
+    <result column="CHINANET" jdbcType="VARCHAR" property="chinanet" />
+    <result column="CHINANETFW" jdbcType="VARCHAR" property="chinanetfw" />
+    <result column="CHINAMOBILE" jdbcType="VARCHAR" property="chinamobile" />
+    <result column="CHINAMOBILEFW" jdbcType="VARCHAR" property="chinamobilefw" />
+    <result column="CHINAUNION" jdbcType="VARCHAR" property="chinaunion" />
+    <result column="CHINAUNIONFW" jdbcType="VARCHAR" property="chinaunionfw" />
+    <result column="DT_CDN_COMPUTER" jdbcType="VARCHAR" property="dtCdnComputer" />
+    <result column="CMC_CITY_YWFW" jdbcType="VARCHAR" property="cmcCityYwfw" />
+    <result column="CMC_YEWU_TYPE" jdbcType="VARCHAR" property="cmcYewuType" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.electricLicencePermit.change.provinceInnerChange.DynamicTableWithBLOBs">
+    <result column="BUSINESS_FLEX" jdbcType="CLOB" property="businessFlex" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+  	select
+  	<include refid="Base_Column_List"/>
+  	,
+  	<include refid="Blob_Column_List"/>
+  	from DYNAMIC_TABLE
+  	where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, MODIFIED, CREATOR, MODIFICATOR, RECYCLE, BUSINESS_TYPE, COVERAGE, COVERAGE_BEFORE, INTERNET_DATA_RESOURCE, 
+    INTERNET_DATA_NORESOURCE, REMARK, PARENTID, HIDE_YEWUCODE, APPLY_DETAIL, EXPANDAREA, REPALCEAREA, INTERNET_ACCESS_USERS
+    INTERNET_ACCESS_PLATFORM, RESOURCE_TEXT, NORESOURCE_TEXT, INTERNET_USER_TEXT, PLATFORM_TEXT, OTHER_BUSINESS_TEXT, NOCONTENTS
+    CONTENS, NOOTHER, HANOTHER, CHINANET, CHINANETFW, CHINAMOBILE, CHINAMOBILEFW, CHINAUNION, CHINAUNIONFW, DT_CDN_COMPUTER
+    CMC_CITY_YWFW, CMC_YEWU_TYPE
+  </sql>
+  <sql id="Blob_Column_List">
+    BUSINESS_FLEX
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.electricLicencePermit.change.provinceInnerChange.DynamicTableWithBLOBs">
+    insert into DYNAMIC_TABLE (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, BUSINESS_TYPE, COVERAGE, 
+      COVERAGE_BEFORE, INTERNET_DATA_RESOURCE, INTERNET_DATA_NORESOURCE, 
+      REMARK, PARENTID, HIDE_YEWUCODE, 
+      APPLY_DETAIL, EXPANDAREA, REPALCEAREA, 
+      INTERNET_ACCESS_USERS, INTERNET_ACCESS_PLATFORM, 
+      RESOURCE_TEXT, NORESOURCE_TEXT, INTERNET_USER_TEXT, 
+      PLATFORM_TEXT, OTHER_BUSINESS_TEXT, NOCONTENTS, 
+      CONTENS, NOOTHER, HANOTHER, 
+      CHINANET, CHINANETFW, CHINAMOBILE, 
+      CHINAMOBILEFW, CHINAUNION, CHINAUNIONFW, 
+      DT_CDN_COMPUTER, CMC_CITY_YWFW, CMC_YEWU_TYPE, 
+      BUSINESS_FLEX)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, #{coverage,jdbcType=VARCHAR}, 
+      #{coverageBefore,jdbcType=VARCHAR}, #{internetDataResource,jdbcType=VARCHAR}, #{internetDataNoresource,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, #{hideYewucode,jdbcType=VARCHAR}, 
+      #{applyDetail,jdbcType=VARCHAR}, #{expandarea,jdbcType=VARCHAR}, #{repalcearea,jdbcType=VARCHAR}, 
+      #{internetAccessUsers,jdbcType=VARCHAR}, #{internetAccessPlatform,jdbcType=VARCHAR}, 
+      #{resourceText,jdbcType=VARCHAR}, #{noresourceText,jdbcType=VARCHAR}, #{internetUserText,jdbcType=VARCHAR}, 
+      #{platformText,jdbcType=VARCHAR}, #{otherBusinessText,jdbcType=VARCHAR}, #{nocontents,jdbcType=VARCHAR}, 
+      #{contens,jdbcType=VARCHAR}, #{noother,jdbcType=VARCHAR}, #{hanother,jdbcType=VARCHAR}, 
+      #{chinanet,jdbcType=VARCHAR}, #{chinanetfw,jdbcType=VARCHAR}, #{chinamobile,jdbcType=VARCHAR}, 
+      #{chinamobilefw,jdbcType=VARCHAR}, #{chinaunion,jdbcType=VARCHAR}, #{chinaunionfw,jdbcType=VARCHAR}, 
+      #{dtCdnComputer,jdbcType=VARCHAR}, #{cmcCityYwfw,jdbcType=VARCHAR}, #{cmcYewuType,jdbcType=VARCHAR}, 
+      #{businessFlex,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.electricLicencePermit.change.provinceInnerChange.DynamicTableWithBLOBs">
+    insert into DYNAMIC_TABLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="businessType != null">
+        BUSINESS_TYPE,
+      </if>
+      <if test="coverage != null">
+        COVERAGE,
+      </if>
+      <if test="coverageBefore != null">
+        COVERAGE_BEFORE,
+      </if>
+      <if test="internetDataResource != null">
+        INTERNET_DATA_RESOURCE,
+      </if>
+      <if test="internetDataNoresource != null">
+        INTERNET_DATA_NORESOURCE,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="hideYewucode != null">
+        HIDE_YEWUCODE,
+      </if>
+      <if test="applyDetail != null">
+        APPLY_DETAIL,
+      </if>
+      <if test="expandarea != null">
+        EXPANDAREA,
+      </if>
+      <if test="repalcearea != null">
+        REPALCEAREA,
+      </if>
+      <if test="internetAccessUsers != null">
+        INTERNET_ACCESS_USERS,
+      </if>
+      <if test="internetAccessPlatform != null">
+        INTERNET_ACCESS_PLATFORM,
+      </if>
+      <if test="resourceText != null">
+        RESOURCE_TEXT,
+      </if>
+      <if test="noresourceText != null">
+        NORESOURCE_TEXT,
+      </if>
+      <if test="internetUserText != null">
+        INTERNET_USER_TEXT,
+      </if>
+      <if test="platformText != null">
+        PLATFORM_TEXT,
+      </if>
+      <if test="otherBusinessText != null">
+        OTHER_BUSINESS_TEXT,
+      </if>
+      <if test="nocontents != null">
+        NOCONTENTS,
+      </if>
+      <if test="contens != null">
+        CONTENS,
+      </if>
+      <if test="noother != null">
+        NOOTHER,
+      </if>
+      <if test="hanother != null">
+        HANOTHER,
+      </if>
+      <if test="chinanet != null">
+        CHINANET,
+      </if>
+      <if test="chinanetfw != null">
+        CHINANETFW,
+      </if>
+      <if test="chinamobile != null">
+        CHINAMOBILE,
+      </if>
+      <if test="chinamobilefw != null">
+        CHINAMOBILEFW,
+      </if>
+      <if test="chinaunion != null">
+        CHINAUNION,
+      </if>
+      <if test="chinaunionfw != null">
+        CHINAUNIONFW,
+      </if>
+      <if test="dtCdnComputer != null">
+        DT_CDN_COMPUTER,
+      </if>
+      <if test="cmcCityYwfw != null">
+        CMC_CITY_YWFW,
+      </if>
+      <if test="cmcYewuType != null">
+        CMC_YEWU_TYPE,
+      </if>
+      <if test="businessFlex != null">
+        BUSINESS_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="coverage != null">
+        #{coverage,jdbcType=VARCHAR},
+      </if>
+      <if test="coverageBefore != null">
+        #{coverageBefore,jdbcType=VARCHAR},
+      </if>
+      <if test="internetDataResource != null">
+        #{internetDataResource,jdbcType=VARCHAR},
+      </if>
+      <if test="internetDataNoresource != null">
+        #{internetDataNoresource,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="hideYewucode != null">
+        #{hideYewucode,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDetail != null">
+        #{applyDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="expandarea != null">
+        #{expandarea,jdbcType=VARCHAR},
+      </if>
+      <if test="repalcearea != null">
+        #{repalcearea,jdbcType=VARCHAR},
+      </if>
+      <if test="internetAccessUsers != null">
+        #{internetAccessUsers,jdbcType=VARCHAR},
+      </if>
+      <if test="internetAccessPlatform != null">
+        #{internetAccessPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceText != null">
+        #{resourceText,jdbcType=VARCHAR},
+      </if>
+      <if test="noresourceText != null">
+        #{noresourceText,jdbcType=VARCHAR},
+      </if>
+      <if test="internetUserText != null">
+        #{internetUserText,jdbcType=VARCHAR},
+      </if>
+      <if test="platformText != null">
+        #{platformText,jdbcType=VARCHAR},
+      </if>
+      <if test="otherBusinessText != null">
+        #{otherBusinessText,jdbcType=VARCHAR},
+      </if>
+      <if test="nocontents != null">
+        #{nocontents,jdbcType=VARCHAR},
+      </if>
+      <if test="contens != null">
+        #{contens,jdbcType=VARCHAR},
+      </if>
+      <if test="noother != null">
+        #{noother,jdbcType=VARCHAR},
+      </if>
+      <if test="hanother != null">
+        #{hanother,jdbcType=VARCHAR},
+      </if>
+      <if test="chinanet != null">
+        #{chinanet,jdbcType=VARCHAR},
+      </if>
+      <if test="chinanetfw != null">
+        #{chinanetfw,jdbcType=VARCHAR},
+      </if>
+      <if test="chinamobile != null">
+        #{chinamobile,jdbcType=VARCHAR},
+      </if>
+      <if test="chinamobilefw != null">
+        #{chinamobilefw,jdbcType=VARCHAR},
+      </if>
+      <if test="chinaunion != null">
+        #{chinaunion,jdbcType=VARCHAR},
+      </if>
+      <if test="chinaunionfw != null">
+        #{chinaunionfw,jdbcType=VARCHAR},
+      </if>
+      <if test="dtCdnComputer != null">
+        #{dtCdnComputer,jdbcType=VARCHAR},
+      </if>
+      <if test="cmcCityYwfw != null">
+        #{cmcCityYwfw,jdbcType=VARCHAR},
+      </if>
+      <if test="cmcYewuType != null">
+        #{cmcYewuType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessFlex != null">
+        #{businessFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

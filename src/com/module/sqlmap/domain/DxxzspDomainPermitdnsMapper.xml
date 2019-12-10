@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.domain.DxxzspDomainPermitdnsMapper" >
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.DxxzspDomainPermitdns" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="ENTNAME" property="entname" jdbcType="VARCHAR" />
+    <result column="NUM" property="num" jdbcType="VARCHAR" />
+    <result column="STARTDATE" property="startdate" jdbcType="DATE" />
+    <result column="PFDWID" property="pfdwid" jdbcType="VARCHAR" />
+    <result column="YWFW" property="ywfw" jdbcType="VARCHAR" />
+    <result column="WEBSITE" property="website" jdbcType="VARCHAR" />
+    <result column="ENDDATE" property="enddate" jdbcType="DATE" />
+    <result column="ENTID" property="entid" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="USERID" property="userid" jdbcType="VARCHAR" />
+    <result column="ISENTRUST" property="isentrust" jdbcType="VARCHAR" />
+    <result column="ENTRUST" property="entrust" jdbcType="VARCHAR" />
+    <result column="HOLDERID" property="holderid" jdbcType="VARCHAR" />
+    <result column="ENTTYPE" property="enttype" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ENTNAME, NUM, STARTDATE, PFDWID, YWFW, WEBSITE, ENDDATE, ENTID, STATUS, USERID, 
+    ISENTRUST, ENTRUST, HOLDERID, ENTTYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from DXXZSP_DOMAIN_PERMITDNS
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DXXZSP_DOMAIN_PERMITDNS
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.module.domain.domain.DxxzspDomainPermitdns" >
+    insert into DXXZSP_DOMAIN_PERMITDNS (ID, ENTNAME, NUM, 
+      STARTDATE, PFDWID, YWFW, 
+      WEBSITE, ENDDATE, ENTID, 
+      STATUS, USERID, ISENTRUST, 
+      ENTRUST, HOLDERID, ENTTYPE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{entname,jdbcType=VARCHAR}, #{num,jdbcType=VARCHAR}, 
+      #{startdate,jdbcType=DATE}, #{pfdwid,jdbcType=VARCHAR}, #{ywfw,jdbcType=VARCHAR}, 
+      #{website,jdbcType=VARCHAR}, #{enddate,jdbcType=DATE}, #{entid,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{isentrust,jdbcType=VARCHAR}, 
+      #{entrust,jdbcType=VARCHAR}, #{holderid,jdbcType=VARCHAR}, #{enttype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domain.DxxzspDomainPermitdns" >
+    insert into DXXZSP_DOMAIN_PERMITDNS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="entname != null" >
+        ENTNAME,
+      </if>
+      <if test="num != null" >
+        NUM,
+      </if>
+      <if test="startdate != null" >
+        STARTDATE,
+      </if>
+      <if test="pfdwid != null" >
+        PFDWID,
+      </if>
+      <if test="ywfw != null" >
+        YWFW,
+      </if>
+      <if test="website != null" >
+        WEBSITE,
+      </if>
+      <if test="enddate != null" >
+        ENDDATE,
+      </if>
+      <if test="entid != null" >
+        ENTID,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="isentrust != null" >
+        ISENTRUST,
+      </if>
+      <if test="entrust != null" >
+        ENTRUST,
+      </if>
+      <if test="holderid != null" >
+        HOLDERID,
+      </if>
+      <if test="enttype != null" >
+        ENTTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="entname != null" >
+        #{entname,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null" >
+        #{startdate,jdbcType=DATE},
+      </if>
+      <if test="pfdwid != null" >
+        #{pfdwid,jdbcType=VARCHAR},
+      </if>
+      <if test="ywfw != null" >
+        #{ywfw,jdbcType=VARCHAR},
+      </if>
+      <if test="website != null" >
+        #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null" >
+        #{enddate,jdbcType=DATE},
+      </if>
+      <if test="entid != null" >
+        #{entid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="isentrust != null" >
+        #{isentrust,jdbcType=VARCHAR},
+      </if>
+      <if test="entrust != null" >
+        #{entrust,jdbcType=VARCHAR},
+      </if>
+      <if test="holderid != null" >
+        #{holderid,jdbcType=VARCHAR},
+      </if>
+      <if test="enttype != null" >
+        #{enttype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.module.domain.domain.DxxzspDomainPermitdns" >
+    update DXXZSP_DOMAIN_PERMITDNS
+    <set >
+      <if test="entname != null" >
+        ENTNAME = #{entname,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        NUM = #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null" >
+        STARTDATE = #{startdate,jdbcType=DATE},
+      </if>
+      <if test="pfdwid != null" >
+        PFDWID = #{pfdwid,jdbcType=VARCHAR},
+      </if>
+      <if test="ywfw != null" >
+        YWFW = #{ywfw,jdbcType=VARCHAR},
+      </if>
+      <if test="website != null" >
+        WEBSITE = #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="enddate != null" >
+        ENDDATE = #{enddate,jdbcType=DATE},
+      </if>
+      <if test="entid != null" >
+        ENTID = #{entid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="isentrust != null" >
+        ISENTRUST = #{isentrust,jdbcType=VARCHAR},
+      </if>
+      <if test="entrust != null" >
+        ENTRUST = #{entrust,jdbcType=VARCHAR},
+      </if>
+      <if test="holderid != null" >
+        HOLDERID = #{holderid,jdbcType=VARCHAR},
+      </if>
+      <if test="enttype != null" >
+        ENTTYPE = #{enttype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.module.domain.domain.DxxzspDomainPermitdns" >
+    update DXXZSP_DOMAIN_PERMITDNS
+    set ENTNAME = #{entname,jdbcType=VARCHAR},
+      NUM = #{num,jdbcType=VARCHAR},
+      STARTDATE = #{startdate,jdbcType=DATE},
+      PFDWID = #{pfdwid,jdbcType=VARCHAR},
+      YWFW = #{ywfw,jdbcType=VARCHAR},
+      WEBSITE = #{website,jdbcType=VARCHAR},
+      ENDDATE = #{enddate,jdbcType=DATE},
+      ENTID = #{entid,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      USERID = #{userid,jdbcType=VARCHAR},
+      ISENTRUST = #{isentrust,jdbcType=VARCHAR},
+      ENTRUST = #{entrust,jdbcType=VARCHAR},
+      HOLDERID = #{holderid,jdbcType=VARCHAR},
+      ENTTYPE = #{enttype,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

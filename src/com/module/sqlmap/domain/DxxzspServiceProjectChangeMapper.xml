@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.electricLicencePermit.change.provinceInnerChange.DxxzspServiceProjectChangeMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspServiceProjectChange">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="COMPANY_NAME" jdbcType="VARCHAR" property="companyName" />
+    <result column="PERMIT_NUMBER" jdbcType="VARCHAR" property="permitNumber" />
+    <result column="SERVICE_PROJECT_CHANGE" jdbcType="VARCHAR" property="serviceProjectChange" />
+    <result column="DATA_CENTER_INPUT" jdbcType="VARCHAR" property="dataCenterInput" />
+    <result column="DATA_CENTER_CHECKBOX" jdbcType="VARCHAR" property="dataCenterCheckbox" />
+    <result column="INTERNET_ACCESS_INPUT" jdbcType="VARCHAR" property="internetAccessInput" />
+    <result column="ACCESS_SERVICE_CHANGE" jdbcType="VARCHAR" property="accessServiceChange" />
+    <result column="ONLINE_DATA_DEAL_INPUT" jdbcType="VARCHAR" property="onlineDataDealInput" />
+    <result column="ONLINE_DATA_DEAL_CHANGE" jdbcType="VARCHAR" property="onlineDataDealChange" />
+    <result column="UPLOAD_REGISTRATION" jdbcType="VARCHAR" property="uploadRegistration" />
+    <result column="INFORMATION_SERVICE_INPUT" jdbcType="VARCHAR" property="informationServiceInput" />
+    <result column="INFORMATION_SERVICE_CHANG" jdbcType="VARCHAR" property="informationServiceChang" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="JIAOYICHULIYEWU" jdbcType="VARCHAR" property="jiaoyichuliyewu" />
+    <result column="FUWUYEWU" jdbcType="VARCHAR" property="fuwuyewu" />
+    <result column="SHUJUJIAOHUANYEWU" jdbcType="VARCHAR" property="shujujiaohuanyewu" />
+    <result column="SHUJUJIAOHUANXIANGQING" jdbcType="VARCHAR" property="shujujiaohuanxiangqing" />
+    <result column="CHULIYEWU" jdbcType="VARCHAR" property="chuliyewu" />
+    <result column="JIAOYICHULIXIANGQING" jdbcType="VARCHAR" property="jiaoyichulixiangqing" />
+    <result column="JINRONGYEWU" jdbcType="VARCHAR" property="jinrongyewu" />
+    <result column="SHUJUCHULIYEWUXIANGQING" jdbcType="VARCHAR" property="shujuchuliyewuxiangqing" />
+    <result column="XINWEN" jdbcType="VARCHAR" property="xinwen" />
+    <result column="CHUBAN" jdbcType="VARCHAR" property="chuban" />
+    <result column="QIXIE" jdbcType="VARCHAR" property="qixie" />
+    <result column="WENHUA" jdbcType="VARCHAR" property="wenhua" />
+    <result column="SHITING" jdbcType="VARCHAR" property="shiting" />
+    <result column="DATA_CENTER_CHECKBOX2" jdbcType="VARCHAR" property="dataCenterCheckbox2" />
+    <result column="ACCESS_SERVICE_CHANGE2" jdbcType="VARCHAR" property="accessServiceChange2" />
+    <result column="SHUJUCHULIYEWU" jdbcType="VARCHAR" property="shujuchuliyewu" />
+    <result column="JIANXIANSTORE" jdbcType="VARCHAR" property="jianxianstore" />
+    <result column="SHUJUCHULIQITA" jdbcType="VARCHAR" property="shujuchuliqita" />
+    <result column="FOREIGN_CHANGE" jdbcType="VARCHAR" property="foreignChange" />
+    <result column="SPECIAL_CHANGE" jdbcType="VARCHAR" property="specialChange" />
+    <result column="SERVCHANGE" jdbcType="VARCHAR" property="servchange" />
+    <result column="OTHERNOT" jdbcType="VARCHAR" property="othernot" />
+    <result column="INFOSERACH" jdbcType="VARCHAR" property="infoserach" />
+    <result column="INFOCOMM" jdbcType="VARCHAR" property="infocomm" />
+    <result column="INFOPLATE" jdbcType="VARCHAR" property="infoplate" />
+    <result column="INFOSERV" jdbcType="VARCHAR" property="infoserv" />
+    <result column="INFOPROTECT" jdbcType="VARCHAR" property="infoprotect" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspServiceProjectChangeWithBLOBs">
+    <result column="BIAOZHUNWENJIAN" jdbcType="CLOB" property="biaozhunwenjian" />
+    <result column="DENGJIWENJIAN" jdbcType="CLOB" property="dengjiwenjian" />
+    <result column="XINWENFUJIAN" jdbcType="CLOB" property="xinwenfujian" />
+    <result column="CHUBANFUJIAN" jdbcType="CLOB" property="chubanfujian" />
+    <result column="QIXIEFUJIAN" jdbcType="CLOB" property="qixiefujian" />
+    <result column="WENHUAFUJIAN" jdbcType="CLOB" property="wenhuafujian" />
+    <result column="SHITINGFUJIAN" jdbcType="CLOB" property="shitingfujian" />
+    <result column="WAISHANGJINGYINGFUJIAN" jdbcType="CLOB" property="waishangjingyingfujian" />
+    <result column="WAISHANGQIYEFUJIAN" jdbcType="CLOB" property="waishangqiyefujian" />
+    <result column="TECH_APPRO" jdbcType="CLOB" property="techAppro" />
+    <result column="INFOSERACHFLEX" jdbcType="CLOB" property="infoserachflex" />
+    <result column="INFOCOMMFLEX" jdbcType="CLOB" property="infocommflex" />
+    <result column="INFOPLATEFLEX" jdbcType="CLOB" property="infoplateflex" />
+    <result column="INFOSERVFLEX" jdbcType="CLOB" property="infoservflex" />
+    <result column="INFOPROFLEX" jdbcType="CLOB" property="infoproflex" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, COMPANY_NAME, PERMIT_NUMBER, 
+      SERVICE_PROJECT_CHANGE, DATA_CENTER_INPUT, 
+      DATA_CENTER_CHECKBOX, INTERNET_ACCESS_INPUT, 
+      ACCESS_SERVICE_CHANGE, ONLINE_DATA_DEAL_INPUT, 
+      ONLINE_DATA_DEAL_CHANGE, UPLOAD_REGISTRATION, 
+      INFORMATION_SERVICE_INPUT, INFORMATION_SERVICE_CHANG, 
+      REMARK, JIAOYICHULIYEWU, FUWUYEWU, 
+      SHUJUJIAOHUANYEWU, SHUJUJIAOHUANXIANGQING, 
+      CHULIYEWU, JIAOYICHULIXIANGQING, JINRONGYEWU, 
+      SHUJUCHULIYEWUXIANGQING, XINWEN, CHUBAN, 
+      QIXIE, WENHUA, SHITING, 
+      DATA_CENTER_CHECKBOX2, ACCESS_SERVICE_CHANGE2, 
+      SHUJUCHULIYEWU, JIANXIANSTORE, SHUJUCHULIQITA, 
+      FOREIGN_CHANGE, SPECIAL_CHANGE, SERVCHANGE, 
+      OTHERNOT, INFOSERACH, INFOCOMM, 
+      INFOPLATE, INFOSERV, INFOPROTECT
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    BIAOZHUNWENJIAN, DENGJIWENJIAN, XINWENFUJIAN, CHUBANFUJIAN, QIXIEFUJIAN, WENHUAFUJIAN, 
+    SHITINGFUJIAN, WAISHANGJINGYINGFUJIAN, WAISHANGQIYEFUJIAN, TECH_APPRO, INFOSERACHFLEX, 
+    INFOCOMMFLEX, INFOPLATEFLEX, INFOSERVFLEX, INFOPROFLEX
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from SERVICE_PROJECT_CHANGE
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspServiceProjectChangeWithBLOBs">
+    insert into SERVICE_PROJECT_CHANGE (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, COMPANY_NAME, PERMIT_NUMBER, 
+      SERVICE_PROJECT_CHANGE, DATA_CENTER_INPUT, 
+      DATA_CENTER_CHECKBOX, INTERNET_ACCESS_INPUT, 
+      ACCESS_SERVICE_CHANGE, ONLINE_DATA_DEAL_INPUT, 
+      ONLINE_DATA_DEAL_CHANGE, UPLOAD_REGISTRATION, 
+      INFORMATION_SERVICE_INPUT, INFORMATION_SERVICE_CHANG, 
+      REMARK, JIAOYICHULIYEWU, FUWUYEWU, 
+      SHUJUJIAOHUANYEWU, SHUJUJIAOHUANXIANGQING, 
+      CHULIYEWU, JIAOYICHULIXIANGQING, JINRONGYEWU, 
+      SHUJUCHULIYEWUXIANGQING, XINWEN, CHUBAN, 
+      QIXIE, WENHUA, SHITING, 
+      DATA_CENTER_CHECKBOX2, ACCESS_SERVICE_CHANGE2, 
+      SHUJUCHULIYEWU, JIANXIANSTORE, SHUJUCHULIQITA, 
+      FOREIGN_CHANGE, SPECIAL_CHANGE, SERVCHANGE, 
+      OTHERNOT, INFOSERACH, INFOCOMM, 
+      INFOPLATE, INFOSERV, INFOPROTECT, 
+      BIAOZHUNWENJIAN, DENGJIWENJIAN, XINWENFUJIAN, 
+      CHUBANFUJIAN, QIXIEFUJIAN, WENHUAFUJIAN, 
+      SHITINGFUJIAN, WAISHANGJINGYINGFUJIAN, WAISHANGQIYEFUJIAN, 
+      TECH_APPRO, INFOSERACHFLEX, INFOCOMMFLEX, 
+      INFOPLATEFLEX, INFOSERVFLEX, INFOPROFLEX
+      )
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{permitNumber,jdbcType=VARCHAR}, 
+      #{serviceProjectChange,jdbcType=VARCHAR}, #{dataCenterInput,jdbcType=VARCHAR}, 
+      #{dataCenterCheckbox,jdbcType=VARCHAR}, #{internetAccessInput,jdbcType=VARCHAR}, 
+      #{accessServiceChange,jdbcType=VARCHAR}, #{onlineDataDealInput,jdbcType=VARCHAR}, 
+      #{onlineDataDealChange,jdbcType=VARCHAR}, #{uploadRegistration,jdbcType=VARCHAR}, 
+      #{informationServiceInput,jdbcType=VARCHAR}, #{informationServiceChang,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{jiaoyichuliyewu,jdbcType=VARCHAR}, #{fuwuyewu,jdbcType=VARCHAR}, 
+      #{shujujiaohuanyewu,jdbcType=VARCHAR}, #{shujujiaohuanxiangqing,jdbcType=VARCHAR}, 
+      #{chuliyewu,jdbcType=VARCHAR}, #{jiaoyichulixiangqing,jdbcType=VARCHAR}, #{jinrongyewu,jdbcType=VARCHAR}, 
+      #{shujuchuliyewuxiangqing,jdbcType=VARCHAR}, #{xinwen,jdbcType=VARCHAR}, #{chuban,jdbcType=VARCHAR}, 
+      #{qixie,jdbcType=VARCHAR}, #{wenhua,jdbcType=VARCHAR}, #{shiting,jdbcType=VARCHAR}, 
+      #{dataCenterCheckbox2,jdbcType=VARCHAR}, #{accessServiceChange2,jdbcType=VARCHAR}, 
+      #{shujuchuliyewu,jdbcType=VARCHAR}, #{jianxianstore,jdbcType=VARCHAR}, #{shujuchuliqita,jdbcType=VARCHAR}, 
+      #{foreignChange,jdbcType=VARCHAR}, #{specialChange,jdbcType=VARCHAR}, #{servchange,jdbcType=VARCHAR}, 
+      #{othernot,jdbcType=VARCHAR}, #{infoserach,jdbcType=VARCHAR}, #{infocomm,jdbcType=VARCHAR}, 
+      #{infoplate,jdbcType=VARCHAR}, #{infoserv,jdbcType=VARCHAR}, #{infoprotect,jdbcType=VARCHAR}, 
+      #{biaozhunwenjian,jdbcType=CLOB}, #{dengjiwenjian,jdbcType=CLOB}, #{xinwenfujian,jdbcType=CLOB}, 
+      #{chubanfujian,jdbcType=CLOB}, #{qixiefujian,jdbcType=CLOB}, #{wenhuafujian,jdbcType=CLOB}, 
+      #{shitingfujian,jdbcType=CLOB}, #{waishangjingyingfujian,jdbcType=CLOB}, #{waishangqiyefujian,jdbcType=CLOB}, 
+      #{techAppro,jdbcType=CLOB}, #{infoserachflex,jdbcType=CLOB}, #{infocommflex,jdbcType=CLOB}, 
+      #{infoplateflex,jdbcType=CLOB}, #{infoservflex,jdbcType=CLOB}, #{infoproflex,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspServiceProjectChangeWithBLOBs">
+    insert into SERVICE_PROJECT_CHANGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="companyName != null">
+        COMPANY_NAME,
+      </if>
+      <if test="permitNumber != null">
+        PERMIT_NUMBER,
+      </if>
+      <if test="serviceProjectChange != null">
+        SERVICE_PROJECT_CHANGE,
+      </if>
+      <if test="dataCenterInput != null">
+        DATA_CENTER_INPUT,
+      </if>
+      <if test="dataCenterCheckbox != null">
+        DATA_CENTER_CHECKBOX,
+      </if>
+      <if test="internetAccessInput != null">
+        INTERNET_ACCESS_INPUT,
+      </if>
+      <if test="accessServiceChange != null">
+        ACCESS_SERVICE_CHANGE,
+      </if>
+      <if test="onlineDataDealInput != null">
+        ONLINE_DATA_DEAL_INPUT,
+      </if>
+      <if test="onlineDataDealChange != null">
+        ONLINE_DATA_DEAL_CHANGE,
+      </if>
+      <if test="uploadRegistration != null">
+        UPLOAD_REGISTRATION,
+      </if>
+      <if test="informationServiceInput != null">
+        INFORMATION_SERVICE_INPUT,
+      </if>
+      <if test="informationServiceChang != null">
+        INFORMATION_SERVICE_CHANG,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="jiaoyichuliyewu != null">
+        JIAOYICHULIYEWU,
+      </if>
+      <if test="fuwuyewu != null">
+        FUWUYEWU,
+      </if>
+      <if test="shujujiaohuanyewu != null">
+        SHUJUJIAOHUANYEWU,
+      </if>
+      <if test="shujujiaohuanxiangqing != null">
+        SHUJUJIAOHUANXIANGQING,
+      </if>
+      <if test="chuliyewu != null">
+        CHULIYEWU,
+      </if>
+      <if test="jiaoyichulixiangqing != null">
+        JIAOYICHULIXIANGQING,
+      </if>
+      <if test="jinrongyewu != null">
+        JINRONGYEWU,
+      </if>
+      <if test="shujuchuliyewuxiangqing != null">
+        SHUJUCHULIYEWUXIANGQING,
+      </if>
+      <if test="xinwen != null">
+        XINWEN,
+      </if>
+      <if test="chuban != null">
+        CHUBAN,
+      </if>
+      <if test="qixie != null">
+        QIXIE,
+      </if>
+      <if test="wenhua != null">
+        WENHUA,
+      </if>
+      <if test="shiting != null">
+        SHITING,
+      </if>
+      <if test="dataCenterCheckbox2 != null">
+        DATA_CENTER_CHECKBOX2,
+      </if>
+      <if test="accessServiceChange2 != null">
+        ACCESS_SERVICE_CHANGE2,
+      </if>
+      <if test="shujuchuliyewu != null">
+        SHUJUCHULIYEWU,
+      </if>
+      <if test="jianxianstore != null">
+        JIANXIANSTORE,
+      </if>
+      <if test="shujuchuliqita != null">
+        SHUJUCHULIQITA,
+      </if>
+      <if test="foreignChange != null">
+        FOREIGN_CHANGE,
+      </if>
+      <if test="specialChange != null">
+        SPECIAL_CHANGE,
+      </if>
+      <if test="servchange != null">
+        SERVCHANGE,
+      </if>
+      <if test="othernot != null">
+        OTHERNOT,
+      </if>
+      <if test="infoserach != null">
+        INFOSERACH,
+      </if>
+      <if test="infocomm != null">
+        INFOCOMM,
+      </if>
+      <if test="infoplate != null">
+        INFOPLATE,
+      </if>
+      <if test="infoserv != null">
+        INFOSERV,
+      </if>
+      <if test="infoprotect != null">
+        INFOPROTECT,
+      </if>
+      <if test="biaozhunwenjian != null">
+        BIAOZHUNWENJIAN,
+      </if>
+      <if test="dengjiwenjian != null">
+        DENGJIWENJIAN,
+      </if>
+      <if test="xinwenfujian != null">
+        XINWENFUJIAN,
+      </if>
+      <if test="chubanfujian != null">
+        CHUBANFUJIAN,
+      </if>
+      <if test="qixiefujian != null">
+        QIXIEFUJIAN,
+      </if>
+      <if test="wenhuafujian != null">
+        WENHUAFUJIAN,
+      </if>
+      <if test="shitingfujian != null">
+        SHITINGFUJIAN,
+      </if>
+      <if test="waishangjingyingfujian != null">
+        WAISHANGJINGYINGFUJIAN,
+      </if>
+      <if test="waishangqiyefujian != null">
+        WAISHANGQIYEFUJIAN,
+      </if>
+      <if test="techAppro != null">
+        TECH_APPRO,
+      </if>
+      <if test="infoserachflex != null">
+        INFOSERACHFLEX,
+      </if>
+      <if test="infocommflex != null">
+        INFOCOMMFLEX,
+      </if>
+      <if test="infoplateflex != null">
+        INFOPLATEFLEX,
+      </if>
+      <if test="infoservflex != null">
+        INFOSERVFLEX,
+      </if>
+      <if test="infoproflex != null">
+        INFOPROFLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="permitNumber != null">
+        #{permitNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceProjectChange != null">
+        #{serviceProjectChange,jdbcType=VARCHAR},
+      </if>
+      <if test="dataCenterInput != null">
+        #{dataCenterInput,jdbcType=VARCHAR},
+      </if>
+      <if test="dataCenterCheckbox != null">
+        #{dataCenterCheckbox,jdbcType=VARCHAR},
+      </if>
+      <if test="internetAccessInput != null">
+        #{internetAccessInput,jdbcType=VARCHAR},
+      </if>
+      <if test="accessServiceChange != null">
+        #{accessServiceChange,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineDataDealInput != null">
+        #{onlineDataDealInput,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineDataDealChange != null">
+        #{onlineDataDealChange,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadRegistration != null">
+        #{uploadRegistration,jdbcType=VARCHAR},
+      </if>
+      <if test="informationServiceInput != null">
+        #{informationServiceInput,jdbcType=VARCHAR},
+      </if>
+      <if test="informationServiceChang != null">
+        #{informationServiceChang,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="jiaoyichuliyewu != null">
+        #{jiaoyichuliyewu,jdbcType=VARCHAR},
+      </if>
+      <if test="fuwuyewu != null">
+        #{fuwuyewu,jdbcType=VARCHAR},
+      </if>
+      <if test="shujujiaohuanyewu != null">
+        #{shujujiaohuanyewu,jdbcType=VARCHAR},
+      </if>
+      <if test="shujujiaohuanxiangqing != null">
+        #{shujujiaohuanxiangqing,jdbcType=VARCHAR},
+      </if>
+      <if test="chuliyewu != null">
+        #{chuliyewu,jdbcType=VARCHAR},
+      </if>
+      <if test="jiaoyichulixiangqing != null">
+        #{jiaoyichulixiangqing,jdbcType=VARCHAR},
+      </if>
+      <if test="jinrongyewu != null">
+        #{jinrongyewu,jdbcType=VARCHAR},
+      </if>
+      <if test="shujuchuliyewuxiangqing != null">
+        #{shujuchuliyewuxiangqing,jdbcType=VARCHAR},
+      </if>
+      <if test="xinwen != null">
+        #{xinwen,jdbcType=VARCHAR},
+      </if>
+      <if test="chuban != null">
+        #{chuban,jdbcType=VARCHAR},
+      </if>
+      <if test="qixie != null">
+        #{qixie,jdbcType=VARCHAR},
+      </if>
+      <if test="wenhua != null">
+        #{wenhua,jdbcType=VARCHAR},
+      </if>
+      <if test="shiting != null">
+        #{shiting,jdbcType=VARCHAR},
+      </if>
+      <if test="dataCenterCheckbox2 != null">
+        #{dataCenterCheckbox2,jdbcType=VARCHAR},
+      </if>
+      <if test="accessServiceChange2 != null">
+        #{accessServiceChange2,jdbcType=VARCHAR},
+      </if>
+      <if test="shujuchuliyewu != null">
+        #{shujuchuliyewu,jdbcType=VARCHAR},
+      </if>
+      <if test="jianxianstore != null">
+        #{jianxianstore,jdbcType=VARCHAR},
+      </if>
+      <if test="shujuchuliqita != null">
+        #{shujuchuliqita,jdbcType=VARCHAR},
+      </if>
+      <if test="foreignChange != null">
+        #{foreignChange,jdbcType=VARCHAR},
+      </if>
+      <if test="specialChange != null">
+        #{specialChange,jdbcType=VARCHAR},
+      </if>
+      <if test="servchange != null">
+        #{servchange,jdbcType=VARCHAR},
+      </if>
+      <if test="othernot != null">
+        #{othernot,jdbcType=VARCHAR},
+      </if>
+      <if test="infoserach != null">
+        #{infoserach,jdbcType=VARCHAR},
+      </if>
+      <if test="infocomm != null">
+        #{infocomm,jdbcType=VARCHAR},
+      </if>
+      <if test="infoplate != null">
+        #{infoplate,jdbcType=VARCHAR},
+      </if>
+      <if test="infoserv != null">
+        #{infoserv,jdbcType=VARCHAR},
+      </if>
+      <if test="infoprotect != null">
+        #{infoprotect,jdbcType=VARCHAR},
+      </if>
+      <if test="biaozhunwenjian != null">
+        #{biaozhunwenjian,jdbcType=CLOB},
+      </if>
+      <if test="dengjiwenjian != null">
+        #{dengjiwenjian,jdbcType=CLOB},
+      </if>
+      <if test="xinwenfujian != null">
+        #{xinwenfujian,jdbcType=CLOB},
+      </if>
+      <if test="chubanfujian != null">
+        #{chubanfujian,jdbcType=CLOB},
+      </if>
+      <if test="qixiefujian != null">
+        #{qixiefujian,jdbcType=CLOB},
+      </if>
+      <if test="wenhuafujian != null">
+        #{wenhuafujian,jdbcType=CLOB},
+      </if>
+      <if test="shitingfujian != null">
+        #{shitingfujian,jdbcType=CLOB},
+      </if>
+      <if test="waishangjingyingfujian != null">
+        #{waishangjingyingfujian,jdbcType=CLOB},
+      </if>
+      <if test="waishangqiyefujian != null">
+        #{waishangqiyefujian,jdbcType=CLOB},
+      </if>
+      <if test="techAppro != null">
+        #{techAppro,jdbcType=CLOB},
+      </if>
+      <if test="infoserachflex != null">
+        #{infoserachflex,jdbcType=CLOB},
+      </if>
+      <if test="infocommflex != null">
+        #{infocommflex,jdbcType=CLOB},
+      </if>
+      <if test="infoplateflex != null">
+        #{infoplateflex,jdbcType=CLOB},
+      </if>
+      <if test="infoservflex != null">
+        #{infoservflex,jdbcType=CLOB},
+      </if>
+      <if test="infoproflex != null">
+        #{infoproflex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

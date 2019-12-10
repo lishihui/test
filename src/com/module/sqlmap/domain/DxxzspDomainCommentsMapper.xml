@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.domain.DxxzspDomainCommentsMapper" >
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.DxxzspDomainComments" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="FLOWRUNID" property="flowrunid" jdbcType="VARCHAR" />
+    <result column="FLOWRUNSUBJECT" property="flowrunsubject" jdbcType="VARCHAR" />
+    <result column="NODEID" property="nodeid" jdbcType="VARCHAR" />
+    <result column="NODENAME" property="nodename" jdbcType="VARCHAR" />
+    <result column="FORMNAME" property="formname" jdbcType="VARCHAR" />
+    <result column="ITEMID" property="itemid" jdbcType="VARCHAR" />
+    <result column="AUDITSTATUS" property="auditstatus" jdbcType="VARCHAR" />
+    <result column="AUDITCOMMENTS" property="auditcomments" jdbcType="VARCHAR" />
+    <result column="AUDITTIME" property="audittime" jdbcType="TIMESTAMP" />
+    <result column="AUDITOR" property="auditor" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, FLOWRUNID, FLOWRUNSUBJECT, NODEID, NODENAME, FORMNAME, ITEMID, AUDITSTATUS, AUDITCOMMENTS, 
+    AUDITTIME, AUDITOR
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from DXXZSP_DOMAIN_COMMENTS
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DXXZSP_DOMAIN_COMMENTS
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.module.domain.domain.DxxzspDomainComments" >
+    insert into DXXZSP_DOMAIN_COMMENTS (ID, FLOWRUNID, FLOWRUNSUBJECT, 
+      NODEID, NODENAME, FORMNAME, 
+      ITEMID, AUDITSTATUS, AUDITCOMMENTS, 
+      AUDITTIME, AUDITOR)
+    values (#{id,jdbcType=VARCHAR}, #{flowrunid,jdbcType=VARCHAR}, #{flowrunsubject,jdbcType=VARCHAR}, 
+      #{nodeid,jdbcType=VARCHAR}, #{nodename,jdbcType=VARCHAR}, #{formname,jdbcType=VARCHAR}, 
+      #{itemid,jdbcType=VARCHAR}, #{auditstatus,jdbcType=VARCHAR}, #{auditcomments,jdbcType=VARCHAR}, 
+      #{audittime,jdbcType=TIMESTAMP}, #{auditor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domain.DxxzspDomainComments" >
+    insert into DXXZSP_DOMAIN_COMMENTS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="flowrunid != null" >
+        FLOWRUNID,
+      </if>
+      <if test="flowrunsubject != null" >
+        FLOWRUNSUBJECT,
+      </if>
+      <if test="nodeid != null" >
+        NODEID,
+      </if>
+      <if test="nodename != null" >
+        NODENAME,
+      </if>
+      <if test="formname != null" >
+        FORMNAME,
+      </if>
+      <if test="itemid != null" >
+        ITEMID,
+      </if>
+      <if test="auditstatus != null" >
+        AUDITSTATUS,
+      </if>
+      <if test="auditcomments != null" >
+        AUDITCOMMENTS,
+      </if>
+      <if test="audittime != null" >
+        AUDITTIME,
+      </if>
+      <if test="auditor != null" >
+        AUDITOR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="flowrunid != null" >
+        #{flowrunid,jdbcType=VARCHAR},
+      </if>
+      <if test="flowrunsubject != null" >
+        #{flowrunsubject,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null" >
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null" >
+        #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="formname != null" >
+        #{formname,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null" >
+        #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="auditstatus != null" >
+        #{auditstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditcomments != null" >
+        #{auditcomments,jdbcType=VARCHAR},
+      </if>
+      <if test="audittime != null" >
+        #{audittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditor != null" >
+        #{auditor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.module.domain.domain.DxxzspDomainComments" >
+    update DXXZSP_DOMAIN_COMMENTS
+    <set >
+      <if test="flowrunid != null" >
+        FLOWRUNID = #{flowrunid,jdbcType=VARCHAR},
+      </if>
+      <if test="flowrunsubject != null" >
+        FLOWRUNSUBJECT = #{flowrunsubject,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null" >
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null" >
+        NODENAME = #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="formname != null" >
+        FORMNAME = #{formname,jdbcType=VARCHAR},
+      </if>
+      <if test="itemid != null" >
+        ITEMID = #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="auditstatus != null" >
+        AUDITSTATUS = #{auditstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditcomments != null" >
+        AUDITCOMMENTS = #{auditcomments,jdbcType=VARCHAR},
+      </if>
+      <if test="audittime != null" >
+        AUDITTIME = #{audittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditor != null" >
+        AUDITOR = #{auditor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.module.domain.domain.DxxzspDomainComments" >
+    update DXXZSP_DOMAIN_COMMENTS
+    set FLOWRUNID = #{flowrunid,jdbcType=VARCHAR},
+      FLOWRUNSUBJECT = #{flowrunsubject,jdbcType=VARCHAR},
+      NODEID = #{nodeid,jdbcType=VARCHAR},
+      NODENAME = #{nodename,jdbcType=VARCHAR},
+      FORMNAME = #{formname,jdbcType=VARCHAR},
+      ITEMID = #{itemid,jdbcType=VARCHAR},
+      AUDITSTATUS = #{auditstatus,jdbcType=VARCHAR},
+      AUDITCOMMENTS = #{auditcomments,jdbcType=VARCHAR},
+      AUDITTIME = #{audittime,jdbcType=TIMESTAMP},
+      AUDITOR = #{auditor,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

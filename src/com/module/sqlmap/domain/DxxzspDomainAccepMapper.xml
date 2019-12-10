@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.domain.DxxzspDomainAccepMapper" >
+  <resultMap id="BaseResultMap" type="com.module.domain.domain.DxxzspDomainAccep" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="NEWSTITLE" property="newstitle" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="MODIFIE_TIME" property="modifieTime" jdbcType="TIMESTAMP" />
+    <result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+    <result column="MODIFICATOR" property="modificator" jdbcType="VARCHAR" />
+    <result column="RECYCLE" property="recycle" jdbcType="VARCHAR" />
+    <result column="A_1" property="a1" jdbcType="VARCHAR" />
+    <result column="A_2" property="a2" jdbcType="VARCHAR" />
+    <result column="COMPANY_NAME" property="companyName" jdbcType="VARCHAR" />
+    <result column="YEAR_1" property="year1" jdbcType="VARCHAR" />
+    <result column="MONTH_1" property="month1" jdbcType="VARCHAR" />
+    <result column="DAY_1" property="day1" jdbcType="VARCHAR" />
+    <result column="A_3" property="a3" jdbcType="VARCHAR" />
+    <result column="TASKNAME" property="taskname" jdbcType="VARCHAR" />
+    <result column="APPLYERNAME" property="applyername" jdbcType="VARCHAR" />
+    <result column="SQRDZ" property="sqrdz" jdbcType="VARCHAR" />
+    <result column="LXRXM" property="lxrxm" jdbcType="VARCHAR" />
+    <result column="LXRCZ" property="lxrcz" jdbcType="VARCHAR" />
+    <result column="CONTACT_EMAIL" property="contactEmail" jdbcType="VARCHAR" />
+    <result column="LXRDZ" property="lxrdz" jdbcType="VARCHAR" />
+    <result column="CLJSSJ" property="cljssj" jdbcType="VARCHAR" />
+    <result column="CLJSDBH" property="cljsdbh" jdbcType="VARCHAR" />
+    <result column="SLSJ" property="slsj" jdbcType="VARCHAR" />
+    <result column="YEAR_2" property="year2" jdbcType="VARCHAR" />
+    <result column="MONTH_2" property="month2" jdbcType="VARCHAR" />
+    <result column="DAY_2" property="day2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NEWSTITLE, CREATE_TIME, MODIFIE_TIME, CREATOR, MODIFICATOR, RECYCLE, A_1, A_2, 
+    COMPANY_NAME, YEAR_1, MONTH_1, DAY_1, A_3, TASKNAME, APPLYERNAME, SQRDZ, LXRXM, LXRCZ, 
+    CONTACT_EMAIL, LXRDZ, CLJSSJ, CLJSDBH, SLSJ, YEAR_2, MONTH_2, DAY_2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from DXXZSP_DOMAIN_ACCEP
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from DXXZSP_DOMAIN_ACCEP
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.module.domain.domain.DxxzspDomainAccep" >
+    insert into DXXZSP_DOMAIN_ACCEP (ID, NEWSTITLE, CREATE_TIME, 
+      MODIFIE_TIME, CREATOR, MODIFICATOR, 
+      RECYCLE, A_1, A_2, COMPANY_NAME, 
+      YEAR_1, MONTH_1, DAY_1, 
+      A_3, TASKNAME, APPLYERNAME, 
+      SQRDZ, LXRXM, LXRCZ, 
+      CONTACT_EMAIL, LXRDZ, CLJSSJ, 
+      CLJSDBH, SLSJ, YEAR_2, 
+      MONTH_2, DAY_2)
+    values (#{id,jdbcType=VARCHAR}, #{newstitle,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifieTime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{a1,jdbcType=VARCHAR}, #{a2,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+      #{year1,jdbcType=VARCHAR}, #{month1,jdbcType=VARCHAR}, #{day1,jdbcType=VARCHAR}, 
+      #{a3,jdbcType=VARCHAR}, #{taskname,jdbcType=VARCHAR}, #{applyername,jdbcType=VARCHAR}, 
+      #{sqrdz,jdbcType=VARCHAR}, #{lxrxm,jdbcType=VARCHAR}, #{lxrcz,jdbcType=VARCHAR}, 
+      #{contactEmail,jdbcType=VARCHAR}, #{lxrdz,jdbcType=VARCHAR}, #{cljssj,jdbcType=VARCHAR}, 
+      #{cljsdbh,jdbcType=VARCHAR}, #{slsj,jdbcType=VARCHAR}, #{year2,jdbcType=VARCHAR}, 
+      #{month2,jdbcType=VARCHAR}, #{day2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domain.DxxzspDomainAccep" >
+    insert into DXXZSP_DOMAIN_ACCEP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="newstitle != null" >
+        NEWSTITLE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="modifieTime != null" >
+        MODIFIE_TIME,
+      </if>
+      <if test="creator != null" >
+        CREATOR,
+      </if>
+      <if test="modificator != null" >
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null" >
+        RECYCLE,
+      </if>
+      <if test="a1 != null" >
+        A_1,
+      </if>
+      <if test="a2 != null" >
+        A_2,
+      </if>
+      <if test="companyName != null" >
+        COMPANY_NAME,
+      </if>
+      <if test="year1 != null" >
+        YEAR_1,
+      </if>
+      <if test="month1 != null" >
+        MONTH_1,
+      </if>
+      <if test="day1 != null" >
+        DAY_1,
+      </if>
+      <if test="a3 != null" >
+        A_3,
+      </if>
+      <if test="taskname != null" >
+        TASKNAME,
+      </if>
+      <if test="applyername != null" >
+        APPLYERNAME,
+      </if>
+      <if test="sqrdz != null" >
+        SQRDZ,
+      </if>
+      <if test="lxrxm != null" >
+        LXRXM,
+      </if>
+      <if test="lxrcz != null" >
+        LXRCZ,
+      </if>
+      <if test="contactEmail != null" >
+        CONTACT_EMAIL,
+      </if>
+      <if test="lxrdz != null" >
+        LXRDZ,
+      </if>
+      <if test="cljssj != null" >
+        CLJSSJ,
+      </if>
+      <if test="cljsdbh != null" >
+        CLJSDBH,
+      </if>
+      <if test="slsj != null" >
+        SLSJ,
+      </if>
+      <if test="year2 != null" >
+        YEAR_2,
+      </if>
+      <if test="month2 != null" >
+        MONTH_2,
+      </if>
+      <if test="day2 != null" >
+        DAY_2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="newstitle != null" >
+        #{newstitle,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifieTime != null" >
+        #{modifieTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null" >
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null" >
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="a1 != null" >
+        #{a1,jdbcType=VARCHAR},
+      </if>
+      <if test="a2 != null" >
+        #{a2,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="year1 != null" >
+        #{year1,jdbcType=VARCHAR},
+      </if>
+      <if test="month1 != null" >
+        #{month1,jdbcType=VARCHAR},
+      </if>
+      <if test="day1 != null" >
+        #{day1,jdbcType=VARCHAR},
+      </if>
+      <if test="a3 != null" >
+        #{a3,jdbcType=VARCHAR},
+      </if>
+      <if test="taskname != null" >
+        #{taskname,jdbcType=VARCHAR},
+      </if>
+      <if test="applyername != null" >
+        #{applyername,jdbcType=VARCHAR},
+      </if>
+      <if test="sqrdz != null" >
+        #{sqrdz,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrxm != null" >
+        #{lxrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrcz != null" >
+        #{lxrcz,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null" >
+        #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrdz != null" >
+        #{lxrdz,jdbcType=VARCHAR},
+      </if>
+      <if test="cljssj != null" >
+        #{cljssj,jdbcType=VARCHAR},
+      </if>
+      <if test="cljsdbh != null" >
+        #{cljsdbh,jdbcType=VARCHAR},
+      </if>
+      <if test="slsj != null" >
+        #{slsj,jdbcType=VARCHAR},
+      </if>
+      <if test="year2 != null" >
+        #{year2,jdbcType=VARCHAR},
+      </if>
+      <if test="month2 != null" >
+        #{month2,jdbcType=VARCHAR},
+      </if>
+      <if test="day2 != null" >
+        #{day2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.module.domain.domain.DxxzspDomainAccep" >
+    update DXXZSP_DOMAIN_ACCEP
+    <set >
+      <if test="newstitle != null" >
+        NEWSTITLE = #{newstitle,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifieTime != null" >
+        MODIFIE_TIME = #{modifieTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        CREATOR = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null" >
+        MODIFICATOR = #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null" >
+        RECYCLE = #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="a1 != null" >
+        A_1 = #{a1,jdbcType=VARCHAR},
+      </if>
+      <if test="a2 != null" >
+        A_2 = #{a2,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="year1 != null" >
+        YEAR_1 = #{year1,jdbcType=VARCHAR},
+      </if>
+      <if test="month1 != null" >
+        MONTH_1 = #{month1,jdbcType=VARCHAR},
+      </if>
+      <if test="day1 != null" >
+        DAY_1 = #{day1,jdbcType=VARCHAR},
+      </if>
+      <if test="a3 != null" >
+        A_3 = #{a3,jdbcType=VARCHAR},
+      </if>
+      <if test="taskname != null" >
+        TASKNAME = #{taskname,jdbcType=VARCHAR},
+      </if>
+      <if test="applyername != null" >
+        APPLYERNAME = #{applyername,jdbcType=VARCHAR},
+      </if>
+      <if test="sqrdz != null" >
+        SQRDZ = #{sqrdz,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrxm != null" >
+        LXRXM = #{lxrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrcz != null" >
+        LXRCZ = #{lxrcz,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null" >
+        CONTACT_EMAIL = #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="lxrdz != null" >
+        LXRDZ = #{lxrdz,jdbcType=VARCHAR},
+      </if>
+      <if test="cljssj != null" >
+        CLJSSJ = #{cljssj,jdbcType=VARCHAR},
+      </if>
+      <if test="cljsdbh != null" >
+        CLJSDBH = #{cljsdbh,jdbcType=VARCHAR},
+      </if>
+      <if test="slsj != null" >
+        SLSJ = #{slsj,jdbcType=VARCHAR},
+      </if>
+      <if test="year2 != null" >
+        YEAR_2 = #{year2,jdbcType=VARCHAR},
+      </if>
+      <if test="month2 != null" >
+        MONTH_2 = #{month2,jdbcType=VARCHAR},
+      </if>
+      <if test="day2 != null" >
+        DAY_2 = #{day2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.module.domain.domain.DxxzspDomainAccep" >
+    update DXXZSP_DOMAIN_ACCEP
+    set NEWSTITLE = #{newstitle,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      MODIFIE_TIME = #{modifieTime,jdbcType=TIMESTAMP},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      MODIFICATOR = #{modificator,jdbcType=VARCHAR},
+      RECYCLE = #{recycle,jdbcType=VARCHAR},
+      A_1 = #{a1,jdbcType=VARCHAR},
+      A_2 = #{a2,jdbcType=VARCHAR},
+      COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      YEAR_1 = #{year1,jdbcType=VARCHAR},
+      MONTH_1 = #{month1,jdbcType=VARCHAR},
+      DAY_1 = #{day1,jdbcType=VARCHAR},
+      A_3 = #{a3,jdbcType=VARCHAR},
+      TASKNAME = #{taskname,jdbcType=VARCHAR},
+      APPLYERNAME = #{applyername,jdbcType=VARCHAR},
+      SQRDZ = #{sqrdz,jdbcType=VARCHAR},
+      LXRXM = #{lxrxm,jdbcType=VARCHAR},
+      LXRCZ = #{lxrcz,jdbcType=VARCHAR},
+      CONTACT_EMAIL = #{contactEmail,jdbcType=VARCHAR},
+      LXRDZ = #{lxrdz,jdbcType=VARCHAR},
+      CLJSSJ = #{cljssj,jdbcType=VARCHAR},
+      CLJSDBH = #{cljsdbh,jdbcType=VARCHAR},
+      SLSJ = #{slsj,jdbcType=VARCHAR},
+      YEAR_2 = #{year2,jdbcType=VARCHAR},
+      MONTH_2 = #{month2,jdbcType=VARCHAR},
+      DAY_2 = #{day2,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

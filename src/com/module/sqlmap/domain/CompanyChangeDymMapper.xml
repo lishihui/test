@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.electricLicencePermit.change.provinceInnerChange.CompanyChangeDymMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.electricLicencePermit.change.provinceInnerChange.DxxzspCompanyChangeDym">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="SUBSIDIARY" jdbcType="VARCHAR" property="subsidiary" />
+    <result column="REGISTERED_CAPITAL" jdbcType="VARCHAR" property="registeredCapital" />
+    <result column="LICENSE_LEGAL" jdbcType="VARCHAR" property="licenseLegal" />
+    <result column="F_NAME" jdbcType="VARCHAR" property="fName" />
+    <result column="F_ID_NUM" jdbcType="VARCHAR" property="fIdNum" />
+    <result column="F_ID" jdbcType="VARCHAR" property="fId" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+    <result column="LISTED_COMPANY" jdbcType="VARCHAR" property="listedCompany" />
+    <result column="UNLISTED_COMPANY" jdbcType="VARCHAR" property="unlistedCompany" />
+    <result column="BUSINCODE" jdbcType="VARCHAR" property="busincode" />
+    <result column="NO_FOREGIN" jdbcType="VARCHAR" property="noForegin" />
+    <result column="CONTAIN_FOREGIN" jdbcType="VARCHAR" property="containForegin" />
+    <result column="NOT_FOREGIN" jdbcType="VARCHAR" property="notForegin" />
+    <result column="COMPANY_XZ" jdbcType="VARCHAR" property="companyXz" />
+    <result column="INFO_SYS_PIC" jdbcType="VARCHAR" property="infoSysPic" />
+    <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
+    <result column="HIDEBUSINESS" jdbcType="VARCHAR" property="hidebusiness" />
+    <result column="SUBID" jdbcType="VARCHAR" property="subid" />
+    <result column="SUBTIME" jdbcType="VARCHAR" property="subtime" />
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="SOCIAL_ID" jdbcType="VARCHAR" property="socialId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.electricLicencePermit.change.provinceInnerChange.CompanyChangeDymWithBLOBs">
+    <result column="AUTH_BUSINESS" jdbcType="CLOB" property="authBusiness" />
+    <result column="LISTED_CO_FLEX" jdbcType="CLOB" property="listedCoFlex" />
+    <result column="NO_LISTED_FLEX" jdbcType="CLOB" property="noListedFlex" />
+    <result column="AUTHSUB_FLEX" jdbcType="CLOB" property="authsubFlex" />
+    <result column="NO_FOREGIN_APPRFLEX" jdbcType="CLOB" property="noForeginApprflex" />
+    <result column="GDZS_FLEX" jdbcType="CLOB" property="gdzsFlex" />
+  </resultMap>
+  
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from COMPANY_CHANGE_DYM
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <sql id="Base_Column_List" >
+	ID,TITLE,CREATED,MODIFIED,CREATOR,MODIFICATOR,RECYCLE,SUBSIDIARY
+    ,REGISTERED_CAPITAL,LICENSE_LEGAL,F_NAME,F_ID_NUM,F_ID,PARENTID,LISTED_COMPANY
+    ,UNLISTED_COMPANY,BUSINCODE,NO_FOREGIN,CONTAIN_FOREGIN,NOT_FOREGIN,COMPANY_XZ,INFO_SYS_PIC
+    ,PROVINCE,HIDEBUSINESS,SUBID,SUBTIME,CODE,SOCIAL_ID
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    AUTH_BUSINESS, LISTED_CO_FLEX, NO_LISTED_FLEX, AUTHSUB_FLEX, NO_FOREGIN_APPRFLEX, 
+    GDZS_FLEX
+  </sql>
+  <insert id="insert" parameterType="com.module.domain.electricLicencePermit.change.provinceInnerChange.CompanyChangeDymWithBLOBs">
+    insert into COMPANY_CHANGE_DYM (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, SUBSIDIARY, REGISTERED_CAPITAL, 
+      LICENSE_LEGAL, F_NAME, F_ID_NUM, 
+      F_ID, PARENTID, LISTED_COMPANY, 
+      UNLISTED_COMPANY, BUSINCODE, NO_FOREGIN, 
+      CONTAIN_FOREGIN, NOT_FOREGIN, COMPANY_XZ, 
+      INFO_SYS_PIC, PROVINCE, HIDEBUSINESS, 
+      SUBID, SUBTIME, CODE, 
+      SOCIAL_ID, AUTH_BUSINESS, LISTED_CO_FLEX, 
+      NO_LISTED_FLEX, AUTHSUB_FLEX, NO_FOREGIN_APPRFLEX, 
+      GDZS_FLEX)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{subsidiary,jdbcType=VARCHAR}, #{registeredCapital,jdbcType=VARCHAR}, 
+      #{licenseLegal,jdbcType=VARCHAR}, #{fName,jdbcType=VARCHAR}, #{fIdNum,jdbcType=VARCHAR}, 
+      #{fId,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, #{listedCompany,jdbcType=VARCHAR}, 
+      #{unlistedCompany,jdbcType=VARCHAR}, #{busincode,jdbcType=VARCHAR}, #{noForegin,jdbcType=VARCHAR}, 
+      #{containForegin,jdbcType=VARCHAR}, #{notForegin,jdbcType=VARCHAR}, #{companyXz,jdbcType=VARCHAR}, 
+      #{infoSysPic,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{hidebusiness,jdbcType=VARCHAR}, 
+      #{subid,jdbcType=VARCHAR}, #{subtime,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{socialId,jdbcType=VARCHAR}, #{authBusiness,jdbcType=CLOB}, #{listedCoFlex,jdbcType=CLOB}, 
+      #{noListedFlex,jdbcType=CLOB}, #{authsubFlex,jdbcType=CLOB}, #{noForeginApprflex,jdbcType=CLOB}, 
+      #{gdzsFlex,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.electricLicencePermit.change.provinceInnerChange.CompanyChangeDymWithBLOBs">
+    insert into COMPANY_CHANGE_DYM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="subsidiary != null">
+        SUBSIDIARY,
+      </if>
+      <if test="registeredCapital != null">
+        REGISTERED_CAPITAL,
+      </if>
+      <if test="licenseLegal != null">
+        LICENSE_LEGAL,
+      </if>
+      <if test="fName != null">
+        F_NAME,
+      </if>
+      <if test="fIdNum != null">
+        F_ID_NUM,
+      </if>
+      <if test="fId != null">
+        F_ID,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="listedCompany != null">
+        LISTED_COMPANY,
+      </if>
+      <if test="unlistedCompany != null">
+        UNLISTED_COMPANY,
+      </if>
+      <if test="busincode != null">
+        BUSINCODE,
+      </if>
+      <if test="noForegin != null">
+        NO_FOREGIN,
+      </if>
+      <if test="containForegin != null">
+        CONTAIN_FOREGIN,
+      </if>
+      <if test="notForegin != null">
+        NOT_FOREGIN,
+      </if>
+      <if test="companyXz != null">
+        COMPANY_XZ,
+      </if>
+      <if test="infoSysPic != null">
+        INFO_SYS_PIC,
+      </if>
+      <if test="province != null">
+        PROVINCE,
+      </if>
+      <if test="hidebusiness != null">
+        HIDEBUSINESS,
+      </if>
+      <if test="subid != null">
+        SUBID,
+      </if>
+      <if test="subtime != null">
+        SUBTIME,
+      </if>
+      <if test="code != null">
+        CODE,
+      </if>
+      <if test="socialId != null">
+        SOCIAL_ID,
+      </if>
+      <if test="authBusiness != null">
+        AUTH_BUSINESS,
+      </if>
+      <if test="listedCoFlex != null">
+        LISTED_CO_FLEX,
+      </if>
+      <if test="noListedFlex != null">
+        NO_LISTED_FLEX,
+      </if>
+      <if test="authsubFlex != null">
+        AUTHSUB_FLEX,
+      </if>
+      <if test="noForeginApprflex != null">
+        NO_FOREGIN_APPRFLEX,
+      </if>
+      <if test="gdzsFlex != null">
+        GDZS_FLEX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="subsidiary != null">
+        #{subsidiary,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredCapital != null">
+        #{registeredCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseLegal != null">
+        #{licenseLegal,jdbcType=VARCHAR},
+      </if>
+      <if test="fName != null">
+        #{fName,jdbcType=VARCHAR},
+      </if>
+      <if test="fIdNum != null">
+        #{fIdNum,jdbcType=VARCHAR},
+      </if>
+      <if test="fId != null">
+        #{fId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="listedCompany != null">
+        #{listedCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="unlistedCompany != null">
+        #{unlistedCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="busincode != null">
+        #{busincode,jdbcType=VARCHAR},
+      </if>
+      <if test="noForegin != null">
+        #{noForegin,jdbcType=VARCHAR},
+      </if>
+      <if test="containForegin != null">
+        #{containForegin,jdbcType=VARCHAR},
+      </if>
+      <if test="notForegin != null">
+        #{notForegin,jdbcType=VARCHAR},
+      </if>
+      <if test="companyXz != null">
+        #{companyXz,jdbcType=VARCHAR},
+      </if>
+      <if test="infoSysPic != null">
+        #{infoSysPic,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="hidebusiness != null">
+        #{hidebusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="subid != null">
+        #{subid,jdbcType=VARCHAR},
+      </if>
+      <if test="subtime != null">
+        #{subtime,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="socialId != null">
+        #{socialId,jdbcType=VARCHAR},
+      </if>
+      <if test="authBusiness != null">
+        #{authBusiness,jdbcType=CLOB},
+      </if>
+      <if test="listedCoFlex != null">
+        #{listedCoFlex,jdbcType=CLOB},
+      </if>
+      <if test="noListedFlex != null">
+        #{noListedFlex,jdbcType=CLOB},
+      </if>
+      <if test="authsubFlex != null">
+        #{authsubFlex,jdbcType=CLOB},
+      </if>
+      <if test="noForeginApprflex != null">
+        #{noForeginApprflex,jdbcType=CLOB},
+      </if>
+      <if test="gdzsFlex != null">
+        #{gdzsFlex,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>

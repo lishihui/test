@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.module.dao.domain.DXXZSPYwsdsqbMapper">
+	<resultMap id="BaseResultMap" type="com.module.domain.domain.DXXZSPYwsdsqb">
+		<result column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="TITLE" property="title" jdbcType="VARCHAR" />
+		<result column="CREATED" property="created" jdbcType="VARCHAR" />
+		<result column="MODIFIED" property="modified" jdbcType="VARCHAR" />
+		<result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+		<result column="DXYWZL" property="dxywzl" jdbcType="VARCHAR" />
+		<result column="MODIFICATOR" property="modificator" jdbcType="VARCHAR" />
+		<result column="RECYCLE" property="recycle" jdbcType="VARCHAR" />
+		<result column="YWFGFW" property="ywfgfw" jdbcType="VARCHAR" />
+		<result column="GSMG" property="gsmg" jdbcType="VARCHAR" />
+		<result column="TYSHXYDM" property="tyshxydm" jdbcType="VARCHAR" />
+		<result column="ZHUSUO" property="zhusuo" jdbcType="VARCHAR" />
+		<result column="ZCJG" property="zcjg" jdbcType="VARCHAR" />
+		<result column="ZCZB" property="zczb" jdbcType="VARCHAR" />
+		<result column="CLRQ" property="clrq" jdbcType="VARCHAR" />
+		<result column="YXQ" property="yxq" jdbcType="VARCHAR" />
+		<result column="FDDBXM" property="fddbxm" jdbcType="VARCHAR" />
+		<result column="SFZH" property="sfzh" jdbcType="VARCHAR" />
+		<result column="FAX" property="fax" jdbcType="VARCHAR" />
+		<result column="YZBH" property="yzbh" jdbcType="VARCHAR" />
+		<result column="TXDZ" property="txdz" jdbcType="VARCHAR" />
+		<result column="FDDBRSJ" property="fddbrsj" jdbcType="VARCHAR" />
+		<result column="DBRGH" property="dbrgh" jdbcType="VARCHAR" />
+		<result column="FZRXM" property="fzrxm" jdbcType="VARCHAR" />
+		<result column="FZRSJ" property="fzrsj" jdbcType="VARCHAR" />
+		<result column="FZRGH" property="fzrgh" jdbcType="VARCHAR" />
+		<result column="FZRYX" property="fzryx" jdbcType="VARCHAR" />
+		<result column="LXRXM" property="lxrxm" jdbcType="VARCHAR" />
+		<result column="LXRSJ" property="lxrsj" jdbcType="VARCHAR" />
+		<result column="LXRGH" property="lxrgh" jdbcType="VARCHAR" />
+		<result column="LXRYX" property="lxryx" jdbcType="VARCHAR" />
+		<result column="SSQK" property="ssqk" jdbcType="VARCHAR" />
+		<result column="JYXKZ" property="jyxkz" jdbcType="VARCHAR" />
+		<result column="XKZH" property="xkzh" jdbcType="VARCHAR" />
+		<result column="SSDD" property="ssdd" jdbcType="VARCHAR" />
+		<result column="GQJG" property="gqjg" jdbcType="VARCHAR" />
+		<result column="SQDQTSDCS" property="sqdqtsdcs" jdbcType="VARCHAR" />
+		<result column="ZHAUNGTAI" property="zhaungtai" jdbcType="VARCHAR" />
+		<result column="CNSSCZT" property="cnssczt" jdbcType="VARCHAR" />
+		<result column="CZCSCNS" property="czcscns" jdbcType="VARCHAR" />
+		<result column="ZCJGS" property="zcjgs" jdbcType="VARCHAR" />
+		<result column="SHI" property="shi" jdbcType="VARCHAR" />
+		<result column="HBLX" property="hblx" jdbcType="VARCHAR" />
+		<result column="BDSF" property="bdsf" jdbcType="VARCHAR" />
+		<result column="CITY" property="city" jdbcType="VARCHAR" />
+		<result column="ITEMID" property="itemid" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="ResultMapWithBLOBs"
+		type="com.module.domain.domain.DXXZSPYwsdsqbWithBLOBs" extends="BaseResultMap">
+		<result column="FRYYZFJYJ" property="fryyzfjyj" jdbcType="BLOB" />
+		<result column="BGCSDFWCQZ" property="bgcsdfwcqz" jdbcType="BLOB" />
+		<result column="YHDDDXY" property="yhdddxy" jdbcType="BLOB" />
+	</resultMap>
+	<select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from DXXZSP_YWSDSQB
+		where ID = #{id,jdbcType=VARCHAR} 
+	</select>
+	<sql id="Base_Column_List">
+		ID, TITLE, CREATED,
+		MODIFIED, CREATOR, DXYWZL,
+		MODIFICATOR,
+		RECYCLE, YWFGFW,
+		GSMG, TYSHXYDM, ZHUSUO,
+		ZCJG, ZCZB, CLRQ, YXQ,
+		FDDBXM,
+		SFZH, FAX,
+		YZBH, TXDZ, FDDBRSJ,
+		DBRGH, FZRXM, FZRSJ,
+		FZRGH, FZRYX, LXRXM,
+		LXRSJ, LXRGH, LXRYX,
+		SSQK, JYXKZ, XKZH,
+		SSDD, GQJG, SQDQTSDCS,
+		ZHAUNGTAI, CNSSCZT, CZCSCNS,
+		ZCJGS, SHI, HBLX, BDSF,
+		CITY, ITEMID
+	</sql>
+	<sql id="Blob_Column_List">
+		FRYYZFJYJ,
+		BGCSDFWCQZ,
+		YHDDDXY
+	</sql>
+
+	<insert id="insert" parameterType="com.module.domain.domain.DXXZSPYwsdsqbWithBLOBs">
+		insert into DXXZSP_YWSDSQB
+		(ID, TITLE, CREATED,
+		MODIFIED, CREATOR, DXYWZL,
+		MODIFICATOR, RECYCLE,
+		YWFGFW,
+		GSMG, TYSHXYDM, ZHUSUO,
+		ZCJG, ZCZB, CLRQ, YXQ,
+		FDDBXM, SFZH, FAX,
+		YZBH, TXDZ, FDDBRSJ,
+		DBRGH, FZRXM, FZRSJ,
+		FZRGH, FZRYX, LXRXM,
+		LXRSJ,
+		LXRGH, LXRYX,
+		SSQK, JYXKZ, XKZH,
+		SSDD, GQJG, SQDQTSDCS,
+		ZHAUNGTAI,
+		CNSSCZT, CZCSCNS,
+		ZCJGS, SHI, HBLX, BDSF,
+		CITY, ITEMID, FRYYZFJYJ,
+		BGCSDFWCQZ, YHDDDXY)
+		values (#{id,jdbcType=VARCHAR},
+		#{title,jdbcType=VARCHAR},
+		#{created,jdbcType=VARCHAR},
+		#{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR},
+		#{dxywzl,jdbcType=VARCHAR},
+		#{modificator,jdbcType=VARCHAR},
+		#{recycle,jdbcType=VARCHAR},
+		#{ywfgfw,jdbcType=VARCHAR},
+		#{gsmg,jdbcType=VARCHAR}, #{tyshxydm,jdbcType=VARCHAR},
+		#{zhusuo,jdbcType=VARCHAR},
+		#{zcjg,jdbcType=VARCHAR},
+		#{zczb,jdbcType=VARCHAR},
+		#{clrq,jdbcType=VARCHAR},
+		#{yxq,jdbcType=VARCHAR},
+		#{fddbxm,jdbcType=VARCHAR},
+		#{sfzh,jdbcType=VARCHAR},
+		#{fax,jdbcType=VARCHAR},
+		#{yzbh,jdbcType=VARCHAR}, #{txdz,jdbcType=VARCHAR},
+		#{fddbrsj,jdbcType=VARCHAR},
+		#{dbrgh,jdbcType=VARCHAR},
+		#{fzrxm,jdbcType=VARCHAR},
+		#{fzrsj,jdbcType=VARCHAR},
+		#{fzrgh,jdbcType=VARCHAR}, #{fzryx,jdbcType=VARCHAR},
+		#{lxrxm,jdbcType=VARCHAR},
+		#{lxrsj,jdbcType=VARCHAR},
+		#{lxrgh,jdbcType=VARCHAR},
+		#{lxryx,jdbcType=VARCHAR},
+		#{ssqk,jdbcType=VARCHAR}, #{jyxkz,jdbcType=VARCHAR},
+		#{xkzh,jdbcType=VARCHAR},
+		#{ssdd,jdbcType=VARCHAR},
+		#{gqjg,jdbcType=VARCHAR},
+		#{sqdqtsdcs,jdbcType=VARCHAR},
+		#{zhaungtai,jdbcType=VARCHAR}, #{cnssczt,jdbcType=VARCHAR},
+		#{czcscns,jdbcType=VARCHAR},
+		#{zcjgs,jdbcType=VARCHAR},
+		#{shi,jdbcType=VARCHAR},
+		#{hblx,jdbcType=VARCHAR},
+		#{bdsf,jdbcType=VARCHAR},
+		#{city,jdbcType=VARCHAR},
+		#{itemid,jdbcType=VARCHAR},
+		#{fryyzfjyj,jdbcType=BLOB},
+		#{bgcsdfwcqz,jdbcType=BLOB}, #{yhdddxy,jdbcType=BLOB})
+	</insert>
+	<insert id="insertSelective" parameterType="com.module.domain.domain.DXXZSPYwsdsqbWithBLOBs">
+		insert into DXXZSP_YWSDSQB
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="title != null">
+				TITLE,
+			</if>
+			<if test="created != null">
+				CREATED,
+			</if>
+			<if test="modified != null">
+				MODIFIED,
+			</if>
+			<if test="creator != null">
+				CREATOR,
+			</if>
+			<if test="dxywzl != null">
+				DXYWZL,
+			</if>
+			<if test="modificator != null">
+				MODIFICATOR,
+			</if>
+			<if test="recycle != null">
+				RECYCLE,
+			</if>
+			<if test="ywfgfw != null">
+				YWFGFW,
+			</if>
+			<if test="gsmg != null">
+				GSMG,
+			</if>
+			<if test="tyshxydm != null">
+				TYSHXYDM,
+			</if>
+			<if test="zhusuo != null">
+				ZHUSUO,
+			</if>
+			<if test="zcjg != null">
+				ZCJG,
+			</if>
+			<if test="zczb != null">
+				ZCZB,
+			</if>
+			<if test="clrq != null">
+				CLRQ,
+			</if>
+			<if test="yxq != null">
+				YXQ,
+			</if>
+			<if test="fddbxm != null">
+				FDDBXM,
+			</if>
+			<if test="sfzh != null">
+				SFZH,
+			</if>
+			<if test="fax != null">
+				FAX,
+			</if>
+			<if test="yzbh != null">
+				YZBH,
+			</if>
+			<if test="txdz != null">
+				TXDZ,
+			</if>
+			<if test="fddbrsj != null">
+				FDDBRSJ,
+			</if>
+			<if test="dbrgh != null">
+				DBRGH,
+			</if>
+			<if test="fzrxm != null">
+				FZRXM,
+			</if>
+			<if test="fzrsj != null">
+				FZRSJ,
+			</if>
+			<if test="fzrgh != null">
+				FZRGH,
+			</if>
+			<if test="fzryx != null">
+				FZRYX,
+			</if>
+			<if test="lxrxm != null">
+				LXRXM,
+			</if>
+			<if test="lxrsj != null">
+				LXRSJ,
+			</if>
+			<if test="lxrgh != null">
+				LXRGH,
+			</if>
+			<if test="lxryx != null">
+				LXRYX,
+			</if>
+			<if test="ssqk != null">
+				SSQK,
+			</if>
+			<if test="jyxkz != null">
+				JYXKZ,
+			</if>
+			<if test="xkzh != null">
+				XKZH,
+			</if>
+			<if test="ssdd != null">
+				SSDD,
+			</if>
+			<if test="gqjg != null">
+				GQJG,
+			</if>
+			<if test="sqdqtsdcs != null">
+				SQDQTSDCS,
+			</if>
+			<if test="zhaungtai != null">
+				ZHAUNGTAI,
+			</if>
+			<if test="cnssczt != null">
+				CNSSCZT,
+			</if>
+			<if test="czcscns != null">
+				CZCSCNS,
+			</if>
+			<if test="zcjgs != null">
+				ZCJGS,
+			</if>
+			<if test="shi != null">
+				SHI,
+			</if>
+			<if test="hblx != null">
+				HBLX,
+			</if>
+			<if test="bdsf != null">
+				BDSF,
+			</if>
+			<if test="city != null">
+				CITY,
+			</if>
+			<if test="itemid != null">
+				ITEMID,
+			</if>
+			<if test="fryyzfjyj != null">
+				FRYYZFJYJ,
+			</if>
+			<if test="bgcsdfwcqz != null">
+				BGCSDFWCQZ,
+			</if>
+			<if test="yhdddxy != null">
+				YHDDDXY,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="title != null">
+				#{title,jdbcType=VARCHAR},
+			</if>
+			<if test="created != null">
+				#{created,jdbcType=VARCHAR},
+			</if>
+			<if test="modified != null">
+				#{modified,jdbcType=VARCHAR},
+			</if>
+			<if test="creator != null">
+				#{creator,jdbcType=VARCHAR},
+			</if>
+			<if test="dxywzl != null">
+				#{dxywzl,jdbcType=VARCHAR},
+			</if>
+			<if test="modificator != null">
+				#{modificator,jdbcType=VARCHAR},
+			</if>
+			<if test="recycle != null">
+				#{recycle,jdbcType=VARCHAR},
+			</if>
+			<if test="ywfgfw != null">
+				#{ywfgfw,jdbcType=VARCHAR},
+			</if>
+			<if test="gsmg != null">
+				#{gsmg,jdbcType=VARCHAR},
+			</if>
+			<if test="tyshxydm != null">
+				#{tyshxydm,jdbcType=VARCHAR},
+			</if>
+			<if test="zhusuo != null">
+				#{zhusuo,jdbcType=VARCHAR},
+			</if>
+			<if test="zcjg != null">
+				#{zcjg,jdbcType=VARCHAR},
+			</if>
+			<if test="zczb != null">
+				#{zczb,jdbcType=VARCHAR},
+			</if>
+			<if test="clrq != null">
+				#{clrq,jdbcType=VARCHAR},
+			</if>
+			<if test="yxq != null">
+				#{yxq,jdbcType=VARCHAR},
+			</if>
+			<if test="fddbxm != null">
+				#{fddbxm,jdbcType=VARCHAR},
+			</if>
+			<if test="sfzh != null">
+				#{sfzh,jdbcType=VARCHAR},
+			</if>
+			<if test="fax != null">
+				#{fax,jdbcType=VARCHAR},
+			</if>
+			<if test="yzbh != null">
+				#{yzbh,jdbcType=VARCHAR},
+			</if>
+			<if test="txdz != null">
+				#{txdz,jdbcType=VARCHAR},
+			</if>
+			<if test="fddbrsj != null">
+				#{fddbrsj,jdbcType=VARCHAR},
+			</if>
+			<if test="dbrgh != null">
+				#{dbrgh,jdbcType=VARCHAR},
+			</if>
+			<if test="fzrxm != null">
+				#{fzrxm,jdbcType=VARCHAR},
+			</if>
+			<if test="fzrsj != null">
+				#{fzrsj,jdbcType=VARCHAR},
+			</if>
+			<if test="fzrgh != null">
+				#{fzrgh,jdbcType=VARCHAR},
+			</if>
+			<if test="fzryx != null">
+				#{fzryx,jdbcType=VARCHAR},
+			</if>
+			<if test="lxrxm != null">
+				#{lxrxm,jdbcType=VARCHAR},
+			</if>
+			<if test="lxrsj != null">
+				#{lxrsj,jdbcType=VARCHAR},
+			</if>
+			<if test="lxrgh != null">
+				#{lxrgh,jdbcType=VARCHAR},
+			</if>
+			<if test="lxryx != null">
+				#{lxryx,jdbcType=VARCHAR},
+			</if>
+			<if test="ssqk != null">
+				#{ssqk,jdbcType=VARCHAR},
+			</if>
+			<if test="jyxkz != null">
+				#{jyxkz,jdbcType=VARCHAR},
+			</if>
+			<if test="xkzh != null">
+				#{xkzh,jdbcType=VARCHAR},
+			</if>
+			<if test="ssdd != null">
+				#{ssdd,jdbcType=VARCHAR},
+			</if>
+			<if test="gqjg != null">
+				#{gqjg,jdbcType=VARCHAR},
+			</if>
+			<if test="sqdqtsdcs != null">
+				#{sqdqtsdcs,jdbcType=VARCHAR},
+			</if>
+			<if test="zhaungtai != null">
+				#{zhaungtai,jdbcType=VARCHAR},
+			</if>
+			<if test="cnssczt != null">
+				#{cnssczt,jdbcType=VARCHAR},
+			</if>
+			<if test="czcscns != null">
+				#{czcscns,jdbcType=VARCHAR},
+			</if>
+			<if test="zcjgs != null">
+				#{zcjgs,jdbcType=VARCHAR},
+			</if>
+			<if test="shi != null">
+				#{shi,jdbcType=VARCHAR},
+			</if>
+			<if test="hblx != null">
+				#{hblx,jdbcType=VARCHAR},
+			</if>
+			<if test="bdsf != null">
+				#{bdsf,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				#{city,jdbcType=VARCHAR},
+			</if>
+			<if test="itemid != null">
+				#{itemid,jdbcType=VARCHAR},
+			</if>
+			<if test="fryyzfjyj != null">
+				#{fryyzfjyj,jdbcType=BLOB},
+			</if>
+			<if test="bgcsdfwcqz != null">
+				#{bgcsdfwcqz,jdbcType=BLOB},
+			</if>
+			<if test="yhdddxy != null">
+				#{yhdddxy,jdbcType=BLOB},
+			</if>
+		</trim>
+	</insert>
+</mapper>

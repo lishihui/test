@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.module.dao.domainRegistration.apply.apply.DxxzspCheckSystemMapper">
+  <resultMap id="BaseResultMap" type="com.module.domain.domainRegistration.apply.apply.DxxzspCheckSystem">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CREATED" jdbcType="VARCHAR" property="created" />
+    <result column="MODIFIED" jdbcType="VARCHAR" property="modified" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="MODIFICATOR" jdbcType="VARCHAR" property="modificator" />
+    <result column="RECYCLE" jdbcType="VARCHAR" property="recycle" />
+    <result column="TOP_LEVEL_NAME" jdbcType="VARCHAR" property="topLevelName" />
+    <result column="IS_VERIFICATION" jdbcType="VARCHAR" property="isVerification" />
+    <result column="IS_LEGAL" jdbcType="VARCHAR" property="isLegal" />
+    <result column="CHECK_COMPANY" jdbcType="VARCHAR" property="checkCompany" />
+    <result column="VERIFICATION_CO" jdbcType="VARCHAR" property="verificationCo" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+    <result column="SMHEID" jdbcType="VARCHAR" property="smheid" />
+    <result column="TDDJDW" jdbcType="VARCHAR" property="tddjdw" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.module.domain.domainRegistration.apply.apply.DxxzspCheckSystemWithBLOBs">
+    <result column="CHECK_FLOW" jdbcType="CLOB" property="checkFlow" />
+    <result column="ENCRYPTION_DATA" jdbcType="CLOB" property="encryptionData" />
+    <result column="DATA_PROTECTED" jdbcType="CLOB" property="dataProtected" />
+    <result column="COMPLIANCE_WORKFLOW" jdbcType="CLOB" property="complianceWorkflow" />
+    <result column="FLEX_SMHYGZLC" jdbcType="CLOB" property="flexSmhygzlc" />
+    <result column="FLEX_SMSJJMCZFA" jdbcType="CLOB" property="flexSmsjjmczfa" />
+    <result column="FLEX_SMSJBHGLZD" jdbcType="CLOB" property="flexSmsjbhglzd" />
+    <result column="FLEX_YMMCHGGZLC" jdbcType="CLOB" property="flexYmmchggzlc" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+   ID,TITLE,CREATED,MODIFIED,CREATOR,MODIFICATOR,RECYCLE,TOP_LEVEL_NAME,IS_VERIFICATION,
+   IS_LEGAL,CHECK_COMPANY,VERIFICATION_CO,PARENTID,SMHEID,TDDJDW
+  </sql>
+  
+  <sql id="Blob_Column_List">
+    CHECK_FLOW, ENCRYPTION_DATA, DATA_PROTECTED, COMPLIANCE_WORKFLOW, FLEX_SMHYGZLC, 
+    FLEX_SMSJJMCZFA, FLEX_SMSJBHGLZD, FLEX_YMMCHGGZLC
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DXXZSP_CHECK_SYSTEM
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="com.module.domain.domainRegistration.apply.apply.DxxzspCheckSystemWithBLOBs">
+    insert into DXXZSP_CHECK_SYSTEM (ID, TITLE, CREATED, 
+      MODIFIED, CREATOR, MODIFICATOR, 
+      RECYCLE, TOP_LEVEL_NAME, IS_VERIFICATION, 
+      IS_LEGAL, CHECK_COMPANY, VERIFICATION_CO, 
+      PARENTID, SMHEID, TDDJDW, 
+      CHECK_FLOW, ENCRYPTION_DATA, DATA_PROTECTED, 
+      COMPLIANCE_WORKFLOW, FLEX_SMHYGZLC, FLEX_SMSJJMCZFA, 
+      FLEX_SMSJBHGLZD, FLEX_YMMCHGGZLC)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{modified,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{modificator,jdbcType=VARCHAR}, 
+      #{recycle,jdbcType=VARCHAR}, #{topLevelName,jdbcType=VARCHAR}, #{isVerification,jdbcType=VARCHAR}, 
+      #{isLegal,jdbcType=VARCHAR}, #{checkCompany,jdbcType=VARCHAR}, #{verificationCo,jdbcType=VARCHAR}, 
+      #{parentid,jdbcType=VARCHAR}, #{smheid,jdbcType=VARCHAR}, #{tddjdw,jdbcType=VARCHAR}, 
+      #{checkFlow,jdbcType=CLOB}, #{encryptionData,jdbcType=CLOB}, #{dataProtected,jdbcType=CLOB}, 
+      #{complianceWorkflow,jdbcType=CLOB}, #{flexSmhygzlc,jdbcType=CLOB}, #{flexSmsjjmczfa,jdbcType=CLOB}, 
+      #{flexSmsjbhglzd,jdbcType=CLOB}, #{flexYmmchggzlc,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.module.domain.domainRegistration.apply.apply.DxxzspCheckSystemWithBLOBs">
+    insert into DXXZSP_CHECK_SYSTEM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="created != null">
+        CREATED,
+      </if>
+      <if test="modified != null">
+        MODIFIED,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="modificator != null">
+        MODIFICATOR,
+      </if>
+      <if test="recycle != null">
+        RECYCLE,
+      </if>
+      <if test="topLevelName != null">
+        TOP_LEVEL_NAME,
+      </if>
+      <if test="isVerification != null">
+        IS_VERIFICATION,
+      </if>
+      <if test="isLegal != null">
+        IS_LEGAL,
+      </if>
+      <if test="checkCompany != null">
+        CHECK_COMPANY,
+      </if>
+      <if test="verificationCo != null">
+        VERIFICATION_CO,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="smheid != null">
+        SMHEID,
+      </if>
+      <if test="tddjdw != null">
+        TDDJDW,
+      </if>
+      <if test="checkFlow != null">
+        CHECK_FLOW,
+      </if>
+      <if test="encryptionData != null">
+        ENCRYPTION_DATA,
+      </if>
+      <if test="dataProtected != null">
+        DATA_PROTECTED,
+      </if>
+      <if test="complianceWorkflow != null">
+        COMPLIANCE_WORKFLOW,
+      </if>
+      <if test="flexSmhygzlc != null">
+        FLEX_SMHYGZLC,
+      </if>
+      <if test="flexSmsjjmczfa != null">
+        FLEX_SMSJJMCZFA,
+      </if>
+      <if test="flexSmsjbhglzd != null">
+        FLEX_SMSJBHGLZD,
+      </if>
+      <if test="flexYmmchggzlc != null">
+        FLEX_YMMCHGGZLC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="modified != null">
+        #{modified,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modificator != null">
+        #{modificator,jdbcType=VARCHAR},
+      </if>
+      <if test="recycle != null">
+        #{recycle,jdbcType=VARCHAR},
+      </if>
+      <if test="topLevelName != null">
+        #{topLevelName,jdbcType=VARCHAR},
+      </if>
+      <if test="isVerification != null">
+        #{isVerification,jdbcType=VARCHAR},
+      </if>
+      <if test="isLegal != null">
+        #{isLegal,jdbcType=VARCHAR},
+      </if>
+      <if test="checkCompany != null">
+        #{checkCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="verificationCo != null">
+        #{verificationCo,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="smheid != null">
+        #{smheid,jdbcType=VARCHAR},
+      </if>
+      <if test="tddjdw != null">
+        #{tddjdw,jdbcType=VARCHAR},
+      </if>
+      <if test="checkFlow != null">
+        #{checkFlow,jdbcType=CLOB},
+      </if>
+      <if test="encryptionData != null">
+        #{encryptionData,jdbcType=CLOB},
+      </if>
+      <if test="dataProtected != null">
+        #{dataProtected,jdbcType=CLOB},
+      </if>
+      <if test="complianceWorkflow != null">
+        #{complianceWorkflow,jdbcType=CLOB},
+      </if>
+      <if test="flexSmhygzlc != null">
+        #{flexSmhygzlc,jdbcType=CLOB},
+      </if>
+      <if test="flexSmsjjmczfa != null">
+        #{flexSmsjjmczfa,jdbcType=CLOB},
+      </if>
+      <if test="flexSmsjbhglzd != null">
+        #{flexSmsjbhglzd,jdbcType=CLOB},
+      </if>
+      <if test="flexYmmchggzlc != null">
+        #{flexYmmchggzlc,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+</mapper>
